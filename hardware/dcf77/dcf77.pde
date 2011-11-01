@@ -18,7 +18,7 @@ enum DCF77State {
   Verify_1  
 };
 
-
+// A simple ringbuffer to hold edge time information (aka millis())
 class RingBuffer {
 public:
   static const int NumberOfElements = 7;
@@ -34,33 +34,40 @@ public:
     numberOfPushs = 0;
   }
 
+  // Add a new entry to the buffer
   void put(unsigned long x) {
     currentElement = (++currentElement) % NumberOfElements;
     numberOfPushs++;
     data[currentElement] = x;
   }
 
+  // Get an entry from the buffer.
+  // '0' will get you the most recent entry, '1' the previous, and so on
   unsigned long get(int k) const {
     return data[(currentElement + (NumberOfElements - k)) % NumberOfElements]; 
   }
 
+  // Eeset the buffer
   void reset() {
     currentElement = 0;
     numberOfPushs = 0;
   }
 
+  // Check if the buffer is valid (fully populated)
   bool isValid() const {
     return numberOfPushs >= NumberOfElements;
   }
 };
 
+
+// Perform statistical foo using values stored in a ringbuffer
 class EdgeStatistics {
   RingBuffer& rb;
   
 public:
-  EdgeStatistics(RingBuffer& b) : rb(b) {
-  }
+  EdgeStatistics(RingBuffer& b) : rb(b) { }
   
+  // Check if we have valid data to perform predictions
   bool lastEdgeIsValid() const {
     if(!rb.isValid()) {
       return false;
@@ -78,6 +85,9 @@ public:
     return true;
   }
   
+  // Predict the edge two edges in the future/
+  // this is needed because DCF77 will not send the 59th bit, so we have to know
+  // the time the 1st one happens after that
   unsigned long predictNextButOneEdgeTime() {
     unsigned long average = 0;
     
@@ -89,6 +99,7 @@ public:
     return rb.get(0) + (2*average) / (RingBuffer::NumberOfElements-1);
   }
   
+  // Predicts the time of the next edge / bit
   unsigned long predictNextEdgeTime() {
     unsigned long average = 0;
     
@@ -108,7 +119,10 @@ public:
  * register variables.
  */
 volatile DCF77State currentState = Init;
+
+// time used by the main loop to start sampling the signal state
 unsigned long verify_startTime = 0;
+ma
 unsigned long predictedEdgeTime = 0;
 unsigned long predictedNBWEdgeTime = 0;
 RingBuffer fallingEdgeBuffer;
