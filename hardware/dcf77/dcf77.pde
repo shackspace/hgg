@@ -122,7 +122,7 @@ volatile DCF77State currentState = Init;
 
 // time used by the main loop to start sampling the signal state
 unsigned long verify_startTime = 0;
-ma
+
 unsigned long predictedEdgeTime = 0;
 unsigned long predictedNBWEdgeTime = 0;
 RingBuffer fallingEdgeBuffer;
