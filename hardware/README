@@ -1,0 +1,4 @@
+Interrupt 0 = PIN 2
+Interrupt 1 = PIN 3
+
+4.3 Volt from the USB is to low for the dcf77 pcb. A lot of wrong signals are detected. Switching to 4.9 Volt solved the Problem
