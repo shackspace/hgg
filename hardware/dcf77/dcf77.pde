@@ -59,6 +59,143 @@ public:
   }
 };
 
+/** 
+ * collects bits with the current DCF77 state and decodes the time.
+ */
+class DCF77BitCollector {
+public:
+  static const int NumberOfDCF77Bits = 59;
+
+private:
+  unsigned char dcf77CycleBits[8];
+  int bitsRead;
+
+public:
+  DCF77BitCollector() {
+    reset();
+  }
+  
+  void reset() {
+    bitsRead = 0;
+    memset(dcf77CycleBits, 0, 8);
+  }
+
+  void putBit(int bit) {
+    if(bit > 8) {
+      // ignore because there's just 60 Bits for 1 dcf77 frame
+      return;
+    }
+
+    if(bit == 1) {
+      int byteIndex = bitsRead / 8;
+      int bitIndex = bitsRead % 8;
+
+      // generate a mask to store dcf77 bits inside the char array
+      int mask = (1 << bitIndex);
+
+      // store in the mask.
+      dcf77CycleBits[byteIndex] |= mask;
+    }
+
+    bitsRead++;
+  }
+  
+  bool readBit(int bitId) {
+    int byteIndex = bitId / 8;
+    int bitIndex = bitId % 8;
+    
+    return (dcf77CycleBits[byteIndex] & (1 << bitIndex)) != 0;
+  }
+
+  /** 
+   * checks if the last information received was consistent)
+   */
+  bool isValid() {
+    // dcf77 frames always start with 0
+    return (bitsRead == 59) && (readBit(0) == 0);
+  }
+
+  /** 
+   * return the hour converted from bcd to an integer.
+   */
+  int getHour() {
+    int ones = readbcd4(readBit(29), readBit(30), readBit(31), readBit(32));
+    int tens = readbcd2(readBit(33), readBit(34));
+    return 10*tens + ones;
+  }
+  
+  /** 
+   * return the minute converted from bcd to int.
+   */
+  int getMinute() {
+    int ones = readbcd4(readBit(21), readBit(22), readBit(23), readBit(24));
+    int tens = readbcd3(readBit(25), readBit(26), readBit(27));
+    return 10*tens + ones;
+  }
+  
+  /**
+   * return the calendar day within the month converted from bcd to int. 
+   */
+  int getDay() {
+    int ones = readbcd4(readBit(36), readBit(37), readBit(38), readBit(39));
+    int tens = readbcd2(readBit(40), readBit(41));
+    return 10*tens + ones;
+  }
+  
+  /** 
+   * reads the day of week.
+   */
+  int getDayOfWeek() {
+    return readbcd3(readBit(42), readBit(43), readBit(44));
+  }
+  
+  /** 
+   * get month of year as int converted from bcd
+   */
+  int getMonth() {
+    int ones = readbcd4(readBit(45), readBit(46), readBit(47), readBit(48));
+    int tens = readbcd1(readBit(49));
+    return 10*tens + ones;
+  }
+  
+  /** 
+   * reads the year as int converted from bcd
+   */
+  int getYear() {
+     int ones = readbcd4(readBit(50), readBit(51), readBit(52), readBit(53)); 
+     int tens = readbcd4(readBit(54), readBit(55), readBit(56), readBit(57)); 
+     return 2000 + 10*tens + ones;
+  }
+  
+  int getBitsRead() {
+    return bitsRead;
+  }
+
+  bool isMEZ() {
+    return readBit(18);
+  }
+  
+private:
+  int readbcd4(int a, int b, int c, int d) {
+    return ((a & 0x01) << 0) | 
+           ((b & 0x01) << 1) | 
+           ((c & 0x01) << 2) | 
+           ((d & 0x01) << 3);
+  }
+  
+  int readbcd3(int a, int b, int c) {
+    return readbcd4(a, b, c, 0);
+  }
+
+  int readbcd2(int a, int b) {
+    return readbcd4(a, b, 0, 0);
+  }  
+  
+  int readbcd1(int a) {
+    return a;
+  }
+};
+
 
 // Perform statistical foo using values stored in a ringbuffer
 class EdgeStatistics {
@@ -122,12 +259,13 @@ volatile DCF77State currentState = Init;
 
 // time used by the main loop to start sampling the signal state
 unsigned long verify_startTime = 0;
-ma
+
 unsigned long predictedEdgeTime = 0;
 unsigned long predictedNBWEdgeTime = 0;
 RingBuffer fallingEdgeBuffer;
 EdgeStatistics es(fallingEdgeBuffer);
-
+DCF77BitCollector lastMinute;
+DCF77BitCollector currentMinute;
 
 void setup() {
   // 
@@ -243,9 +381,11 @@ void loop() {
       // poll the port, value can be high or low.
       int value = statisticalRead(PIN_DCF77_INVERTED);
       if(value == LOW) {
+        currentMinute.putBit(1);
         Serial.print("1");
       } 
       else {
+        currentMinute.putBit(0);
         Serial.print("0");
       }
 
@@ -285,6 +425,22 @@ void interrupt0() {
     verify_startTime = now + VERIFICATION_WINDOW;
     currentState = Verify_0;
     Serial.println("!");
+    
+    lastMinute = currentMinute;
+    if(true && lastMinute.isValid()) {
+      Serial.print("Current time: ");
+      Serial.print(lastMinute.getYear());
+      Serial.print("/");
+      Serial.print(lastMinute.getMonth());
+      Serial.print("/");
+      Serial.print(lastMinute.getDay());
+      Serial.print(" - ");
+      Serial.print(lastMinute.getHour());
+      Serial.print(":");
+      Serial.println(lastMinute.getMinute());
+    }
+    currentMinute.reset();
+    
     // @todo: add counter that checks whether we're really missing the 59th and not somethign else
   }
   // something went wrong. reset state and start over
