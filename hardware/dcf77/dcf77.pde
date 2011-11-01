@@ -7,8 +7,8 @@
 #define PIN_DCF77_INVERTED   2
 #define DEBUG_PIN            8
 
-#define NUMBER_OF_READS     15
-#define PREDICTION_WINDOW   25
+#define NUMBER_OF_READS     31
+#define PREDICTION_WINDOW   35
 #define VERIFICATION_WINDOW 30
 
 enum DCF77State {
@@ -170,6 +170,7 @@ unsigned long timeDelta(unsigned long current, unsigned long last) {
  */
 int statisticalRead(int port) {
   digitalWrite(DEBUG_PIN, HIGH);
+  noInterrupts();
   int numberOfHigh = 0;
 
   for(int i=0;i<NUMBER_OF_READS;i++) {
@@ -181,10 +182,11 @@ int statisticalRead(int port) {
       numberOfHigh--;
     }
     
-    delay(3);
+    delay(2);
   }
 
   digitalWrite(DEBUG_PIN, LOW);
+  interrupts();
   return numberOfHigh > 0 ? HIGH : LOW;
 }
 
@@ -208,7 +210,7 @@ void loop() {
       if(value == LOW) {
         // okay, set time for verify_1.
         currentState = Verify_1;
-        verify_startTime += 100;
+        verify_startTime += 80;
       } 
       else {
         // error. set next wait prediction time.
@@ -258,7 +260,7 @@ void interrupt0() {
     verify_startTime = now + VERIFICATION_WINDOW;
     currentState = Verify_0;
   }
-  else if(currentState == PredictWait && timeWithin(now, predictedNBWEdgeTime-2*PREDICTION_WINDOW, predictedNBWEdgeTime+2*PREDICTION_WINDOW)) { 
+  else if(currentState == PredictWait && timeWithin(now, predictedNBWEdgeTime-4*PREDICTION_WINDOW, predictedNBWEdgeTime+4*PREDICTION_WINDOW)) { 
     fallingEdgeBuffer.put(predictedEdgeTime);
     fallingEdgeBuffer.put(now);
     predictedEdgeTime = now;
