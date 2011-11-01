@@ -211,13 +211,13 @@ void loop() {
   // 
   // state work
   switch(currentState) {
-  case Init:         
+  case Init: // do nothing, all the magic happens in the interrupt handler
     break;
 
-  case PredictWait:  
+  case PredictWait: // do nothing, all the magic happens in the interrupt handler
     break;
 
-  case Verify_0:     // check if we can already poll the input
+  case Verify_0: // check if we can already poll the input
     if( timege(now, verify_startTime) ) {
       // poll the port. value should be low here
       int value = statisticalRead(PIN_DCF77_INVERTED);
@@ -262,18 +262,22 @@ void loop() {
  * called when edge falls.
  */
 void interrupt0() {
+  // do not allow interrupts while we're handing one already
   noInterrupts();
+  
   digitalWrite(DEBUG_PIN, HIGH);
   unsigned long now = millis();
   
   // 
-  // is the start of this flank allowed?
+  // are we waiting for an edge and are we within the time window we would expect a valid edge?
   if(currentState == PredictWait && timeWithin(now, predictedEdgeTime-PREDICTION_WINDOW, predictedEdgeTime+PREDICTION_WINDOW)) { 
     fallingEdgeBuffer.put(now);
     predictedEdgeTime = now;
     verify_startTime = now + VERIFICATION_WINDOW;
     currentState = Verify_0;
   }
+  // did we maybe "miss" an edge? this happens on the 59th second as specified
+  // if yes, just look for the edge after that
   else if(currentState == PredictWait && timeWithin(now, predictedNBWEdgeTime-4*PREDICTION_WINDOW, predictedNBWEdgeTime+4*PREDICTION_WINDOW)) { 
     fallingEdgeBuffer.put(predictedEdgeTime);
     fallingEdgeBuffer.put(now);
@@ -281,7 +285,9 @@ void interrupt0() {
     verify_startTime = now + VERIFICATION_WINDOW;
     currentState = Verify_0;
     Serial.println("!");
-  } 
+    // @todo: add counter that checks whether we're really missing the 59th and not somethign else
+  }
+  // something went wrong. reset state and start over
   else if(currentState == PredictWait && timege(now, predictedNBWEdgeTime+2*PREDICTION_WINDOW)) {
     currentState = Init;
     fallingEdgeBuffer.reset();
