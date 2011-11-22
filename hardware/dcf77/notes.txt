@@ -19,6 +19,7 @@ Use a Conrad DCF77 Module (Conrad, Article No:  641138-62).
 Set microcontroller internal pull up resistors to off. 
 Use external pull up resistors for inverted and non inverted. R=47 kOhm . 47 kOhms works best.
 Put inverted output of module to digital port 2 of arduino.
+use 20 ycroFarrad between ground and Vcc on the module.
 
  
 
