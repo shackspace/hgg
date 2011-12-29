@@ -20,5 +20,8 @@ Set microcontroller internal pull up resistors to off.
 Use external pull up resistors for inverted and non inverted. R=47 kOhm . 47 kOhms works best.
 Put inverted output of module to digital port 2 of arduino.
 
+
+Documentation can be found at http://shackspace.de/wiki/doku.php?id=project:hgg:timing_and_synchronization:dcf77
+
  
 
