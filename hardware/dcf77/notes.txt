@@ -21,5 +21,8 @@ Use external pull up resistors for inverted and non inverted. R=47 kOhm . 47 kOh
 Put inverted output of module to digital port 2 of arduino.
 use 20 ycroFarrad between ground and Vcc on the module.
 
+
+Documentation can be found at http://shackspace.de/wiki/doku.php?id=project:hgg:timing_and_synchronization:dcf77
+
  
 
