@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE Document [
+
+
+<!ELEMENT Document (Net*, Lb+, SDot*)>
+<!ATTLIST Document
+	Version CDATA #REQUIRED
+	Module CDATA #REQUIRED
+	Date CDATA #IMPLIED
+	Device CDATA #IMPLIED
+        Stepping CDATA #IMPLIED
+>
+
+<!ELEMENT Net (Activity?)>
+<!ATTLIST Net
+	NNm CDATA #REQUIRED
+	IoT (in | out | bidi | none) #REQUIRED
+	Loc CDATA #IMPLIED
+	ClkT (G | U) #IMPLIED
+	SNm CDATA #IMPLIED
+>
+
+<!ELEMENT Activity EMPTY>
+<!ATTLIST Activity
+	Freq CDATA #IMPLIED
+	DutyCycle CDATA #IMPLIED
+>
+
+
+<!ELEMENT SDot (IPort, OPort)>
+<!ATTLIST SDot
+	Nm CDATA #REQUIRED
+>
+
+
+<!ELEMENT Lb (LbT*, Mc*, SDot*)>
+<!ATTLIST Lb
+	Nm CDATA #REQUIRED
+>
+
+<!ELEMENT LbT (OPort, IPort+)>
+<!ATTLIST LbT
+	Nm CDATA #REQUIRED
+	PtT (0 | CT | CLK | NAND | UCT) #REQUIRED
+>
+
+<!ELEMENT Mc (FBMux?, MCMux?, InBuf?, OutBuf?, DFlop?, Or?, SDot*)>
+<!ATTLIST Mc
+	Nm CDATA #REQUIRED
+>
+
+<!ELEMENT Or (OPort, IPort+)>
+<!ATTLIST Or
+	Nm CDATA #REQUIRED
+>
+
+<!ELEMENT FBMux (IPort, OPort)>
+<!ATTLIST FBMux
+	Nm CDATA #REQUIRED
+>
+
+<!ELEMENT MCMux (IPort, OPort)>
+<!ATTLIST MCMux
+	Nm CDATA #REQUIRED
+>
+
+<!ELEMENT InBuf (IPort, OPort)>
+<!ATTLIST InBuf
+	Nm CDATA #REQUIRED
+>
+
+<!ELEMENT OutBuf (IPort, OPort, CntlPort*)>
+<!ATTLIST OutBuf
+	Nm CDATA #REQUIRED
+>
+
+<!ELEMENT DFlop (FlopPort+)>
+<!ATTLIST DFlop
+	Nm CDATA #REQUIRED
+>
+
+
+<!ELEMENT FlopPort EMPTY>
+<!ATTLIST FlopPort
+	NNm CDATA #REQUIRED
+	Port (D | CLK | Q | RST | PST) #REQUIRED
+>
+
+<!ELEMENT IPort EMPTY>
+<!ATTLIST IPort
+	NNm CDATA #REQUIRED
+>
+
+<!ELEMENT OPort EMPTY>
+<!ATTLIST OPort
+	NNm CDATA #REQUIRED
+>
+
+<!ELEMENT CntlPort EMPTY>
+<!ATTLIST CntlPort
+	NNm CDATA #REQUIRED
+>
+]>
+<Document Date="Jan 28 19:35:03 2012" Device="XCR3064XL-6VQ44" Module="counter" Stepping="0" Version="2"><Net IoT="none" NNm="FB1_11_I" SNm="RST_II/UIM"/><Net IoT="none" NNm="FB1_PT10" SNm="Q&lt;2&gt;_MC.D"/><Net IoT="none" NNm="FB1_PT22" SNm="Q&lt;1&gt;_MC.D"/><Net IoT="none" NNm="FB1_10_N" SNm="FB1_10_N"/><Net IoT="none" NNm="FB1_11_P" SNm="FB1_11_P"/><Net IoT="none" NNm="FB1_10_Q" SNm="Q&lt;0&gt;_MC.UIM"/><Net IoT="none" NNm="FB1_8_Q" SNm="Q&lt;1&gt;_MC.UIM"/><Net IoT="none" NNm="FB1_2_Q" SNm="Q&lt;2&gt;_MC.UIM"/><Net IoT="none" NNm="FB1_1_Q" SNm="Q&lt;3&gt;_MC.Q"/><Net ClkT="G" IoT="in" NNm="CLK" SNm="CLK_II/FCLK"/><Net IoT="none" NNm="PT_GND" SNm="xPUP_0"/><Net IoT="none" NNm="PT_VCC" SNm="Q&lt;0&gt;_MC.D"/><Net IoT="none" NNm="FB1_PT0" SNm="FOOBAR1__ctinst/0"/><Net IoT="none" NNm="FB1_PT8" SNm="Q&lt;3&gt;_MC.D"/><Net IoT="none" NNm="FB1_1_N" SNm="FB1_1_N"/><Net IoT="none" NNm="FB1_2_N" SNm="FB1_2_N"/><Net IoT="in" Loc="FB1_11" NNm="RST" SNm="RST"/><Net IoT="out" Loc="FB1_10" NNm="Q&lt;0&gt;" SNm="Q&lt;0&gt;"/><Net IoT="out" Loc="FB1_8" NNm="Q&lt;1&gt;" SNm="Q&lt;1&gt;"/><Net IoT="out" Loc="FB1_2" NNm="Q&lt;2&gt;" SNm="Q&lt;2&gt;"/><Net IoT="out" Loc="FB1_1" NNm="Q&lt;3&gt;" SNm="Q&lt;3&gt;"/><Net IoT="none" NNm="FB1_8_N" SNm="FB1_8_N"/><Lb Nm="FB1"><LbT Nm="FB1_PT0" PtT="CT"><OPort NNm="FB1_PT0"/><IPort NNm="FB1_11_P"/></LbT><LbT Nm="FB1_PT8" PtT="0"><OPort NNm="FB1_PT8"/><IPort NNm="FB1_2_N"/><IPort NNm="FB1_8_N"/><IPort NNm="FB1_10_N"/></LbT><LbT Nm="FB1_PT10" PtT="0"><OPort NNm="FB1_PT10"/><IPort NNm="FB1_8_N"/><IPort NNm="FB1_10_N"/></LbT><LbT Nm="FB1_PT22" PtT="0"><OPort NNm="FB1_PT22"/><IPort NNm="FB1_10_N"/></LbT><Mc Nm="FB1_1"><FBMux Nm="FB1_1_N"><IPort NNm="FB1_1_Q"/><OPort NNm="FB1_1_N"/></FBMux><OutBuf Nm="FB1_1_O"><IPort NNm="FB1_1_Q"/><OPort NNm="Q&lt;3&gt;"/><CntlPort NNm="PT_VCC"/></OutBuf><DFlop Nm="FB1_1_FF"><FlopPort NNm="FB1_PT8" Port="D"/><FlopPort NNm="CLK" Port="CLK"/><FlopPort NNm="FB1_1_Q" Port="Q"/><FlopPort NNm="FB1_PT0" Port="RST"/><FlopPort NNm="PT_GND" Port="PST"/></DFlop></Mc><Mc Nm="FB1_2"><FBMux Nm="FB1_2_N"><IPort NNm="FB1_2_Q"/><OPort NNm="FB1_2_N"/></FBMux><OutBuf Nm="FB1_2_O"><IPort NNm="FB1_2_Q"/><OPort NNm="Q&lt;2&gt;"/><CntlPort NNm="PT_VCC"/></OutBuf><DFlop Nm="FB1_2_FF"><FlopPort NNm="FB1_PT10" Port="D"/><FlopPort NNm="CLK" Port="CLK"/><FlopPort NNm="FB1_2_Q" Port="Q"/><FlopPort NNm="FB1_PT0" Port="RST"/><FlopPort NNm="PT_GND" Port="PST"/></DFlop></Mc><Mc Nm="FB1_3"/><Mc Nm="FB1_4"/><Mc Nm="FB1_5"/><Mc Nm="FB1_6"/><Mc Nm="FB1_7"/><Mc Nm="FB1_8"><FBMux Nm="FB1_8_N"><IPort NNm="FB1_8_Q"/><OPort NNm="FB1_8_N"/></FBMux><OutBuf Nm="FB1_8_O"><IPort NNm="FB1_8_Q"/><OPort NNm="Q&lt;1&gt;"/><CntlPort NNm="PT_VCC"/></OutBuf><DFlop Nm="FB1_8_FF"><FlopPort NNm="FB1_PT22" Port="D"/><FlopPort NNm="CLK" Port="CLK"/><FlopPort NNm="FB1_8_Q" Port="Q"/><FlopPort NNm="FB1_PT0" Port="RST"/><FlopPort NNm="PT_GND" Port="PST"/></DFlop></Mc><Mc Nm="FB1_9"/><Mc Nm="FB1_10"><FBMux Nm="FB1_10_N"><IPort NNm="FB1_10_Q"/><OPort NNm="FB1_10_N"/></FBMux><OutBuf Nm="FB1_10_O"><IPort NNm="FB1_10_Q"/><OPort NNm="Q&lt;0&gt;"/><CntlPort NNm="PT_VCC"/></OutBuf><DFlop Nm="FB1_10_FF"><FlopPort NNm="PT_VCC" Port="D"/><FlopPort NNm="CLK" Port="CLK"/><FlopPort NNm="FB1_10_Q" Port="Q"/><FlopPort NNm="FB1_PT0" Port="RST"/><FlopPort NNm="PT_GND" Port="PST"/></DFlop></Mc><Mc Nm="FB1_11"><MCMux Nm="FB1_11_P"><IPort NNm="FB1_11_I"/><OPort NNm="FB1_11_P"/></MCMux><InBuf Nm="FB1_11_I"><IPort NNm="RST"/><OPort NNm="FB1_11_I"/></InBuf></Mc><Mc Nm="FB1_12"/><Mc Nm="FB1_13"/><Mc Nm="FB1_14"/><Mc Nm="FB1_15"/><Mc Nm="FB1_16"/></Lb><Lb Nm="FB2"><Mc Nm="FB2_1"/><Mc Nm="FB2_2"/><Mc Nm="FB2_3"/><Mc Nm="FB2_4"/><Mc Nm="FB2_5"/><Mc Nm="FB2_6"/><Mc Nm="FB2_7"/><Mc Nm="FB2_8"/><Mc Nm="FB2_9"/><Mc Nm="FB2_10"/><Mc Nm="FB2_11"/><Mc Nm="FB2_12"/><Mc Nm="FB2_13"/><Mc Nm="FB2_14"/><Mc Nm="FB2_15"/><Mc Nm="FB2_16"/></Lb><Lb Nm="FB3"><Mc Nm="FB3_1"/><Mc Nm="FB3_2"/><Mc Nm="FB3_3"/><Mc Nm="FB3_4"/><Mc Nm="FB3_5"/><Mc Nm="FB3_6"/><Mc Nm="FB3_7"/><Mc Nm="FB3_8"/><Mc Nm="FB3_9"/><Mc Nm="FB3_10"/><Mc Nm="FB3_11"/><Mc Nm="FB3_12"/><Mc Nm="FB3_13"/><Mc Nm="FB3_14"/><Mc Nm="FB3_15"/><Mc Nm="FB3_16"/></Lb><Lb Nm="FB4"><Mc Nm="FB4_1"/><Mc Nm="FB4_2"/><Mc Nm="FB4_3"/><Mc Nm="FB4_4"/><Mc Nm="FB4_5"/><Mc Nm="FB4_6"/><Mc Nm="FB4_7"/><Mc Nm="FB4_8"/><Mc Nm="FB4_9"/><Mc Nm="FB4_10"/><Mc Nm="FB4_11"/><Mc Nm="FB4_12"/><Mc Nm="FB4_13"/><Mc Nm="FB4_14"/><Mc Nm="FB4_15"/><Mc Nm="FB4_16"/></Lb></Document>

@@ -1,0 +1,73 @@
+Release 8.1i - Fit O.76xd
+Copyright(c) 1995-2003 Xilinx Inc. All rights reserved
+
+ 1-28-2012  7:35PM
+
+NOTE: This file is designed to be imported into a spreadsheet program
+such as Microsoft Excel for viewing, printing and sorting. The pipe '|'
+character is used as the data field separator.
+This file is also designed to support parsing.
+
+Input file:  counter.ngd
+output file: counter.pad
+Part type:   xcr3064xl
+Speed grade: -6
+Package:     vq44
+
+Pinout by Pin Number:
+
+-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+Pin Number|Signal Name|Pin Usage|Pin Name|Direction|IO Standard|IO Bank Number|{blank}|Slew Rate|Termination|{blank}|Voltage|Constraint|
+P1|TDI||I/O/TDI||||||||||
+P2|WPU||I/O||||||||||
+P3|WPU||I/O||||||||||
+P4|PE||PORT_EN||||||||||
+P5|WPU||I/O||||||||||
+P6|WPU||I/O||||||||||
+P7|TMS||I/O/TMS||||||||||
+P8|WPU||I/O||||||||||
+P9|VCC||VCC||||||||||
+P10|WPU||I/O||||||||||
+P11|WPU||I/O||||||||||
+P12|WPU||I/O||||||||||
+P13|WPU||I/O||||||||||
+P14|WPU||I/O||||||||||
+P15|WPU||I/O||||||||||
+P16|GND||GND||||||||||
+P17|VCC||VCC||||||||||
+P18|WPU||I/O||||||||||
+P19|WPU||I/O||||||||||
+P20|WPU||I/O||||||||||
+P21|WPU||I/O||||||||||
+P22|WPU||I/O||||||||||
+P23|WPU||I/O||||||||||
+P24|GND||GND||||||||||
+P25|WPU||I/O||||||||||
+P26|TCK||I/O/TCK||||||||||
+P27|WPU||I/O||||||||||
+P28|WPU||I/O||||||||||
+P29|VCC||VCC||||||||||
+P30|RST|I|I/O|INPUT|||||||||
+P31|Q<0>|O|I/O|OUTPUT|||||||||
+P32|TDO||I/O/TDO||||||||||
+P33|Q<1>|O|I/O|OUTPUT|||||||||
+P34|Q<2>|O|I/O|OUTPUT|||||||||
+P35|Q<3>|O|I/O|OUTPUT|||||||||
+P36|GND||GND||||||||||
+P37|WPU||IN3/GCK3||||||||||
+P38|WPU||IN2/GCK2||||||||||
+P39|WPU||IN1/GCK1||||||||||
+P40|CLK|GCK|IN0/GCK0||||||||||
+P41|VCC||VCC||||||||||
+P42|WPU||I/O||||||||||
+P43|WPU||I/O||||||||||
+P44|WPU||I/O||||||||||
+
+To preserve the pinout above for future design iterations in
+Project Navigator simply execute the (Lock Pins) process
+located under the (Implement Design) process in a toolbox named
+(Optional Implementation Tools) or invoke PIN2UCF from the
+command line. The location constraints will be written into your
+specified UCF file
+
+

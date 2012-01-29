@@ -1,0 +1,54 @@
+MDF Database:  version 1.0
+MDF_INFO | counter | XCR3064XL-6-VQ44
+MACROCELL | 0 | 9 | Q<0>_MC
+ATTRIBUTES | 2185528066 | 0
+OUTPUTMC | 3 | 0 | 7 | 0 | 1 | 0 | 0
+INPUTS | 0
+LCT | 1 | 4 | Internal_Name
+EQ | 3 | 
+   Q<0>.T := Vcc;	// (0 pt, 0 inp)
+   Q<0>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    Q<0>.AR = !RST;	// LRST	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 7 | Q<1>_MC
+ATTRIBUTES | 2185528066 | 0
+OUTPUTMC | 2 | 0 | 1 | 0 | 0
+INPUTS | 1 | Q<0>
+INPUTMC | 1 | 0 | 9
+LCT | 1 | 4 | Internal_Name
+EQ | 3 | 
+   Q<1>.T := Q<0>;	// (1 pt, 1 inp)
+   Q<1>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    Q<1>.AR = !RST;	// LRST	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 1 | Q<2>_MC
+ATTRIBUTES | 2185528066 | 0
+OUTPUTMC | 1 | 0 | 0
+INPUTS | 2 | Q<0>  | Q<1>
+INPUTMC | 2 | 0 | 9 | 0 | 7
+LCT | 1 | 4 | Internal_Name
+EQ | 3 | 
+   Q<2>.T := Q<0> & Q<1>;	// (1 pt, 2 inp)
+   Q<2>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    Q<2>.AR = !RST;	// LRST	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 0 | Q<3>_MC
+ATTRIBUTES | 38044418 | 0
+INPUTS | 3 | Q<0>  | Q<1>  | Q<2>
+INPUTMC | 3 | 0 | 9 | 0 | 7 | 0 | 1
+LCT | 1 | 4 | Internal_Name
+EQ | 3 | 
+   Q<3>.T := Q<0> & Q<1> & Q<2>;	// (1 pt, 3 inp)
+   Q<3>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    Q<3>.AR = !RST;	// LRST	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+PIN | CLK | 4096 | 0 | N/A | 78 | 4 | 0 | 9 | 0 | 7 | 0 | 1 | 0 | 0
+PIN | RST | 64 | 0 | N/A | 60 | 0
+PIN | Q<0> | 536871040 | 0 | N/A | 61
+PIN | Q<1> | 536871040 | 0 | N/A | 64
+PIN | Q<2> | 536871040 | 0 | N/A | 71
+PIN | Q<3> | 536871040 | 0 | N/A | 72

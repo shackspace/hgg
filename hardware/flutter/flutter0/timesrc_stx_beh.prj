@@ -1,0 +1,4 @@
+vhdl isim_temp "sipo.vhd"
+vhdl isim_temp "output_combinator.vhd"
+vhdl isim_temp "counter.vhd"
+vhdl isim_temp "timesrc.vhd"
