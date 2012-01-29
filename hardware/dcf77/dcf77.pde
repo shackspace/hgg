@@ -8,7 +8,7 @@
 #define DEBUG_PIN            8
 
 #define NUMBER_OF_READS     31
-#define PREDICTION_WINDOW   35
+#define PREDICTION_WINDOW   40
 #define VERIFICATION_WINDOW 30
 
 enum DCF77State {
@@ -275,9 +275,9 @@ void setup() {
   // 
   // initialise input pins 
   pinMode(PIN_DCF77, INPUT);
-  digitalWrite(PIN_DCF77, HIGH);
+//  digitalWrite(PIN_DCF77, HIGH);
   pinMode(PIN_DCF77_INVERTED, INPUT);
-  digitalWrite(PIN_DCF77_INVERTED, HIGH);
+//  digitalWrite(PIN_DCF77_INVERTED, HIGH);
 
   // DEBUG:
   pinMode(DEBUG_PIN, OUTPUT);

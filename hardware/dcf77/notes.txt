@@ -1,0 +1,27 @@
+About: DCF77-Time Hardware
+
+Used for: 
+ - time synchronisation between ground stations
+
+Plan:
+ - use to synchronize second marks
+ - components of the ground station then count stuff with internal oscilators 
+   and tick counts. 
+
+Notes: 
+ - dcf77 modules are very sensitive to bad voltages, good power source needed.
+ - we have experienced problems with usb used as power supply
+
+
+How to get it to work?
+
+Use a Conrad DCF77 Module (Conrad, Article No:  641138-62). 
+Set microcontroller internal pull up resistors to off. 
+Use external pull up resistors for inverted and non inverted. R=47 kOhm . 47 kOhms works best.
+Put inverted output of module to digital port 2 of arduino.
+
+
+Documentation can be found at http://shackspace.de/wiki/doku.php?id=project:hgg:timing_and_synchronization:dcf77
+
+ 
+
