@@ -1,0 +1,22 @@
+Pin Freeze File:  version O.76xd
+
+3064XL44VQ XCR3064XL-6-VQ44
+CLK S:PIN40
+RST S:PIN30
+Q<0> S:PIN31
+Q<1> S:PIN33
+Q<2> S:PIN34
+Q<3> S:PIN35
+
+
+;The remaining section of the .gyd file is for documentation purposes only.
+;It shows where your internal equations were placed in the last successful fit.
+
+PARTITION FB1_1 Q<3> Q<2>
+PARTITION FB1_8 Q<1>
+PARTITION FB1_10 Q<0>
+
+
+
+
+

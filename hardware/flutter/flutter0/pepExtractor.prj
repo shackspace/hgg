@@ -1,0 +1,4 @@
+work	"counter.vhd"
+work	"output_combinator.vhd"
+work	"sipo.vhd"
+work	"timesrc.vhd"
