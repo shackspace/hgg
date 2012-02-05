@@ -30,7 +30,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity sipo is
-	 generic ( BITS : natural := 4 );
+	 generic ( BITS : natural := 32 );
     Port ( RST : in  STD_LOGIC;
            DIN : in  STD_LOGIC;
            CS : in  STD_LOGIC;

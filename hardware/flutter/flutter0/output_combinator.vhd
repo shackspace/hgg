@@ -30,8 +30,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity output_combinator is
-	generic ( SLOWBITS : natural := 4;
-				 COUNTERBITS : natural := 4 );
+	generic ( SLOWBITS : natural := 40;
+				 COUNTERBITS : natural := 32);
     Port ( SLOWIN : in  STD_LOGIC_VECTOR (SLOWBITS-1 downto 0);
            COUNTERIN : in  STD_LOGIC_VECTOR (COUNTERBITS-1 downto 0);
            RST : in  STD_LOGIC;

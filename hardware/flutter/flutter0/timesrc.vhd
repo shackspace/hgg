@@ -30,8 +30,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity timesrc is
-	 generic ( SLOWBITS : natural := 4;
-				 COUNTERBITS : natural := 4 );
+	 generic ( SLOWBITS : natural := 40;
+				 COUNTERBITS : natural := 32 );
     Port ( RST : in  STD_LOGIC;
            
 			  TIME_CLR : in  STD_LOGIC;

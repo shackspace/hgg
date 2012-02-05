@@ -32,7 +32,7 @@ use IEEE.std_logic_unsigned.all;
 --use UNISIM.VComponents.all;
 
 entity counter is
-	Generic ( BITS : natural := 4 );
+	Generic ( BITS : natural := 32 );
     Port ( RST : in  STD_LOGIC;
            CLK : in  STD_LOGIC;
            Q : out  STD_LOGIC_VECTOR (BITS-1 downto 0));
