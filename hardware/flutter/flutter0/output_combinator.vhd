@@ -35,7 +35,8 @@ entity output_combinator is
     Port ( SLOWIN : in  STD_LOGIC_VECTOR (SLOWBITS-1 downto 0);
            COUNTERIN : in  STD_LOGIC_VECTOR (COUNTERBITS-1 downto 0);
            RST : in  STD_LOGIC;
-           LATCH : in  STD_LOGIC;
+           LATCH_COUNTERIN : in  STD_LOGIC;
+           LATCH_SLOWIN : in  STD_LOGIC;
            DCLK : in  STD_LOGIC;
            Q : out  STD_LOGIC;
            QCLK : out  STD_LOGIC;
@@ -43,64 +44,113 @@ entity output_combinator is
 end output_combinator;
 
 architecture Behavioral of output_combinator is
+	TYPE states IS (IDLE, PREPARE_SEND, SENDING_SETDATA, SENDING_SETCLOCK, CLEANUP_SEND);
+	TYPE SMALLINT IS RANGE 0 TO 127; -- should be SLOWBITS + COUNTERBITS;
+
+	signal state, nextState : states;
+
+	signal inputDataValid : std_logic := '0';
+	signal sendingComplete : std_logic := '0';
+	signal SPI_SEND_COUNTER : integer := 0;
+
 	signal Q_INT : std_logic_vector(SLOWBITS  + COUNTERBITS - 1 downto 0) := (others => '0');
-	signal CLK_OUT_ENA : std_logic := '0';
-	signal CLK_OUT_CNT : integer := 0;
-	
+	signal Q_PISO : std_logic_vector(SLOWBITS  + COUNTERBITS - 1 downto 0) := (others => '0');
 begin
-	process( DCLK, RST, LATCH )
-	begin	
+	-- switch between states in this process
+	process (DCLK, RST) 
+	begin
+		if(RST = '0') THEN
+			state <= IDLE;
+		elsif(rising_edge(DCLK)) then
+			state <= nextState after 20ns;
+		end if;
+	end process;
+	
+	-- handle what needs to be done in a state
+	process(DCLK) -- evtl , state
+	begin
+		case state is
+			when IDLE => if(inputDataValid = '1') then nextState <= PREPARE_SEND;
+						    else nextState <= IDLE;
+							 end if;
+
+			when PREPARE_SEND => nextState <= SENDING_SETDATA;
+
+			when SENDING_SETDATA => if(SPI_SEND_COUNTER = 0) then nextState <= CLEANUP_SEND;
+											else nextState <= SENDING_SETCLOCK;
+											end if;
+
+			when SENDING_SETCLOCK => nextState <= SENDING_SETDATA;
+
+			when CLEANUP_SEND => nextState <= IDLE;
+		end case;
+	end process;
+	
+	-- calculate output
+	process(state)
+	begin
+		case state is
+			when PREPARE_SEND => Q <= '0'; 
+										QCS <= '1'; 
+										QCLK <= '0';
+										Q_PISO <= Q_INT;
+										SPI_SEND_COUNTER <= SLOWBITS + COUNTERBITS;
+										
+			when SENDING_SETDATA => Q <= Q_PISO(0);
+											Q_PISO <= '0' & Q_PISO( SLOWBITS  + COUNTERBITS - 1 downto 1 );
+											QCLK <= '0';
+											
+			when SENDING_SETCLOCK => QCLK <= '1';
+											 SPI_SEND_COUNTER <= SPI_SEND_COUNTER - 1;
+			
+			when CLEANUP_SEND => Q <= '0';
+										QCS <= '0';
+										QCLK <= '0';
+										sendingComplete <= '1';
+			
+			when IDLE => Q <= '0'; 
+						 	 QCS <= '0'; 
+							 QCLK <= '0';
+							 sendingComplete <= '0';
+		end case;	
+	end process;
+	
+	
+	-- Latching the slowtime.
+	process(RST, LATCH_SLOWIN, sendingComplete) 
+	begin
 		if(RST = '0') then
-			Q_INT <= (others => '0');
-			QCLK <= '0';
-			QCS <= '0';
-			Q <= '0';
+			Q_INT(SLOWBITS  + COUNTERBITS - 1 downto COUNTERBITS) <= (others => '0');
+		else
+
+--			if(inputDataValid = '0' and LATCH_SLOWIN='1') then
+--				inputDataValid <= '1';
+--			elsif(sendingComplete = '1') then
+--				inputDataValid <= '0';
+--			end if;
 			
-		elsif(CLK_OUT_ENA = '1') then
-		-- clocking out  data
-			if(CLK_OUT_CNT = 0) then
-			   -- exit data clock-out state
-				CLK_OUT_ENA <= '0';
-				QCLK <= '0';
-				Q <= '0';
-				QCS <= '0';
+--			if(sendingComplete = '1') then
+--				inputDataValid <= '0';
+--			end if;
 			
-			else				
-				if(rising_edge(DCLK)) then
-					-- shift out
-					Q <= Q_INT(0);
-					Q_INT <= '0' & Q_INT( SLOWBITS  + COUNTERBITS - 1 downto 1 );
-					
-					-- reset data out clock
-					QCLK <= '0';
-					
-					-- decrement clock counter
-					CLK_OUT_CNT <= CLK_OUT_CNT - 1;
-				end if;
-				
-				if(falling_edge(DCLK)) then
-					-- data on bus is valid with rising edge of QCLK
-					QCLK <= '1';
-				end if;
-				
-			end if;
-			
-		else -- CLK_OUT_ENA = '0'
-			-- waiting for data
-			if(rising_edge(LATCH)) then
-				Q_INT <= SLOWIN & COUNTERIN;
-			end if;
-			
-			if(falling_edge(LATCH)) then
-				-- enter data clock-out state
-				-- adding another bit because otherwise the last bit would not be clocked out properly
-				CLK_OUT_CNT <= SLOWBITS + COUNTERBITS + 1;
-				CLK_OUT_ENA <= '1';
-				QCLK <= '0';
-				Q <= '0';
-				QCS <= '1';
+			if(rising_edge(LATCH_SLOWIN)) then
+				Q_INT(SLOWBITS  + COUNTERBITS - 1 downto COUNTERBITS) <= SLOWIN;
+				inputDataValid <= '1';
 			end if;
 		end if;
 	end process;
+	
+	-- latching the counter data.
+	process (RST, LATCH_COUNTERIN) 
+	begin
+		if(RST = '0') then
+			Q_INT(COUNTERBITS - 1 downto 0) <= (others => '0');
+		else 
+			if(rising_edge(LATCH_COUNTERIN)) then
+				Q_INT(COUNTERBITS - 1 downto 0) <= COUNTERIN;
+			end if;
+		end if;
+	end process;
+	
 end Behavioral;
 

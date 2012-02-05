@@ -44,7 +44,8 @@ ARCHITECTURE behavior OF output_combinator_test IS
          SLOWIN : IN  std_logic_vector(3 downto 0);
          COUNTERIN : IN  std_logic_vector(3 downto 0);
          RST : IN  std_logic;
-         LATCH : IN  std_logic;
+         LATCH_COUNTERIN : in  STD_LOGIC;
+         LATCH_SLOWIN : in  STD_LOGIC;
          DCLK : IN  std_logic;
          Q : OUT  std_logic;
          QCLK : OUT  std_logic;
@@ -57,7 +58,8 @@ ARCHITECTURE behavior OF output_combinator_test IS
    signal SLOWIN : std_logic_vector(3 downto 0) := (others => '0');
    signal COUNTERIN : std_logic_vector(3 downto 0) := (others => '0');
    signal RST : std_logic := '0';
-   signal LATCH : std_logic := '0';
+   signal LATCH_SLOWIN : std_logic := '0';
+   signal LATCH_COUNTERIN : std_logic := '0';
    signal DCLK : std_logic := '0';
 
  	--Outputs
@@ -75,7 +77,8 @@ BEGIN
           SLOWIN => SLOWIN,
           COUNTERIN => COUNTERIN,
           RST => RST,
-          LATCH => LATCH,
+          LATCH_SLOWIN => LATCH_SLOWIN,
+          LATCH_COUNTERIN => LATCH_COUNTERIN,
           DCLK => DCLK,
           Q => Q,
           QCLK => QCLK,
@@ -105,10 +108,15 @@ BEGIN
 		COUNTERIN <= "0011";
 		
 		wait for DCLK_period;
-		LATCH <= '1';
+		LATCH_COUNTERIN <= '1';
+		wait for DCLK_period/3;
+		LATCH_COUNTERIN <= '0';
+		
+		wait for DCLK_period;
+		LATCH_SLOWIN <= '1';
 		
 		wait for DCLK_period/3;
-		LATCH <= '0';
+		LATCH_SLOWIN <= '0';
 
 		wait;
    end process;

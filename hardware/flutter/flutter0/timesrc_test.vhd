@@ -113,44 +113,43 @@ BEGIN
 	TIME_CLR_process: process
 	begin
 		TIME_CLR <= '0';
-		wait for TIME_CLR_period/100*99;
+		wait for TIME_CLR_period;
 		TIME_CLR <= '1';
 		wait for TIME_CLR_period/100;
 	end process;
-
+	
 	SPIIN_process: process
 	begin
-	if(SPIIN_CS = '0') then
-		if(TIME_CLR = '0') then
-			wait for 100 ns;
-		else
-			SPIIN_CS <= '1';
-		end if;
-	else
-		if(TIME_CLR = '1') then
-			wait for 100ns;
-		else
-			for i in SLOWBITS-1 downto 0 loop
-				SPIIN_DATA <= '0';
-				SPIIN_CLK <= '0';
-				wait for SPIIN_CLK_period/4;
-				SPIIN_CLK <= '1';
-				wait for SPIIN_CLK_period/4;
-				SPIIN_DATA <= '1';
-				SPIIN_CLK <= '0';
-				wait for SPIIN_CLK_period/4;
-				SPIIN_CLK <= '1';
-				wait for SPIIN_CLK_period/4;
-			end loop;
-		end if;
-	end if;
+		spiin_cs <= '0';
+		spiin_data <= '0';
+		spiin_clk <= '0';
+		wait for TIME_CLR_period;
+		wait for 30ns;
+		spiin_cs <= '1';
+		
+		for i in SLOWBITS-1 downto 0 loop
+			SPIIN_DATA <= '0';
+			SPIIN_CLK <= '0';
+			wait for SPIIN_CLK_period/4;
+			SPIIN_CLK <= '1';
+			wait for SPIIN_CLK_period/4;
+			SPIIN_DATA <= '1';
+			SPIIN_CLK <= '0';
+			wait for SPIIN_CLK_period/4;
+			SPIIN_CLK <= '1';
+			wait for SPIIN_CLK_period/4;
+		end loop;
+		
+		spiin_data <= '0';
+		spiin_clk <= '0';
+		spiin_cs <= '0';
 	end process;
 	
    -- Stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-      wait for 100 ns;	
+      wait for 10 ns;	
 		
 		RST <= '1';
 
