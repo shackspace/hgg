@@ -1,9 +1,0 @@
-V3 3
-FL /home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/counter.vhd 2012/01/28.16:40:14 O.76xd
-EN work/counter 1327775643 \
-      FL /home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/counter.vhd \
-      PB ieee/std_logic_1164 1317710503 PB ieee/std_logic_arith 1317710504 \
-      PB ieee/STD_LOGIC_UNSIGNED 1317710506
-AR work/counter/Behavioral 1327775644 \
-      FL /home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/counter.vhd \
-      EN work/counter 1327775643
