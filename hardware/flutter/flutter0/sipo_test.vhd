@@ -45,7 +45,7 @@ ARCHITECTURE behavior OF sipo_test IS
          DIN : IN  std_logic;
          CS : IN  std_logic;
          CLK : IN  std_logic;
-         Q : OUT  std_logic_vector(3 downto 0);
+         Q : OUT  std_logic_vector(39 downto 0);
          VALID : OUT  std_logic
         );
     END COMPONENT;
@@ -58,7 +58,7 @@ ARCHITECTURE behavior OF sipo_test IS
    signal CLK : std_logic := '0';
 
  	--Outputs
-   signal Q : std_logic_vector(3 downto 0);
+   signal Q : std_logic_vector(39 downto 0);
    signal VALID : std_logic;
 
    -- Clock period definitions

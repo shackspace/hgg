@@ -35,8 +35,7 @@ entity output_combinator is
     Port ( SLOWIN : in  STD_LOGIC_VECTOR (SLOWBITS-1 downto 0);
            COUNTERIN : in  STD_LOGIC_VECTOR (COUNTERBITS-1 downto 0);
            RST : in  STD_LOGIC;
-           LATCH_COUNTERIN : in  STD_LOGIC;
-           LATCH_SLOWIN : in  STD_LOGIC;
+           LATCH : in  STD_LOGIC;
            DCLK : in  STD_LOGIC;
            Q : out  STD_LOGIC;
            QCLK : out  STD_LOGIC;
@@ -49,20 +48,28 @@ architecture Behavioral of output_combinator is
 
 	signal state, nextState : states;
 
-	signal inputDataValid : std_logic := '0';
-	signal sendingComplete : std_logic := '0';
 	signal SPI_SEND_COUNTER : integer := 0;
 
+	signal dataPresent : std_logic := '0';
+	signal lastDataPresentState : std_logic := '0';
+	signal previousToLastDataPresentState : std_logic := '0';
+	
 	signal Q_INT : std_logic_vector(SLOWBITS  + COUNTERBITS - 1 downto 0) := (others => '0');
 	signal Q_PISO : std_logic_vector(SLOWBITS  + COUNTERBITS - 1 downto 0) := (others => '0');
-begin
+
+	signal debug_state_int : integer := 0;
+begin		
 	-- switch between states in this process
 	process (DCLK, RST) 
 	begin
 		if(RST = '0') THEN
 			state <= IDLE;
+			lastDataPresentState <= '0';
+			previousToLastDataPresentState <= '0';
 		elsif(rising_edge(DCLK)) then
 			state <= nextState after 20ns;
+			previousToLastDataPresentState <= lastDataPresentState;
+			lastDataPresentState <= dataPresent;
 		end if;
 	end process;
 	
@@ -70,10 +77,11 @@ begin
 	process(DCLK) -- evtl , state
 	begin
 		case state is
-			when IDLE => if(inputDataValid = '1') then nextState <= PREPARE_SEND;
-						    else nextState <= IDLE;
+			when IDLE => if(dataPresent = previousToLastDataPresentState) then
+								nextState <= IDLE;
+							 else nextState <= PREPARE_SEND;
 							 end if;
-
+							 
 			when PREPARE_SEND => nextState <= SENDING_SETDATA;
 
 			when SENDING_SETDATA => if(SPI_SEND_COUNTER = 0) then nextState <= CLEANUP_SEND;
@@ -106,51 +114,28 @@ begin
 			when CLEANUP_SEND => Q <= '0';
 										QCS <= '0';
 										QCLK <= '0';
-										sendingComplete <= '1';
+										SPI_SEND_COUNTER <= 0;
 			
 			when IDLE => Q <= '0'; 
 						 	 QCS <= '0'; 
 							 QCLK <= '0';
-							 sendingComplete <= '0';
 		end case;	
 	end process;
 	
 	
-	-- Latching the slowtime.
-	process(RST, LATCH_SLOWIN, sendingComplete) 
+	-- Latching slowtime and counter values.
+	process(RST, LATCH) 
 	begin
 		if(RST = '0') then
 			Q_INT(SLOWBITS  + COUNTERBITS - 1 downto COUNTERBITS) <= (others => '0');
-		else
-
---			if(inputDataValid = '0' and LATCH_SLOWIN='1') then
---				inputDataValid <= '1';
---			elsif(sendingComplete = '1') then
---				inputDataValid <= '0';
---			end if;
-			
---			if(sendingComplete = '1') then
---				inputDataValid <= '0';
---			end if;
-			
-			if(rising_edge(LATCH_SLOWIN)) then
+			dataPresent <= '0';
+		else			
+			if(rising_edge(LATCH)) then
 				Q_INT(SLOWBITS  + COUNTERBITS - 1 downto COUNTERBITS) <= SLOWIN;
-				inputDataValid <= '1';
-			end if;
-		end if;
-	end process;
-	
-	-- latching the counter data.
-	process (RST, LATCH_COUNTERIN) 
-	begin
-		if(RST = '0') then
-			Q_INT(COUNTERBITS - 1 downto 0) <= (others => '0');
-		else 
-			if(rising_edge(LATCH_COUNTERIN)) then
 				Q_INT(COUNTERBITS - 1 downto 0) <= COUNTERIN;
+				dataPresent <= not dataPresent;
 			end if;
 		end if;
 	end process;
-	
 end Behavioral;
 

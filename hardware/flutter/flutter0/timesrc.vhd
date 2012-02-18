@@ -52,8 +52,7 @@ architecture Behavioral of timesrc is
     Port ( SLOWIN : in  STD_LOGIC_VECTOR (SLOWBITS-1 downto 0);
            COUNTERIN : in  STD_LOGIC_VECTOR (COUNTERBITS-1 downto 0);
            RST : in  STD_LOGIC;
-           LATCH_COUNTERIN : in  STD_LOGIC;
-           LATCH_SLOWIN : in  STD_LOGIC;
+           LATCH : in  STD_LOGIC;
            DCLK : in  STD_LOGIC;
            Q : out  STD_LOGIC;
            QCLK : out  STD_LOGIC;
@@ -83,10 +82,9 @@ architecture Behavioral of timesrc is
 	
 	signal sipo_q : std_logic_vector(SLOWBITS-1 downto 0) := (others => '0');
 	signal sipo_valid : std_logic := '0';
-	signal LATCH_SLOWIN : std_logic := '1';
+	signal LATCH : std_logic := '1';
 begin	
 	counter_rst <= RST or TIME_CLR;
-	LATCH_SLOWIN <= not SPIIN_CS;
 
 	counter_map: counter port map (
 		RST => counter_rst,
@@ -112,8 +110,7 @@ begin
 		
 		COUNTERIN => counter_out,
 		SLOWIN => sipo_q,		
-		LATCH_COUNTERIN => TIME_CLR,
-		LATCH_SLOWIN => LATCH_SLOWIN, 
+		LATCH => TIME_CLR,
 
 		DCLK => DOUT_CLK,
 		

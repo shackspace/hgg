@@ -41,23 +41,31 @@ end sipo;
 
 architecture Behavioral of sipo is
 	signal Q_INT : std_logic_vector (BITS-1 downto 0) := (others => '0');
+	signal Q_OUT : std_logic_vector (BITS-1 downto 0) := (others => '0');
+	signal VALID_INT : std_logic := '0';
 begin
 
 	process(CS, CLK, RST)
 	begin
 		if(RST = '0') then
 			Q_INT <= (others => '0');
-			VALID <= '0';
+			Q_OUT <= (others => '0');
+			VALID_INT <= '0';
 		else
 			if(CS = '1' and rising_edge(CLK)) then
 				Q_INT <= Q_INT(BITS-2 downto 0) & DIN;
 			end if;
 			
-			VALID <= not CS;
+			if(falling_edge(CS)) then
+				Q_OUT <= Q_INT;
+				VALID_INT <= '1';
+			end if;
+			
 		end if;
 	end process;
 
-	Q <= Q_INT;
+	VALID <= VALID_INT;
+	Q <= Q_OUT;
 
 end Behavioral;
 

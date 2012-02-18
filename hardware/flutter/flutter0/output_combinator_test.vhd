@@ -41,25 +41,23 @@ ARCHITECTURE behavior OF output_combinator_test IS
  
     COMPONENT output_combinator
     PORT(
-         SLOWIN : IN  std_logic_vector(3 downto 0);
-         COUNTERIN : IN  std_logic_vector(3 downto 0);
+         SLOWIN : IN  std_logic_vector(39 downto 0);
+         COUNTERIN : IN  std_logic_vector(31 downto 0);
          RST : IN  std_logic;
-         LATCH_COUNTERIN : in  STD_LOGIC;
-         LATCH_SLOWIN : in  STD_LOGIC;
+         LATCH : in  STD_LOGIC;
          DCLK : IN  std_logic;
          Q : OUT  std_logic;
          QCLK : OUT  std_logic;
-         QCS : OUT  std_logic
+         QCS : OUT  std_logic			  
         );
     END COMPONENT;
     
 
    --Inputs
-   signal SLOWIN : std_logic_vector(3 downto 0) := (others => '0');
-   signal COUNTERIN : std_logic_vector(3 downto 0) := (others => '0');
+   signal SLOWIN : std_logic_vector(39 downto 0) := (others => '0');
+   signal COUNTERIN : std_logic_vector(31 downto 0) := (others => '0');
    signal RST : std_logic := '0';
-   signal LATCH_SLOWIN : std_logic := '0';
-   signal LATCH_COUNTERIN : std_logic := '0';
+   signal LATCH : std_logic := '0';
    signal DCLK : std_logic := '0';
 
  	--Outputs
@@ -69,21 +67,19 @@ ARCHITECTURE behavior OF output_combinator_test IS
 
    -- Clock period definitions
    constant DCLK_period : time := 1000 ns;
- 
-BEGIN
+ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: output_combinator PORT MAP (
           SLOWIN => SLOWIN,
           COUNTERIN => COUNTERIN,
           RST => RST,
-          LATCH_SLOWIN => LATCH_SLOWIN,
-          LATCH_COUNTERIN => LATCH_COUNTERIN,
+          LATCH => LATCH,
           DCLK => DCLK,
           Q => Q,
           QCLK => QCLK,
           QCS => QCS
-        );
+       );
 
    -- Clock process definitions
    DCLK_process :process
@@ -98,26 +94,22 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.		
-      wait for DCLK_period*3;
+      wait for DCLK_period;
 
       -- insert stimulus here 
 		RST <= '1';
 		
 		wait for DCLK_period;
-		SLOWIN <= "1100";
-		COUNTERIN <= "0011";
-		
-		wait for DCLK_period;
-		LATCH_COUNTERIN <= '1';
-		wait for DCLK_period/3;
-		LATCH_COUNTERIN <= '0';
-		
-		wait for DCLK_period;
-		LATCH_SLOWIN <= '1';
-		
-		wait for DCLK_period/3;
-		LATCH_SLOWIN <= '0';
+		SLOWIN    <= (3=>'1',4=>'1',others=>'0');
 
+		wait for DCLK_period;
+		COUNTERIN <= (1=>'1',2=>'1',others=>'0');
+		
+		wait for DCLK_period;
+		LATCH <= '1';
+		wait for DCLK_period/2;
+		LATCH <= '0';
+		
 		wait;
    end process;
 
