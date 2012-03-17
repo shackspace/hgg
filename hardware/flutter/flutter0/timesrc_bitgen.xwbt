@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.ncd
+OUTFILE=/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s50a-4vq100
+WORKINGDIR=/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0
+LICENSE=WebPack
+USER_INFO=209005635_0_0_039

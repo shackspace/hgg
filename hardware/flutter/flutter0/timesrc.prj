@@ -1,0 +1,4 @@
+vhdl work "sipo.vhd"
+vhdl work "output_combinator.vhd"
+vhdl work "counter.vhd"
+vhdl work "timesrc.vhd"

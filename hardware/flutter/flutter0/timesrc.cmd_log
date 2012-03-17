@@ -1,0 +1,27 @@
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timesrc.ucf -p xc3s50a-vq100-4 timesrc.ngc timesrc.ngd  
+map -intstyle ise -p xc3s50a-vq100-4 -cm area -ir off -pr off -c 100 -o timesrc_map.ncd timesrc.ngd timesrc.pcf 
+par -w -intstyle ise -ol high -t 1 timesrc_map.ncd timesrc.ncd timesrc.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml timesrc.twx timesrc.ncd -o timesrc.twr timesrc.pcf -ucf timesrc.ucf 
+bitgen -intstyle ise -f timesrc.ut timesrc.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timesrc.ucf -p xc3s50a-vq100-4 timesrc.ngc timesrc.ngd  
+map -intstyle ise -p xc3s50a-vq100-4 -cm area -ir off -pr off -c 100 -o timesrc_map.ncd timesrc.ngd timesrc.pcf 
+par -w -intstyle ise -ol high -t 1 timesrc_map.ncd timesrc.ncd timesrc.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml timesrc.twx timesrc.ncd -o timesrc.twr timesrc.pcf -ucf timesrc.ucf 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+xst -intstyle ise -ifn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.xst" -ofn "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timesrc.ucf -p xc3s50a-vq100-4 timesrc.ngc timesrc.ngd  
+map -intstyle ise -p xc3s50a-vq100-4 -cm area -ir off -pr off -c 100 -o timesrc_map.ncd timesrc.ngd timesrc.pcf 
+par -w -intstyle ise -ol high -t 1 timesrc_map.ncd timesrc.ncd timesrc.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml timesrc.twx timesrc.ncd -o timesrc.twr timesrc.pcf -ucf timesrc.ucf 

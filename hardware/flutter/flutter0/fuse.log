@@ -1,0 +1,30 @@
+Running: /opt/Xilinx/13.4/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc_test_isim_beh.exe -prj /home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc_test_beh.prj work.timesrc_test 
+ISim O.87xd (signature 0x8ddf5b5d)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/sipo.vhd" into library work
+Parsing VHDL file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/output_combinator.vhd" into library work
+Parsing VHDL file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/counter.vhd" into library work
+Parsing VHDL file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.vhd" into library work
+Parsing VHDL file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc_test.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 95388 KB
+Fuse CPU Usage: 1180 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture behavioral of entity counter [\counter(32)\]
+Compiling architecture behavioral of entity sipo [\sipo(40)\]
+Compiling architecture behavioral of entity output_combinator [\output_combinator(40,32)\]
+Compiling architecture behavioral of entity timesrc [\timesrc(40,32)\]
+Compiling architecture behavior of entity timesrc_test
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 13 VHDL Units
+Built simulation executable /home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc_test_isim_beh.exe
+Fuse Memory Usage: 208988 KB
+Fuse CPU Usage: 1280 ms
+GCC CPU Usage: 1940 ms
