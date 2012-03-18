@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.0125" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.3175" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -1468,7 +1468,7 @@ design rules under a new name.</description>
 <wire x1="42.97624375" y1="44.678884375" x2="42.773884375" y2="44.678884375" width="0.254" layer="1"/>
 <wire x1="42.773884375" y1="44.678884375" x2="41.275" y2="43.18" width="0.254" layer="1"/>
 <wire x1="41.275" y1="43.18" x2="41.275" y2="42.545" width="0.254" layer="1"/>
-<via x="41.275" y="42.545" extent="1-16" drill="0.5" shape="octagon"/>
+<via x="41.275" y="42.545" extent="1-16" drill="0.9" diameter="1.778" shape="octagon"/>
 <wire x1="41.275" y1="42.545" x2="43.18" y2="40.64" width="0.254" layer="16"/>
 <via x="43.18" y="40.64" extent="1-16" drill="0.5" shape="octagon"/>
 <wire x1="43.18" y1="40.64" x2="43.815" y2="41.275" width="0.254" layer="1"/>
@@ -1733,12 +1733,10 @@ design rules under a new name.</description>
 <via x="46.6725" y="37.465" extent="1-16" drill="0.5" shape="octagon"/>
 <wire x1="46.6725" y1="37.465" x2="46.6725" y2="38.475646875" width="0.254" layer="1"/>
 <wire x1="46.6725" y1="38.475646875" x2="47.925990625" y2="39.7291375" width="0.254" layer="1"/>
-<wire x1="92.395" y1="20.955" x2="91.7575" y2="20.955" width="0.8128" layer="1"/>
-<wire x1="91.7575" y1="20.955" x2="89.535" y2="23.1775" width="0.8128" layer="1"/>
-<wire x1="89.535" y1="23.1775" x2="89.535" y2="37.465" width="0.8128" layer="1"/>
-<wire x1="89.535" y1="37.465" x2="86.995" y2="40.005" width="0.8128" layer="1"/>
-<wire x1="86.995" y1="40.005" x2="86.6775" y2="40.005" width="0.4064" layer="1"/>
-<wire x1="86.6775" y1="40.005" x2="67.31" y2="59.3725" width="0.4064" layer="1"/>
+<wire x1="92.395" y1="20.955" x2="91.7575" y2="20.955" width="0.4064" layer="1"/>
+<wire x1="91.7575" y1="20.955" x2="89.535" y2="23.1775" width="0.4064" layer="1"/>
+<wire x1="89.535" y1="23.1775" x2="89.535" y2="37.1475" width="0.4064" layer="1"/>
+<wire x1="89.535" y1="37.1475" x2="67.31" y2="59.3725" width="0.4064" layer="1"/>
 <wire x1="67.31" y1="59.3725" x2="67.31" y2="64.135" width="0.4064" layer="1"/>
 <wire x1="67.31" y1="64.135" x2="67.6275" y2="64.4525" width="0.4064" layer="1"/>
 <wire x1="60.645" y1="60.0075" x2="60.645" y2="60.6425" width="0.4064" layer="1"/>
@@ -2060,6 +2058,48 @@ design rules under a new name.</description>
 </signal>
 <signal name="DONE">
 <contactref element="U2" pad="P54"/>
+</signal>
+<signal name="FASTCLK/CS">
+<contactref element="U$4" pad="A22(GND)"/>
+</signal>
+<signal name="SLOWCLK/MOSI">
+<contactref element="U$4" pad="A23(SLOWTIMEMOSI)"/>
+<contactref element="U2" pad="P97"/>
+<wire x1="30.460453125" y1="39.375584375" x2="69.5" y2="0.74" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="SLOWCLK/CLK">
+<contactref element="U$4" pad="A24(SLOWCLKCLK)"/>
+<contactref element="U2" pad="P77"/>
+<wire x1="70.5" y1="0.74" x2="37.531521875" y2="46.44665" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="SLOWCLK/CS">
+<contactref element="U$4" pad="A25(SLOWCLK/CS)"/>
+<contactref element="U2" pad="P90"/>
+<wire x1="32.935328125" y1="41.85045625" x2="71.5" y2="0.74" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="PPS">
+<contactref element="U$4" pad="A26(PPS)"/>
+<contactref element="U2" pad="P89"/>
+<wire x1="72.5" y1="0.74" x2="33.28888125" y2="42.204009375" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FASTCLK/CLK">
+<contactref element="U$4" pad="A27(GND)"/>
+<contactref element="U2" pad="P83"/>
+<contactref element="U2" pad="P85"/>
+<wire x1="34.70309375" y1="43.618225" x2="35.4102" y2="44.32533125" width="0" layer="19" extent="1-1"/>
+<wire x1="73.5" y1="0.74" x2="34.70309375" y2="43.618225" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FASTCLK+">
+<contactref element="U$4" pad="A29(FASTCLK+)"/>
+</signal>
+<signal name="FASTCLK-">
+<contactref element="U$4" pad="A28(FASTCLK-)"/>
+</signal>
+<signal name="FASTCLK/MOSI">
+<contactref element="U$4" pad="A30(GND)"/>
+</signal>
+<signal name="FASTCLK3V3">
+<contactref element="U$4" pad="A31(FASTCLK3V3)"/>
 </signal>
 </signals>
 </board>

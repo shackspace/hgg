@@ -13234,9 +13234,9 @@ Source: www.kingbright.com</description>
 <pin name="GND4" x="-10.16" y="-53.34" length="middle"/>
 <pin name="RX+" x="-10.16" y="-55.88" length="middle"/>
 <pin name="RX-" x="-10.16" y="-58.42" length="middle"/>
-<pin name="GND5" x="-10.16" y="-66.04" length="middle"/>
-<pin name="SLOWCLKMOSI" x="-10.16" y="-68.58" length="middle"/>
-<pin name="SLOWCLKCLK" x="-10.16" y="-71.12" length="middle"/>
+<pin name="FASTCLK/CS" x="-10.16" y="-66.04" length="middle"/>
+<pin name="SLOWCLK/MOSI" x="-10.16" y="-68.58" length="middle"/>
+<pin name="SLOWCLK/CLK" x="-10.16" y="-71.12" length="middle"/>
 <pin name="SLOWCLK/CS" x="-10.16" y="-73.66" length="middle"/>
 <pin name="PPS" x="-10.16" y="-76.2" length="middle"/>
 <pin name="FASTCLK+" x="-10.16" y="-81.28" length="middle"/>
@@ -13257,9 +13257,9 @@ Source: www.kingbright.com</description>
 <text x="10.16" y="-33.02" size="1.27" layer="94">JTAG</text>
 <text x="10.16" y="-76.2" size="1.27" layer="94">TIMING</text>
 <pin name="FASTCLK-" x="-10.16" y="-83.82" length="middle"/>
-<pin name="GND7" x="-10.16" y="-86.36" length="middle"/>
+<pin name="FASTCLK/MOSI" x="-10.16" y="-86.36" length="middle"/>
 <pin name="FASTCLK3V3" x="-10.16" y="-88.9" length="middle"/>
-<pin name="GND6" x="-10.16" y="-78.74" length="middle"/>
+<pin name="FASTCLK/CLK" x="-10.16" y="-78.74" length="middle"/>
 <pin name="B01" x="50.8" y="15.24" length="middle" rot="R180"/>
 <pin name="B02" x="50.8" y="12.7" length="middle" rot="R180"/>
 <pin name="B03" x="50.8" y="10.16" length="middle" rot="R180"/>
@@ -13345,14 +13345,14 @@ Source: www.kingbright.com</description>
 <connect gate="G$1" pin="B32" pad="B32"/>
 <connect gate="G$1" pin="FASTCLK+" pad="A29(FASTCLK+)"/>
 <connect gate="G$1" pin="FASTCLK-" pad="A28(FASTCLK-)"/>
+<connect gate="G$1" pin="FASTCLK/CLK" pad="A27(GND)"/>
+<connect gate="G$1" pin="FASTCLK/CS" pad="A22(GND)"/>
+<connect gate="G$1" pin="FASTCLK/MOSI" pad="A30(GND)"/>
 <connect gate="G$1" pin="FASTCLK3V3" pad="A31(FASTCLK3V3)"/>
 <connect gate="G$1" pin="GND1" pad="A07(GND)"/>
 <connect gate="G$1" pin="GND2" pad="A09(GND)"/>
 <connect gate="G$1" pin="GND3" pad="A11(GND)"/>
 <connect gate="G$1" pin="GND4" pad="A19(GND)"/>
-<connect gate="G$1" pin="GND5" pad="A22(GND)"/>
-<connect gate="G$1" pin="GND6" pad="A27(GND)"/>
-<connect gate="G$1" pin="GND7" pad="A30(GND)"/>
 <connect gate="G$1" pin="IRQ" pad="A02(IRQ)"/>
 <connect gate="G$1" pin="PPS" pad="A26(PPS)"/>
 <connect gate="G$1" pin="PRSNT1" pad="A01(PRSNT1)"/>
@@ -13361,9 +13361,9 @@ Source: www.kingbright.com</description>
 <connect gate="G$1" pin="RSVD2" pad="A05(RSVD2)"/>
 <connect gate="G$1" pin="RX+" pad="A20(RX+)"/>
 <connect gate="G$1" pin="RX-" pad="A21(RX-)"/>
+<connect gate="G$1" pin="SLOWCLK/CLK" pad="A24(SLOWCLKCLK)"/>
 <connect gate="G$1" pin="SLOWCLK/CS" pad="A25(SLOWCLK/CS)"/>
-<connect gate="G$1" pin="SLOWCLKCLK" pad="A24(SLOWCLKCLK)"/>
-<connect gate="G$1" pin="SLOWCLKMOSI" pad="A23(SLOWTIMEMOSI)"/>
+<connect gate="G$1" pin="SLOWCLK/MOSI" pad="A23(SLOWTIMEMOSI)"/>
 <connect gate="G$1" pin="TCK" pad="A15(TCK)"/>
 <connect gate="G$1" pin="TDI" pad="A12(TDI)"/>
 <connect gate="G$1" pin="TDO" pad="A13(TDO)"/>
@@ -13416,14 +13416,14 @@ Source: www.kingbright.com</description>
 <connect gate="G$1" pin="B32" pad="B32"/>
 <connect gate="G$1" pin="FASTCLK+" pad="A28(FASTCLK+)"/>
 <connect gate="G$1" pin="FASTCLK-" pad="A29(FASTCLK-)"/>
+<connect gate="G$1" pin="FASTCLK/CLK" pad="A09(GND)"/>
+<connect gate="G$1" pin="FASTCLK/CS" pad="A11(GND)"/>
+<connect gate="G$1" pin="FASTCLK/MOSI" pad="A07(GND)"/>
 <connect gate="G$1" pin="FASTCLK3V3" pad="A31(FASTCLK3V3)"/>
 <connect gate="G$1" pin="GND1" pad="A19(GND)"/>
 <connect gate="G$1" pin="GND2" pad="A22(GND)"/>
 <connect gate="G$1" pin="GND3" pad="A27(GND)"/>
 <connect gate="G$1" pin="GND4" pad="A30(GND)"/>
-<connect gate="G$1" pin="GND5" pad="A11(GND)"/>
-<connect gate="G$1" pin="GND6" pad="A09(GND)"/>
-<connect gate="G$1" pin="GND7" pad="A07(GND)"/>
 <connect gate="G$1" pin="IRQ" pad="A02(IRQ)"/>
 <connect gate="G$1" pin="PPS" pad="A26(PPS)"/>
 <connect gate="G$1" pin="PRSNT1" pad="A01(PRSNT1)"/>
@@ -13432,9 +13432,9 @@ Source: www.kingbright.com</description>
 <connect gate="G$1" pin="RSVD2" pad="A05(RSVD2)"/>
 <connect gate="G$1" pin="RX+" pad="A20(RX+)"/>
 <connect gate="G$1" pin="RX-" pad="A21(RX-)"/>
+<connect gate="G$1" pin="SLOWCLK/CLK" pad="A24(SLOWCLKCLK)"/>
 <connect gate="G$1" pin="SLOWCLK/CS" pad="A25(SLOWCLK/CS)"/>
-<connect gate="G$1" pin="SLOWCLKCLK" pad="A24(SLOWCLKCLK)"/>
-<connect gate="G$1" pin="SLOWCLKMOSI" pad="A23(SLOWCLKMOSI)"/>
+<connect gate="G$1" pin="SLOWCLK/MOSI" pad="A23(SLOWCLKMOSI)"/>
 <connect gate="G$1" pin="TCK" pad="A15(TCK)"/>
 <connect gate="G$1" pin="TDI" pad="A12(TDI)"/>
 <connect gate="G$1" pin="TDO" pad="A13(TDO)"/>
@@ -14463,6 +14463,106 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc3500.pdf</descripti
 <pinref part="U2" gate="BVCCAUX" pin="DONE"/>
 <wire x1="297.18" y1="78.74" x2="340.36" y2="78.74" width="0.1524" layer="91"/>
 <label x="335.28" y="78.74" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FASTCLK/CS" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="FASTCLK/CS"/>
+<wire x1="307.34" y1="215.9" x2="269.24" y2="215.9" width="0.1524" layer="91"/>
+<label x="269.24" y="215.9" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SLOWCLK/MOSI" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="SLOWCLK/MOSI"/>
+<wire x1="307.34" y1="213.36" x2="269.24" y2="213.36" width="0.1524" layer="91"/>
+<label x="269.24" y="213.36" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="B0" pin="IP_0"/>
+<wire x1="152.4" y1="421.64" x2="180.34" y2="421.64" width="0.1524" layer="91"/>
+<label x="175.26" y="421.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SLOWCLK/CLK" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="SLOWCLK/CLK"/>
+<wire x1="307.34" y1="210.82" x2="269.24" y2="210.82" width="0.1524" layer="91"/>
+<label x="269.24" y="210.82" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="B0" pin="IO_L01P_0/VREF_0"/>
+<wire x1="152.4" y1="452.12" x2="180.34" y2="452.12" width="0.1524" layer="91"/>
+<label x="175.26" y="452.12" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SLOWCLK/CS" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="SLOWCLK/CS"/>
+<wire x1="307.34" y1="208.28" x2="269.24" y2="208.28" width="0.1524" layer="91"/>
+<label x="269.24" y="208.28" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="B0" pin="IO_0/GCLK11"/>
+<wire x1="152.4" y1="454.66" x2="180.34" y2="454.66" width="0.1524" layer="91"/>
+<label x="175.26" y="454.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PPS" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="PPS"/>
+<wire x1="307.34" y1="205.74" x2="269.24" y2="205.74" width="0.1524" layer="91"/>
+<label x="269.24" y="205.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="B0" pin="IO_L04N_0/GCLK9"/>
+<wire x1="152.4" y1="434.34" x2="180.34" y2="434.34" width="0.1524" layer="91"/>
+<label x="175.26" y="434.34" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FASTCLK/CLK" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="FASTCLK/CLK"/>
+<wire x1="307.34" y1="203.2" x2="269.24" y2="203.2" width="0.1524" layer="91"/>
+<label x="269.24" y="203.2" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="B0" pin="IO_L02P_0/GCLK4"/>
+<wire x1="152.4" y1="447.04" x2="180.34" y2="447.04" width="0.1524" layer="91"/>
+<label x="175.26" y="447.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="B0" pin="IO_L03P_0/GCLK6"/>
+<wire x1="152.4" y1="441.96" x2="180.34" y2="441.96" width="0.1524" layer="91"/>
+<label x="175.26" y="441.96" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FASTCLK+" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="FASTCLK+"/>
+<wire x1="307.34" y1="200.66" x2="269.24" y2="200.66" width="0.1524" layer="91"/>
+<label x="269.24" y="200.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FASTCLK-" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="FASTCLK-"/>
+<wire x1="307.34" y1="198.12" x2="269.24" y2="198.12" width="0.1524" layer="91"/>
+<label x="269.24" y="198.12" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FASTCLK/MOSI" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="FASTCLK/MOSI"/>
+<wire x1="307.34" y1="195.58" x2="269.24" y2="195.58" width="0.1524" layer="91"/>
+<label x="269.24" y="195.58" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FASTCLK3V3" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="FASTCLK3V3"/>
+<wire x1="307.34" y1="193.04" x2="269.24" y2="193.04" width="0.1524" layer="91"/>
+<label x="269.24" y="193.04" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
