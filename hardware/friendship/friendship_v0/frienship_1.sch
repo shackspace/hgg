@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -3938,12 +3938,31 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
+<symbol name="VCC">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="VCC" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" prefix="GND">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="GND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="VCC" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="VCC" symbol="VCC" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -6812,6 +6831,12 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="SJ1" library="jumper" deviceset="SJ" device=""/>
+<part name="GND20" library="supply1" deviceset="GND" device=""/>
+<part name="GND21" library="supply1" deviceset="GND" device=""/>
+<part name="GND22" library="supply1" deviceset="GND" device=""/>
+<part name="GND23" library="supply1" deviceset="GND" device=""/>
+<part name="GND24" library="supply1" deviceset="GND" device=""/>
+<part name="P+1" library="supply1" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6859,7 +6884,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="PRSNT_LATCH" gate="A" x="-157.48" y="-43.18" rot="R180"/>
 <instance part="BUSMASTER" gate="A" x="-212.09" y="-35.56"/>
 <instance part="R7" gate="G$1" x="-127" y="-81.28"/>
-<instance part="R12" gate="G$1" x="-124.46" y="-38.1"/>
+<instance part="R12" gate="G$1" x="-125.222" y="-38.1"/>
 <instance part="INTACK_LATCH" gate="A" x="-157.48" y="5.08"/>
 <instance part="D1" gate="G$1" x="-129.54" y="-113.03" rot="R90"/>
 <instance part="D2" gate="G$1" x="-119.38" y="-113.03" rot="R90"/>
@@ -6869,6 +6894,15 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="R5" gate="G$1" x="-161.29" y="-128.27"/>
 <instance part="GND19" gate="1" x="-241.3" y="-40.64" rot="R270"/>
 <instance part="SJ1" gate="1" x="-63.5" y="-302.26"/>
+<instance part="INTACK_LATCH" gate="P" x="-160.02" y="38.1" rot="R180"/>
+<instance part="PRSNT_LATCH" gate="P" x="-180.34" y="-66.04" rot="R180"/>
+<instance part="IRQ_LATCH" gate="P" x="-180.34" y="-109.22" rot="R180"/>
+<instance part="GND20" gate="1" x="-50.546" y="-261.874"/>
+<instance part="GND21" gate="1" x="-152.4" y="45.72" rot="R90"/>
+<instance part="GND22" gate="1" x="-174.498" y="-58.42" rot="R90"/>
+<instance part="GND23" gate="1" x="-175.768" y="-101.6" rot="R90"/>
+<instance part="GND24" gate="1" x="-178.562" y="-10.16"/>
+<instance part="P+1" gate="VCC" x="-130.81" y="199.39"/>
 </instances>
 <busses>
 <bus name="IRQ0,IRQ1,IRQ2,IRQ3,/CS0,/CS1,/CS2,/CS3,PRSNT0,PRSNT1,PRSNT2,PRSNT3">
@@ -7110,6 +7144,31 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="-49.53" y1="-278.13" x2="-49.53" y2="-275.59" width="0.1524" layer="91"/>
 <wire x1="-49.53" y1="-275.59" x2="-55.88" y2="-275.59" width="0.1524" layer="91"/>
 <junction x="-49.53" y="-278.13"/>
+</segment>
+<segment>
+<wire x1="-59.69" y1="-253.492" x2="-50.546" y2="-253.492" width="0.1524" layer="91"/>
+<wire x1="-50.546" y1="-253.492" x2="-50.546" y2="-259.334" width="0.1524" layer="91"/>
+<pinref part="GND20" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GND21" gate="1" pin="GND"/>
+<pinref part="INTACK_LATCH" gate="P" pin="GND"/>
+<wire x1="-154.94" y1="45.72" x2="-160.02" y2="45.72" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="PRSNT_LATCH" gate="P" pin="GND"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+<wire x1="-177.038" y1="-58.42" x2="-180.34" y2="-58.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IRQ_LATCH" gate="P" pin="GND"/>
+<pinref part="GND23" gate="1" pin="GND"/>
+<wire x1="-178.308" y1="-101.6" x2="-180.34" y2="-101.6" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="INTACK_LATCH" gate="A" pin="G"/>
+<pinref part="GND24" gate="1" pin="GND"/>
+<wire x1="-178.562" y1="-7.62" x2="-170.18" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RX+" class="0">
@@ -7428,6 +7487,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="-22.86" y1="-81.28" x2="-27.94" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="-22.86" y="-81.28"/>
 <pinref part="T3" gate="G$1" pin="E"/>
+<junction x="-22.86" y="-185.42"/>
 </segment>
 </net>
 <net name="IRQ0" class="0">
@@ -7579,7 +7639,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </segment>
 <segment>
 <pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="-119.38" y1="-38.1" x2="-109.22" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-120.142" y1="-38.1" x2="-109.22" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PRSNT_LATCH" gate="A" pin="INH"/>
@@ -7598,6 +7658,28 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="-156.21" y1="-128.27" x2="-109.22" y2="-128.27" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="-109.22" y1="33.02" x2="-144.78" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="-144.78" y1="33.02" x2="-144.78" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="INTACK_LATCH" gate="P" pin="VCC"/>
+<wire x1="-144.78" y1="30.48" x2="-160.02" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="-109.22" y1="-66.04" x2="-172.72" y2="-66.04" width="0.1524" layer="91"/>
+<wire x1="-172.72" y1="-66.04" x2="-172.72" y2="-73.66" width="0.1524" layer="91"/>
+<pinref part="PRSNT_LATCH" gate="P" pin="VCC"/>
+<wire x1="-172.72" y1="-73.66" x2="-180.34" y2="-73.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IRQ_LATCH" gate="P" pin="VCC"/>
+<wire x1="-109.22" y1="-119.38" x2="-180.34" y2="-119.38" width="0.1524" layer="91"/>
+<wire x1="-180.34" y1="-119.38" x2="-180.34" y2="-116.84" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+1" gate="VCC" pin="VCC"/>
+<wire x1="-109.22" y1="193.04" x2="-130.81" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="-130.81" y1="193.04" x2="-130.81" y2="196.85" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="5V" class="0">
@@ -7672,6 +7754,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="-38.1" y1="39.37" x2="-33.02" y2="39.37" width="0.1524" layer="91"/>
 <wire x1="-92.71" y1="66.04" x2="-38.1" y2="66.04" width="0.1524" layer="91"/>
 <junction x="-38.1" y="66.04"/>
+<junction x="-27.94" y="82.55"/>
 </segment>
 <segment>
 <wire x1="-92.71" y1="-43.18" x2="-138.43" y2="-43.18" width="0.1524" layer="91"/>
@@ -7715,6 +7798,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="-26.67" y1="-167.64" x2="-26.67" y2="-147.32" width="0.1524" layer="91"/>
 <junction x="-26.67" y="-147.32"/>
 <wire x1="-92.71" y1="-167.64" x2="-38.1" y2="-167.64" width="0.1524" layer="91"/>
+<junction x="-38.1" y="-167.64"/>
 </segment>
 <segment>
 <pinref part="PRSNT_LATCH" gate="A" pin="E"/>
@@ -7797,11 +7881,11 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="INTACK_LATCH" gate="A" pin="G"/>
-<wire x1="-170.18" y1="-7.62" x2="-236.22" y2="-7.62" width="0.1524" layer="91"/>
-<wire x1="-236.22" y1="-7.62" x2="-236.22" y2="-30.48" width="0.1524" layer="91"/>
 <pinref part="BUSMASTER" gate="A" pin="1"/>
 <wire x1="-214.63" y1="-30.48" x2="-236.22" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="INTACK_LATCH" gate="A" pin="SER"/>
+<wire x1="-170.18" y1="15.24" x2="-236.22" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-236.22" y1="15.24" x2="-236.22" y2="-30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -7853,8 +7937,8 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="R12" gate="G$1" pin="1"/>
 <pinref part="PRSNT_LATCH" gate="A" pin="SER"/>
 <wire x1="-144.78" y1="-58.42" x2="-142.24" y2="-58.42" width="0.1524" layer="91"/>
-<wire x1="-142.24" y1="-58.42" x2="-129.54" y2="-58.42" width="0.1524" layer="91"/>
-<wire x1="-129.54" y1="-58.42" x2="-129.54" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-142.24" y1="-58.42" x2="-130.302" y2="-58.166" width="0.1524" layer="91"/>
+<wire x1="-130.302" y1="-58.166" x2="-130.302" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="PRSNT_LATCH" gate="A" pin="D"/>
 <wire x1="-144.78" y1="-48.26" x2="-143.51" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-143.51" y1="-48.26" x2="-142.24" y2="-49.53" width="0.1524" layer="91"/>
