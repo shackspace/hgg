@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -87,11 +87,11 @@
 <pad name="A14(TMS)" x="15" y="4.5" drill="0.5" diameter="1.27"/>
 <pad name="A15(TCK)" x="16" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="A16(TRST)" x="17" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A17(TX-)" x="18" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A18(TX+)" x="19" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A17(BUS0-)" x="18" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A18(BUS0+)" x="19" y="4.5" drill="0.5" diameter="1.27"/>
 <pad name="A19(GND)" x="20" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A20(RX+)" x="21" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A21(RX-)" x="22" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A20(BUS1+)" x="21" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A21(BUS1-)" x="22" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="A22(GND)" x="23" y="4.5" drill="0.5" diameter="1.27"/>
 <pad name="A23(SLOWCLKMOSI)" x="24" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="A24(SLOWCLKCLK)" x="25" y="4.5" drill="0.5" diameter="1.27"/>
@@ -193,11 +193,11 @@
 <smd name="A14(TMS)" x="60.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A15(TCK)" x="61.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A16(TRST)" x="62.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
-<smd name="A17(TX-)" x="63.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
-<smd name="A18(TX+)" x="64.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
+<smd name="A17(BUS0-)" x="63.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
+<smd name="A18(BUS0+)" x="64.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A19(GND)" x="65.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
-<smd name="A20(RX+)" x="66.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
-<smd name="A21(RX-)" x="67.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
+<smd name="A20(BUS1+)" x="66.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
+<smd name="A21(BUS1-)" x="67.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A22(GND)" x="68.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A23(SLOWTIMEMOSI)" x="69.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A24(SLOWCLKCLK)" x="70.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
@@ -1989,11 +1989,11 @@
 <pin name="TMS" x="-10.16" y="-35.56" length="middle"/>
 <pin name="TCK" x="-10.16" y="-38.1" length="middle"/>
 <pin name="TRST" x="-10.16" y="-40.64" length="middle"/>
-<pin name="TX-" x="-10.16" y="-48.26" length="middle"/>
-<pin name="TX+" x="-10.16" y="-50.8" length="middle"/>
+<pin name="BUS0-" x="-10.16" y="-48.26" length="middle"/>
+<pin name="BUS0+" x="-10.16" y="-50.8" length="middle"/>
 <pin name="GND4" x="-10.16" y="-53.34" length="middle"/>
-<pin name="RX+" x="-10.16" y="-55.88" length="middle"/>
-<pin name="RX-" x="-10.16" y="-58.42" length="middle"/>
+<pin name="BUS1+" x="-10.16" y="-55.88" length="middle"/>
+<pin name="BUS1-" x="-10.16" y="-58.42" length="middle"/>
 <pin name="GND5" x="-10.16" y="-66.04" length="middle"/>
 <pin name="SLOWCLKMOSI" x="-10.16" y="-68.58" length="middle"/>
 <pin name="SLOWCLKCLK" x="-10.16" y="-71.12" length="middle"/>
@@ -4315,6 +4315,10 @@
 <connect gate="G$1" pin="B30" pad="B30"/>
 <connect gate="G$1" pin="B31" pad="B31"/>
 <connect gate="G$1" pin="B32" pad="B32"/>
+<connect gate="G$1" pin="BUS0+" pad="A18(BUS0+)"/>
+<connect gate="G$1" pin="BUS0-" pad="A17(BUS0-)"/>
+<connect gate="G$1" pin="BUS1+" pad="A20(BUS1+)"/>
+<connect gate="G$1" pin="BUS1-" pad="A21(BUS1-)"/>
 <connect gate="G$1" pin="FASTCLK+" pad="A29(FASTCLK+)"/>
 <connect gate="G$1" pin="FASTCLK-" pad="A28(FASTCLK-)"/>
 <connect gate="G$1" pin="FASTCLK3V3" pad="A31(FASTCLK3V3)"/>
@@ -4334,8 +4338,6 @@
 <connect gate="G$1" pin="PRSNT2" pad="A32(PRSNT2)"/>
 <connect gate="G$1" pin="RSVD1" pad="A04(RSVD1)"/>
 <connect gate="G$1" pin="RSVD2" pad="A05(RSVD2)"/>
-<connect gate="G$1" pin="RX+" pad="A20(RX+)"/>
-<connect gate="G$1" pin="RX-" pad="A21(RX-)"/>
 <connect gate="G$1" pin="SLOWCLK/CS" pad="A25(SLOWCLK/CS)"/>
 <connect gate="G$1" pin="SLOWCLKCLK" pad="A24(SLOWCLKCLK)"/>
 <connect gate="G$1" pin="SLOWCLKMOSI" pad="A23(SLOWTIMEMOSI)"/>
@@ -4344,8 +4346,6 @@
 <connect gate="G$1" pin="TDO" pad="A13(TDO)"/>
 <connect gate="G$1" pin="TMS" pad="A14(TMS)"/>
 <connect gate="G$1" pin="TRST" pad="A16(TRST)"/>
-<connect gate="G$1" pin="TX+" pad="A18(TX+)"/>
-<connect gate="G$1" pin="TX-" pad="A17(TX-)"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -4386,6 +4386,10 @@
 <connect gate="G$1" pin="B30" pad="B30"/>
 <connect gate="G$1" pin="B31" pad="B31"/>
 <connect gate="G$1" pin="B32" pad="B32"/>
+<connect gate="G$1" pin="BUS0+" pad="A18(BUS0+)"/>
+<connect gate="G$1" pin="BUS0-" pad="A17(BUS0-)"/>
+<connect gate="G$1" pin="BUS1+" pad="A20(BUS1+)"/>
+<connect gate="G$1" pin="BUS1-" pad="A21(BUS1-)"/>
 <connect gate="G$1" pin="FASTCLK+" pad="A28(FASTCLK+)"/>
 <connect gate="G$1" pin="FASTCLK-" pad="A29(FASTCLK-)"/>
 <connect gate="G$1" pin="FASTCLK3V3" pad="A31(FASTCLK3V3)"/>
@@ -4405,8 +4409,6 @@
 <connect gate="G$1" pin="PRSNT2" pad="A32(PRSNT2)"/>
 <connect gate="G$1" pin="RSVD1" pad="A04(RSVD1)"/>
 <connect gate="G$1" pin="RSVD2" pad="A05(RSVD2)"/>
-<connect gate="G$1" pin="RX+" pad="A20(RX+)"/>
-<connect gate="G$1" pin="RX-" pad="A21(RX-)"/>
 <connect gate="G$1" pin="SLOWCLK/CS" pad="A25(SLOWCLK/CS)"/>
 <connect gate="G$1" pin="SLOWCLKCLK" pad="A24(SLOWCLKCLK)"/>
 <connect gate="G$1" pin="SLOWCLKMOSI" pad="A23(SLOWCLKMOSI)"/>
@@ -4415,8 +4417,6 @@
 <connect gate="G$1" pin="TDO" pad="A13(TDO)"/>
 <connect gate="G$1" pin="TMS" pad="A14(TMS)"/>
 <connect gate="G$1" pin="TRST" pad="A16(TRST)"/>
-<connect gate="G$1" pin="TX+" pad="A18(TX+)"/>
-<connect gate="G$1" pin="TX-" pad="A17(TX-)"/>
 </connects>
 <technologies>
 <technology name=""/>
