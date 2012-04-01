@@ -275,6 +275,8 @@
 <smd name="B30" x="76.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R270"/>
 </package>
 <package name="HGG_LOGO">
+<pad name="P$1" x="0" y="0" drill="0.8" shape="square"/>
+<text x="1.27" y="1.27" size="1.27" layer="21" font="vector">HGG LOGO</text>
 </package>
 </packages>
 <symbols>
