@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -53,6 +53,7 @@
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
@@ -7104,8 +7105,10 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <text x="-106.68" y="208.28" size="1.778" layer="91">VCC</text>
 <text x="-71.12" y="-259.08" size="1.778" layer="91">JTAG</text>
 <text x="-50.8" y="-270.51" size="1.778" layer="91">JTAG PINOUT</text>
-<text x="-228.6" y="203.2" size="1.778" layer="91">friendship0</text>
-<text x="-228.6" y="205.74" size="1.778" layer="91">hgg.aero</text>
+<text x="-228.6" y="215.9" size="1.778" layer="91">friendship0</text>
+<text x="-228.6" y="213.36" size="1.778" layer="91">hgg.aero</text>
+<text x="-228.6" y="218.44" size="1.778" layer="91">This work by hackerspace global grid is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.</text>
+<text x="-228.6" y="210.82" size="1.778" layer="91">(cc) 2012, armin@hgg.aero, hadez@hgg.aero</text>
 </plain>
 <instances>
 <instance part="PORT1" gate="G$1" x="25.4" y="67.31"/>
