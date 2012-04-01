@@ -1,0 +1,131 @@
+#Release 13.4 - par O.87xd (lin64)
+#Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+#Sat Feb 18 20:34:10 2012
+
+#
+## NOTE: This file is designed to be imported into a spreadsheet program
+# such as Microsoft Excel for viewing, printing and sorting. The |
+# character is used as the data field separator. This file is also designed
+# to support parsing.
+#
+#INPUT FILE:       timesrc_map.ncd
+#OUTPUT FILE:      timesrc_pad.csv
+#PART TYPE:        xc3s50a
+#SPEED GRADE:      -4
+#PACKAGE:          vq100
+#
+# Pinout by Pin Number:
+# 
+# -----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,
+Pin Number,Signal Name,Pin Usage,Pin Name,Direction,IO Standard,IO Bank Number,Drive (mA),Slew Rate,Termination,IOB Delay,Voltage,Constraint,IO Register,Signal Integrity,
+P1,,,TMS,,,,,,,,,,,,
+P2,,,TDI,,,,,,,,,,,,
+P3,,DIFFMLR,IO_L01P_3,UNUSED,,3,,,,,,,,,
+P4,,DIFFSLR,IO_L01N_3,UNUSED,,3,,,,,,,,,
+P5,,DIFFMLR,IO_L02P_3,UNUSED,,3,,,,,,,,,
+P6,,DIFFSLR,IO_L02N_3,UNUSED,,3,,,,,,,,,
+P7,,DIFFSI_NDT,IP_3/VREF_3,UNUSED,,3,,,,,,,,,
+P8,,,GND,,,,,,,,,,,,
+P9,,DIFFMLR,IO_L03P_3/LHCLK0,UNUSED,,3,,,,,,,,,
+P10,,DIFFSLR,IO_L03N_3/LHCLK1,UNUSED,,3,,,,,,,,,
+P11,,,VCCO_3,,,3,,,,,any******,,,,
+P12,,DIFFMLR,IO_L04P_3/LHCLK2,UNUSED,,3,,,,,,,,,
+P13,,DIFFSLR,IO_L04N_3/IRDY2/LHCLK3,UNUSED,,3,,,,,,,,,
+P14,,,GND,,,,,,,,,,,,
+P15,,DIFFMLR,IO_L05P_3/TRDY2/LHCLK6,UNUSED,,3,,,,,,,,,
+P16,,DIFFSLR,IO_L05N_3/LHCLK7,UNUSED,,3,,,,,,,,,
+P17,,,VCCINT,,,,,,,,1.2,,,,
+P18,,,GND,,,,,,,,,,,,
+P19,,DIFFMLR,IO_L06P_3,UNUSED,,3,,,,,,,,,
+P20,,DIFFSLR,IO_L06N_3,UNUSED,,3,,,,,,,,,
+P21,,DIFFMI_NDT,IP_3,UNUSED,,3,,,,,,,,,
+P22,,,VCCAUX,,,,,,,,2.5,,,,
+P23,,DIFFMTB,IO_L01P_2/M1,UNUSED,,2,,,,,,,,,
+P24,,DIFFMTB,IO_L02P_2/M2,UNUSED,,2,,,,,,,,,
+P25,,DIFFSTB,IO_L01N_2/M0,UNUSED,,2,,,,,,,,,
+P26,,,VCCO_2,,,2,,,,,any******,,,,
+P27,,DIFFSTB,IO_L02N_2/CSO_B,UNUSED,,2,,,,,,,,,
+P28,,DIFFMTB,IO_L03P_2/RDWR_B,UNUSED,,2,,,,,,,,,
+P29,,DIFFMTB,IO_L04P_2/VS2,UNUSED,,2,,,,,,,,,
+P30,,DIFFSTB,IO_L03N_2/VS1,UNUSED,,2,,,,,,,,,
+P31,,DIFFSTB,IO_L04N_2/VS0,UNUSED,,2,,,,,,,,,
+P32,,DIFFMTB,IO_L05P_2,UNUSED,,2,,,,,,,,,
+P33,,DIFFMTB,IO_L06P_2,UNUSED,,2,,,,,,,,,
+P34,,DIFFSTB,IO_L05N_2/D7,UNUSED,,2,,,,,,,,,
+P35,,DIFFSTB,IO_L06N_2/D6,UNUSED,,2,,,,,,,,,
+P36,,DIFFMTB,IO_L07P_2/D5,UNUSED,,2,,,,,,,,,
+P37,,DIFFSTB,IO_L07N_2/D4,UNUSED,,2,,,,,,,,,
+P38,,,VCCINT,,,,,,,,1.2,,,,
+P39,,IBUF,IP_2/VREF_2,UNUSED,,2,,,,,,,,,
+P40,,DIFFMTB,IO_L08P_2/GCLK14,UNUSED,,2,,,,,,,,,
+P41,,DIFFSTB,IO_L08N_2/GCLK15,UNUSED,,2,,,,,,,,,
+P42,,,GND,,,,,,,,,,,,
+P43,,DIFFMTB,IO_L09P_2/GCLK0,UNUSED,,2,,,,,,,,,
+P44,,DIFFSTB,IO_L09N_2/GCLK1,UNUSED,,2,,,,,,,,,
+P45,,,VCCO_2,,,2,,,,,any******,,,,
+P46,,DIFFMTB,IO_2/MOSI/CSI_B,UNUSED,,2,,,,,,,,,
+P47,,,GND,,,,,,,,,,,,
+P48,,DIFFMTB,IO_L10P_2/INIT_B,UNUSED,,2,,,,,,,,,
+P49,,DIFFSTB,IO_L10N_2/D3,UNUSED,,2,,,,,,,,,
+P50,,DIFFMTB,IO_L11P_2/D2,UNUSED,,2,,,,,,,,,
+P51,,DIFFSTB,IO_L11N_2/D0/DIN/MISO,UNUSED,,2,,,,,,,,,
+P52,,DIFFMTB,IO_L12P_2/D1,UNUSED,,2,,,,,,,,,
+P53,,DIFFSTB,IO_L12N_2/CCLK,UNUSED,,2,,,,,,,,,
+P54,,,DONE,,,,,,,,,,,,
+P55,,,VCCAUX,,,,,,,,2.5,,,,
+P56,,DIFFMLR,IO_L01P_1,UNUSED,,1,,,,,,,,,
+P57,,DIFFSLR,IO_L01N_1,UNUSED,,1,,,,,,,,,
+P58,,,GND,,,,,,,,,,,,
+P59,,DIFFMLR,IO_L02P_1/RHCLK0,UNUSED,,1,,,,,,,,,
+P60,,DIFFSLR,IO_L02N_1/RHCLK1,UNUSED,,1,,,,,,,,,
+P61,,DIFFMLR,IO_L03P_1/RHCLK2,UNUSED,,1,,,,,,,,,
+P62,,DIFFSLR,IO_L03N_1/TRDY1/RHCLK3,UNUSED,,1,,,,,,,,,
+P63,,,GND,,,,,,,,,,,,
+P64,,DIFFMLR,IO_L04P_1/IRDY1/RHCLK6,UNUSED,,1,,,,,,,,,
+P65,,DIFFSLR,IO_L04N_1/RHCLK7,UNUSED,,1,,,,,,,,,
+P66,,,VCCINT,,,,,,,,1.2,,,,
+P67,,,VCCO_1,,,1,,,,,any******,,,,
+P68,,DIFFMI_NDT,IP_1/VREF_1,UNUSED,,1,,,,,,,,,
+P69,,,GND,,,,,,,,,,,,
+P70,,DIFFMLR,IO_L05P_1,UNUSED,,1,,,,,,,,,
+P71,,DIFFSLR,IO_L05N_1,UNUSED,,1,,,,,,,,,
+P72,,DIFFMLR,IO_L06P_1,UNUSED,,1,,,,,,,,,
+P73,,DIFFSLR,IO_L06N_1,UNUSED,,1,,,,,,,,,
+P74,,,GND,,,,,,,,,,,,
+P75,,,TDO,,,,,,,,,,,,
+P76,,,TCK,,,,,,,,,,,,
+P77,SPIIN_CLK,IBUF,IO_L01P_0/VREF_0,INPUT,LVTTL,0,,,,IBUF,,LOCATED,NO,NONE,
+P78,,DIFFSTB,IO_L01N_0,UNUSED,,0,,,,,,,,,
+P79,,,VCCO_0,,,0,,,,,3.30,,,,
+P80,,,GND,,,,,,,,,,,,
+P81,,,VCCINT,,,,,,,,1.2,,,,
+P82,,IBUF,IP_0/VREF_0,UNUSED,,0,,,,,,,,,
+P83,DOUT_CLK,IBUF,IO_L02P_0/GCLK4,INPUT,LVTTL,0,,,,IBUF,,LOCATED,NO,NONE,
+P84,,DIFFSTB,IO_L02N_0/GCLK5,UNUSED,,0,,,,,,,,,
+P85,SPIOUT_CLK,IOB,IO_L03P_0/GCLK6,OUTPUT,LVTTL,0,12,SLOW,NONE**,,,LOCATED,NO,NONE,
+P86,TIME_CLK,IBUF,IO_L03N_0/GCLK7,INPUT,LVTTL,0,,,,IBUF,,LOCATED,NO,NONE,
+P87,,,GND,,,,,,,,,,,,
+P88,,DIFFMTB,IO_L04P_0/GCLK8,UNUSED,,0,,,,,,,,,
+P89,TIME_CLR,IBUF,IO_L04N_0/GCLK9,INPUT,LVTTL,0,,,,IBUF,,LOCATED,NO,NONE,
+P90,SPIIN_CS,IBUF,IO_0/GCLK11,INPUT,LVTTL,0,,,,IBUF,,LOCATED,NO,NONE,
+P91,,,GND,,,,,,,,,,,,
+P92,,,VCCAUX,,,,,,,,2.5,,,,
+P93,RST,IBUF,IO_L05P_0,INPUT,LVTTL,0,,,PULLUP,IBUF,,LOCATED,NO,NONE,
+P94,,DIFFSTB,IO_L05N_0,UNUSED,,0,,,,,,,,,
+P95,,,GND,,,,,,,,,,,,
+P96,,,VCCO_0,,,0,,,,,3.30,,,,
+P97,SPIIN_DATA,IBUF,IP_0,INPUT,LVTTL,0,,,,IBUF,,LOCATED,NO,NONE,
+P98,SPIOUT_CS,IOB,IO_L06P_0/VREF_0,OUTPUT,LVTTL,0,12,SLOW,NONE**,,,LOCATED,YES,NONE,
+P99,SPIOUT_DATA,IOB,IO_L06N_0/PUDC_B,OUTPUT,LVTTL,0,12,SLOW,NONE**,,,LOCATED,YES,NONE,
+P100,,,PROG_B,,,,,,,,,,,,
+
+# -----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,
+# 
+#* Default value.
+#** This default Pullup/Pulldown value can be overridden in Bitgen. 
+#****** Special VCCO requirements may apply. Please consult the device 
+#       family datasheet for specific guideline on VCCO requirements. 
+#
+#
+#

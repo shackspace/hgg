@@ -1,0 +1,739 @@
+Release 13.4 - xst O.87xd (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: timesrc.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "timesrc.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "timesrc"
+Output Format                      : NGC
+Target Device                      : xc3s50a-4-vq100
+
+---- Source Options
+Top Module Name                    : timesrc
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+CASE Implementation Style          : Full-Parallel
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/counter.vhd" in Library work.
+Architecture behavioral of Entity counter is up to date.
+Compiling vhdl file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/sipo.vhd" in Library work.
+Entity <sipo> compiled.
+Entity <sipo> (Architecture <behavioral>) compiled.
+Compiling vhdl file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/output_combinator.vhd" in Library work.
+Entity <output_combinator> compiled.
+Entity <output_combinator> (Architecture <behavioral>) compiled.
+Compiling vhdl file "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.vhd" in Library work.
+Entity <timesrc> compiled.
+Entity <timesrc> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <timesrc> in library <work> (architecture <behavioral>) with generics.
+	COUNTERBITS = 32
+	SLOWBITS = 40
+
+Analyzing hierarchy for entity <counter> in library <work> (architecture <behavioral>) with generics.
+	BITS = 32
+
+Analyzing hierarchy for entity <sipo> in library <work> (architecture <behavioral>) with generics.
+	BITS = 40
+
+Analyzing hierarchy for entity <output_combinator> in library <work> (architecture <behavioral>) with generics.
+	COUNTERBITS = 32
+	SLOWBITS = 40
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <timesrc> in library <work> (Architecture <behavioral>).
+	COUNTERBITS = 32
+	SLOWBITS = 40
+Entity <timesrc> analyzed. Unit <timesrc> generated.
+
+Analyzing generic Entity <counter> in library <work> (Architecture <behavioral>).
+	BITS = 32
+Entity <counter> analyzed. Unit <counter> generated.
+
+Analyzing generic Entity <sipo> in library <work> (Architecture <behavioral>).
+	BITS = 40
+Entity <sipo> analyzed. Unit <sipo> generated.
+
+Analyzing generic Entity <output_combinator> in library <work> (Architecture <behavioral>).
+	COUNTERBITS = 32
+	SLOWBITS = 40
+WARNING:Xst:819 - "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/output_combinator.vhd" line 77: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <state>, <dataPresent>, <previousToLastDataPresentState>, <SPI_SEND_COUNTER>
+WARNING:Xst:819 - "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/output_combinator.vhd" line 98: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <Q_INT>
+Entity <output_combinator> analyzed. Unit <output_combinator> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <counter>.
+    Related source file is "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/counter.vhd".
+    Found 32-bit up counter for signal <Q_INT>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <counter> synthesized.
+
+
+Synthesizing Unit <sipo>.
+    Related source file is "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/sipo.vhd".
+    Found 40-bit register for signal <Q_INT>.
+    Found 40-bit register for signal <Q_OUT>.
+    Found 1-bit register for signal <VALID_INT>.
+    Summary:
+	inferred  81 D-type flip-flop(s).
+Unit <sipo> synthesized.
+
+
+Synthesizing Unit <output_combinator>.
+    Related source file is "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/output_combinator.vhd".
+WARNING:Xst:1780 - Signal <debug_state_int> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 5                                              |
+    | Clock              | DCLK                      (rising_edge)        |
+    | Reset              | RST                       (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 32-bit latch for signal <SPI_SEND_COUNTER>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <QCS>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <Q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 72-bit latch for signal <Q_PISO>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 1-bit register for signal <dataPresent>.
+    Found 1-bit register for signal <lastDataPresentState>.
+    Found 1-bit register for signal <previousToLastDataPresentState>.
+    Found 72-bit register for signal <Q_INT>.
+    Found 32-bit subtractor for signal <SPI_SEND_COUNTER$addsub0000> created at line 112.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  75 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <output_combinator> synthesized.
+
+
+Synthesizing Unit <timesrc>.
+    Related source file is "/home/gjehle/Development/shackspace/hgg/hardware/flutter/flutter0/timesrc.vhd".
+WARNING:Xst:646 - Signal <sipo_valid> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <LATCH> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <timesrc> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 32-bit subtractor                                     : 1
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 78
+ 1-bit register                                        : 76
+ 40-bit register                                       : 2
+# Latches                                              : 4
+ 1-bit latch                                           : 2
+ 32-bit latch                                          : 1
+ 72-bit latch                                          : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <output_combinator_map/state/FSM> on signal <state[1:3]> with gray encoding.
+------------------------------
+ State            | Encoding
+------------------------------
+ idle             | 000
+ prepare_send     | 001
+ sending_setdata  | 011
+ sending_setclock | 110
+ cleanup_send     | 010
+------------------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 1
+ 32-bit subtractor                                     : 1
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 156
+ Flip-Flops                                            : 156
+# Latches                                              : 4
+ 1-bit latch                                           : 2
+ 32-bit latch                                          : 1
+ 72-bit latch                                          : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <timesrc> ...
+
+Optimizing unit <sipo> ...
+
+Optimizing unit <output_combinator> ...
+WARNING:Xst:2677 - Node <sipo_map/VALID_INT> of sequential type is unconnected in block <timesrc>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block timesrc, actual ratio is 26.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 190
+ Flip-Flops                                            : 190
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : timesrc.ngr
+Top Level Output File Name         : timesrc
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 10
+
+Cell Usage :
+# BELS                             : 320
+#      GND                         : 1
+#      INV                         : 34
+#      LUT1                        : 32
+#      LUT2                        : 37
+#      LUT3                        : 4
+#      LUT4                        : 84
+#      MUXCY                       : 62
+#      MUXF5                       : 1
+#      VCC                         : 1
+#      XORCY                       : 64
+# FlipFlops/Latches                : 296
+#      FDC                         : 78
+#      FDC_1                       : 40
+#      FDCE                        : 40
+#      FDE                         : 32
+#      LD_1                        : 106
+# Clock Buffers                    : 7
+#      BUFG                        : 4
+#      BUFGP                       : 3
+# IO Buffers                       : 7
+#      IBUF                        : 4
+#      OBUF                        : 3
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s50avq100-4 
+
+ Number of Slices:                      184  out of    704    26%  
+ Number of Slice Flip Flops:            294  out of   1408    20%  
+ Number of 4 input LUTs:                191  out of   1408    13%  
+ Number of IOs:                          10
+ Number of bonded IOBs:                  10  out of     68    14%  
+    IOB Flip Flops:                       2
+ Number of GCLKs:                         7  out of     24    29%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+------------------------------------------------------------------------------------------------+---------------------------------------------------+-------+
+Clock Signal                                                                                    | Clock buffer(FF name)                             | Load  |
+------------------------------------------------------------------------------------------------+---------------------------------------------------+-------+
+TIME_CLK                                                                                        | BUFGP                                             | 32    |
+SPIIN_CS                                                                                        | IBUF+BUFG                                         | 40    |
+SPIIN_CLK                                                                                       | BUFGP                                             | 40    |
+output_combinator_map/SPI_SEND_COUNTER_or00001(output_combinator_map/SPI_SEND_COUNTER_or00001:O)| BUFG(*)(output_combinator_map/SPI_SEND_COUNTER_31)| 32    |
+output_combinator_map/Q_PISO_or00001(output_combinator_map/Q_PISO_or00001:O)                    | BUFG(*)(output_combinator_map/Q_PISO_71)          | 72    |
+DOUT_CLK                                                                                        | BUFGP                                             | 5     |
+output_combinator_map/QCS_or0000(output_combinator_map/QCS_or000011:O)                          | NONE(*)(output_combinator_map/QCS)                | 1     |
+output_combinator_map/state_FSM_FFd1                                                            | NONE(output_combinator_map/Q)                     | 1     |
+TIME_CLR                                                                                        | IBUF+BUFG                                         | 73    |
+------------------------------------------------------------------------------------------------+---------------------------------------------------+-------+
+(*) These 3 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+--------------------------------------------------------+-------------------------------------+-------+
+Control Signal                                          | Buffer(FF name)                     | Load  |
+--------------------------------------------------------+-------------------------------------+-------+
+output_combinator_map/RST_inv(sipo_map/RST_inv1_INV_0:O)| NONE(output_combinator_map/Q_INT_32)| 126   |
+counter_rst_inv(counter_rst_inv1:O)                     | NONE(counter_map/Q_INT_0)           | 32    |
+--------------------------------------------------------+-------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.787ns (Maximum Frequency: 147.340MHz)
+   Minimum input arrival time before clock: 2.426ns
+   Maximum output required time after clock: 6.375ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'TIME_CLK'
+  Clock period: 5.442ns (frequency: 183.756MHz)
+  Total number of paths / destination ports: 528 / 32
+-------------------------------------------------------------------------
+Delay:               5.442ns (Levels of Logic = 32)
+  Source:            counter_map/Q_INT_1 (FF)
+  Destination:       counter_map/Q_INT_31 (FF)
+  Source Clock:      TIME_CLK rising
+  Destination Clock: TIME_CLK rising
+
+  Data Path: counter_map/Q_INT_1 to counter_map/Q_INT_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.591   0.590  counter_map/Q_INT_1 (counter_map/Q_INT_1)
+     LUT1:I0->O            1   0.648   0.000  counter_map/Mcount_Q_INT_cy<1>_rt (counter_map/Mcount_Q_INT_cy<1>_rt)
+     MUXCY:S->O            1   0.632   0.000  counter_map/Mcount_Q_INT_cy<1> (counter_map/Mcount_Q_INT_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<2> (counter_map/Mcount_Q_INT_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<3> (counter_map/Mcount_Q_INT_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<4> (counter_map/Mcount_Q_INT_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<5> (counter_map/Mcount_Q_INT_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<6> (counter_map/Mcount_Q_INT_cy<6>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<7> (counter_map/Mcount_Q_INT_cy<7>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<8> (counter_map/Mcount_Q_INT_cy<8>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<9> (counter_map/Mcount_Q_INT_cy<9>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<10> (counter_map/Mcount_Q_INT_cy<10>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<11> (counter_map/Mcount_Q_INT_cy<11>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<12> (counter_map/Mcount_Q_INT_cy<12>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<13> (counter_map/Mcount_Q_INT_cy<13>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<14> (counter_map/Mcount_Q_INT_cy<14>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<15> (counter_map/Mcount_Q_INT_cy<15>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<16> (counter_map/Mcount_Q_INT_cy<16>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<17> (counter_map/Mcount_Q_INT_cy<17>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<18> (counter_map/Mcount_Q_INT_cy<18>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<19> (counter_map/Mcount_Q_INT_cy<19>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<20> (counter_map/Mcount_Q_INT_cy<20>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<21> (counter_map/Mcount_Q_INT_cy<21>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<22> (counter_map/Mcount_Q_INT_cy<22>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<23> (counter_map/Mcount_Q_INT_cy<23>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<24> (counter_map/Mcount_Q_INT_cy<24>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<25> (counter_map/Mcount_Q_INT_cy<25>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<26> (counter_map/Mcount_Q_INT_cy<26>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<27> (counter_map/Mcount_Q_INT_cy<27>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<28> (counter_map/Mcount_Q_INT_cy<28>)
+     MUXCY:CI->O           1   0.065   0.000  counter_map/Mcount_Q_INT_cy<29> (counter_map/Mcount_Q_INT_cy<29>)
+     MUXCY:CI->O           0   0.065   0.000  counter_map/Mcount_Q_INT_cy<30> (counter_map/Mcount_Q_INT_cy<30>)
+     XORCY:CI->O           1   0.844   0.000  counter_map/Mcount_Q_INT_xor<31> (Result<31>)
+     FDC:D                     0.252          counter_map/Q_INT_31
+    ----------------------------------------
+    Total                      5.442ns (4.852ns logic, 0.590ns route)
+                                       (89.2% logic, 10.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'SPIIN_CLK'
+  Clock period: 1.290ns (frequency: 775.194MHz)
+  Total number of paths / destination ports: 39 / 39
+-------------------------------------------------------------------------
+Delay:               1.290ns (Levels of Logic = 0)
+  Source:            sipo_map/Q_INT_38 (FF)
+  Destination:       sipo_map/Q_INT_39 (FF)
+  Source Clock:      SPIIN_CLK rising
+  Destination Clock: SPIIN_CLK rising
+
+  Data Path: sipo_map/Q_INT_38 to sipo_map/Q_INT_39
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.591   0.447  sipo_map/Q_INT_38 (sipo_map/Q_INT_38)
+     FDCE:D                    0.252          sipo_map/Q_INT_39
+    ----------------------------------------
+    Total                      1.290ns (0.843ns logic, 0.447ns route)
+                                       (65.3% logic, 34.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'output_combinator_map/SPI_SEND_COUNTER_or00001'
+  Clock period: 6.787ns (frequency: 147.340MHz)
+  Total number of paths / destination ports: 528 / 32
+-------------------------------------------------------------------------
+Delay:               6.787ns (Levels of Logic = 34)
+  Source:            output_combinator_map/SPI_SEND_COUNTER_0 (LATCH)
+  Destination:       output_combinator_map/SPI_SEND_COUNTER_31 (LATCH)
+  Source Clock:      output_combinator_map/SPI_SEND_COUNTER_or00001 rising
+  Destination Clock: output_combinator_map/SPI_SEND_COUNTER_or00001 rising
+
+  Data Path: output_combinator_map/SPI_SEND_COUNTER_0 to output_combinator_map/SPI_SEND_COUNTER_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD_1:G->Q             2   0.728   0.590  output_combinator_map/SPI_SEND_COUNTER_0 (output_combinator_map/SPI_SEND_COUNTER_0)
+     LUT1:I0->O            1   0.648   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<0>_rt (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<0>_rt)
+     MUXCY:S->O            1   0.632   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<0> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<1> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<2> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<3> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<4> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<5> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<6> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<7> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<8> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<9> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<10> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<11> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<12> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<13> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<14> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<15> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<16> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<16>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<17> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<17>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<18> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<18>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<19> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<19>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<20> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<20>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<21> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<21>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<22> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<22>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<23> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<23>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<24> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<24>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<25> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<25>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<26> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<26>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<27> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<27>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<28> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<28>)
+     MUXCY:CI->O           1   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<29> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<29>)
+     MUXCY:CI->O           0   0.065   0.000  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<30> (output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_cy<30>)
+     XORCY:CI->O           1   0.844   0.500  output_combinator_map/Msub_SPI_SEND_COUNTER_addsub0000_xor<31> (output_combinator_map/SPI_SEND_COUNTER_addsub0000<31>)
+     LUT2:I1->O            1   0.643   0.000  output_combinator_map/SPI_SEND_COUNTER_mux0000<31>1 (output_combinator_map/SPI_SEND_COUNTER_mux0000<31>)
+     LD_1:D                    0.252          output_combinator_map/SPI_SEND_COUNTER_31
+    ----------------------------------------
+    Total                      6.787ns (5.697ns logic, 1.090ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'output_combinator_map/Q_PISO_or00001'
+  Clock period: 2.080ns (frequency: 480.769MHz)
+  Total number of paths / destination ports: 71 / 71
+-------------------------------------------------------------------------
+Delay:               2.080ns (Levels of Logic = 1)
+  Source:            output_combinator_map/Q_PISO_71 (LATCH)
+  Destination:       output_combinator_map/Q_PISO_70 (LATCH)
+  Source Clock:      output_combinator_map/Q_PISO_or00001 rising
+  Destination Clock: output_combinator_map/Q_PISO_or00001 rising
+
+  Data Path: output_combinator_map/Q_PISO_71 to output_combinator_map/Q_PISO_70
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD_1:G->Q             1   0.728   0.452  output_combinator_map/Q_PISO_71 (output_combinator_map/Q_PISO_71)
+     LUT4:I2->O            1   0.648   0.000  output_combinator_map/Q_PISO_mux0000<70>1 (output_combinator_map/Q_PISO_mux0000<70>)
+     LD_1:D                    0.252          output_combinator_map/Q_PISO_70
+    ----------------------------------------
+    Total                      2.080ns (1.628ns logic, 0.452ns route)
+                                       (78.3% logic, 21.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'DOUT_CLK'
+  Clock period: 3.174ns (frequency: 315.018MHz)
+  Total number of paths / destination ports: 11 / 4
+-------------------------------------------------------------------------
+Delay:               3.174ns (Levels of Logic = 2)
+  Source:            output_combinator_map/state_FSM_FFd1 (FF)
+  Destination:       output_combinator_map/state_FSM_FFd3 (FF)
+  Source Clock:      DOUT_CLK rising
+  Destination Clock: DOUT_CLK rising
+
+  Data Path: output_combinator_map/state_FSM_FFd1 to output_combinator_map/state_FSM_FFd3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             39   0.591   1.407  output_combinator_map/state_FSM_FFd1 (output_combinator_map/state_FSM_FFd1)
+     LUT2:I0->O            1   0.648   0.000  output_combinator_map/state_FSM_FFd3-In1 (output_combinator_map/state_FSM_FFd3-In1)
+     MUXF5:I1->O           1   0.276   0.000  output_combinator_map/state_FSM_FFd3-In_f5 (output_combinator_map/state_FSM_FFd3-In)
+     FDC:D                     0.252          output_combinator_map/state_FSM_FFd3
+    ----------------------------------------
+    Total                      3.174ns (1.767ns logic, 1.407ns route)
+                                       (55.7% logic, 44.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'TIME_CLR'
+  Clock period: 2.442ns (frequency: 409.500MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               2.442ns (Levels of Logic = 1)
+  Source:            output_combinator_map/dataPresent (FF)
+  Destination:       output_combinator_map/dataPresent (FF)
+  Source Clock:      TIME_CLR rising
+  Destination Clock: TIME_CLR rising
+
+  Data Path: output_combinator_map/dataPresent to output_combinator_map/dataPresent
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.591   0.531  output_combinator_map/dataPresent (output_combinator_map/dataPresent)
+     INV:I->O              1   0.648   0.420  output_combinator_map/dataPresent_not00011_INV_0 (output_combinator_map/dataPresent_not0001)
+     FDC:D                     0.252          output_combinator_map/dataPresent
+    ----------------------------------------
+    Total                      2.442ns (1.491ns logic, 0.951ns route)
+                                       (61.1% logic, 38.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPIIN_CLK'
+  Total number of paths / destination ports: 41 / 41
+-------------------------------------------------------------------------
+Offset:              2.426ns (Levels of Logic = 1)
+  Source:            SPIIN_CS (PAD)
+  Destination:       sipo_map/Q_INT_39 (FF)
+  Destination Clock: SPIIN_CLK rising
+
+  Data Path: SPIIN_CS to sipo_map/Q_INT_39
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            41   0.849   1.265  SPIIN_CS_IBUF (SPIIN_CS_IBUF1)
+     FDCE:CE                   0.312          sipo_map/Q_INT_0
+    ----------------------------------------
+    Total                      2.426ns (1.161ns logic, 1.265ns route)
+                                       (47.9% logic, 52.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'TIME_CLR'
+  Total number of paths / destination ports: 32 / 32
+-------------------------------------------------------------------------
+Offset:              2.424ns (Levels of Logic = 1)
+  Source:            RST (PAD)
+  Destination:       output_combinator_map/Q_INT_9 (FF)
+  Destination Clock: TIME_CLR rising
+
+  Data Path: RST to output_combinator_map/Q_INT_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            34   0.849   1.263  RST_IBUF (RST_IBUF)
+     FDE:CE                    0.312          output_combinator_map/Q_INT_10
+    ----------------------------------------
+    Total                      2.424ns (1.161ns logic, 1.263ns route)
+                                       (47.9% logic, 52.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'output_combinator_map/state_FSM_FFd1'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              5.668ns (Levels of Logic = 1)
+  Source:            output_combinator_map/Q (LATCH)
+  Destination:       SPIOUT_DATA (PAD)
+  Source Clock:      output_combinator_map/state_FSM_FFd1 rising
+
+  Data Path: output_combinator_map/Q to SPIOUT_DATA
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD_1:G->Q             1   0.728   0.420  output_combinator_map/Q (output_combinator_map/Q)
+     OBUF:I->O                 4.520          SPIOUT_DATA_OBUF (SPIOUT_DATA)
+    ----------------------------------------
+    Total                      5.668ns (5.248ns logic, 0.420ns route)
+                                       (92.6% logic, 7.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'DOUT_CLK'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              6.375ns (Levels of Logic = 1)
+  Source:            output_combinator_map/state_FSM_FFd1 (FF)
+  Destination:       SPIOUT_CLK (PAD)
+  Source Clock:      DOUT_CLK rising
+
+  Data Path: output_combinator_map/state_FSM_FFd1 to SPIOUT_CLK
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             39   0.591   1.264  output_combinator_map/state_FSM_FFd1 (output_combinator_map/state_FSM_FFd1)
+     OBUF:I->O                 4.520          SPIOUT_CLK_OBUF (SPIOUT_CLK)
+    ----------------------------------------
+    Total                      6.375ns (5.111ns logic, 1.264ns route)
+                                       (80.2% logic, 19.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'output_combinator_map/QCS_or0000'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              5.668ns (Levels of Logic = 1)
+  Source:            output_combinator_map/QCS (LATCH)
+  Destination:       SPIOUT_CS (PAD)
+  Source Clock:      output_combinator_map/QCS_or0000 rising
+
+  Data Path: output_combinator_map/QCS to SPIOUT_CS
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD_1:G->Q             1   0.728   0.420  output_combinator_map/QCS (output_combinator_map/QCS)
+     OBUF:I->O                 4.520          SPIOUT_CS_OBUF (SPIOUT_CS)
+    ----------------------------------------
+    Total                      5.668ns (5.248ns logic, 0.420ns route)
+                                       (92.6% logic, 7.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.35 secs
+ 
+--> 
+
+
+Total memory usage is 536408 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
+
