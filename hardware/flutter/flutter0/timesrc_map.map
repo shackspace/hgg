@@ -1,0 +1,76 @@
+Release 13.4 Map O.87xd (lin64)
+Xilinx Map Application Log File for Design 'timesrc'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s50a-vq100-4 -cm area -ir off -pr off
+-c 100 -o timesrc_map.ncd timesrc.ngd timesrc.pcf 
+Target Device  : xc3s50a
+Target Package : vq100
+Target Speed   : -4
+Mapper Version : spartan3a -- $Revision: 1.55 $
+Mapped Date    : Sat Feb 18 20:34:00 2012
+
+Mapping design into LUTs...
+Running directed packing...
+Running delay-based LUT packing...
+Running related packing...
+Updating timing models...
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   output_combinator_map/QCS_or0000 is sourced by a combinatorial pin. This is
+   not good design practice. Use the CE pin to control the loading of data into
+   the flip-flop.
+
+Design Summary
+--------------
+
+Design Summary:
+Number of errors:      0
+Number of warnings:    1
+Logic Utilization:
+  Total Number Slice Registers:         294 out of   1,408   20%
+    Number used as Flip Flops:          190
+    Number used as Latches:             104
+  Number of 4 input LUTs:               157 out of   1,408   11%
+Logic Distribution:
+  Number of occupied Slices:            177 out of     704   25%
+    Number of Slices containing only related logic:     177 out of     177 100%
+    Number of Slices containing unrelated logic:          0 out of     177   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:         189 out of   1,408   13%
+    Number used as logic:               157
+    Number used as a route-thru:         32
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 10 out of      68   14%
+    IOB Latches:                          2
+  Number of BUFGMUXs:                     7 out of      24   29%
+
+Average Fanout of Non-Clock Nets:                2.23
+
+Peak Memory Usage:  596 MB
+Total REAL time to MAP completion:  2 secs 
+Total CPU time to MAP completion:   2 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Mapping completed.
+See MAP report file "timesrc_map.mrp" for details.
