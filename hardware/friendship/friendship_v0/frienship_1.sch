@@ -89,11 +89,11 @@
 <pad name="A14(TMS)" x="15" y="4.5" drill="0.5" diameter="1.27"/>
 <pad name="A15(TCK)" x="16" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="A16(TRST)" x="17" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A17(TX-)" x="18" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A18(TX+)" x="19" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A17(BUS0-)" x="18" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A18(BUS0+)" x="19" y="4.5" drill="0.5" diameter="1.27"/>
 <pad name="A19(GND)" x="20" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A20(RX+)" x="21" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A21(RX-)" x="22" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A20(BUS1+)" x="21" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A21(BUS1-)" x="22" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="A22(GND)" x="23" y="4.5" drill="0.5" diameter="1.27"/>
 <pad name="A23(SLOWCLKMOSI)" x="24" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="A24(SLOWCLKCLK)" x="25" y="4.5" drill="0.5" diameter="1.27"/>
@@ -195,11 +195,11 @@
 <smd name="A14(TMS)" x="60.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A15(TCK)" x="61.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A16(TRST)" x="62.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
-<smd name="A17(TX-)" x="63.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
-<smd name="A18(TX+)" x="64.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
+<smd name="A17(BUS0-)" x="63.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
+<smd name="A18(BUS0+)" x="64.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A19(GND)" x="65.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
-<smd name="A20(RX+)" x="66.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
-<smd name="A21(RX-)" x="67.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
+<smd name="A20(BUS1+)" x="66.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
+<smd name="A21(BUS1-)" x="67.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A22(GND)" x="68.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A23(SLOWTIMEMOSI)" x="69.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
 <smd name="A24(SLOWCLKCLK)" x="70.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R90"/>
@@ -309,11 +309,11 @@
 <pin name="TMS" x="-10.16" y="-35.56" length="middle"/>
 <pin name="TCK" x="-10.16" y="-38.1" length="middle"/>
 <pin name="TRST" x="-10.16" y="-40.64" length="middle"/>
-<pin name="TX-" x="-10.16" y="-48.26" length="middle"/>
-<pin name="TX+" x="-10.16" y="-50.8" length="middle"/>
+<pin name="BUS0-" x="-10.16" y="-48.26" length="middle"/>
+<pin name="BUS0+" x="-10.16" y="-50.8" length="middle"/>
 <pin name="GND4" x="-10.16" y="-53.34" length="middle"/>
-<pin name="RX+" x="-10.16" y="-55.88" length="middle"/>
-<pin name="RX-" x="-10.16" y="-58.42" length="middle"/>
+<pin name="BUS1+" x="-10.16" y="-55.88" length="middle"/>
+<pin name="BUS1-" x="-10.16" y="-58.42" length="middle"/>
 <pin name="GND5" x="-10.16" y="-66.04" length="middle"/>
 <pin name="SLOWCLKMOSI" x="-10.16" y="-68.58" length="middle"/>
 <pin name="SLOWCLKCLK" x="-10.16" y="-71.12" length="middle"/>
@@ -426,6 +426,10 @@
 <connect gate="G$1" pin="B30" pad="B30"/>
 <connect gate="G$1" pin="B31" pad="B31"/>
 <connect gate="G$1" pin="B32" pad="B32"/>
+<connect gate="G$1" pin="BUS0+" pad="A18(BUS0+)"/>
+<connect gate="G$1" pin="BUS0-" pad="A17(BUS0-)"/>
+<connect gate="G$1" pin="BUS1+" pad="A20(BUS1+)"/>
+<connect gate="G$1" pin="BUS1-" pad="A21(BUS1-)"/>
 <connect gate="G$1" pin="FASTCLK+" pad="A29(FASTCLK+)"/>
 <connect gate="G$1" pin="FASTCLK-" pad="A28(FASTCLK-)"/>
 <connect gate="G$1" pin="FASTCLK3V3" pad="A31(FASTCLK3V3)"/>
@@ -445,8 +449,6 @@
 <connect gate="G$1" pin="PRSNT2" pad="A32(PRSNT2)"/>
 <connect gate="G$1" pin="RSVD1" pad="A04(RSVD1)"/>
 <connect gate="G$1" pin="RSVD2" pad="A05(RSVD2)"/>
-<connect gate="G$1" pin="RX+" pad="A20(RX+)"/>
-<connect gate="G$1" pin="RX-" pad="A21(RX-)"/>
 <connect gate="G$1" pin="SLOWCLK/CS" pad="A25(SLOWCLK/CS)"/>
 <connect gate="G$1" pin="SLOWCLKCLK" pad="A24(SLOWCLKCLK)"/>
 <connect gate="G$1" pin="SLOWCLKMOSI" pad="A23(SLOWTIMEMOSI)"/>
@@ -455,8 +457,6 @@
 <connect gate="G$1" pin="TDO" pad="A13(TDO)"/>
 <connect gate="G$1" pin="TMS" pad="A14(TMS)"/>
 <connect gate="G$1" pin="TRST" pad="A16(TRST)"/>
-<connect gate="G$1" pin="TX+" pad="A18(TX+)"/>
-<connect gate="G$1" pin="TX-" pad="A17(TX-)"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -497,6 +497,10 @@
 <connect gate="G$1" pin="B30" pad="B30"/>
 <connect gate="G$1" pin="B31" pad="B31"/>
 <connect gate="G$1" pin="B32" pad="B32"/>
+<connect gate="G$1" pin="BUS0+" pad="A18(BUS0+)"/>
+<connect gate="G$1" pin="BUS0-" pad="A17(BUS0-)"/>
+<connect gate="G$1" pin="BUS1+" pad="A20(BUS1+)"/>
+<connect gate="G$1" pin="BUS1-" pad="A21(BUS1-)"/>
 <connect gate="G$1" pin="FASTCLK+" pad="A28(FASTCLK+)"/>
 <connect gate="G$1" pin="FASTCLK-" pad="A29(FASTCLK-)"/>
 <connect gate="G$1" pin="FASTCLK3V3" pad="A31(FASTCLK3V3)"/>
@@ -516,8 +520,6 @@
 <connect gate="G$1" pin="PRSNT2" pad="A32(PRSNT2)"/>
 <connect gate="G$1" pin="RSVD1" pad="A04(RSVD1)"/>
 <connect gate="G$1" pin="RSVD2" pad="A05(RSVD2)"/>
-<connect gate="G$1" pin="RX+" pad="A20(RX+)"/>
-<connect gate="G$1" pin="RX-" pad="A21(RX-)"/>
 <connect gate="G$1" pin="SLOWCLK/CS" pad="A25(SLOWCLK/CS)"/>
 <connect gate="G$1" pin="SLOWCLKCLK" pad="A24(SLOWCLKCLK)"/>
 <connect gate="G$1" pin="SLOWCLKMOSI" pad="A23(SLOWCLKMOSI)"/>
@@ -526,8 +528,6 @@
 <connect gate="G$1" pin="TDO" pad="A13(TDO)"/>
 <connect gate="G$1" pin="TMS" pad="A14(TMS)"/>
 <connect gate="G$1" pin="TRST" pad="A16(TRST)"/>
-<connect gate="G$1" pin="TX+" pad="A18(TX+)"/>
-<connect gate="G$1" pin="TX-" pad="A17(TX-)"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -7098,6 +7098,8 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <part name="R8" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
 <part name="R9" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
 <part name="R10" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
+<part name="R13" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
 </parts>
 <sheets>
 <sheet>
@@ -7175,10 +7177,12 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <instance part="GND28" gate="1" x="-167.64" y="173.99"/>
 <instance part="GND23" gate="1" x="-146.05" y="173.99"/>
 <instance part="GND29" gate="1" x="-138.43" y="173.99"/>
-<instance part="R6" gate="G$1" x="-22.86" y="250.19" rot="R180"/>
-<instance part="R8" gate="G$1" x="-22.86" y="238.76" rot="R180"/>
-<instance part="R9" gate="G$1" x="-22.86" y="255.27" rot="R180"/>
-<instance part="R10" gate="G$1" x="-22.86" y="243.84" rot="R180"/>
+<instance part="R6" gate="G$1" x="-26.67" y="247.65" rot="R90"/>
+<instance part="R8" gate="G$1" x="-26.67" y="233.68" rot="R90"/>
+<instance part="R9" gate="G$1" x="-21.59" y="247.65" rot="R90"/>
+<instance part="R10" gate="G$1" x="-21.59" y="233.68" rot="R90"/>
+<instance part="R11" gate="G$1" x="-71.12" y="241.3" rot="R270"/>
+<instance part="R13" gate="G$1" x="-77.47" y="241.3" rot="R270"/>
 </instances>
 <busses>
 <bus name="IRQ0,IRQ1,IRQ2,IRQ3,/CS0,/CS1,/CS2,/CS3,PRSNT0,PRSNT1,PRSNT2,PRSNT3">
@@ -7193,7 +7197,7 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 </bus>
 <bus name="GND,MOSI,CLK,/CS,PPS,FASTCLK+,FASTCLK-,FASTCLK3V3">
 <segment>
-<wire x1="-59.69" y1="-260.35" x2="-59.69" y2="210.82" width="0.762" layer="92"/>
+<wire x1="-59.69" y1="-260.35" x2="-59.69" y2="251.46" width="0.762" layer="92"/>
 </segment>
 </bus>
 <bus name="TX+,TX-,GND,RX+,RX-">
@@ -7210,58 +7214,55 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <nets>
 <net name="TX-" class="0">
 <segment>
-<pinref part="PORT0" gate="G$1" pin="TX-"/>
+<pinref part="PORT0" gate="G$1" pin="BUS0-"/>
 <wire x1="15.24" y1="134.62" x2="-41.91" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT1" gate="G$1" pin="TX-"/>
+<pinref part="PORT1" gate="G$1" pin="BUS0-"/>
 <wire x1="15.24" y1="19.05" x2="-41.91" y2="19.05" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT2" gate="G$1" pin="TX-"/>
+<pinref part="PORT2" gate="G$1" pin="BUS0-"/>
 <wire x1="15.24" y1="-96.52" x2="-41.91" y2="-96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT3" gate="G$1" pin="TX-"/>
+<pinref part="PORT3" gate="G$1" pin="BUS0-"/>
 <wire x1="15.24" y1="-210.82" x2="-41.91" y2="-210.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="-41.91" y1="247.65" x2="-13.97" y2="247.65" width="0.1524" layer="91"/>
-<wire x1="-13.97" y1="247.65" x2="-13.97" y2="250.19" width="0.1524" layer="91"/>
-<pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="-13.97" y1="250.19" x2="-17.78" y2="250.19" width="0.1524" layer="91"/>
-<wire x1="-13.97" y1="250.19" x2="-13.97" y2="255.27" width="0.1524" layer="91"/>
-<junction x="-13.97" y="250.19"/>
 <pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="-13.97" y1="255.27" x2="-17.78" y2="255.27" width="0.1524" layer="91"/>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="-26.67" y1="242.57" x2="-21.59" y2="242.57" width="0.1524" layer="91"/>
+<junction x="-26.67" y="242.57"/>
+<wire x1="-30.48" y1="245.11" x2="-26.67" y2="242.57" width="0.1524" layer="91"/>
+<wire x1="-41.91" y1="245.11" x2="-30.48" y2="245.11" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TX+" class="0">
 <segment>
-<pinref part="PORT0" gate="G$1" pin="TX+"/>
+<pinref part="PORT0" gate="G$1" pin="BUS0+"/>
 <wire x1="15.24" y1="132.08" x2="-41.91" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="-41.91" y1="132.08" x2="-41.91" y2="130.81" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT1" gate="G$1" pin="TX+"/>
+<pinref part="PORT1" gate="G$1" pin="BUS0+"/>
 <wire x1="15.24" y1="16.51" x2="-41.91" y2="16.51" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT2" gate="G$1" pin="TX+"/>
+<pinref part="PORT2" gate="G$1" pin="BUS0+"/>
 <wire x1="15.24" y1="-99.06" x2="-41.91" y2="-99.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT3" gate="G$1" pin="TX+"/>
+<pinref part="PORT3" gate="G$1" pin="BUS0+"/>
 <wire x1="15.24" y1="-213.36" x2="-41.91" y2="-213.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="-41.91" y1="250.19" x2="-30.48" y2="250.19" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="-30.48" y1="250.19" x2="-27.94" y2="250.19" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="250.19" x2="-26.67" y2="252.73" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="2"/>
-<wire x1="-30.48" y1="250.19" x2="-30.48" y2="255.27" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="255.27" x2="-27.94" y2="255.27" width="0.1524" layer="91"/>
-<junction x="-30.48" y="250.19"/>
+<wire x1="-26.67" y1="252.73" x2="-21.59" y2="252.73" width="0.1524" layer="91"/>
+<junction x="-26.67" y="252.73"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -7510,57 +7511,54 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 </net>
 <net name="RX+" class="0">
 <segment>
-<pinref part="PORT0" gate="G$1" pin="RX+"/>
+<pinref part="PORT0" gate="G$1" pin="BUS1+"/>
 <wire x1="15.24" y1="127" x2="-41.91" y2="127" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT1" gate="G$1" pin="RX+"/>
+<pinref part="PORT1" gate="G$1" pin="BUS1+"/>
 <wire x1="15.24" y1="11.43" x2="-41.91" y2="11.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT2" gate="G$1" pin="RX+"/>
+<pinref part="PORT2" gate="G$1" pin="BUS1+"/>
 <wire x1="15.24" y1="-104.14" x2="-41.91" y2="-104.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT3" gate="G$1" pin="RX+"/>
+<pinref part="PORT3" gate="G$1" pin="BUS1+"/>
 <wire x1="15.24" y1="-218.44" x2="-41.91" y2="-218.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
-<wire x1="-41.91" y1="238.76" x2="-30.48" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="-41.91" y1="236.22" x2="-30.48" y2="236.22" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="236.22" x2="-26.67" y2="238.76" width="0.1524" layer="91"/>
 <pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="-30.48" y1="238.76" x2="-27.94" y2="238.76" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="238.76" x2="-30.48" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="243.84" x2="-27.94" y2="243.84" width="0.1524" layer="91"/>
-<junction x="-30.48" y="238.76"/>
+<wire x1="-26.67" y1="238.76" x2="-21.59" y2="238.76" width="0.1524" layer="91"/>
+<junction x="-26.67" y="238.76"/>
 </segment>
 </net>
 <net name="RX-" class="0">
 <segment>
 <wire x1="15.24" y1="124.46" x2="-41.91" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="PORT0" gate="G$1" pin="RX-"/>
+<pinref part="PORT0" gate="G$1" pin="BUS1-"/>
 </segment>
 <segment>
-<pinref part="PORT1" gate="G$1" pin="RX-"/>
+<pinref part="PORT1" gate="G$1" pin="BUS1-"/>
 <wire x1="15.24" y1="8.89" x2="-41.91" y2="8.89" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT2" gate="G$1" pin="RX-"/>
+<pinref part="PORT2" gate="G$1" pin="BUS1-"/>
 <wire x1="15.24" y1="-106.68" x2="-41.91" y2="-106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PORT3" gate="G$1" pin="RX-"/>
+<pinref part="PORT3" gate="G$1" pin="BUS1-"/>
 <wire x1="15.24" y1="-220.98" x2="-41.91" y2="-220.98" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="-41.91" y1="236.22" x2="-13.97" y2="236.22" width="0.1524" layer="91"/>
-<wire x1="-13.97" y1="236.22" x2="-13.97" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="-41.91" y1="231.14" x2="-30.48" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="231.14" x2="-26.67" y2="228.6" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="1"/>
-<wire x1="-13.97" y1="238.76" x2="-17.78" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="-21.59" y1="228.6" x2="-26.67" y2="228.6" width="0.1524" layer="91"/>
 <pinref part="R10" gate="G$1" pin="1"/>
-<wire x1="-13.97" y1="238.76" x2="-13.97" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="-13.97" y1="243.84" x2="-17.78" y2="243.84" width="0.1524" layer="91"/>
-<junction x="-13.97" y="238.76"/>
+<junction x="-21.59" y="228.6"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -7654,6 +7652,15 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <pinref part="PORT3" gate="G$1" pin="FASTCLK+"/>
 <wire x1="15.24" y1="-243.84" x2="-59.69" y2="-243.84" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="-59.69" y1="247.65" x2="-71.12" y2="247.65" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="247.65" x2="-71.12" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="R13" gate="G$1" pin="1"/>
+<wire x1="-77.47" y1="246.38" x2="-77.47" y2="247.65" width="0.1524" layer="91"/>
+<wire x1="-77.47" y1="247.65" x2="-71.12" y2="247.65" width="0.1524" layer="91"/>
+<junction x="-71.12" y="247.65"/>
+</segment>
 </net>
 <net name="FASTCLK-" class="0">
 <segment>
@@ -7672,6 +7679,15 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <segment>
 <pinref part="PORT3" gate="G$1" pin="FASTCLK-"/>
 <wire x1="15.24" y1="-246.38" x2="-59.69" y2="-246.38" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="-59.69" y1="234.95" x2="-71.12" y2="234.95" width="0.1524" layer="91"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="-71.12" y1="234.95" x2="-71.12" y2="236.22" width="0.1524" layer="91"/>
+<pinref part="R13" gate="G$1" pin="2"/>
+<wire x1="-77.47" y1="236.22" x2="-77.47" y2="234.95" width="0.1524" layer="91"/>
+<wire x1="-77.47" y1="234.95" x2="-71.12" y2="234.95" width="0.1524" layer="91"/>
+<junction x="-71.12" y="234.95"/>
 </segment>
 </net>
 <net name="FASTCLK3V3" class="0">
