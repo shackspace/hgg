@@ -2504,6 +2504,54 @@ Source: http://www.osram.convergy.de/ ... LG_R971.pdf</description>
 <rectangle x1="3.2639" y1="7.0739" x2="3.3401" y2="7.0993" layer="200"/>
 <rectangle x1="3.5941" y1="7.0739" x2="3.8989" y2="7.0993" layer="200"/>
 </package>
+<package name="GPS">
+<description>GPS Module
+
+The GlobalTop Gms‐u1LP is an all‐in‐one, high sensitivity, small SMD form factor, and low power 
+consumption GPS antenna module. It utilizes MediaTek GPS MT3329 solution that supports up to 
+66 channels of satellite searching with ‐165dBm sensitivity and 10Hz maximum update rate for 
+precise GPS signal processing under low receptive, high velocity conditions.  
+ 
+Gms‐u1LP comes with the addition of a power saving switching mode power supply (SMPS) that 
+can help reduce the overall GPS power consumption by over 30% when compared to the previous 
+generation.  
+ 
+Supplementary to using integrated ceramic patch antenna for reception, Gms‐u1LP also has 
+support for external antenna input with automatic antenna switching once the connection to an 
+external antenna is established and detected. This external antenna I/O pin is short‐circuit 
+protected and will lower voltage to a safe level in the event of short‐circuiting. 
+ 
+The major advancement in power saving, coupled with flexible GPS firmware customization for 
+enhancing overall processing efficiency (not included in standard firmware), and its small size and 
+I/O versatility makes this simple‐to‐integrate module the best ideal solution for the next 
+generation of mobile and embedded devices.</description>
+<wire x1="-8" y1="8" x2="8" y2="8" width="0.127" layer="21"/>
+<wire x1="8" y1="8" x2="8" y2="-8" width="0.127" layer="21"/>
+<wire x1="8" y1="-8" x2="-8" y2="-8" width="0.127" layer="21"/>
+<wire x1="-8" y1="-8" x2="-8" y2="8" width="0.127" layer="21"/>
+<circle x="-6.25" y="7" radius="0.353553125" width="0.127" layer="21"/>
+<smd name="VCC" x="-8" y="6.75" dx="2" dy="1" layer="1"/>
+<smd name="NRESET" x="-8" y="5.25" dx="2" dy="1" layer="1"/>
+<smd name="GND1" x="-8" y="3.75" dx="2" dy="1" layer="1"/>
+<smd name="VBACKUP" x="-8" y="2.25" dx="2" dy="1" layer="1"/>
+<smd name="3D-FIX" x="-8" y="0.75" dx="2" dy="1" layer="1"/>
+<smd name="DPLUSE" x="-8" y="-0.75" dx="2" dy="1" layer="1"/>
+<smd name="DMINUS" x="-8" y="-2.25" dx="2" dy="1" layer="1"/>
+<smd name="GND2" x="-8" y="-3.75" dx="2" dy="1" layer="1"/>
+<smd name="TXDA" x="-8" y="-5.25" dx="2" dy="1" layer="1"/>
+<smd name="RXDA" x="-8" y="-6.75" dx="2" dy="1" layer="1"/>
+<smd name="EX_ANT" x="8" y="-6.75" dx="2" dy="1" layer="1"/>
+<smd name="GND3" x="8" y="-5.25" dx="2" dy="1" layer="1"/>
+<smd name="1PPS" x="8" y="-3.75" dx="2" dy="1" layer="1"/>
+<smd name="RTCM" x="8" y="-2.25" dx="2" dy="1" layer="1"/>
+<smd name="NC1" x="8" y="-0.75" dx="2" dy="1" layer="1"/>
+<smd name="NC2" x="8" y="0.75" dx="2" dy="1" layer="1"/>
+<smd name="NC3" x="8" y="2.25" dx="2" dy="1" layer="1"/>
+<smd name="NC4" x="8" y="3.75" dx="2" dy="1" layer="1"/>
+<smd name="GND4" x="8" y="5.25" dx="2" dy="1" layer="1"/>
+<smd name="USB-VCC" x="8" y="6.75" dx="2" dy="1" layer="1"/>
+<circle x="0.5" y="0.75" radius="0.5" width="0.127" layer="44"/>
+</package>
 </packages>
 </library>
 <library name="crystal">
@@ -3028,6 +3076,7 @@ design rules under a new name.</description>
 <attribute name="MF" value="MAXIM" x="64.77" y="12.22375" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="64.77" y="12.22375" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
+<element name="U$6" library="hgg" package="GPS" value="GPS" x="85.725" y="50.4825"/>
 </elements>
 <signals>
 <signal name="GND">

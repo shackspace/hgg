@@ -14295,6 +14295,54 @@ Source: www.kingbright.com</description>
 <hole x="12" y="1.25" drill="2"/>
 <hole x="34" y="1.25" drill="2"/>
 </package>
+<package name="GPS">
+<description>GPS Module
+
+The GlobalTop Gms‐u1LP is an all‐in‐one, high sensitivity, small SMD form factor, and low power 
+consumption GPS antenna module. It utilizes MediaTek GPS MT3329 solution that supports up to 
+66 channels of satellite searching with ‐165dBm sensitivity and 10Hz maximum update rate for 
+precise GPS signal processing under low receptive, high velocity conditions.  
+ 
+Gms‐u1LP comes with the addition of a power saving switching mode power supply (SMPS) that 
+can help reduce the overall GPS power consumption by over 30% when compared to the previous 
+generation.  
+ 
+Supplementary to using integrated ceramic patch antenna for reception, Gms‐u1LP also has 
+support for external antenna input with automatic antenna switching once the connection to an 
+external antenna is established and detected. This external antenna I/O pin is short‐circuit 
+protected and will lower voltage to a safe level in the event of short‐circuiting. 
+ 
+The major advancement in power saving, coupled with flexible GPS firmware customization for 
+enhancing overall processing efficiency (not included in standard firmware), and its small size and 
+I/O versatility makes this simple‐to‐integrate module the best ideal solution for the next 
+generation of mobile and embedded devices.</description>
+<wire x1="-8" y1="8" x2="8" y2="8" width="0.127" layer="21"/>
+<wire x1="8" y1="8" x2="8" y2="-8" width="0.127" layer="21"/>
+<wire x1="8" y1="-8" x2="-8" y2="-8" width="0.127" layer="21"/>
+<wire x1="-8" y1="-8" x2="-8" y2="8" width="0.127" layer="21"/>
+<circle x="-6.25" y="7" radius="0.353553125" width="0.127" layer="21"/>
+<smd name="VCC" x="-8" y="6.75" dx="2" dy="1" layer="1"/>
+<smd name="NRESET" x="-8" y="5.25" dx="2" dy="1" layer="1"/>
+<smd name="GND1" x="-8" y="3.75" dx="2" dy="1" layer="1"/>
+<smd name="VBACKUP" x="-8" y="2.25" dx="2" dy="1" layer="1"/>
+<smd name="3D-FIX" x="-8" y="0.75" dx="2" dy="1" layer="1"/>
+<smd name="DPLUSE" x="-8" y="-0.75" dx="2" dy="1" layer="1"/>
+<smd name="DMINUS" x="-8" y="-2.25" dx="2" dy="1" layer="1"/>
+<smd name="GND2" x="-8" y="-3.75" dx="2" dy="1" layer="1"/>
+<smd name="TXDA" x="-8" y="-5.25" dx="2" dy="1" layer="1"/>
+<smd name="RXDA" x="-8" y="-6.75" dx="2" dy="1" layer="1"/>
+<smd name="EX_ANT" x="8" y="-6.75" dx="2" dy="1" layer="1"/>
+<smd name="GND3" x="8" y="-5.25" dx="2" dy="1" layer="1"/>
+<smd name="1PPS" x="8" y="-3.75" dx="2" dy="1" layer="1"/>
+<smd name="RTCM" x="8" y="-2.25" dx="2" dy="1" layer="1"/>
+<smd name="NC1" x="8" y="-0.75" dx="2" dy="1" layer="1"/>
+<smd name="NC2" x="8" y="0.75" dx="2" dy="1" layer="1"/>
+<smd name="NC3" x="8" y="2.25" dx="2" dy="1" layer="1"/>
+<smd name="NC4" x="8" y="3.75" dx="2" dy="1" layer="1"/>
+<smd name="GND4" x="8" y="5.25" dx="2" dy="1" layer="1"/>
+<smd name="USB-VCC" x="8" y="6.75" dx="2" dy="1" layer="1"/>
+<circle x="0.5" y="0.75" radius="0.5" width="0.127" layer="44"/>
+</package>
 </packages>
 <symbols>
 <symbol name="FRIENDSHIP_CONNECTOR">
@@ -16612,6 +16660,32 @@ Source: www.kingbright.com</description>
 <rectangle x1="-0.0127" y1="7.1755" x2="3.4417" y2="7.2009" layer="200"/>
 <rectangle x1="3.7211" y1="7.1755" x2="7.2009" y2="7.2009" layer="200"/>
 </symbol>
+<symbol name="GPS">
+<pin name="VCC" x="-25.4" y="22.86" length="middle"/>
+<pin name="NRESET" x="-25.4" y="17.78" length="middle"/>
+<pin name="GND1" x="-25.4" y="12.7" length="middle"/>
+<pin name="VBACKUP" x="-25.4" y="7.62" length="middle"/>
+<pin name="3D-FIX" x="-25.4" y="2.54" length="middle"/>
+<pin name="DPLUSE" x="-25.4" y="-2.54" length="middle"/>
+<pin name="DMINUS" x="-25.4" y="-7.62" length="middle"/>
+<pin name="GND2" x="-25.4" y="-12.7" length="middle"/>
+<pin name="TXDA" x="-25.4" y="-17.78" length="middle"/>
+<pin name="RXDA" x="-25.4" y="-22.86" length="middle"/>
+<pin name="EX_ANT" x="25.4" y="-22.86" length="middle" rot="R180"/>
+<pin name="GND3" x="25.4" y="-17.78" length="middle" rot="R180"/>
+<pin name="1PPS" x="25.4" y="-12.7" length="middle" rot="R180"/>
+<pin name="RTCM" x="25.4" y="-7.62" length="middle" rot="R180"/>
+<pin name="NC1" x="25.4" y="-2.54" length="middle" rot="R180"/>
+<pin name="NC2" x="25.4" y="2.54" length="middle" rot="R180"/>
+<pin name="NC3" x="25.4" y="7.62" length="middle" rot="R180"/>
+<pin name="NC4" x="25.4" y="12.7" length="middle" rot="R180"/>
+<pin name="GND4" x="25.4" y="17.78" length="middle" rot="R180"/>
+<pin name="USB-VCC" x="25.4" y="22.86" length="middle" rot="R180"/>
+<wire x1="-20.32" y1="-25.4" x2="20.32" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-25.4" x2="20.32" y2="25.4" width="0.254" layer="94"/>
+<wire x1="20.32" y1="25.4" x2="-20.32" y2="25.4" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="25.4" x2="-20.32" y2="-25.4" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FRIENDSHIP">
@@ -16769,6 +16843,40 @@ Source: www.kingbright.com</description>
 </gates>
 <devices>
 <device name="" package="HGG_LOGO">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="GPS">
+<gates>
+<gate name="G$1" symbol="GPS" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="GPS">
+<connects>
+<connect gate="G$1" pin="1PPS" pad="1PPS"/>
+<connect gate="G$1" pin="3D-FIX" pad="3D-FIX"/>
+<connect gate="G$1" pin="DMINUS" pad="DMINUS"/>
+<connect gate="G$1" pin="DPLUSE" pad="DPLUSE"/>
+<connect gate="G$1" pin="EX_ANT" pad="EX_ANT"/>
+<connect gate="G$1" pin="GND1" pad="GND1"/>
+<connect gate="G$1" pin="GND2" pad="GND2"/>
+<connect gate="G$1" pin="GND3" pad="GND3"/>
+<connect gate="G$1" pin="GND4" pad="GND4"/>
+<connect gate="G$1" pin="NC1" pad="NC1"/>
+<connect gate="G$1" pin="NC2" pad="NC2"/>
+<connect gate="G$1" pin="NC3" pad="NC3"/>
+<connect gate="G$1" pin="NC4" pad="NC4"/>
+<connect gate="G$1" pin="NRESET" pad="NRESET"/>
+<connect gate="G$1" pin="RTCM" pad="RTCM"/>
+<connect gate="G$1" pin="RXDA" pad="RXDA"/>
+<connect gate="G$1" pin="TXDA" pad="TXDA"/>
+<connect gate="G$1" pin="USB-VCC" pad="USB-VCC"/>
+<connect gate="G$1" pin="VBACKUP" pad="VBACKUP"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -18703,6 +18811,7 @@ Source: avr.lbr</description>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="U$5" library="hgg" deviceset="HGG_LOGO" device=""/>
 <part name="IC3" library="maxim" deviceset="MAX481CSA" device=""/>
+<part name="U$6" library="hgg" deviceset="GPS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18748,6 +18857,10 @@ Source: avr.lbr</description>
 <wire x1="116.84" y1="355.6" x2="0" y2="355.6" width="0.1524" layer="97"/>
 <wire x1="0" y1="355.6" x2="0" y2="317.5" width="0.1524" layer="97"/>
 <text x="2.54" y="350.52" size="1.778" layer="97">FPGA_SPI_Clock</text>
+<wire x1="322.58" y1="236.22" x2="322.58" y2="312.42" width="0.1524" layer="97"/>
+<wire x1="419.1" y1="236.22" x2="322.58" y2="236.22" width="0.1524" layer="97"/>
+<wire x1="419.1" y1="312.42" x2="322.58" y2="312.42" width="0.1524" layer="97"/>
+<wire x1="419.1" y1="312.42" x2="419.1" y2="236.22" width="0.1524" layer="97"/>
 </plain>
 <instances>
 <instance part="GND1" gate="1" x="30.48" y="15.24"/>
@@ -18870,6 +18983,7 @@ Source: avr.lbr</description>
 <attribute name="VALUE" x="477.52" y="167.64" size="1.778" layer="96"/>
 </instance>
 <instance part="IC3" gate="P" x="490.22" y="210.82"/>
+<instance part="U$6" gate="G$1" x="368.3" y="274.32"/>
 </instances>
 <busses>
 </busses>
