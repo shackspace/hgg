@@ -18692,6 +18692,87 @@ Source: avr.lbr</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="con-coax">
+<description>&lt;b&gt;Coax Connectors&lt;/b&gt;&lt;p&gt;
+Radiall  and M/A COM.&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="BU-SMA-V">
+<description>FEMALE &lt;b&gt;SMA CONNECTOR&lt;/b&gt;&lt;p&gt;
+Radiall&lt;p&gt;
+distributor RS 112-3794</description>
+<wire x1="-1.1" y1="3.2" x2="1.1" y2="3.2" width="0.2032" layer="21"/>
+<wire x1="3.2" y1="1.1" x2="3.2" y2="-1.1" width="0.2032" layer="21"/>
+<wire x1="1.1" y1="-3.2" x2="-1.1" y2="-3.2" width="0.2032" layer="21"/>
+<wire x1="-3.2" y1="-1.1" x2="-3.2" y2="1.1" width="0.2032" layer="21"/>
+<wire x1="-3.1999" y1="3.1999" x2="3.2" y2="3.2" width="0.2032" layer="51"/>
+<wire x1="3.2" y1="3.2" x2="3.1999" y2="-3.1999" width="0.2032" layer="51"/>
+<wire x1="3.1999" y1="-3.1999" x2="-3.2" y2="-3.2" width="0.2032" layer="51"/>
+<wire x1="-3.2" y1="-3.2" x2="-3.1999" y2="3.1999" width="0.2032" layer="51"/>
+<circle x="0" y="0" radius="3.1999" width="0.2032" layer="51"/>
+<circle x="0" y="0" radius="1.7" width="0.2032" layer="21"/>
+<pad name="1" x="0" y="0" drill="1.27"/>
+<pad name="2" x="-2.5499" y="2.5499" drill="1.778"/>
+<pad name="3" x="2.5499" y="2.5499" drill="1.778"/>
+<pad name="4" x="2.5499" y="-2.5499" drill="1.778"/>
+<pad name="5" x="-2.5499" y="-2.5499" drill="1.778"/>
+<text x="-2.54" y="4.445" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.175" y="-5.715" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="BNC-FGND">
+<wire x1="0" y1="-2.54" x2="-0.762" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-0.508" y2="0" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0.508" x2="-0.762" y2="0.508" width="0.254" layer="94"/>
+<wire x1="-0.762" y1="0.508" x2="-0.508" y2="0" width="0.254" layer="94"/>
+<wire x1="-0.508" y1="0" x2="-0.762" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="-0.762" y1="-0.508" x2="-2.54" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="2.54" x2="0" y2="0.508" width="0.3048" layer="94" curve="-79.611142" cap="flat"/>
+<wire x1="-2.54" y1="-2.54" x2="0" y2="-0.508" width="0.3048" layer="94" curve="79.611142" cap="flat"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.54" y="3.302" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<pin name="GND" x="2.54" y="-2.54" visible="off" length="short" direction="pwr" rot="R180"/>
+</symbol>
+<symbol name="GND">
+<text x="-1.524" y="1.778" size="1.778" layer="95">&gt;NAME</text>
+<pin name="GND" x="-2.54" y="0" length="short" direction="pwr"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="BU-SMA-V" prefix="X">
+<description>FEMALE &lt;b&gt;SMA CONNECTOR&lt;/b&gt;&lt;p&gt;
+Radiall&lt;p&gt;
+distributor RS 112-3794</description>
+<gates>
+<gate name="G$1" symbol="BNC-FGND" x="-2.54" y="0"/>
+<gate name="G2" symbol="GND" x="20.32" y="2.54" addlevel="request"/>
+<gate name="G3" symbol="GND" x="20.32" y="0" addlevel="request"/>
+<gate name="G4" symbol="GND" x="20.32" y="-2.54" addlevel="request"/>
+</gates>
+<devices>
+<device name="" package="BU-SMA-V">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G2" pin="GND" pad="4"/>
+<connect gate="G3" pin="GND" pad="3"/>
+<connect gate="G4" pin="GND" pad="5"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -18812,6 +18893,15 @@ Source: avr.lbr</description>
 <part name="U$5" library="hgg" deviceset="HGG_LOGO" device=""/>
 <part name="IC3" library="maxim" deviceset="MAX481CSA" device=""/>
 <part name="U$6" library="hgg" deviceset="GPS" device=""/>
+<part name="R20" library="resistor" deviceset="R-EU_" device="M0805" value="10k"/>
+<part name="GND41" library="supply1" deviceset="GND" device=""/>
+<part name="GND42" library="supply1" deviceset="GND" device=""/>
+<part name="GND43" library="supply1" deviceset="GND" device=""/>
+<part name="GND44" library="supply1" deviceset="GND" device=""/>
+<part name="GND45" library="supply1" deviceset="GND" device=""/>
+<part name="GND46" library="supply1" deviceset="GND" device=""/>
+<part name="X1" library="con-coax" deviceset="BU-SMA-V" device=""/>
+<part name="GND47" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18984,6 +19074,15 @@ Source: avr.lbr</description>
 </instance>
 <instance part="IC3" gate="P" x="490.22" y="210.82"/>
 <instance part="U$6" gate="G$1" x="368.3" y="274.32"/>
+<instance part="R20" gate="G$1" x="332.74" y="287.02" rot="R90"/>
+<instance part="GND41" gate="1" x="332.74" y="279.4"/>
+<instance part="GND42" gate="1" x="340.36" y="287.02" rot="R270"/>
+<instance part="GND43" gate="1" x="340.36" y="261.62" rot="R270"/>
+<instance part="GND44" gate="1" x="396.24" y="256.54" rot="R90"/>
+<instance part="GND45" gate="1" x="396.24" y="292.1" rot="R90"/>
+<instance part="GND46" gate="1" x="396.24" y="266.7" rot="R90"/>
+<instance part="X1" gate="G$1" x="411.48" y="251.46" rot="R180"/>
+<instance part="GND47" gate="1" x="406.4" y="254" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -19325,6 +19424,34 @@ Source: avr.lbr</description>
 <pinref part="GND40" gate="1" pin="GND"/>
 <wire x1="233.68" y1="81.28" x2="259.08" y2="81.28" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R20" gate="G$1" pin="1"/>
+<pinref part="GND41" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="GND1"/>
+<pinref part="GND42" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="GND2"/>
+<pinref part="GND43" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="GND4"/>
+<pinref part="GND45" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="GND3"/>
+<pinref part="GND44" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="RTCM"/>
+<pinref part="GND46" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="X1" gate="G$1" pin="GND"/>
+<pinref part="GND47" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -19482,6 +19609,16 @@ Source: avr.lbr</description>
 <pinref part="IC2" gate="G$1" pin="AVCC"/>
 <wire x1="378.46" y1="195.58" x2="360.68" y2="195.58" width="0.1524" layer="91"/>
 <label x="360.68" y="195.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="VCC"/>
+<wire x1="342.9" y1="297.18" x2="335.28" y2="297.18" width="0.1524" layer="91"/>
+<wire x1="335.28" y1="297.18" x2="335.28" y2="304.8" width="0.1524" layer="91"/>
+<label x="335.28" y="302.26" size="1.778" layer="95"/>
+<pinref part="U$6" gate="G$1" pin="VBACKUP"/>
+<wire x1="342.9" y1="281.94" x2="335.28" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="335.28" y1="281.94" x2="335.28" y2="297.18" width="0.1524" layer="91"/>
+<junction x="335.28" y="297.18"/>
 </segment>
 </net>
 <net name="VCC2.5" class="0">
@@ -19892,6 +20029,11 @@ Source: avr.lbr</description>
 <wire x1="43.18" y1="264.16" x2="71.12" y2="264.16" width="0.1524" layer="91"/>
 <label x="66.04" y="264.16" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="1PPS"/>
+<wire x1="393.7" y1="261.62" x2="411.48" y2="261.62" width="0.1524" layer="91"/>
+<label x="406.4" y="261.62" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="FASTCLK+" class="0">
 <segment>
@@ -20112,6 +20254,51 @@ Source: avr.lbr</description>
 <pinref part="U$4" gate="G$1" pin="BUS0+"/>
 <wire x1="172.72" y1="53.34" x2="137.16" y2="53.34" width="0.1524" layer="91"/>
 <label x="137.16" y="53.34" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="GPS_NRESET" class="0">
+<segment>
+<pinref part="U$6" gate="G$1" pin="NRESET"/>
+<wire x1="342.9" y1="292.1" x2="332.74" y2="292.1" width="0.1524" layer="91"/>
+<pinref part="R20" gate="G$1" pin="2"/>
+<wire x1="332.74" y1="292.1" x2="325.12" y2="292.1" width="0.1524" layer="91"/>
+<label x="325.12" y="292.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PD5(T1)"/>
+<wire x1="426.72" y1="170.18" x2="454.66" y2="170.18" width="0.1524" layer="91"/>
+<label x="447.04" y="170.18" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="GPS_TX" class="0">
+<segment>
+<pinref part="U$6" gate="G$1" pin="TXDA"/>
+<wire x1="342.9" y1="256.54" x2="327.66" y2="256.54" width="0.1524" layer="91"/>
+<label x="327.66" y="256.54" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PD6(AIN0)"/>
+<wire x1="426.72" y1="167.64" x2="454.66" y2="167.64" width="0.1524" layer="91"/>
+<label x="447.04" y="167.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="GPS_RX" class="0">
+<segment>
+<pinref part="U$6" gate="G$1" pin="RXDA"/>
+<wire x1="342.9" y1="251.46" x2="327.66" y2="251.46" width="0.1524" layer="91"/>
+<label x="327.66" y="251.46" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="PD7(AIN1)"/>
+<wire x1="426.72" y1="165.1" x2="454.66" y2="165.1" width="0.1524" layer="91"/>
+<label x="447.04" y="165.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="X1" gate="G$1" pin="1"/>
+<pinref part="U$6" gate="G$1" pin="EX_ANT"/>
+<wire x1="408.94" y1="251.46" x2="393.7" y2="251.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
