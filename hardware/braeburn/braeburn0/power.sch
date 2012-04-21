@@ -19435,6 +19435,8 @@ Source: 008-0260-0_E.pdf</description>
 <text x="71.12" y="104.14" size="1.778" layer="91">3V3B</text>
 <text x="58.42" y="81.28" size="1.778" layer="91">5VA</text>
 <text x="73.66" y="81.28" size="1.778" layer="91">5VB</text>
+<text x="-20.32" y="233.68" size="1.778" layer="91" rot="R90">+3V3</text>
+<text x="-20.32" y="203.2" size="1.778" layer="91" rot="R90">+3V3</text>
 </plain>
 <instances>
 <instance part="X1" gate="-1" x="-22.86" y="121.92"/>
@@ -19884,6 +19886,14 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <wire x1="264.16" y1="106.68" x2="254" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="IC6" gate="P" pin="GND"/>
+</segment>
+<segment>
+<pinref part="IC7" gate="A" pin="V+"/>
+<wire x1="-20.32" y1="231.14" x2="-20.32" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC5" gate="A" pin="V+"/>
+<wire x1="-20.32" y1="200.66" x2="-20.32" y2="205.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
