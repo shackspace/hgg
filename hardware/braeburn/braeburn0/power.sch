@@ -19382,7 +19382,6 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="IC6" library="maxim" deviceset="MAX481CSA" device=""/>
-<part name="U$2" library="hgg" deviceset="HGG_LOGO" device=""/>
 <part name="IC5" library="linear" deviceset="*741" device="D" technology="LM"/>
 <part name="IC7" library="linear" deviceset="*741" device="D" technology="LM"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
@@ -19391,6 +19390,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
+<part name="U$2" library="hgg" deviceset="HGG_LOGO" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -19520,7 +19520,6 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND27" gate="1" x="289.56" y="106.68" rot="R90"/>
 <instance part="IC6" gate="G$1" x="271.78" y="88.9"/>
 <instance part="IC6" gate="P" x="271.78" y="106.68" rot="R270"/>
-<instance part="U$2" gate="G$1" x="177.8" y="96.52"/>
 <instance part="IC5" gate="A" x="-17.78" y="193.04"/>
 <instance part="IC7" gate="A" x="-17.78" y="223.52"/>
 <instance part="GND35" gate="1" x="15.24" y="195.58" rot="R90"/>
@@ -19529,6 +19528,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND38" gate="1" x="15.24" y="226.06" rot="R90"/>
 <instance part="GND39" gate="1" x="-20.32" y="213.36"/>
 <instance part="GND40" gate="1" x="-20.32" y="182.88"/>
+<instance part="U$2" gate="G$1" x="175.26" y="96.52"/>
 </instances>
 <busses>
 </busses>
