@@ -3267,14 +3267,14 @@ Covered vias can be set in Masks (Limit).
 <element name="TP1" library="testpad" package="B2,54" value="TPB2,54" x="3.4925" y="9.68375">
 <attribute name="TP_SIGNAL_NAME" value="" x="3.4925" y="9.68375" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP2" library="testpad" package="B2,54" value="TPB2,54" x="13.6525" y="15.5575">
-<attribute name="TP_SIGNAL_NAME" value="" x="13.6525" y="15.5575" size="1.778" layer="27" display="off"/>
+<element name="TP2" library="testpad" package="B2,54" value="TPB2,54" x="10.795" y="15.24">
+<attribute name="TP_SIGNAL_NAME" value="" x="10.795" y="15.24" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP3" library="testpad" package="B2,54" value="TPB2,54" x="20.6375" y="34.6075">
 <attribute name="TP_SIGNAL_NAME" value="" x="20.6375" y="34.6075" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP4" library="testpad" package="B2,54" value="TPB2,54" x="17.30375" y="30.00375">
-<attribute name="TP_SIGNAL_NAME" value="" x="17.30375" y="30.00375" size="1.778" layer="27" display="off"/>
+<element name="TP4" library="testpad" package="B2,54" value="TPB2,54" x="27.78125" y="49.37125">
+<attribute name="TP_SIGNAL_NAME" value="" x="27.78125" y="49.37125" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP5" library="testpad" package="B2,54" value="TPB2,54" x="50.8" y="27.6225">
 <attribute name="TP_SIGNAL_NAME" value="" x="50.8" y="27.6225" size="1.778" layer="27" display="off"/>
@@ -3285,8 +3285,8 @@ Covered vias can be set in Masks (Limit).
 <element name="TP7" library="testpad" package="B2,54" value="TPB2,54" x="64.61125" y="35.2425">
 <attribute name="TP_SIGNAL_NAME" value="" x="64.61125" y="35.2425" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP8" library="testpad" package="B2,54" value="TPB2,54" x="23.33625" y="55.72125">
-<attribute name="TP_SIGNAL_NAME" value="" x="23.33625" y="55.72125" size="1.778" layer="27" display="off"/>
+<element name="TP8" library="testpad" package="B2,54" value="TPB2,54" x="29.05125" y="55.72125">
+<attribute name="TP_SIGNAL_NAME" value="" x="29.05125" y="55.72125" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP9" library="testpad" package="B2,54" value="TPB2,54" x="21.11375" y="46.6725">
 <attribute name="TP_SIGNAL_NAME" value="" x="21.11375" y="46.6725" size="1.778" layer="27" display="off"/>
@@ -3303,8 +3303,8 @@ Covered vias can be set in Masks (Limit).
 <element name="TP13" library="testpad" package="B2,54" value="TPB2,54" x="48.895" y="17.30375">
 <attribute name="TP_SIGNAL_NAME" value="" x="48.895" y="17.30375" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP14" library="testpad" package="B2,54" value="TPB2,54" x="50.64125" y="30.95625">
-<attribute name="TP_SIGNAL_NAME" value="" x="45.24375" y="25.55875" size="1.778" layer="27" display="off"/>
+<element name="TP14" library="testpad" package="B2,54" value="TPB2,54" x="50.64125" y="30.63875">
+<attribute name="TP_SIGNAL_NAME" value="" x="45.24375" y="25.24125" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP15" library="testpad" package="B2,54" value="TPB2,54" x="55.08625" y="20.16125">
 <attribute name="TP_SIGNAL_NAME" value="" x="44.29125" y="9.36625" size="1.778" layer="27" display="off"/>
@@ -3318,6 +3318,7 @@ Covered vias can be set in Masks (Limit).
 <element name="TP18" library="testpad" package="B2,54" value="TPB2,54" x="66.19875" y="28.8925">
 <attribute name="TP_SIGNAL_NAME" value="" x="55.40375" y="7.3025" size="1.778" layer="27" display="off"/>
 </element>
+<element name="JP4" library="pinhead" package="2X05" value="ISP" x="15.5575" y="20.0025" rot="R90"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -3649,10 +3650,10 @@ Covered vias can be set in Masks (Limit).
 <wire x1="47.46625" y1="10.95375" x2="45.72" y2="10.95375" width="0.6096" layer="16"/>
 <wire x1="45.72" y1="10.95375" x2="44.60875" y2="12.065" width="0.6096" layer="16"/>
 <wire x1="44.60875" y1="12.065" x2="20.47875" y2="12.065" width="0.6096" layer="16"/>
-<wire x1="20.47875" y1="12.065" x2="17.4625" y2="15.08125" width="0.6096" layer="16"/>
-<wire x1="17.4625" y1="15.08125" x2="17.4625" y2="19.05" width="0.6096" layer="16"/>
-<wire x1="17.4625" y1="19.05" x2="20.0025" y2="21.59" width="0.6096" layer="16"/>
-<wire x1="20.0025" y1="21.59" x2="24.13" y2="21.59" width="0.6096" layer="16"/>
+<wire x1="20.47875" y1="12.065" x2="18.89125" y2="13.6525" width="0.6096" layer="16"/>
+<wire x1="18.89125" y1="13.6525" x2="18.89125" y2="18.7325" width="0.6096" layer="16"/>
+<wire x1="18.89125" y1="18.7325" x2="21.74875" y2="21.59" width="0.6096" layer="16"/>
+<wire x1="21.74875" y1="21.59" x2="24.13" y2="21.59" width="0.6096" layer="16"/>
 <contactref element="U$4" pad="B07(GND)"/>
 <contactref element="U$4" pad="B09(GND)"/>
 <contactref element="U$4" pad="B11(GND)"/>
@@ -3789,6 +3790,13 @@ Covered vias can be set in Masks (Limit).
 <via x="81.915" y="14.2875" extent="1-16" drill="0.6" shape="square"/>
 <via x="74.6125" y="16.35125" extent="1-16" drill="0.6" shape="square"/>
 <via x="43.33875" y="43.97375" extent="1-16" drill="0.6" shape="square"/>
+<contactref element="JP4" pad="4"/>
+<contactref element="JP4" pad="8"/>
+<contactref element="JP4" pad="6"/>
+<contactref element="JP4" pad="10"/>
+<wire x1="14.2875" y1="17.4625" x2="14.2875" y2="20.0025" width="0.254" layer="16"/>
+<wire x1="14.2875" y1="20.0025" x2="14.2875" y2="22.5425" width="0.254" layer="1"/>
+<wire x1="14.2875" y1="22.5425" x2="14.2875" y2="25.0825" width="0.254" layer="16"/>
 </signal>
 <signal name="+5V">
 <contactref element="SV1" pad="1"/>
@@ -3916,8 +3924,10 @@ Covered vias can be set in Masks (Limit).
 <wire x1="7.14375" y1="30.31875" x2="6.9875" y2="30.1625" width="0.4064" layer="1"/>
 <wire x1="33.655" y1="24.13" x2="33.655" y2="24.765" width="0.254" layer="16"/>
 <wire x1="33.655" y1="24.765" x2="33.02" y2="25.4" width="0.254" layer="16"/>
-<wire x1="33.02" y1="25.4" x2="18.0975" y2="25.4" width="0.254" layer="16"/>
-<wire x1="18.0975" y1="25.4" x2="6.6675" y2="13.81125" width="0.254" layer="16"/>
+<wire x1="33.02" y1="25.4" x2="20.6375" y2="25.4" width="0.254" layer="16"/>
+<wire x1="20.6375" y1="25.4" x2="18.25625" y2="22.86" width="0.254" layer="16"/>
+<wire x1="18.25625" y1="22.86" x2="18.25625" y2="13.6525" width="0.254" layer="16"/>
+<wire x1="18.25625" y1="13.6525" x2="6.6675" y2="13.81125" width="0.254" layer="16"/>
 <via x="6.6675" y="13.81125" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="6.6675" y1="13.81125" x2="6.6675" y2="15.24" width="0.254" layer="1"/>
 <wire x1="6.6675" y1="15.39875" x2="6.6675" y2="15.24" width="0.254" layer="1"/>
@@ -3992,10 +4002,15 @@ Covered vias can be set in Masks (Limit).
 <wire x1="39.84625" y1="64.29375" x2="39.84625" y2="61.75625" width="0.4064" layer="1"/>
 <wire x1="39.84625" y1="61.75625" x2="39.6875" y2="61.5975" width="0.4064" layer="1"/>
 <contactref element="TP2" pad="TP"/>
-<wire x1="13.6525" y1="15.5575" x2="11.1125" y2="15.5575" width="0.254" layer="1"/>
-<wire x1="11.1125" y1="15.5575" x2="9.525" y2="13.97" width="0.254" layer="1"/>
+<wire x1="10.795" y1="15.24" x2="11.1125" y2="15.5575" width="0.254" layer="1"/>
+<wire x1="10.795" y1="15.24" x2="9.525" y2="13.97" width="0.254" layer="1"/>
 <wire x1="9.525" y1="13.97" x2="6.82625" y2="13.97" width="0.254" layer="1"/>
 <wire x1="6.82625" y1="13.97" x2="6.6675" y2="13.81125" width="0.254" layer="1"/>
+<contactref element="JP4" pad="2"/>
+<wire x1="14.2875" y1="14.9225" x2="14.2875" y2="14.76375" width="0.254" layer="1"/>
+<wire x1="14.2875" y1="14.76375" x2="13.17625" y2="13.6525" width="0.254" layer="1"/>
+<wire x1="13.17625" y1="13.6525" x2="6.82625" y2="13.6525" width="0.254" layer="1"/>
+<wire x1="6.82625" y1="13.6525" x2="6.6675" y2="13.81125" width="0.254" layer="1"/>
 <wire x1="83.02625" y1="24.765" x2="83.0326" y2="24.695" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCC2.5">
@@ -4150,13 +4165,8 @@ Covered vias can be set in Masks (Limit).
 <wire x1="36.03625" y1="33.07625" x2="36.03625" y2="33.597428125" width="0.254" layer="1"/>
 <wire x1="36.03625" y1="33.597428125" x2="37.24309375" y2="34.804271875" width="0.254" layer="1"/>
 <contactref element="TP4" pad="TP"/>
-<wire x1="17.30375" y1="30.00375" x2="17.93875" y2="30.00375" width="0.254" layer="1"/>
-<wire x1="17.93875" y1="30.00375" x2="20.47875" y2="32.54375" width="0.254" layer="1"/>
-<wire x1="20.47875" y1="32.54375" x2="21.59" y2="32.54375" width="0.254" layer="1"/>
-<wire x1="21.59" y1="32.54375" x2="23.01875" y2="33.9725" width="0.254" layer="1"/>
-<wire x1="23.01875" y1="33.9725" x2="35.08375" y2="33.9725" width="0.254" layer="1"/>
-<wire x1="35.08375" y1="33.9725" x2="36.03625" y2="33.02" width="0.254" layer="1"/>
-<wire x1="36.03625" y1="33.02" x2="36.03625" y2="33.07625" width="0" layer="19" extent="1-1"/>
+<wire x1="27.78125" y1="49.37125" x2="33.07625" y2="49.37125" width="0.254" layer="1"/>
+<wire x1="33.07625" y1="49.37125" x2="34.02875" y2="48.41875" width="0.254" layer="1"/>
 </signal>
 <signal name="N$7">
 <contactref element="R1" pad="1"/>
@@ -4339,6 +4349,12 @@ Covered vias can be set in Masks (Limit).
 <via x="53.6575" y="39.6875" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="53.6575" y1="39.6875" x2="53.339996875" y2="39.6875" width="0.254" layer="1"/>
 <wire x1="53.339996875" y1="39.6875" x2="52.8201375" y2="39.167640625" width="0.254" layer="1"/>
+<contactref element="JP4" pad="5"/>
+<wire x1="16.8275" y1="20.0025" x2="20.32" y2="20.0025" width="0.254" layer="1"/>
+<wire x1="20.32" y1="20.0025" x2="21.2725" y2="19.05" width="0.254" layer="1"/>
+<via x="21.2725" y="19.05" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="21.2725" y1="19.05" x2="37.7444" y2="19.05" width="0.254" layer="16"/>
+<wire x1="37.7444" y1="19.05" x2="38.3413" y2="19.6469" width="0.254" layer="16"/>
 </signal>
 <signal name="FPGA_SPI_CLOCK">
 <contactref element="QG2" pad="5"/>
@@ -4365,23 +4381,31 @@ Covered vias can be set in Masks (Limit).
 <via x="30.7975" y="39.0525" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="30.7975" y1="39.0525" x2="25.0825" y2="39.0525" width="0.254" layer="16"/>
 <wire x1="25.0825" y1="39.0525" x2="9.04875" y2="23.01875" width="0.254" layer="16"/>
-<wire x1="9.04875" y1="23.01875" x2="5.715" y2="23.01875" width="0.254" layer="16"/>
+<wire x1="7.46125" y1="23.01875" x2="5.715" y2="23.01875" width="0.254" layer="16"/>
 <wire x1="5.715" y1="23.01875" x2="4.60375" y2="24.13" width="0.254" layer="16"/>
 <via x="4.60375" y="24.13" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="4.60375" y1="24.13" x2="4.60375" y2="26.10525" width="0.254" layer="1"/>
 <wire x1="4.60375" y1="26.10525" x2="4.445" y2="26.264" width="0.254" layer="1"/>
+<contactref element="JP4" pad="9"/>
+<wire x1="16.8275" y1="25.0825" x2="16.8275" y2="24.60625" width="0.254" layer="1"/>
+<wire x1="16.8275" y1="24.60625" x2="16.03375" y2="23.8125" width="0.254" layer="1"/>
+<wire x1="16.03375" y1="23.8125" x2="12.54125" y2="23.8125" width="0.254" layer="1"/>
+<wire x1="12.54125" y1="23.8125" x2="11.7475" y2="23.01875" width="0.254" layer="1"/>
+<wire x1="11.7475" y1="23.01875" x2="7.9375" y2="23.01875" width="0.254" layer="1"/>
+<wire x1="7.9375" y1="23.01875" x2="7.46125" y2="22.5425" width="0.254" layer="1"/>
+<via x="7.46125" y="22.5425" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="7.46125" y1="22.5425" x2="7.46125" y2="23.01875" width="0.254" layer="16"/>
+<wire x1="7.46125" y1="23.01875" x2="9.04875" y2="23.01875" width="0.254" layer="16"/>
 </signal>
 <signal name="CS_EEPROM">
 <contactref element="IC1" pad="4"/>
 <contactref element="R15" pad="1"/>
 <contactref element="U2" pad="P27"/>
 <wire x1="8.245" y1="19.456" x2="8.245" y2="19.9925" width="0.254" layer="1"/>
-<wire x1="8.245" y1="19.9925" x2="10.16" y2="21.9075" width="0.254" layer="1"/>
-<wire x1="10.16" y1="21.9075" x2="10.16" y2="22.70125" width="0.254" layer="1"/>
-<wire x1="10.16" y1="22.70125" x2="9.36625" y2="23.495" width="0.254" layer="1"/>
-<wire x1="9.36625" y1="23.495" x2="8.89" y2="23.495" width="0.254" layer="1"/>
-<wire x1="8.89" y1="23.495" x2="6.50875" y2="23.495" width="0.254" layer="1"/>
-<wire x1="6.50875" y1="23.495" x2="5.08" y2="24.92375" width="0.254" layer="1"/>
+<wire x1="10.31875" y1="21.74875" x2="6.6675" y2="21.74875" width="0.254" layer="1"/>
+<wire x1="6.6675" y1="21.74875" x2="6.6675" y2="23.97125" width="0.254" layer="1"/>
+<wire x1="6.6675" y1="23.97125" x2="6.0325" y2="23.97125" width="0.254" layer="1"/>
+<wire x1="6.0325" y1="23.97125" x2="5.08" y2="24.92375" width="0.254" layer="1"/>
 <wire x1="5.08" y1="24.92375" x2="5.08" y2="26.99" width="0.254" layer="1"/>
 <wire x1="5.08" y1="26.99" x2="3.4925" y2="28.5775" width="0.254" layer="1"/>
 <wire x1="40.071521875" y1="51.20915" x2="40.071521875" y2="51.209728125" width="0.254" layer="1"/>
@@ -4394,7 +4418,17 @@ Covered vias can be set in Masks (Limit).
 <wire x1="26.51125" y1="45.4025" x2="26.51125" y2="41.5925" width="0.254" layer="16"/>
 <wire x1="26.51125" y1="41.5925" x2="8.89" y2="23.97125" width="0.254" layer="16"/>
 <via x="8.89" y="23.97125" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="8.89" y1="23.97125" x2="8.89" y2="23.495" width="0.254" layer="1"/>
+<wire x1="8.89" y1="23.97125" x2="6.6675" y2="23.97125" width="0.254" layer="1"/>
+<contactref element="JP4" pad="3"/>
+<wire x1="16.8275" y1="17.4625" x2="16.51" y2="17.4625" width="0.254" layer="1"/>
+<wire x1="16.51" y1="17.4625" x2="15.39875" y2="18.57375" width="0.254" layer="1"/>
+<wire x1="15.39875" y1="18.57375" x2="10.00125" y2="18.57375" width="0.254" layer="1"/>
+<wire x1="8.245" y1="19.9925" x2="8.41375" y2="20.16125" width="0.254" layer="1"/>
+<wire x1="10.00125" y1="18.57375" x2="8.41375" y2="20.16125" width="0.254" layer="1"/>
+<wire x1="10.31875" y1="21.74875" x2="10.63625" y2="21.43125" width="0.254" layer="1"/>
+<wire x1="10.63625" y1="21.43125" x2="10.63625" y2="20.79625" width="0.254" layer="1"/>
+<wire x1="10.63625" y1="20.79625" x2="10.00125" y2="20.16125" width="0.254" layer="1"/>
+<wire x1="10.00125" y1="20.16125" x2="8.41375" y2="20.16125" width="0.254" layer="1"/>
 </signal>
 <signal name="SCK_EEPROM">
 <contactref element="IC1" pad="2"/>
@@ -4404,13 +4438,20 @@ Covered vias can be set in Masks (Limit).
 <via x="30.48" y="37.1475" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="30.48" y1="37.1475" x2="23.8125" y2="37.1475" width="0.254" layer="16"/>
 <wire x1="23.8125" y1="37.1475" x2="7.9375" y2="21.2725" width="0.254" layer="16"/>
-<via x="7.9375" y="21.2725" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="7.9375" y1="21.2725" x2="7.5215" y2="21.2725" width="0.254" layer="1"/>
-<wire x1="7.5215" y1="21.2725" x2="6.35" y2="21.2725" width="0.254" layer="1"/>
-<wire x1="6.35" y1="21.2725" x2="5.715" y2="20.6375" width="0.254" layer="1"/>
-<wire x1="5.715" y1="20.6375" x2="5.715" y2="20.16125" width="0.254" layer="1"/>
-<wire x1="5.715" y1="20.16125" x2="5.715" y2="19.456" width="0.254" layer="1"/>
+<wire x1="7.9375" y1="21.2725" x2="7.9375" y2="20.955" width="0.254" layer="16"/>
+<via x="7.9375" y="20.955" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="7.9375" y1="20.955" x2="6.0325" y2="20.955" width="0.254" layer="1"/>
+<wire x1="6.0325" y1="20.955" x2="5.715" y2="20.6375" width="0.254" layer="1"/>
+<wire x1="5.715" y1="20.6375" x2="5.715" y2="19.456" width="0.254" layer="1"/>
 <wire x1="5.715" y1="19.456" x2="5.705" y2="19.456" width="0.254" layer="1"/>
+<contactref element="JP4" pad="7"/>
+<wire x1="16.8275" y1="22.5425" x2="16.66875" y2="22.5425" width="0.254" layer="16"/>
+<wire x1="16.66875" y1="22.5425" x2="15.39875" y2="21.2725" width="0.254" layer="16"/>
+<wire x1="15.39875" y1="21.2725" x2="10.31875" y2="21.2725" width="0.254" layer="16"/>
+<wire x1="10.31875" y1="21.2725" x2="10.00125" y2="20.955" width="0.254" layer="16"/>
+<wire x1="10.00125" y1="20.955" x2="9.68375" y2="20.955" width="0.254" layer="16"/>
+<via x="9.68375" y="20.955" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="9.68375" y1="20.955" x2="7.9375" y2="20.955" width="0.254" layer="1"/>
 </signal>
 <signal name="WP_EEPROM">
 <contactref element="IC1" pad="5"/>
@@ -4429,13 +4470,21 @@ Covered vias can be set in Masks (Limit).
 <wire x1="29.68625" y1="40.005" x2="26.035" y2="36.35375" width="0.254" layer="1"/>
 <via x="26.035" y="36.35375" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="26.035" y1="36.35375" x2="23.65375" y2="36.35375" width="0.254" layer="16"/>
-<wire x1="23.65375" y1="36.35375" x2="11.1125" y2="23.8125" width="0.254" layer="16"/>
-<wire x1="11.1125" y1="23.8125" x2="11.1125" y2="22.06625" width="0.254" layer="16"/>
-<wire x1="11.1125" y1="22.06625" x2="6.6675" y2="17.62125" width="0.254" layer="16"/>
+<wire x1="23.65375" y1="36.35375" x2="8.89" y2="21.59" width="0.254" layer="16"/>
 <via x="6.6675" y="17.62125" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="6.6675" y1="17.62125" x2="5.23875" y2="17.62125" width="0.254" layer="1"/>
 <wire x1="5.23875" y1="17.62125" x2="4.445" y2="18.415" width="0.254" layer="1"/>
 <wire x1="4.445" y1="18.415" x2="4.445" y2="19.456" width="0.254" layer="1"/>
+<contactref element="JP4" pad="1"/>
+<wire x1="16.8275" y1="14.9225" x2="16.8275" y2="15.08125" width="0.254" layer="16"/>
+<wire x1="16.8275" y1="15.08125" x2="15.875" y2="16.03375" width="0.254" layer="16"/>
+<wire x1="15.875" y1="16.03375" x2="12.54125" y2="16.03375" width="0.254" layer="16"/>
+<wire x1="8.89" y1="21.59" x2="8.89" y2="18.415" width="0.254" layer="16"/>
+<wire x1="8.89" y1="18.415" x2="8.5725" y2="18.0975" width="0.254" layer="16"/>
+<wire x1="8.5725" y1="18.0975" x2="7.14375" y2="18.0975" width="0.254" layer="16"/>
+<wire x1="7.14375" y1="18.0975" x2="6.6675" y2="17.62125" width="0.254" layer="16"/>
+<wire x1="8.89" y1="18.415" x2="10.16" y2="18.415" width="0.254" layer="16"/>
+<wire x1="10.16" y1="18.415" x2="12.54125" y2="16.03375" width="0.254" layer="16"/>
 </signal>
 <signal name="RESET_EEPROM">
 <contactref element="IC1" pad="3"/>
@@ -4520,7 +4569,7 @@ Covered vias can be set in Masks (Limit).
 <wire x1="52.705" y1="38.25875" x2="52.314815625" y2="38.25875" width="0.254" layer="1"/>
 <wire x1="52.314815625" y1="38.25875" x2="51.173096875" y2="39.40046875" width="0.254" layer="1"/>
 <contactref element="TP14" pad="TP"/>
-<wire x1="50.64125" y1="30.95625" x2="50.64125" y2="32.385" width="0.254" layer="1"/>
+<wire x1="50.64125" y1="30.63875" x2="50.64125" y2="32.385" width="0.254" layer="1"/>
 <wire x1="50.64125" y1="32.385" x2="50.95875" y2="32.7025" width="0.254" layer="1"/>
 <via x="50.95875" y="32.7025" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="50.95875" y1="32.7025" x2="49.8475" y2="32.7025" width="0.254" layer="16"/>
@@ -5050,8 +5099,8 @@ Covered vias can be set in Masks (Limit).
 <wire x1="26.19375" y1="53.34" x2="18.0975" y2="53.34" width="0.254" layer="16"/>
 <wire x1="18.0975" y1="53.34" x2="13.6525" y2="57.785" width="0.254" layer="16"/>
 <contactref element="TP8" pad="TP"/>
-<wire x1="23.33625" y1="55.72125" x2="25.0825" y2="55.72125" width="0.254" layer="1"/>
-<wire x1="25.0825" y1="55.72125" x2="25.7175" y2="55.08625" width="0.254" layer="1"/>
+<wire x1="29.05125" y1="55.72125" x2="26.3525" y2="55.72125" width="0.254" layer="1"/>
+<wire x1="26.3525" y1="55.72125" x2="25.7175" y2="55.08625" width="0.254" layer="1"/>
 <via x="25.7175" y="55.08625" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="25.7175" y1="55.08625" x2="25.7175" y2="53.81625" width="0.254" layer="16"/>
 <wire x1="25.7175" y1="53.81625" x2="26.19375" y2="53.34" width="0.254" layer="16"/>
@@ -5075,16 +5124,16 @@ Covered vias can be set in Masks (Limit).
 <approved hash="19,1,6b39fd6b89511230"/>
 <approved hash="19,1,fbf9ab09aae4fa14"/>
 <approved hash="19,1,313e3a9484af1a31"/>
-<approved hash="19,1,17ff5ba37f1b262a"/>
 <approved hash="19,1,174feb0feb111b49"/>
+<approved hash="19,1,17ff5ba37f1b262a"/>
 <approved hash="19,1,c731409570ad2239"/>
 <approved hash="4,1,1f270ffe381fb1c7"/>
 <approved hash="19,1,6d366e8884b09a3e"/>
 <approved hash="4,1,9d2bca53b66d2236"/>
 <approved hash="19,1,0bf81b081b070bf7"/>
-<approved hash="4,1,b0ff20542419beb8"/>
-<approved hash="4,1,af0694bd10b84911"/>
 <approved hash="4,1,45eaad4d82598637"/>
+<approved hash="4,1,af0694bd10b84911"/>
+<approved hash="4,1,b0ff20542419beb8"/>
 <approved hash="4,1,63d5afd1d3cadced"/>
 <approved hash="19,1,6f24d89390a9322f"/>
 <approved hash="19,1,4e93d928b143aa7a"/>

@@ -19907,6 +19907,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP16" library="testpad" deviceset="TP" device="B2,54"/>
 <part name="TP17" library="testpad" deviceset="TP" device="B2,54"/>
 <part name="TP18" library="testpad" deviceset="TP" device="B2,54"/>
+<part name="JP4" library="pinhead" deviceset="PINHD-2X5" device="" value="ISP"/>
+<part name="GND26" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20103,6 +20105,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="TP16" gate="G$1" x="246.38" y="347.98"/>
 <instance part="TP17" gate="G$1" x="254" y="347.98"/>
 <instance part="TP18" gate="G$1" x="261.62" y="347.98"/>
+<instance part="JP4" gate="A" x="271.78" y="208.28"/>
+<instance part="GND26" gate="1" x="299.72" y="187.96"/>
 </instances>
 <busses>
 </busses>
@@ -20472,6 +20476,21 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="424.18" y1="276.86" x2="411.48" y2="276.86" width="0.1524" layer="91"/>
 <label x="411.48" y="276.86" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="JP4" gate="A" pin="4"/>
+<wire x1="276.86" y1="210.82" x2="299.72" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="210.82" x2="299.72" y2="208.28" width="0.1524" layer="91"/>
+<pinref part="JP4" gate="A" pin="8"/>
+<wire x1="299.72" y1="208.28" x2="299.72" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="205.74" x2="276.86" y2="205.74" width="0.1524" layer="91"/>
+<pinref part="JP4" gate="A" pin="6"/>
+<wire x1="276.86" y1="208.28" x2="299.72" y2="208.28" width="0.1524" layer="91"/>
+<pinref part="JP4" gate="A" pin="10"/>
+<wire x1="276.86" y1="203.2" x2="299.72" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="203.2" x2="299.72" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="203.2" x2="299.72" y2="190.5" width="0.1524" layer="91"/>
+<pinref part="GND26" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -20649,6 +20668,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="TP2" gate="G$1" pin="TP"/>
 <wire x1="139.7" y1="345.44" x2="139.7" y2="322.58" width="0.1524" layer="91"/>
 <label x="139.7" y="322.58" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="JP4" gate="A" pin="2"/>
+<wire x1="276.86" y1="213.36" x2="299.72" y2="213.36" width="0.1524" layer="91"/>
+<label x="297.18" y="213.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VCC2.5" class="0">
@@ -20927,6 +20951,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="S1" gate="S" pin="4"/>
 <pinref part="R12" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<pinref part="JP4" gate="A" pin="5"/>
+<wire x1="269.24" y1="208.28" x2="243.84" y2="208.28" width="0.1524" layer="91"/>
+<label x="243.84" y="208.28" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="FPGA_SPI_CLOCK" class="0">
 <segment>
@@ -20956,6 +20985,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="157.48" y1="154.94" x2="190.5" y2="154.94" width="0.1524" layer="91"/>
 <label x="182.88" y="154.94" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="JP4" gate="A" pin="9"/>
+<wire x1="269.24" y1="203.2" x2="243.84" y2="203.2" width="0.1524" layer="91"/>
+<label x="243.84" y="203.2" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="CS_EEPROM" class="0">
 <segment>
@@ -20972,6 +21006,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="157.48" y1="200.66" x2="187.96" y2="200.66" width="0.1524" layer="91"/>
 <label x="182.88" y="200.66" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="JP4" gate="A" pin="3"/>
+<wire x1="269.24" y1="210.82" x2="243.84" y2="210.82" width="0.1524" layer="91"/>
+<label x="243.84" y="210.82" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SCK_EEPROM" class="0">
 <segment>
@@ -20983,6 +21022,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U2" gate="B2" pin="IO_L12N_2/CCLK"/>
 <wire x1="157.48" y1="149.86" x2="190.5" y2="149.86" width="0.1524" layer="91"/>
 <label x="182.88" y="149.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP4" gate="A" pin="7"/>
+<wire x1="269.24" y1="205.74" x2="243.84" y2="205.74" width="0.1524" layer="91"/>
+<label x="243.84" y="205.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="WP_EEPROM" class="0">
@@ -21004,6 +21048,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U2" gate="B2" pin="IO_2/MOSI/CSI_B"/>
 <wire x1="157.48" y1="210.82" x2="187.96" y2="210.82" width="0.1524" layer="91"/>
 <label x="182.88" y="210.82" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP4" gate="A" pin="1"/>
+<wire x1="269.24" y1="213.36" x2="243.84" y2="213.36" width="0.1524" layer="91"/>
+<label x="243.84" y="213.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RESET_EEPROM" class="0">
