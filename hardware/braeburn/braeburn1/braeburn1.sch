@@ -10447,7 +10447,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="PWRLED" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
-<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="270Ohm"/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="330Ohm"/>
 <part name="L1" library="rcl" deviceset="L-EU" device="0207/5V"/>
 <part name="IC4" library="linear" deviceset="LM2574?-*" device="N" technology="12"/>
 <part name="IC5" library="linear" deviceset="LM2574?-*" device="N" technology="5.0"/>
@@ -10541,26 +10541,26 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <instance part="C4" gate="G$1" x="149.86" y="0"/>
 <instance part="GND18" gate="1" x="149.86" y="-12.7"/>
 <instance part="GND19" gate="1" x="149.86" y="15.24"/>
-<instance part="IC3" gate="A" x="35.56" y="-50.8"/>
+<instance part="IC3" gate="A" x="35.56" y="-48.26"/>
 <instance part="IC3" gate="B" x="35.56" y="-78.74"/>
 <instance part="IC3" gate="C" x="35.56" y="-109.22"/>
 <instance part="IC3" gate="P" x="30.48" y="-124.46" rot="R270"/>
 <instance part="GND20" gate="1" x="5.08" y="-124.46" rot="R270"/>
-<instance part="R4" gate="G$1" x="35.56" y="-58.42"/>
-<instance part="R5" gate="G$1" x="17.78" y="-53.34"/>
-<instance part="R6" gate="G$1" x="17.78" y="-48.26"/>
-<instance part="R7" gate="G$1" x="25.4" y="-43.18" rot="R90"/>
-<instance part="GND21" gate="1" x="15.24" y="-38.1" rot="R270"/>
+<instance part="R4" gate="G$1" x="35.56" y="-55.88"/>
+<instance part="R5" gate="G$1" x="17.78" y="-50.8"/>
+<instance part="R6" gate="G$1" x="17.78" y="-45.72"/>
+<instance part="R7" gate="G$1" x="25.4" y="-40.64" rot="R90"/>
+<instance part="GND21" gate="1" x="15.24" y="-35.56" rot="R270"/>
 <instance part="R8" gate="G$1" x="17.78" y="-76.2"/>
 <instance part="R9" gate="G$1" x="17.78" y="-81.28"/>
-<instance part="R10" gate="G$1" x="25.4" y="-68.58" rot="R90"/>
+<instance part="R10" gate="G$1" x="25.4" y="-71.12" rot="R90"/>
 <instance part="R11" gate="G$1" x="38.1" y="-86.36"/>
-<instance part="GND22" gate="1" x="15.24" y="-63.5" rot="R270"/>
-<instance part="R12" gate="G$1" x="25.4" y="-99.06" rot="R90"/>
+<instance part="GND22" gate="1" x="15.24" y="-66.04" rot="R270"/>
+<instance part="R12" gate="G$1" x="25.4" y="-101.6" rot="R90"/>
 <instance part="R13" gate="G$1" x="17.78" y="-106.68"/>
 <instance part="R14" gate="G$1" x="17.78" y="-111.76"/>
 <instance part="R15" gate="G$1" x="35.56" y="-116.84"/>
-<instance part="GND23" gate="1" x="15.24" y="-93.98" rot="R270"/>
+<instance part="GND23" gate="1" x="15.24" y="-96.52" rot="R270"/>
 <instance part="PWRLED" gate="G$1" x="99.06" y="35.56" rot="R90"/>
 <instance part="GND25" gate="1" x="96.52" y="12.7"/>
 <instance part="R16" gate="G$1" x="106.68" y="20.32" rot="R90"/>
@@ -10705,8 +10705,8 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="-48.26" x2="0" y2="-48.26" width="0.1524" layer="91"/>
-<label x="0" y="-48.26" size="1.778" layer="95"/>
+<wire x1="12.7" y1="-45.72" x2="0" y2="-45.72" width="0.1524" layer="91"/>
+<label x="0" y="-45.72" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="C10" gate="G$1" pin="1"/>
@@ -10846,26 +10846,26 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <pinref part="GND20" gate="1" pin="GND"/>
 </segment>
 <segment>
-<wire x1="17.78" y1="-38.1" x2="25.4" y2="-38.1" width="0.1524" layer="91"/>
-<label x="33.02" y="-38.1" size="1.778" layer="95"/>
+<wire x1="17.78" y1="-35.56" x2="25.4" y2="-35.56" width="0.1524" layer="91"/>
+<label x="33.02" y="-35.56" size="1.778" layer="95"/>
 <pinref part="GND21" gate="1" pin="GND"/>
 <pinref part="R7" gate="G$1" pin="2"/>
-<junction x="25.4" y="-38.1"/>
-<wire x1="25.4" y1="-38.1" x2="38.1" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="25.4" y="-35.56"/>
+<wire x1="25.4" y1="-35.56" x2="38.1" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="17.78" y1="-63.5" x2="25.4" y2="-63.5" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="-66.04" x2="25.4" y2="-66.04" width="0.1524" layer="91"/>
 <pinref part="GND22" gate="1" pin="GND"/>
-<label x="33.02" y="-63.5" size="1.778" layer="95"/>
+<label x="33.02" y="-66.04" size="1.778" layer="95"/>
 <pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="-63.5" x2="38.1" y2="-63.5" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="-66.04" x2="38.1" y2="-66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="17.78" y1="-93.98" x2="25.4" y2="-93.98" width="0.1524" layer="91"/>
-<label x="33.02" y="-93.98" size="1.778" layer="95"/>
+<wire x1="17.78" y1="-96.52" x2="25.4" y2="-96.52" width="0.1524" layer="91"/>
+<label x="33.02" y="-96.52" size="1.778" layer="95"/>
 <pinref part="R12" gate="G$1" pin="2"/>
-<junction x="25.4" y="-93.98"/>
-<wire x1="25.4" y1="-93.98" x2="38.1" y2="-93.98" width="0.1524" layer="91"/>
+<junction x="25.4" y="-96.52"/>
+<wire x1="25.4" y1="-96.52" x2="38.1" y2="-96.52" width="0.1524" layer="91"/>
 <pinref part="GND23" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -11261,13 +11261,13 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 </segment>
 <segment>
 <pinref part="IC3" gate="A" pin="OUT"/>
-<wire x1="43.18" y1="-50.8" x2="45.72" y2="-50.8" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="-50.8" x2="63.5" y2="-50.8" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="-58.42" x2="45.72" y2="-58.42" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="-58.42" x2="45.72" y2="-50.8" width="0.1524" layer="91"/>
-<junction x="45.72" y="-50.8"/>
+<wire x1="43.18" y1="-48.26" x2="45.72" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-48.26" x2="63.5" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="-55.88" x2="45.72" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-55.88" x2="45.72" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="45.72" y="-48.26"/>
 <pinref part="R4" gate="G$1" pin="2"/>
-<label x="55.88" y="-50.8" size="1.778" layer="95"/>
+<label x="55.88" y="-48.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M5V" class="0">
@@ -11383,22 +11383,22 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
 <pinref part="IC3" gate="A" pin="-IN"/>
-<wire x1="22.86" y1="-53.34" x2="25.4" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="-50.8" x2="25.4" y2="-50.8" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="25.4" y1="-53.34" x2="27.94" y2="-53.34" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="-58.42" x2="25.4" y2="-58.42" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="-58.42" x2="25.4" y2="-53.34" width="0.1524" layer="91"/>
-<junction x="25.4" y="-53.34"/>
+<wire x1="25.4" y1="-50.8" x2="27.94" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="-55.88" x2="25.4" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="-55.88" x2="25.4" y2="-50.8" width="0.1524" layer="91"/>
+<junction x="25.4" y="-50.8"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="IC3" gate="A" pin="+IN"/>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="27.94" y1="-48.26" x2="25.4" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="-45.72" x2="25.4" y2="-45.72" width="0.1524" layer="91"/>
 <pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="25.4" y1="-48.26" x2="22.86" y2="-48.26" width="0.1524" layer="91"/>
-<junction x="25.4" y="-48.26"/>
+<wire x1="25.4" y1="-45.72" x2="22.86" y2="-45.72" width="0.1524" layer="91"/>
+<junction x="25.4" y="-45.72"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -11420,7 +11420,6 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <wire x1="27.94" y1="-76.2" x2="25.4" y2="-76.2" width="0.1524" layer="91"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="25.4" y1="-76.2" x2="22.86" y2="-76.2" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="-76.2" x2="25.4" y2="-73.66" width="0.1524" layer="91"/>
 <junction x="25.4" y="-76.2"/>
 </segment>
 </net>
@@ -11443,7 +11442,6 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <wire x1="27.94" y1="-106.68" x2="25.4" y2="-106.68" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="1"/>
 <wire x1="25.4" y1="-106.68" x2="22.86" y2="-106.68" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="-106.68" x2="25.4" y2="-104.14" width="0.1524" layer="91"/>
 <junction x="25.4" y="-106.68"/>
 </segment>
 </net>
@@ -11553,8 +11551,8 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="-53.34" x2="0" y2="-53.34" width="0.1524" layer="91"/>
-<label x="0" y="-53.34" size="1.778" layer="95"/>
+<wire x1="12.7" y1="-50.8" x2="0" y2="-50.8" width="0.1524" layer="91"/>
+<label x="0" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$29" class="0">
