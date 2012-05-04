@@ -2008,8 +2008,8 @@ generation of mobile and embedded devices.</description>
 <description>MQ303A alcohol sensor</description>
 <circle x="0" y="0" radius="4.7" width="0.127" layer="21"/>
 <pad name="HEATER+" x="-2.2" y="0" drill="0.9" shape="octagon"/>
-<pad name="SENSE" x="2.2" y="0" drill="0.9" shape="octagon"/>
-<pad name="HEATER-" x="0" y="2.2" drill="0.9" shape="octagon"/>
+<pad name="HEATER-" x="2.2" y="0" drill="0.9" shape="octagon"/>
+<pad name="SENSE" x="0" y="2.2" drill="0.9" shape="octagon"/>
 </package>
 </packages>
 <symbols>
