@@ -21165,6 +21165,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="170.18" y1="345.44" x2="170.18" y2="322.58" width="0.1524" layer="91"/>
 <label x="170.18" y="322.58" size="1.778" layer="95" rot="R90"/>
 </segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="FASTCLK3V3"/>
+<wire x1="172.72" y1="15.24" x2="134.62" y2="15.24" width="0.1524" layer="91"/>
+<label x="134.62" y="15.24" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="FASTCLK-" class="0">
 <segment>
@@ -21181,13 +21186,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="TP7" gate="G$1" pin="TP"/>
 <wire x1="177.8" y1="345.44" x2="177.8" y2="322.58" width="0.1524" layer="91"/>
 <label x="177.8" y="322.58" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="FASTCLK3V3" class="0">
-<segment>
-<pinref part="U$4" gate="G$1" pin="FASTCLK3V3"/>
-<wire x1="172.72" y1="15.24" x2="134.62" y2="15.24" width="0.1524" layer="91"/>
-<label x="134.62" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TRST" class="0">
