@@ -15,3 +15,8 @@
 "IC REG POS ADJ 1.5A LDO TO-263","NATIONAL","LM1086CSX-ADJ","TO263",,"-LM1086CSX-ADJCT-ND",,,,
 "IC OCTAL D TRANSP LATCH 20TSSOP","NXP","74LVC573APW","TSSOP20",,"568-8325-5-ND",,,,
 "low-power POT GPS receiver (MediaTek MT3329)","GlobalTop","Gms-u1LP",,"GlobalTop FGPMMOPA6C (PA6C)",,,23860,,"discontinued"
+"IC SWITCH 1X1 SOT23-5","NXP","74V1G66STR","SOT23-5",,"497-1273-1-ND",,,"friendship0",
+"CONN PCI EXPRESS 64POS VERT PCB",,,,,"609-2026-ND",,,"friendship0",
+"10k resistor",,,"0603",,,,,"friendship0",
+"CONN HEADR FMALE 10POS .1"" DL AU",,,,,"S9194-ND",,,"friendship0",
+"CONN HEADER SH 2POS SIDE 1MM TIN",,,,,"455-1802-1-ND",,,,
