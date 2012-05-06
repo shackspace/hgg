@@ -60,25 +60,25 @@
 <library name="hgg">
 <packages>
 <package name="FRIENDSHIP_EDGE_CONNECTOR">
-<wire x1="0" y1="9" x2="0" y2="-12" width="0.127" layer="21"/>
-<wire x1="0" y1="-12" x2="14" y2="-12" width="0.127" layer="21"/>
-<wire x1="14" y1="-12" x2="14" y2="-5" width="0.127" layer="21"/>
-<wire x1="14" y1="-5" x2="33" y2="-5" width="0.127" layer="21"/>
-<wire x1="33" y1="-12" x2="33" y2="-5" width="0.127" layer="21"/>
-<wire x1="33" y1="-12" x2="41" y2="-12" width="0.127" layer="21"/>
-<wire x1="41" y1="-12" x2="41" y2="-6" width="0.127" layer="21"/>
-<wire x1="41" y1="-6" x2="45" y2="-6" width="0.127" layer="21" curve="-180"/>
-<wire x1="45" y1="-6" x2="45" y2="-16" width="0.127" layer="21"/>
-<wire x1="45" y1="-16" x2="56" y2="-16" width="0.127" layer="21"/>
-<wire x1="56" y1="-16" x2="56" y2="-8" width="0.127" layer="21"/>
-<wire x1="56" y1="-8" x2="58" y2="-8" width="0.127" layer="21" curve="-180"/>
-<wire x1="58" y1="-8" x2="58" y2="-16" width="0.127" layer="21"/>
-<wire x1="58" y1="-16" x2="79" y2="-16" width="0.127" layer="21"/>
+<wire x1="0" y1="9" x2="0" y2="-12" width="0.127" layer="20"/>
+<wire x1="0" y1="-12" x2="14" y2="-12" width="0.127" layer="20"/>
+<wire x1="14" y1="-12" x2="14" y2="-11.985" width="0.127" layer="21"/>
+<wire x1="14" y1="-11.985" x2="33" y2="-11.985" width="0.127" layer="20"/>
+<wire x1="33" y1="-12" x2="33" y2="-11.985" width="0.127" layer="21"/>
+<wire x1="33" y1="-12" x2="41" y2="-12" width="0.127" layer="20"/>
+<wire x1="41" y1="-12" x2="41" y2="-6" width="0.127" layer="20"/>
+<wire x1="41" y1="-6" x2="45" y2="-6" width="0.127" layer="20" curve="-180"/>
+<wire x1="45" y1="-6" x2="45" y2="-16" width="0.127" layer="20"/>
+<wire x1="45" y1="-16" x2="56" y2="-16" width="0.127" layer="20"/>
+<wire x1="56" y1="-16" x2="56" y2="-8" width="0.127" layer="20"/>
+<wire x1="56" y1="-8" x2="58" y2="-8" width="0.127" layer="20" curve="-180"/>
+<wire x1="58" y1="-8" x2="58" y2="-16" width="0.127" layer="20"/>
+<wire x1="58" y1="-16" x2="79" y2="-16" width="0.127" layer="20"/>
 <wire x1="79" y1="-16" x2="79.1" y2="-16" width="0.127" layer="21"/>
-<wire x1="79" y1="-6" x2="83" y2="-6" width="0.127" layer="21" curve="-180"/>
-<wire x1="79" y1="-6" x2="79" y2="-16" width="0.127" layer="21"/>
-<wire x1="83" y1="-12.2" x2="83" y2="-6" width="0.127" layer="21"/>
-<wire x1="83" y1="-12.2" x2="91" y2="-12.2" width="0.127" layer="21"/>
+<wire x1="79" y1="-6" x2="83" y2="-6" width="0.127" layer="20" curve="-180"/>
+<wire x1="79" y1="-6" x2="79" y2="-16" width="0.127" layer="20"/>
+<wire x1="83" y1="-12.2" x2="83" y2="-6" width="0.127" layer="20"/>
+<wire x1="83" y1="-12.2" x2="91" y2="-12.2" width="0.127" layer="20"/>
 <wire x1="45.5" y1="-13.8" x2="45.5" y2="-10.9" width="0.6096" layer="16"/>
 <wire x1="46.5" y1="-13.9" x2="46.5" y2="-10.9" width="0.6096" layer="16"/>
 <wire x1="47.5" y1="-13.8" x2="47.5" y2="-10.9" width="0.6096" layer="16"/>
