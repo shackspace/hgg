@@ -1,0 +1,241 @@
+
+\newlength{\smallcol}
+\setlength{\smallcol}{0.333333333333\textwidth}
+
+\newlength{\bigcol}
+\setlength{\bigcol}{\textwidth}
+\addtolength{\bigcol}{- \smallcol}
+
+
+\begin{frame}[plain]
+  \mode<article>{\maketitle}
+  \mode<presentation>{\titlepage}
+\end{frame}
+
+\section{what is hgg}
+
+\subsection{history}
+	\begin{frame}{cccamp 2011}
+		nick farr, lars weiler, jens ohlig call for "hacker space program"
+	\end{frame}
+	\begin{frame}{joining of constellation}
+	\end{frame}
+	\begin{frame}{call to arms talk at 28c3}
+		press feedback \& what hgg is not
+	\end{frame}
+
+\subsection{hgg in a nutshell}
+	\begin{frame}{build a modular system}
+ 		\begin{center}\includegraphics<1->[height=0.8\textheight]{modular}\end{center}
+	\end{frame}
+	\begin{frame}{make it as accurate as possible}
+	\end{frame}
+	\begin{frame}{measure stuff}
+	\end{frame}
+	\begin{frame}{make it a distributed system}
+ 		\includegraphics<1->[width=\textwidth]{distributed}
+	\end{frame}
+	\begin{frame}{make it easy to use}
+ 		\begin{center}\includegraphics<1->[height=0.8\textheight]{easytouse}\end{center}
+	\end{frame}
+
+\subsection{who's behind it?}
+	\begin{frame}{who's behind it?}
+	a bunch of folks, really
+	no company or governments
+	by hackers, for everyone
+	\end{frame}
+
+
+\section{what we're actually doing}
+
+\subsection{the core idea}
+	\begin{frame}{consolidating existing and new information}
+	\end{frame}
+	\begin{frame}{learning the basics}
+		pcb design
+		fpga programming in vhdl
+		microcontroller programming in c
+		antenna design
+	\end{frame}
+	\begin{frame}{open source everything}
+	\end{frame}
+	\begin{frame}{what is it actually good for?}
+		public access to all measurement results (don't get cheated)
+		access to infrastructure to deploy own (measurement) equipment
+	\end{frame}
+	\begin{frame}{are there already applications?}
+		constellation
+	\end{frame}
+
+\subsection{status quo}
+  \begin{frame}{specification of physical interface between modules}
+	\end{frame}
+	\begin{frame}{friendship0 backplane}
+	\end{frame}
+	\begin{frame}{braeburn0 \& 1 power supply modules}
+	\end{frame}
+	\begin{frame}{flutter0 high precision distributed time source module}
+	\end{frame}
+	\begin{frame}{dash0 proof of concept}
+	\end{frame}
+
+\section{on the horizon}	
+
+\subsection{roadmap}
+	\begin{frame}{celestia0 bus master module}
+	\end{frame}
+	\begin{frame}{dash0 ADSB receiver module}
+	\end{frame}
+	\begin{frame}{magic0 bus protocol}
+	\end{frame}
+	\begin{frame}{test timing accuracy}
+	\end{frame}
+	\begin{frame}{calibration}
+	\end{frame}
+	\begin{frame}{deploy 3 to 5 systems}
+	\end{frame}
+	\begin{frame}{quality tests and review}
+	\end{frame}
+	\begin{frame}{more modules}
+		arduino module
+		environment sensors
+	\end{frame}
+	\begin{frame}{satellites}
+		not impossible, though not really /our/ goal
+	\end{frame}
+
+\subsection{how to help}
+	\begin{frame}{why we have not asked for donations, yet}
+	\end{frame}
+	\begin{frame}{hgg.aero}
+	\end{frame}
+	\begin{frame}{github.com/shackspace/hgg}
+	\end{frame}
+	\begin{frame}{lists.shackspace.de/listinfo/constellation}
+	\end{frame}
+
+
+
+% 
+% \section{Warum dieses Projekt?}
+% \begin{frame}{Warum dieses Projekt?}
+%   \begin{itemize}
+%     \item Sicherheitslücke im bisherigen system
+%     \item nur eine Lösung: \alert<.>{das muss gehackt werden} 
+%   \end{itemize}
+% \end{frame}
+% 
+% \section*{Anforderungen an das Projekt}
+% \begin{frame}{Anforderungen an das Projekt}
+%   \begin{itemize}
+%     \item mehrere Schlüssel müssen getrackt werden
+%     \item Schlüssel müssen individuell getrackt werden können
+%     \item fehlender Schlüssel muss sich durch ein akustisches Signal bemerkbar machen
+%     \begin{itemize}
+%       \item mit einem Taster muss für ein paar Minuten wider Ruhe einkehren
+%     \end{itemize}
+%     \item Schlüssel müssen dem System einfach hinzugefügt und entfernt werden können
+%     \item Schlüssel mit besonderer Funktion müssen gesondert behandelt werden können
+%     \begin{itemize}
+%       \item z.B. \shack{}-Schlüssel
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
+% 
+% \section{Umsetztung}
+% \begin{frame}[<.->]{Umsetzung}
+%   \begin{columns}
+%     \begin{column}{\bigcol}
+%       \begin{itemize}
+%         \item<+-> Patchpanel (8 Ports)
+%         \item<+-> Netzwerkkabel als Schlüsselbund
+%         \item<+-> Logik auf Basis des shackuino
+%       \end{itemize}
+%     \end{column}
+%     \begin{column}{\smallcol}
+%       \includegraphics<1->[width=\smallcol]{patchpanel}
+%     \end{column}
+%   \end{columns} 
+% \end{frame}
+% 
+% 
+% \section{Stand}
+% \begin{frame}[<.->]{Stand}
+%   \begin{columns}
+%     \begin{column}{\bigcol}
+%       \begin{itemize}
+%         \item<+-> Prototyp auf Breadboard
+%         \item<+-> shackuino
+%         \begin{itemize}
+%           \item<+-> Code mit absoluten Grundanforderungen
+%         \end{itemize}
+%         \item<+-> Netzwerkdose aus dem alten \shack
+%         \item<+-> zwei einseitig gekrimpte CAT5 Verlegekabel
+%       \end{itemize}
+%     \end{column}
+%     \begin{column}{\smallcol}
+%       \includegraphics<1-3>[width=\smallcol]{board}
+%       \includegraphics<4-5>[width=\smallcol]{netzwerkdose}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+% 
+% 
+% 
+% \section{Probleme}
+% \begin{frame}{Probleme}
+%   \begin{itemize}
+%     \item Wackelkontakte im Breadboard
+%     \item Verlegekabel lassen sich nicht krimpen
+%     \item in Netzwerkdosen kann man eigentlich nur ein kabel auflegen
+%     \item Millis() gibt ein unsigned long zurück. Sollte nicht als int benutzt werden.
+%   \end{itemize}
+% \end{frame}
+% 
+% \section{ToDo}
+% \begin{frame}{ToDo}
+%   \begin{itemize}
+%     \item Code vervollständigen
+%     \item auf Bauteile warten
+%     \begin{itemize}
+%       \item Platz in Patchpanel validieren
+%     \end{itemize}
+%     \item Schaltplan
+%     \item Eagle-Design
+%     \item Platine ätzen
+%     \item Platine in Patchpanel einnbauen
+%     \item im \shack{} aufhängen
+%   \end{itemize}
+% \end{frame}
+% 
+% \section{zukünftige Probleme}
+% \begin{frame}{zukünftige Probleme}
+%   \begin{itemize}
+%     \item \alert<.>{Ich hab keine Ahnung von Mikrocontroller-Programmierung}
+%     \item \alert<.>{ich hab keine Ahnung von Elektrokram}
+%     \begin{itemize}
+%       \item bzw. alles wider vergessen seit der Schule
+%     \end{itemize}
+%     \item \alert<.>{ich hab keine Ahnung von Eagle}
+%     \item \alert<.>{ich hab keine Ahnung vom Ätzen}
+%     \item \alert<.>{meine Fantasie hubelt die ganze zeit}
+%   \end{itemize}
+% \end{frame}
+% 
+% %\begin{frame}{ENDE}
+% %  \begin{center}
+% %    \includegraphics[width=.5\textwidth]{logo_shack_brightbg} \\
+% %    Vielen dank für eure Aufmerksamkeit
+% %  \end{center}
+% %\end{frame}
+% 
+% \date{ }
+% 
+% 
+% \titlegraphic{Vielen Dank für eure Aufmerksamkeit}
+% 
+% \begin{frame}[plain]
+%   \mode<article>{\maketitle}
+%   \mode<presentation>{\titlepage}
+% \end{frame}
