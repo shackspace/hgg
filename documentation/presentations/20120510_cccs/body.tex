@@ -85,12 +85,38 @@
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{friendship0 backplane}
+		\begin{itemize}
+			\item 4 modules slots, one dedicated to bus master module
+			\item ICs for interrupt handling
+		\end{itemize}
 	\end{frame}
-	\begin{frame}{braeburn0 \& 1 power supply modules}
+	\begin{frame}{braeburn0 power supply module}
+		\begin{itemize}
+			\item Single external power source
+			\item All voltages generated on-board, stabilized
+			\item In-system voltage level monitoring
+		\end{itemize}
+	\end{frame}
+	\begin{frame}{braeburn1 power supply module}
+		\begin{itemize}
+			\item Uses PC power supply
+			\item Minor stabilization / buffering
+			\item In-system voltage level monitoring
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{flutter0 high precision distributed time source module}
+		\begin{itemize}
+			\item Spartan 3A FPGA for high-res timing (<100 ns)
+			\item ATmega 168 for lo-res timing (1 s to 1/10th s)
+			\item Low cost GPS module w/ external antenna support
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{dash0 proof of concept}
+		\begin{itemize}
+			\item ADS-B receiver based around miniADSB module
+			\item Easily track commercial aircraft
+			\item Perfect for verifying pseudo ranging algorithms
+		\end{itemize}
 	\end{frame}
 
 \section{on the horizon}	
