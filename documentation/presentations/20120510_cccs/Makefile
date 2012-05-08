@@ -39,7 +39,7 @@ quick.pdf: quick.tex
 
 ########################################################################
 #dependencies from config files
-rd.pdf draft.pdf quick.pdf handout.pdf 43.pdf 54.pdf 169.pdf 1610.pdf: head.tex body.tex makefile
+rd.pdf draft.pdf quick.pdf handout.pdf 43.pdf 54.pdf 169.pdf 1610.pdf: head.tex body.tex
 quick.tex: 54.tex
 
 ########################################################################
