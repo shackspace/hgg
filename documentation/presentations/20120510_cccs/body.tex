@@ -139,28 +139,70 @@
 
 \subsection{Roadmap}
 	\begin{frame}{celestia0 bus master module}
+		\begin{itemize}
+			\item Manages interrupt requests by modules
+			\item Arbitrates resources
+			\item Enumeration of available modules
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{dash0 ADSB receiver module}
+		\begin{itemize}
+			\item Built around the proof of concept
+			\item Most likely CPLD-based decoding of Manchester-encoded signal
+			\item Contributions by Pawel
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{magic0 bus protocol}
+		\begin{itemize}
+			\item What modules will speak between each other and the bus master
+			\item Data exchange and enumeration
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{Testing timing accuracy}
+		\begin{itemize}
+			\item First level test: 2x ground stations w/ flutter module
+			\item Second level test: ~5 ground stations w/ flutter module
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{Calibration}
+		\begin{itemize}
+			\item High accuracy measurement requires diligent calibration
+			\item Receiver, decoder, communication lags
+			\item Phase error
+			\item ...
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{Deploying 3 to 5 systems}
+		\begin{itemize}
+			\item Test pseudo ranging and timing
+			\item This will be the make or break decision
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{Quality tests and review}
+		\begin{itemize}
+			\item Review everything
+			\item Make improvements where necessary
+			\item Manufacture pre-series
+			\item Hand ground stations out to other hackerspaces and interested parties
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{More modules}
 		\begin{itemize}
 			\item Arduino module
+			\begin{itemize}
+				\item Probably the easiest way to prototype
+				\item Make it available to an already large community
+			\end{itemize}
 			\item Environment sensors
+			\begin{itemize}
+				\item Measure ALL the things
+				\item Temperature, humidity, barometric pressure, seismic waves, radiation, tectonic drift, time, wind, ...
+			\end{itemize}
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{satellites}
 		\begin{itemize}
-			\item not impossible, though not really /our/ goal
+			\item Not impossible, though not really /our/ goal
 		\end{itemize}
 	\end{frame}
 
