@@ -30,6 +30,7 @@
 			\item P.S.: hgg is a small part in the bigger scheme of the "Hacker Space Program"
 		\end{itemize}
 	\end{frame}
+
 	\begin{frame}{Joining up w/ Constellation}
 		\begin{itemize}
 			\item Andreas Hornig of AerospaceResearch.net ends up giving a talk on Constellation at shackspace
@@ -37,6 +38,7 @@
 			\item We join forces
 		\end{itemize}
 	\end{frame}
+
 	\begin{frame}{"Call to arms" talk at 28c3}
 		\begin{itemize}
 			\item After the initial research and proof of concepts we thought it would be nice to have 3 to 5 more folks helping us
@@ -44,6 +46,7 @@
 			\item Press feedback was never the same...
 		\end{itemize}
 	\end{frame}
+
 	\begin{frame}{Press feedback or "What hgg definitely isn't"}
 		\begin{itemize}
 			\item "Hacker aus Stuttgart - Mit dem Lötkolben ins Weltall"\\ \footnotesize{\emph{-- Stuttgarter Zeitung}}
@@ -69,9 +72,11 @@
 			\end{column}
 		\end{columns}
 	\end{frame}
+
 	\begin{frame}[<.->]{Make it as accurate as possible}
   	\begin{columns}
     	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{accurate}\end{center}
 			\end{column}
     	\begin{column}{\bigcol}
 				\begin{itemize}
@@ -82,6 +87,7 @@
 			\end{column}
 		\end{columns}
 	\end{frame}
+
 	\begin{frame}[<.->]{Measure stuff}
   	\begin{columns}
     	\begin{column}{\smallcol}
@@ -95,6 +101,7 @@
 			\end{column}
 		\end{columns}
 	\end{frame}
+
 	\begin{frame}[<.->]{Make it a distributed system}
   	\begin{columns}
     	\begin{column}{\smallcol}
@@ -109,6 +116,7 @@
 			\end{column}
 		\end{columns}
 	\end{frame}
+
 	\begin{frame}[<.->]{Make it easy to use}
   	\begin{columns}
     	\begin{column}{\smallcol}
@@ -130,7 +138,7 @@
 			\item Just a bunch of folks, really
 				\begin{itemize}
 					\item reloc0 \& hadez \& saeugetier working on hgg
-					\item horn working on Constellation
+					\item -horn- working on Constellation
 					\item Pawe\l, Isaac, and a few others working on various projects
 				\end{itemize}
 			\item No company or governments
@@ -155,6 +163,7 @@
 			\item Document our findings, results and failures for others to learn from
 		\end{itemize}
 	\end{frame}
+
 	\begin{frame}{Learning the basics}
 		\begin{itemize}
 			\item PCB design
@@ -163,18 +172,21 @@
 			\item Antenna design
 		\end{itemize}
 	\end{frame}
+
 	\begin{frame}{Open source everything}
 		\begin{itemize}
 			\item Code available at github.com/shackspace/hgg
 			\item Documentation and planning at hgg.aero/
 		\end{itemize}
 	\end{frame}
+
 	\begin{frame}{What is it actually good for?}
 		\begin{itemize}
 			\item Public access to all measurement results (don't get cheated)
 			\item Access to infrastructure to deploy own (measurement) equipment
 		\end{itemize}
 	\end{frame}
+
 	\begin{frame}{What about applications?}
 		\begin{itemize}
 			\item Constellation
@@ -193,52 +205,96 @@
 		\end{itemize}
 	\end{frame}
 
+
 \subsection{Status quo}
-  \begin{frame}{Specification of physical interface between modules}
-		\begin{itemize}
-			\item Modules are connected via a backplane
-			\item PCIe 4x plug w/ custom pinout
-			\item 2x RS485 lanes for inter-module communication
-			\item SPI-ish time broadcast bus
-			\item Differential clock signal for high-res timing signal
-			\item Each module sports storage for calibration data
-		\end{itemize}
+
+  \begin{frame}[<.->]{Specification of physical interface between modules}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item Modules are connected via a backplane
+					\item PCIe 4x plug w/ custom pinout
+					\item 2x RS485 lanes for inter-module communication
+					\item SPI-ish time broadcast bus
+					\item Differential clock signal for high-res timing signal
+					\item Each module sports storage for calibration data
+				\end{itemize}
+			\end{column}
+  	\end{columns}
 	\end{frame}
-	\begin{frame}{friendship0 backplane}
-		\begin{itemize}
-			\item Four modules slots, one dedicated to bus master module
-			\item ICs for interrupt handling
-			\item Can be easily scaled up, next step eight or nine slots
-		\end{itemize}
+
+	\begin{frame}[<.->]{friendship0 backplane}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0_assembled}\end{center}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0_assembled_bottom}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Four modules slots, one dedicated to bus master module
+					\item<+-> ICs for interrupt handling
+					\item<+-> Can be easily scaled up, next step eight or nine slots
+				\end{itemize}
+			\end{column}
+  	\end{columns}
 	\end{frame}
-	\begin{frame}{braeburn0 power supply module}
-		\begin{itemize}
-			\item Single external power source
-			\item All voltages generated on-board, stabilized
-			\item In-system voltage level monitoring
-		\end{itemize}
+
+	\begin{frame}[<.->]{braeburn0 \& 1 power supply module}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{braeburn}\end{center}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{braeburn_pcb}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item Single external power source
+					\item All voltages generated on-board, stabilized
+					\item In-system voltage level monitoring
+					\item braeburn1 using PC power supply
+				\end{itemize}
+			\end{column}
+  	\end{columns}
 	\end{frame}
-	\begin{frame}{braeburn1 power supply module}
-		\begin{itemize}
-			\item Uses PC power supply
-			\item Minor stabilization / buffering
-			\item In-system voltage level monitoring
-		\end{itemize}
+
+	\begin{frame}[<.->]{flutter0 high precision distributed time source module}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{flutter0_layout}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item Spartan3 FPGA for high-res timing (<100 ns)
+					\item ATmega 168 for lo-res timing (1 s to 1/10th s)
+					\item Low cost GPS module w/ external antenna support
+				\end{itemize}
+			\end{column}
+  	\end{columns}
 	\end{frame}
-	\begin{frame}{flutter0 high precision distributed time source module}
-		\begin{itemize}
-			\item Ssubsubsectionan 3A FPGA for high-res timing (<100 ns)
-			\item ATmega 168 for lo-res timing (1 s to 1/10th s)
-			\item Low cost GPS module w/ external antenna support
-		\end{itemize}
+
+	\begin{frame}[<.->]{dash0 proof of concept}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{dashpoc}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item ADS-B receiver based around miniADSB module
+					\item Easily track commercial aircrafts
+					\item Perfect for verifying pseudo ranging algorithms
+				\end{itemize}
+			\end{column}
+  	\end{columns}
 	\end{frame}
-	\begin{frame}{dash0 proof of concept}
-		\begin{itemize}
-			\item ADS-B receiver based around miniADSB module
-			\item Easily track commercial aircrafts
-			\item Perfect for verifying pseudo ranging algorithms
-		\end{itemize}
-	\end{frame}
+
+
+
+
+
+
+
 
 \section{On the horizon}	
 
@@ -356,6 +412,10 @@
 		\end{itemize}
 	\end{frame}
 
+	\begin{frame}{Why we have not asked for donations, yet}
+ 		\begin{center}Questions!\end{center}
+ 		\begin{center}Pretty please :)\end{center}
+	\end{frame}
 
 % 
 % %\begin{frame}{ENDE}
