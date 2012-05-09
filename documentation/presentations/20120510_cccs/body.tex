@@ -19,7 +19,8 @@
 		\begin{itemize}
 			\item Nick Farr, Lars Weiler, Jens Ohlig propose a "Hacker Space Program"
 			\item Three hackers from shackspace immediately brainfart
-			\item "This is awesome!" -> "Let's do it!"
+			\item "This is awesome!"
+			\item "Let's do it!"
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{Joining up w/ Constellation}
@@ -37,73 +38,80 @@
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{Press feedback or "What hgg definitely isn't"}
+		\begin{itemize}
+			\item "Hacker aus Stuttgart - Mit dem Lötkolben ins Weltall"\\ \footnotesize{\emph{-- Stuttgarter Zeitung}}
+			\item "Hacking im Weltraum - Hacker arbeiten an eigenem Satellitennetzwerk"\\ \footnotesize{\emph{-- Golem}}
+			\item "Hackers send internet into space"\\ \footnotesize{\emph{-- UK Metro}}
+			\item "Hackers plan space satellites to combat censorship"\\ \footnotesize{\emph{-- bbc}}
+			\item "Hacking confab conjures visions of space-borne 'SOPA Wars'"\\ \footnotesize{\emph{-- cnet}}
+		\end{itemize}
 	\end{frame}
 
 \subsection{hgg in a nutshell}
-	\begin{frame}{Build a modular system}
+	\begin{frame}[<.->]{Build a modular system}
   	\begin{columns}
     	\begin{column}{\smallcol}
  				\begin{center}\includegraphics<1->[width=\textwidth]{modular}\end{center}
 			\end{column}
     	\begin{column}{\bigcol}
 				\begin{itemize}
-					\item Easier to develop
-					\item Easier to extend
-					\item Easier to improve
+					\item<+-> Easier to develop
+					\item<+-> Easier to extend
+					\item<+-> Easier to improve
 				\end{itemize}
 			\end{column}
 		\end{columns}
 	\end{frame}
-	\begin{frame}{Make it as accurate as possible}
+	\begin{frame}[<.->]{Make it as accurate as possible}
   	\begin{columns}
     	\begin{column}{\smallcol}
 			\end{column}
     	\begin{column}{\bigcol}
 				\begin{itemize}
-					\item One second resolution is "boring"
-					\item Let's aim for 100 ns
-					\item Allow scaling up to "ridiculous"
+					\item<+-> One second resolution is "boring"
+					\item<+-> Let's aim for 100 ns
+					\item<+-> Allow scaling up to "ridiculous"
 				\end{itemize}
 			\end{column}
 		\end{columns}
 	\end{frame}
-	\begin{frame}{Measure stuff}
+	\begin{frame}[<.->]{Measure stuff}
   	\begin{columns}
     	\begin{column}{\smallcol}
 			\end{column}
     	\begin{column}{\bigcol}
 				\begin{itemize}
-					\item Airplanes
-					\item Satellites
-					\item Or even just the temperate
+					\item<+-> Airplanes
+					\item<+-> Satellites
+					\item<+-> Or even just the temperate
 				\end{itemize}
 			\end{column}
 		\end{columns}
 	\end{frame}
-	\begin{frame}{Make it a distributed system}
+	\begin{frame}[<.->]{Make it a distributed system}
   	\begin{columns}
     	\begin{column}{\smallcol}
 				\begin{center}\includegraphics<1->[width=\textwidth]{distributed}\end{center}
 			\end{column}
     	\begin{column}{\bigcol}
 				\begin{itemize}
-					\item Many simple measurement stations
-					\item networked together
-					\item providing geo-coded data
+					\item<+-> Many simple measurement stations
+					\item<+-> networked together
+					\item<+-> providing geo-coded data
 				\end{itemize}
 			\end{column}
 		\end{columns}
 	\end{frame}
-	\begin{frame}{Make it easy to use}
+	\begin{frame}[<.->]{Make it easy to use}
   	\begin{columns}
     	\begin{column}{\smallcol}
  				\begin{center}\includegraphics<1->[width=\textwidth]{easytouse}\end{center}
 			\end{column}
     	\begin{column}{\bigcol}
 				\begin{itemize}
-					\item Ideal: build your own
-					\item Realistic: assemble a kit
-					\item Lazy: buy it, plug it, forget about it
+					\item<+-> Ideal: build your own
+					\item<+-> Realistic: assemble a kit
+					\item<+-> Lazy: buy it, plug it, forget about it
 				\end{itemize}
 			\end{column}
 		\end{columns}
@@ -113,6 +121,11 @@
 	\begin{frame}{Who's behind it?}
 		\begin{itemize}
 			\item Just a bunch of folks, really
+				\begin{itemize}
+					\item reloc0 \& hadez \& saeugetier working on hgg
+					\item horn working on Constellation
+					\item Pawe\l, Isaac, and a few others working on various projects
+				\end{itemize}
 			\item No company or governments
 			\item By hackers, for everyone
 		\end{itemize}
@@ -133,6 +146,10 @@
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{Open source everything}
+		\begin{itemize}
+			\item Code available at github.com/shackspace/hgg
+			\item Documentation and planning at hgg.aero/
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{What is it actually good for?}
 		\begin{itemize}
@@ -151,13 +168,15 @@
 			\item PCIe 4x plug w/ custom pinout
 			\item 2x RS485 lanes for inter-module communication
 			\item SPI-ish time broadcast bus
-			\item Differential clock signal for high-res clock signal
+			\item Differential clock signal for high-res timing signal
+			\item Each module sports storage for calibration data
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{friendship0 backplane}
 		\begin{itemize}
-			\item 4 modules slots, one dedicated to bus master module
+			\item Four modules slots, one dedicated to bus master module
 			\item ICs for interrupt handling
+			\item Can be easily scaled up, next step eight or nine slots
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{braeburn0 power supply module}
@@ -176,7 +195,7 @@
 	\end{frame}
 	\begin{frame}{flutter0 high precision distributed time source module}
 		\begin{itemize}
-			\item Spartan 3A FPGA for high-res timing (<100 ns)
+			\item Ssubsubsectionan 3A FPGA for high-res timing (<100 ns)
 			\item ATmega 168 for lo-res timing (1 s to 1/10th s)
 			\item Low cost GPS module w/ external antenna support
 		\end{itemize}
@@ -184,7 +203,7 @@
 	\begin{frame}{dash0 proof of concept}
 		\begin{itemize}
 			\item ADS-B receiver based around miniADSB module
-			\item Easily track commercial aircraft
+			\item Easily track commercial aircrafts
 			\item Perfect for verifying pseudo ranging algorithms
 		\end{itemize}
 	\end{frame}
@@ -208,7 +227,7 @@
 	\end{frame}
 	\begin{frame}{magic0 bus protocol}
 		\begin{itemize}
-			\item What modules will speak between each other and the bus master
+			\item Protocol spoken between modules and master
 			\item Data exchange and enumeration
 		\end{itemize}
 	\end{frame}
@@ -226,10 +245,10 @@
 			\item ...
 		\end{itemize}
 	\end{frame}
-	\begin{frame}{Deploying 3 to 5 systems}
+	\begin{frame}{Deploying 5+ systems}
 		\begin{itemize}
 			\item Test pseudo ranging and timing
-			\item This will be the make or break decision
+			\item This will decide whether tracking would already work with our timing resolution
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{Quality tests and review}
@@ -237,7 +256,7 @@
 			\item Review everything
 			\item Make improvements where necessary
 			\item Manufacture pre-series
-			\item Hand ground stations out to other hackerspaces and interested parties
+			\item Hand ground stations out to other hackerspaces and interested subsubsectionies
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{More modules}
@@ -256,7 +275,7 @@
 	\end{frame}
 	\begin{frame}{Satellites!}
 		\begin{itemize}
-			\item Not impossible, though not really /our/ goal
+			\item Not impossible, though not really \emph{our} goal
 		\end{itemize}
 	\end{frame}
 
@@ -275,22 +294,30 @@
 			\item Before rolling out on a bigger scale (think 10+)
 		\end{itemize}
 	\end{frame}
-	\begin{frame}{hgg.aero}
+	\begin{frame}{Keep in touch}
 		\begin{itemize}
-			\item Wiki for everyone to join in at http://hgg.aero/
-			\item There's a list of open tasks.  Pick one or add one!
-		\end{itemize}
-	\end{frame}
-	\begin{frame}{github.com/shackspace/hgg}
-		\begin{itemize}
-			\item All source code, schematics and layouts available at github.com
-			\item Issue tracking.  Find a problem, raise an issue!
-		\end{itemize}
-	\end{frame}
-	\begin{frame}{lists.shackspace.de/listinfo/constellation}
-		\begin{itemize}
-			\item Public mailing list, feel free to join.
-			\item Fairly low traffic at the moment, this might change in the foreseeable future.
+			\item Wiki
+			\begin{itemize}
+				\item Edit away at http://hgg.aero/
+				\item There's a list of open tasks.  Pick one or add one!
+			\end{itemize}
+
+			\item GitHub
+			\begin{itemize}
+				\item All source code, schematics and layouts available at github.com
+				\item Issue tracking.  Find a problem, raise an issue!
+			\end{itemize}
+
+			\item Public mailing list
+			\begin{itemize}
+				\item lists.shackspace.de/listinfo/constellation
+				\item Fairly low traffic at the moment, this might change in the foreseeable future.
+			\end{itemize}
+
+			\item twitter
+			\begin{itemize}
+				\item @hxglobalgrid
+			\end{itemize}
 		\end{itemize}
 	\end{frame}
 
