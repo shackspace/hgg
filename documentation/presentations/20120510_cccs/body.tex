@@ -136,6 +136,17 @@
 
 \subsection{The core idea}
 	\begin{frame}{Consolidating existing and new information}
+		\begin{itemize}
+			\item There is already \emph{a lot} of information available
+			\begin{itemize}
+				\item HAM radio community
+				\item Amateur satellite community
+				\item Hackers \& makers
+			\end{itemize}
+			\item We're collecting information relevant to the ask
+			\item Try to make it easier to understand where certain details aren't documented well
+			\item Document our findings, results and failures for others to learn from
+		\end{itemize}
 	\end{frame}
 	\begin{frame}{Learning the basics}
 		\begin{itemize}
@@ -157,8 +168,22 @@
 			\item Access to infrastructure to deploy own (measurement) equipment
 		\end{itemize}
 	\end{frame}
-	\begin{frame}{Are there already applications?}
-		Constellation
+	\begin{frame}{What about applications?}
+		\begin{itemize}
+			\item Constellation
+			\begin{itemize}
+				\item Track amateur satellites
+				\item Using pseudo-ranging w/ multiple receiver stations
+			\end{itemize}
+			\item Once ground stations start gathering and publishing data, the possibilities are endless
+			\begin{itemize}
+				\item Live-track background radiation levels
+				\item Spot minute changes in the environment over time
+				\item Accurate, geo-referenced time
+				\item Basis for assisted GPS solutions
+				\item and many, many more
+			\end{itemize}
+		\end{itemize}
 	\end{frame}
 
 \subsection{Status quo}
@@ -223,12 +248,14 @@
 			\item Built around the proof of concept
 			\item Most likely CPLD-based decoding of Manchester-encoded signal
 			\item Contributions by Pawel
+			\item Perfect to test pseudo-ranging because ADSB signal contains GPS location data already (ground truth)
+			\item Your own fligt tracking radar at home?  Hell, yeah!
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{magic0 bus protocol}
 		\begin{itemize}
 			\item Protocol spoken between modules and master
-			\item Data exchange and enumeration
+			\item Handles data exchange and enumeration
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{Testing timing accuracy}
@@ -249,6 +276,7 @@
 		\begin{itemize}
 			\item Test pseudo ranging and timing
 			\item This will decide whether tracking would already work with our timing resolution
+			\item If not, timing resolution could be scaled up by factor 10 easily
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{Quality tests and review}
