@@ -1,7 +1,3 @@
-Proposed new structure.
-Not yet applied to the repo.
-
-
 Repository folder structure
 ===========================
 
