@@ -39,4 +39,7 @@ Branching structure
     feature/issue<n>_<title> - a new feature, will be merged into master
     <user>/<title> - here be dragons
 
+Tagging
+=======
+Final versions of modules or software (ie flutter v0 will be tagged with 'flutter0')
 
