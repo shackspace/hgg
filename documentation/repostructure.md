@@ -37,10 +37,10 @@ Repository folder structure
 
 Branching structure
 ===================
-master - active development head, the latest stuff that seems to work
-stable - specific stages of development selected as stable
-bugfix/issue<n>_<title> - a bugfix, will be merged into master
-feature/issue<n>_<title> - a new feature, will be merged into master
-<user>/<title> - here be dragons
+    master - active development head, the latest stuff that seems to work
+    stable - specific stages of development selected as stable
+    bugfix/issue<n>_<title> - a bugfix, will be merged into master
+    feature/issue<n>_<title> - a new feature, will be merged into master
+    <user>/<title> - here be dragons
 
 
