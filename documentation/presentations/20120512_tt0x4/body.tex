@@ -1,0 +1,185 @@
+
+\newlength{\smallcol}
+\setlength{\smallcol}{0.3\textwidth}
+
+\newlength{\bigcol}
+\setlength{\bigcol}{\textwidth}
+\addtolength{\bigcol}{- \smallcol}
+
+
+\begin{frame}[plain]
+  \mode<article>{\maketitle}
+  \mode<presentation>{\titlepage}
+\end{frame}
+
+\section{Status quo}
+
+\subsection{Specification of physical interface between modules}
+  \begin{frame}[<.->]{Specification of physical interface between modules}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Modules are connected via a backplane
+					\item<+-> PCIe 4x plug w/ custom pinout
+					\item<+-> 2x RS485 lanes for inter-module communication
+					\item<+-> SPI-ish time broadcast bus
+					\item<+-> Differential clock signal for high-res timing signal
+					\item<+-> Each module sports storage for calibration data
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+\subsection{friendship0 backplane}
+	\begin{frame}[<.->]{friendship0 backplane}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0_assembled}\end{center}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0_assembled_bottom}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Four modules slots, one dedicated to bus master module
+					\item<+-> ICs for interrupt handling
+					\item<+-> Can be easily scaled up, next step eight or nine slots
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+\subsection{braeburn0 \& 1 power supply module}
+	\begin{frame}[<.->]{braeburn0 \& 1 power supply module}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{braeburn}\end{center}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{braeburn_pcb}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Single external power source
+					\item<+-> All voltages generated on-board, stabilized
+					\item<+-> In-system voltage level monitoring
+					\item<+-> braeburn1 using PC power supply
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+\subsection{flutter0 high precision distributed time source module}
+	\begin{frame}[<.->]{flutter0 high precision distributed time source module}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{flutter0_layout}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Spartan3 FPGA for high-res timing (<100 ns)
+					\item<+-> ATmega 168 for lo-res timing (1 s to 1/10th s)
+					\item<+-> Low cost GPS module w/ external antenna support
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+\subsection{dash0 proof of concept}
+	\begin{frame}[<.->]{dash0 proof of concept}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{dashpoc}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> ADS-B receiver based around miniADSB module
+					\item<+-> Easily track commercial aircrafts
+					\item<+-> Perfect for verifying pseudo ranging algorithms
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+\section{Next up}	
+
+\subsection{celestia0 bus master module}
+	\begin{frame}{celestia0 bus master module}
+		\begin{itemize}
+			\item Manages interrupt requests by modules
+			\item Arbitrates resources
+			\item Enumeration of available modules
+		\end{itemize}
+	\end{frame}
+
+\subsection{dash0 ADSB receiver module}
+	\begin{frame}{dash0 ADSB receiver module}
+		\begin{itemize}
+			\item Built around the proof of concept
+			\item Most likely CPLD-based decoding of Manchester-encoded signal
+			\item Contributions by Pawel
+			\item Perfect to test pseudo-ranging because ADSB signal contains GPS location data already (ground truth)
+			\item Your own fligt tracking radar at home?  Hell, yeah!
+		\end{itemize}
+	\end{frame}
+
+\subsection{magic0 bus protocol}
+	\begin{frame}{magic0 bus protocol}
+		\begin{itemize}
+			\item Protocol spoken between modules and master
+			\item Handles data exchange and enumeration
+		\end{itemize}
+	\end{frame}
+
+\subsection{Testing timing accuracy}
+	\begin{frame}{Testing timing accuracy}
+		\begin{itemize}
+			\item First level test: 2x ground stations w/ flutter module
+			\item Second level test: ~5 ground stations w/ flutter module
+		\end{itemize}
+	\end{frame}
+
+\subsection{Calibration}
+	\begin{frame}{Calibration}
+		\begin{itemize}
+			\item High accuracy measurement requires diligent calibration
+			\item Receiver, decoder, communication lags
+			\item Phase error
+			\item ...
+		\end{itemize}
+	\end{frame}
+
+\subsection{Deploying 5+ systems}
+	\begin{frame}{Deploying 5+ systems}
+		\begin{itemize}
+			\item Test pseudo ranging and timing
+			\item This will decide whether tracking would already work with our timing resolution
+			\item If not, timing resolution could be scaled up by factor 10 easily
+		\end{itemize}
+	\end{frame}
+
+\subsection{Quality tests and review}
+	\begin{frame}{Quality tests and review}
+		\begin{itemize}
+			\item Review everything
+			\item Make improvements where necessary
+			\item Manufacture pre-series
+			\item Hand ground stations out to other hackerspaces and interested subsubsectionies
+		\end{itemize}
+	\end{frame}
+
+\subsection{More modules}
+	\begin{frame}{More modules}
+		\begin{itemize}
+			\item Arduino module
+			\begin{itemize}
+				\item Probably the easiest way to prototype
+				\item Make it available to an already large community
+			\end{itemize}
+			\item Environment sensors
+			\begin{itemize}
+				\item Measure ALL the things
+				\item Temperature, humidity, barometric pressure, seismic waves, radiation, tectonic drift, time, wind, ...
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
