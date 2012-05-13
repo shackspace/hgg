@@ -2,6 +2,7 @@ Testsuite
 =========
 
 Description:
+------------
   A hgg subproject.
   This project is a testsuite for doing testdriven development on microcontrollers.
   It will be used to call buildscripts on firmware-code (using a makefile) and run 
@@ -10,6 +11,7 @@ Description:
   and thus give a pseudo automatisation for the test-execution. 
 
 Copyright and Disclaimer:
+-------------------------
   This software is, as part of the hackerspace global grid, open source. It is 
   currently licensed under the Creative Commons License (cc-by-sa-nc). 
   We know that this license does not really apply to stuff being done with 
@@ -20,6 +22,7 @@ Copyright and Disclaimer:
   us by writing to armin@hgg.aero or hadez@hgg.aero . 
 
 Staying in touch:
+-----------------
   If you plan to stay in touch with this subproject or the hackerspace global grid 
   project, you should sign up to our mailing list constellation@lists.shackspace.de .
   You can sign up here: https://lists.shackspace.de/mailman/listinfo/constellation
