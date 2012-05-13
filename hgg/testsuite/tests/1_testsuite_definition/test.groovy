@@ -15,4 +15,5 @@ assert configuration != null;
 assert configuration.hardware.size() == 3;
 assert configuration.sources.size() == 1;
 assert configuration.testcases.size() == 1;
+assert configuration.workdir != null;
 

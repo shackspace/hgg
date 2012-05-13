@@ -15,7 +15,7 @@ def configuration = ConfigurationReader.readConfigString('''<?xml version=\"1.0\
   <testcases>
     <testcase name="A test">
       <description><![CDATA[A description]]></description>
-      <thread name="celestia">
+      <thread hwref="celestia">
         <srcfile name="tests/1_testsuite_definition/celestia.c" />
         <expectedresult>0,1,3</expectedresult>
       </thread>
@@ -28,9 +28,9 @@ def configuration = ConfigurationReader.readConfigString('''<?xml version=\"1.0\
 assert configuration.testcases.size() == 1;
 assert configuration.testcases[0].name == 'A test';
 assert configuration.testcases[0].description == 'A description';
-assert configuration.testcases[0].threads[0].name == 'celestia';
-assert configuration.testcases[0].threads[0].srcfile == 'tests/1_testsuite_definition/celestia.c';
-assert configuration.testcases[0].threads[0].expectedResult == '0,1,3';
+assert configuration.testcases[0].threadList[0].name == 'celestia';
+assert configuration.testcases[0].threadList[0].sourceFile == 'tests/1_testsuite_definition/celestia.c';
+assert configuration.testcases[0].threadList[0].expectedResult == '0,1,3';
 
 println " success.";
 println "";

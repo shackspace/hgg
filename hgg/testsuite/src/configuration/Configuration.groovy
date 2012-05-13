@@ -19,6 +19,7 @@ class Configuration {
 
   private List hardware = [];
   private List sources = [];
+  private List testcases = [];
 
   public Configuration() {
 
@@ -30,6 +31,10 @@ class Configuration {
 
   public List getSources() {
     return sources;
+  }
+
+  public List getTestcases() {
+    return testcases;
   }
 
 };

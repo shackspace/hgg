@@ -57,13 +57,16 @@ class ConfigurationReader {
     def testCaseList = (xmlDoc.testcases.testcase instanceof List) ? xmlDoc.testcases.testcase : [xmlDoc.testcases.testcase];
     testCaseList.each({
       String name = it.'@name';
-      String description = it.description;
+      String description = it.description.text();
       List threadsList = [];
       ((it.thread instanceof List) ? it.thread : [it.thread]).each({ 
-        threadsList.add(new TestCaseThread(it.srcfile.'@name', it.srcfile.'@name', it.expectedresult));
+        String sourceFile = it.srcfile instanceof List ? it.srcfile[0].'@name' : it.srcfile.'@name';
+		String hwName = it.'@hwref'; 
+        String expectedResult = it.expectedresult.text();
+        threadsList.add(new TestCaseThread(hwName, sourceFile, expectedResult));
       });
 
-      result.testcases.add(new TestCase(name, description, threadList));
+      result.testcases.add(new TestCase(name, description, threadsList));
     });
 
     // return the resulting Configuration object
