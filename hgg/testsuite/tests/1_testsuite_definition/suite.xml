@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite>
+  <hardware>
+    <uc hw="arduino" subtype="mega2560" device="/dev/ttyACM0" id="celestia" />
+    <uc hw="arduino" subtype="mega2560" device="/dev/ttyACM1" id="module1" />
+	<uc hw="arduino" subtype="duemillanove" device="/dev/ttyUSB0" id="module2" />
+  </hardware>
+
+  <sources>
+    <source folder="tests/1_testsuite_definition/src" makefile="makefile" buildtarget="all" cleantarget="clean" output="build/magic.a" />
+  </sources>
+
+  <testcases>
+    <testcase name="Busmaster can Read which Cards are plugged into the Backplane">
+      <description><![CDATA[This test will ensure, that the busmaster always knows what cards are plugged into the backplane.]]></description>
+      <thread name="celestia">
+        <srcfile name="tests/1_testsuite_definition/celestia.c" />
+        <expectedresult>0,1,3</expectedresult>
+      </thread>
+    </testcase>
+  </testcases>
+</suite>
