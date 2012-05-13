@@ -69,6 +69,14 @@ class ConfigurationReader {
       result.testcases.add(new TestCase(name, description, threadsList));
     });
 
+    // read the workdir to do the stuff from.
+    def workdir = (xmlDoc.workdir instanceof List) ? xmlDoc.workdir[0] : xmlDoc.workdir;
+    if(workdir != null) {
+      result.setWorkdir(workdir.text());
+    } else {
+      result.setWorkdir('defaultWork/');
+    }
+
     // return the resulting Configuration object
     return result;
   }

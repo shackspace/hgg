@@ -17,12 +17,21 @@ package configuration;
  */
 class Configuration {
 
+  private String workdir;
   private List hardware = [];
   private List sources = [];
   private List testcases = [];
 
   public Configuration() {
 
+  }
+
+  public String getWorkdir() {
+    return workdir;
+  }
+
+  public String setWorkdir(value) {
+    workdir = value;
   }
 
   public List getHardware() {
