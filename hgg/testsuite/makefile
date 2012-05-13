@@ -10,7 +10,7 @@ generate:
 
 
 # Perform integration Tests.
-iTest: definitionTest
+iTest: definitionTest semanticsTest
 
 # Integration Test: 
 # Check if the Configuration Parser reads the configuration in a Configuration Structure
@@ -25,6 +25,18 @@ definitionUTest:
 	groovy -classpath build/ tests/1_testsuite_definition/utest/readssources.groovy
 	groovy -classpath build/ tests/1_testsuite_definition/utest/readstestcases.groovy
 	groovy -classpath build/ tests/1_testsuite_definition/utest/readsworkdir.groovy
+
+# Integration Test:
+# check if the semantics of the definitions file are correctly
+semanticsTest: semanticsUTest
+	groovy -classpath build/ tests/2_definitionSemantics/test.groovy
+
+semanticsUTest: 
+	groovy -classpath build/ tests/2_definitionSemantics/utest/checkHardwareExists.groovy
+	groovy -classpath build/ tests/2_definitionSemantics/utest/checkSourceExists.groovy
+	groovy -classpath build/ tests/2_definitionSemantics/utest/checkWorkdirExists.groovy
+	groovy -classpath build/ tests/2_definitionSemantics/utest/checkTestcasesReferenceHardware.groovy
+
 
 # cleanup the build result.
 clean:

@@ -15,7 +15,7 @@ package configuration;
  * this defines a configuration object containing the configuration.
  * @author armin
  */
-class Configuration {
+public class Configuration {
 
   private String workdir;
   private List hardware = [];
