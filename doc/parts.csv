@@ -1,7 +1,8 @@
 "Description","Manufacturer","Part #","Package","Alternatives","Digikey #","Reichelt #","Trenz #","Used for","Comment"
 "IC 12STAGE BINARY RIPPLE 16SOIC","NXP","74HC4040D","SOIC16",,"568-8148-1-ND",,,,
 "SMD Diode",,,,,,,,"friendship0",
-"IC TXRX RS485/RS422 LOWPWR 8SOIC","Maxim","MAX485CSA+","SOIC8",,"MAX485CSA+-ND",,,"friendship0",
+"IC TXRX RS485/RS422 LOWPWR 8SOIC","Maxim","MAX485CSA+","SOIC8","SP485EN-L","MAX485CSA+-ND",,,"friendship0,flutter0,braeburn0,dash0,celestia0",
+"IC TXRX RS485 HALF DUPLEX 8NSOIC","Exar","SP485EN-L","SOIC8","MAX485CSA+","1016-1174-5-ND",,,"friendship0,flutter0,braeburn0,dash0,celestia0"
 "IC FPGA SPARTAN-3A 50K 100-VQFP","XILINX","XC3S50A-4VQG100I","VQFP100",,"122-1593-ND",,,"flutter0",
 "IC SHIFT REGST 8BIT PI-SO 16SOIC","NXP","74HC165D","SOIC16",,"568-1409-1-ND",,,"friendship0",
 "OSC 10.000 MHZ 3.3V SMD","FOX","FXO-HC736R-10",,,"631-1175-1-ND",,,,
