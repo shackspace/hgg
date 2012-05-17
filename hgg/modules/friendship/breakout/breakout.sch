@@ -1922,16 +1922,19 @@
 <segment>
 <pinref part="IC1" gate="P" pin="VCC"/>
 <wire x1="-76.2" y1="96.52" x2="-76.2" y2="106.68" width="0.1524" layer="91"/>
+<label x="-76.2" y="101.6" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="P" pin="VCC"/>
 <wire x1="-81.28" y1="96.52" x2="-81.28" y2="106.68" width="0.1524" layer="91"/>
+<label x="-81.28" y="101.6" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="+3V3_A"/>
-<wire x1="50.8" y1="68.58" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="A" pin="7"/>
-<wire x1="50.8" y1="71.12" x2="35.56" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="+5V_A"/>
+<wire x1="50.8" y1="63.5" x2="40.64" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="63.5" x2="40.64" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="3"/>
+<wire x1="40.64" y1="60.96" x2="35.56" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -1959,15 +1962,6 @@
 <wire x1="43.18" y1="58.42" x2="43.18" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="5"/>
 <wire x1="35.56" y1="66.04" x2="43.18" y2="66.04" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="+5V_A"/>
-<wire x1="50.8" y1="63.5" x2="40.64" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="63.5" x2="40.64" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="A" pin="3"/>
-<wire x1="40.64" y1="60.96" x2="35.56" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -2064,6 +2058,14 @@
 <wire x1="60.96" y1="-60.96" x2="60.96" y2="-48.26" width="0.1524" layer="91"/>
 <pinref part="JP4" gate="A" pin="9"/>
 <wire x1="60.96" y1="-48.26" x2="71.12" y2="-48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="3V3" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="+3V3_A"/>
+<wire x1="50.8" y1="68.58" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="7"/>
+<wire x1="50.8" y1="71.12" x2="35.56" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
