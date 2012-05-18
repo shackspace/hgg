@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -7100,6 +7100,8 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <part name="R10" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
 <part name="R11" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
 <part name="R13" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
+<part name="GND19" library="supply1" deviceset="GND" device=""/>
+<part name="GND22" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7183,6 +7185,8 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <instance part="R10" gate="G$1" x="-21.59" y="233.68" rot="R90"/>
 <instance part="R11" gate="G$1" x="-71.12" y="241.3" rot="R270"/>
 <instance part="R13" gate="G$1" x="-77.47" y="241.3" rot="R270"/>
+<instance part="GND19" gate="1" x="-139.7" y="-30.48" rot="R90"/>
+<instance part="GND22" gate="1" x="-139.7" y="-73.66" rot="R90"/>
 </instances>
 <busses>
 <bus name="IRQ0,IRQ1,IRQ2,IRQ3,/CS0,/CS1,/CS2,/CS3,PRSNT0,PRSNT1,PRSNT2,PRSNT3">
@@ -7507,6 +7511,16 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <segment>
 <pinref part="PRSNT_LATCH" gate="P" pin="GND"/>
 <pinref part="GND29" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="PRSNT_LATCH" gate="A" pin="INH"/>
+<pinref part="GND19" gate="1" pin="GND"/>
+<wire x1="-142.24" y1="-30.48" x2="-144.78" y2="-30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IRQ_LATCH" gate="A" pin="INH"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+<wire x1="-142.24" y1="-73.66" x2="-144.78" y2="-73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RX+" class="0">
@@ -8019,14 +8033,6 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <segment>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="-120.142" y1="-38.1" x2="-109.22" y2="-38.1" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="PRSNT_LATCH" gate="A" pin="INH"/>
-<wire x1="-144.78" y1="-30.48" x2="-109.22" y2="-30.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IRQ_LATCH" gate="A" pin="INH"/>
-<wire x1="-144.78" y1="-73.66" x2="-109.22" y2="-73.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="-109.22" y1="27.94" x2="-196.85" y2="27.94" width="0.1524" layer="91"/>
