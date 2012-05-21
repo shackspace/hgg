@@ -9,6 +9,11 @@
 #ifndef __INCLUDED_TYPES_H
 #define __INCLUDED_TYPES_H
 
+#if archarduino
+#include <Arduino.h>
+#endif // archarduino
+
+
 typedef unsigned char   BYTE;
 
 #endif // __INCLUDED_TYPES_H
