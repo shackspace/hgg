@@ -1,0 +1,40 @@
+# Objects to be used for the physical layer
+OBJECTS_PHYSICAL_LAYER=	$(SOURCEDIR)/arch/$(ARCHITECTURE)/PISORegister.o 			\
+						$(SOURCEDIR)/arch/$(ARCHITECTURE)/SIPORegister.o			\
+
+
+# settings to be made by configuration file.
+SOURCEDIR=src
+ARCHITECTURE=arduino
+HARDWARE=%CPUSTRING%
+ARDUINOHOME=%ARDUINOHOME%
+TARGETSPEED=16000000
+OUTPUT=magic.a
+VARIANT=mega
+
+# Cflags.
+CC=avr-gcc
+CXX=avr-g++
+AR=avr-ar
+CFLAGS=-I$(ARDUINOHOME)/hardware/arduino/cores/arduino/ -I$(ARDUINOHOME)/hardware/arduino/variants/$(VARIANT) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
+CXXFLAGS=-I$(ARDUINOHOME)/hardware/arduino/cores/arduino/ -I$(ARDUINOHOME)/hardware/arduino/variants/$(VARIANT) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
+
+
+all: arduino_lib $(OBJECTS_PHYSICAL_LAYER)
+	$(AR) r $(OUTPUT) $(OBJECTS_PHYSICAL_LAYER)
+
+arduino_lib:  
+	mkdir -p build/arduino
+	cp $(ARDUINOHOME)/hardware/arduino/cores/arduino/* build/arduino
+	cp system/arduino_lib build/arduino/makefile
+	VARIANT="$(ARDUINOHOME)/hardware/arduino/variants/$(VARIANT)" ARCHITECTURE=$(ARCHITECTURE) HARDWARE=$(HARDWARE) TARGETSPEED=$(TARGETSPEED) make -C build/arduino -f makefile rebuild 
+    
+
+
+clean:
+	rm -f $(OBJECTS_PHYSICAL_LAYER)
+	rm -f $(OUTPUT)
+	rm -rf build
+
+
+

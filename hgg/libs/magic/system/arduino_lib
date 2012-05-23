@@ -1,0 +1,41 @@
+OBJECTS_ARDUINO=CDC.o        		\
+				HardwareSerial.o    \
+				HID.o        		\
+				main.o        		\
+				new.o        		\
+				Print.o        		\
+				Stream.o        	\
+				Tone.o        		\
+				WInterrupts.o		\
+				wiring_analog.o		\
+				wiring.o			\
+				wiring_digital.o	\
+				wiring_pulse.o		\
+				wiring_shift.o		\
+				WMath.o        		\
+				WString.o
+
+# settings to be made by configuration file.
+SOURCEDIR=src
+ARCHITECTURE=arduino
+OUTPUT=../../magic.a
+
+# Cflags.
+CC=avr-gcc
+CXX=avr-g++
+AR=avr-ar
+CFLAGS=-O2 -I. -I$(VARIANT) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
+CXXFLAGS=-O2 -I. -I$(VARIANT) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
+
+
+rebuild: clean all
+
+all: $(OBJECTS_ARDUINO)
+	$(AR) r $(OUTPUT) $(OBJECTS_ARDUINO)
+
+clean:
+	$(AR) d $(OUTPUT) $(OBJECTS_ARDUINO)
+	rm -f $(OBJECTS_ARDUINO)
+	
+
+
