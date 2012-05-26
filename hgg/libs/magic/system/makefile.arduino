@@ -41,7 +41,7 @@ arduino_lib:
 	CPUTYPE=$(CPUTYPE) VARIANT="$(VARIANTHOME)" ARCHITECTURE=$(ARCHITECTURE) HARDWARE=$(HARDWARE) TARGETSPEED=$(TARGETSPEED) make -C build/arduino -f makefile rebuild 
 
 clean:
-	rm -f $(OBJECTS_PHYSICAL_LAYER) $(OBJECTS)
+	rm -f $(OBJECTS_PHYSICAL_LAYER) $(OBJECTS) src/arch/arduino/crt0.o
 	rm -f $(OUTPUT)
 	rm -f magic magic.hex magic.map
 	rm -rf build
