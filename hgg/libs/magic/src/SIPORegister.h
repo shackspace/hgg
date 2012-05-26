@@ -24,7 +24,7 @@ public:
    * @param dataPin (out) pin to use for data
    */
   SIPORegister(int latchPin, int clockPin, int dataPin);
-  virtual ~SIPORegister();
+  ~SIPORegister();
 
   /** 
    * writes a byte to the register and then latches it to make the 

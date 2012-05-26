@@ -22,16 +22,15 @@ VARIANTHOME=$(ARDUINOHOME)/hardware/arduino/variants/$(VARIANT)
 CC=avr-gcc
 CXX=avr-g++
 AR=avr-ar
-LD=avr-ld
 AVRDUDE=avrdude
 OBJCOPY=avr-objcopy
-CFLAGS=-O0 -c -w -fno-exceptions -Wall -mmcu=$(CPUTYPE) -I$(ARDUINOHOME)/hardware/arduino/cores/arduino/ -I$(VARIANTHOME) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
-CXXFLAGS=-O0 -c -w -fno-exceptions -Wall -mmcu=$(CPUTYPE) -I$(ARDUINOHOME)/hardware/arduino/cores/arduino/ -I$(VARIANTHOME) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
+CFLAGS=-O0 -c -w -fno-exceptions -ffunction-sections -fdata-sections -DARDUINO=100 -Wall -mmcu=$(CPUTYPE) -I$(ARDUINOHOME)/hardware/arduino/cores/arduino/ -I$(VARIANTHOME) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
+CXXFLAGS=-O0 -c -w -fno-exceptions -ffunction-sections -fdata-sections -DARDUINO=100 -Wall -mmcu=$(CPUTYPE) -I$(ARDUINOHOME)/hardware/arduino/cores/arduino/ -I$(VARIANTHOME) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
 
 
-all: arduino_lib $(OBJECTS_PHYSICAL_LAYER) $(OBJECTS)
+all: arduino_lib $(OBJECTS_PHYSICAL_LAYER) $(OBJECTS) src/arch/arduino/crt0.o
 	$(AR) r $(OUTPUT) $(OBJECTS_PHYSICAL_LAYER)
-	$(LD) -o magic -mavr6 $(OBJECTS) # $(OUTPUT) $(OBJECTS_PHYSICAL_LAYER)
+	$(CC) -Os -Wl,--gc-sections -mmcu=$(CPUTYPE) -o magic -mavr6 src/arch/arduino/crt0.o -Map=magic.map $(OBJECTS) $(OBJECTS_PHYSICAL_LAYER) $(OUTPUT) -lm
 	$(OBJCOPY) -O ihex -R.eeprom magic magic.hex
 	$(AVRDUDE) -c stk500v2 -pm2560 -P/dev/ttyACM0 -Uflash:w:magic.hex:i
 
@@ -44,7 +43,7 @@ arduino_lib:
 clean:
 	rm -f $(OBJECTS_PHYSICAL_LAYER) $(OBJECTS)
 	rm -f $(OUTPUT)
-	rm -f magic magic.hex
+	rm -f magic magic.hex magic.map
 	rm -rf build
 
 

@@ -23,7 +23,7 @@ public:
    * @param dataPin (in) pin to use for data
    */
   PISORegister(int latchPin, int clockPin, int dataPin);
-  virtual ~PISORegister();
+  ~PISORegister();
 
   /** 
    * reads a byte from the Parallel in / Serial Out register
