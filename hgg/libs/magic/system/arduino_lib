@@ -2,7 +2,6 @@ OBJECTS_ARDUINO=CDC.o        		\
 				HardwareSerial.o    \
 				HID.o        		\
 				main.o        		\
-				new.o        		\
 				Print.o        		\
 				Stream.o        	\
 				Tone.o        		\
@@ -13,7 +12,8 @@ OBJECTS_ARDUINO=CDC.o        		\
 				wiring_pulse.o		\
 				wiring_shift.o		\
 				WMath.o        		\
-				WString.o
+				WString.o			\
+#				new.o        		\
 
 # settings to be made by configuration file.
 SOURCEDIR=src
@@ -24,8 +24,8 @@ OUTPUT=../../magic.a
 CC=avr-gcc
 CXX=avr-g++
 AR=avr-ar
-CFLAGS=-O2 -I. -I$(VARIANT) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
-CXXFLAGS=-O2 -I. -I$(VARIANT) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
+CFLAGS=-Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=$(CPUTYPE) -I. -I$(VARIANT) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
+CXXFLAGS=-Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=$(CPUTYPE) -I. -I$(VARIANT) -Darch$(ARCHITECTURE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
 
 
 rebuild: clean all
