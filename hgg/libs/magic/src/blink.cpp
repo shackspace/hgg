@@ -5,27 +5,7 @@
  * This example code is in the public domain.
  */
 
-// #include <avr/io.h>
 #include <Arduino.h>
-
-void loop() {
-  loop1(); 
-
-  DDRB=0xFF; 
-  PORTB=0x00; 
-
-  for(;;) {
-    long i;
-    for(i=0;i<20000;i++) {
-      PORTB=0x00;
-    }
-    
-	for(i=0;i<10000;i++) {
-      PORTB=0xff;
-    }
-  }
-}
-
 
 void setup() {
   // initialize the digital pin as an output.
@@ -34,12 +14,12 @@ void setup() {
   digitalWrite(13, HIGH);   // set the LED on
 }
 
-void loop1() {
+void loop() {
   while(1) {
     digitalWrite(13, HIGH);   // set the LED on
-    delay(200);               // wait for a second
+    delay(500);               // wait for a second
     digitalWrite(13, LOW);    // set the LED off
-    delay(2000);               // wait for a second
+    delay(500);               // wait for a second
   }
 }
 
