@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<list>
+<beacon>
+  <id>0</id>
+  <t>1.12233439E7</t>
+</beacon>
+<station>
+  <id>0</id>
+  <x>10.0</x>
+  <y>880.0</y>
+  <z>110.0</z>
+  <t>1.1223344000002444E7</t>
+  <tlatency>0</tlatency>
+</station>
+<station>
+  <id>1</id>
+  <x>40.0</x>
+  <y>60.0</y>
+  <z>80.0</z>
+  <t>1.1223344000002544E7</t>
+  <tlatency>0</tlatency>
+</station>
+<station>
+  <id>2</id>
+  <x>10.0</x>
+  <y>440.0</y>
+  <z>330.0</z>
+  <t>1.1223344000001742E7</t>
+  <tlatency>0</tlatency>
+</station>
+<station>
+  <id>3</id>
+  <x>30.0</x>
+  <y>20000.0</y>
+  <z>500.0</z>
+  <t>1.1223344000065064E7</t>
+  <tlatency>0</tlatency>
+</station>
+<station>
+  <id>4</id>
+  <x>0.0</x>
+  <y>2000.0</y>
+  <z>1500.0</z>
+  <t>1.122334400000624E7</t>
+  <tlatency>0.1</tlatency>
+</station>
+</list>
