@@ -1,0 +1,82 @@
+\mode<presentation>{\setbeamercovered{transparent}}
+
+\usetheme{default}
+\usepackage{color}
+\useoutertheme{default}
+\definecolor{bottomcolour}{rgb}{0 0 0}
+\definecolor{middlecolour}{rgb}{0 0 0}
+\setbeamerfont{title}{size=\Huge}
+\setbeamercolor{structure}{fg=white}
+\setbeamertemplate{frametitle}[default]%[center]
+\setbeamercolor{normal text}{bg=black, fg=white}
+\setbeamertemplate{background canvas}[vertical shading]
+[bottom=bottomcolour, middle=middlecolour, top=black]
+\setbeamertemplate{items}[circle]
+\setbeamerfont{frametitle}{size=\huge}
+\setbeamertemplate{navigation symbols}{} %no nav symbols
+
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
+
+\mode<presentation>{\beamerdefaultoverlayspecification{<+->}}
+
+\usepackage{url}
+
+\usepackage{listings}
+  
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+
+\usepackage{amsmath}
+
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{graphicx}
+\graphicspath{{./pic/}}
+
+\date{\today}
+
+ 
+\title{hgg - hackerspace global grid} 
+\subtitle{confusing the press since 2011}
+\author[foo]{foo@hgg.aero}
+
+\institute{
+  \includegraphics[width=0.2\textwidth]{hgg_logo_rgb_neg-300dpi}
+	\hspace{1cm}
+	\includegraphics[width=0.2\textwidth]{logo_shack_darkbg}
+}
+\logo{
+	\includegraphics[width=1.5cm]{hgg_logo_rgb_neg-300dpi}
+	\hspace{0.5cm}
+	\includegraphics[width=1.5cm]{logo_shack_darkbg}
+}
+
+\subject{the most awesome conference \#23}
+
+\titlegraphic{}
+
+
+\AtBeginSection
+{
+  \begin{frame}
+  \tableofcontents[currentsection,hideallsubsections]
+  \end{frame}
+}
+
+\AtBeginSubsection
+{
+  \begin{frame}
+  \tableofcontents[hideallsections,hideallsubsections,currentsubsection]
+  \end{frame}
+}
+
+
+
+
+
+
