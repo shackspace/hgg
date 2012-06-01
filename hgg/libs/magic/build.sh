@@ -25,9 +25,11 @@ echo "Making magic "
 
 # 
 # find the cpu type for the compiler.
+SPEED=
 CPU=
 if [ "$2" = "atmega2560" ]; then 
   CPU="__AVR_ATmega2560__"
+  SPEED="16000000"
 fi;
 
 
@@ -47,6 +49,8 @@ if [ "$1" = "arduino" ]; then
   mv /tmp/makefile.1 /tmp/makefile
 ARDUINOHOME="\/usr\/share\/arduino\/"
   sed 's/\%ARDUINOHOME\%/'$ARDUINOHOME'/' /tmp/makefile > /tmp/makefile.1
+  mv /tmp/makefile.1 /tmp/makefile
+  sed 's/\%SPEED\%/'$SPEED'/' /tmp/makefile > /tmp/makefile.1
   mv /tmp/makefile.1 /tmp/makefile
 
   mv /tmp/makefile makefile
