@@ -1,0 +1,7 @@
+NET "clk8M"  LOC = "P44";
+NET "adsb_in"  LOC = "P23";
+NET "rst"  LOC = "P32";
+
+NET "spi_sck" LOC = "P27";
+NET "spi_mosi" LOC = "P28";
+NET "spi_ss" LOC = "P29";
