@@ -71,5 +71,16 @@ if [ "$TEST" != "`echo -e '4F\r'`" ]; then
 fi
 echo "passed."
 
+TESTCLASS=tests/irq_wiredor/wiredor.o make test
+TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
+echo -e "Test: Wired or ... \c"
+if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
+	echo "fail: Expected OK, recieved $TEST"
+	echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
+	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug."
+	exit;
+fi
+echo "passed."
+
 
 
