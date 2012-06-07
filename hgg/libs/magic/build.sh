@@ -56,6 +56,20 @@ ARDUINOHOME="\/usr\/share\/arduino\/"
   mv /tmp/makefile makefile
 
   make clean
-  make
+  make lib
 fi;
+
+# 
+# perform unit / integration tests on the code built currently.
+TESTCLASS=tests/poll_present/poll_present.o make test
+TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
+echo -e "Test: PISO/test ... \c"
+if [ "$TEST" != "`echo -e '4F\r'`" ]; then
+	echo "fail: Expected 4F, recieved $TEST"
+	echo "***** This test can only be passed, if there are breakouts in slot 0, 1 and 3 and slot2 is empty."
+	exit;
+fi
+echo "passed."
+
+
 
