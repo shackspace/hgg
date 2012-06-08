@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -7102,6 +7102,10 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <part name="R13" library="rcl" deviceset="R-EU_" device="R0603" value="120"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
+<part name="R15" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
+<part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -7117,6 +7121,7 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <text x="-228.6" y="213.36" size="1.778" layer="91">hgg.aero</text>
 <text x="-228.6" y="218.44" size="1.778" layer="91">This work by hackerspace global grid is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.</text>
 <text x="-228.6" y="210.82" size="1.778" layer="91">(cc) 2012, armin@hgg.aero, hadez@hgg.aero</text>
+<text x="-246.38" y="195.58" size="1.778" layer="91">pullups for IRQ lines</text>
 </plain>
 <instances>
 <instance part="PORT1" gate="G$1" x="25.4" y="67.31"/>
@@ -7187,6 +7192,10 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <instance part="R13" gate="G$1" x="-77.47" y="241.3" rot="R270"/>
 <instance part="GND19" gate="1" x="-139.7" y="-30.48" rot="R90"/>
 <instance part="GND22" gate="1" x="-139.7" y="-73.66" rot="R90"/>
+<instance part="R14" gate="G$1" x="-243.84" y="182.88" rot="R90"/>
+<instance part="R15" gate="G$1" x="-236.22" y="182.88" rot="R90"/>
+<instance part="R16" gate="G$1" x="-228.6" y="182.88" rot="R90"/>
+<instance part="R17" gate="G$1" x="-220.98" y="182.88" rot="R90"/>
 </instances>
 <busses>
 <bus name="IRQ0,IRQ1,IRQ2,IRQ3,/CS0,/CS1,/CS2,/CS3,PRSNT0,PRSNT1,PRSNT2,PRSNT3">
@@ -7884,6 +7893,11 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <junction x="-114.3" y="-91.44"/>
 <pinref part="IRQ_LATCH" gate="A" pin="D"/>
 </segment>
+<segment>
+<wire x1="-92.71" y1="147.32" x2="-220.98" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="-220.98" y1="147.32" x2="-220.98" y2="177.8" width="0.1524" layer="91"/>
+<pinref part="R17" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="/CS0" class="0">
 <segment>
@@ -7909,6 +7923,11 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <wire x1="-119.38" y1="-110.49" x2="-119.38" y2="-93.98" width="0.1524" layer="91"/>
 <junction x="-119.38" y="-93.98"/>
 <pinref part="IRQ_LATCH" gate="A" pin="C"/>
+</segment>
+<segment>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="-92.71" y1="144.78" x2="-228.6" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="-228.6" y1="144.78" x2="-228.6" y2="177.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="/CS1" class="0">
@@ -7936,6 +7955,11 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <junction x="-124.46" y="-96.52"/>
 <pinref part="IRQ_LATCH" gate="A" pin="B"/>
 </segment>
+<segment>
+<pinref part="R15" gate="G$1" pin="1"/>
+<wire x1="-92.71" y1="142.24" x2="-236.22" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="-236.22" y1="142.24" x2="-236.22" y2="177.8" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="/CS2" class="0">
 <segment>
@@ -7961,6 +7985,11 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <junction x="-129.54" y="-99.06"/>
 <pinref part="IRQ_LATCH" gate="A" pin="A"/>
 <wire x1="-129.54" y1="-99.06" x2="-144.78" y2="-99.06" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R14" gate="G$1" pin="1"/>
+<wire x1="-92.71" y1="139.7" x2="-243.84" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="-243.84" y1="139.7" x2="-243.84" y2="177.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="/CS3" class="0">
@@ -8073,9 +8102,26 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <wire x1="-180.34" y1="193.04" x2="-180.34" y2="191.77" width="0.1524" layer="91"/>
 <junction x="-173.99" y="193.04"/>
 <pinref part="IC5" gate="P" pin="VCC"/>
-<wire x1="-180.34" y1="193.04" x2="-186.69" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="-180.34" y1="193.04" x2="-185.42" y2="193.04" width="0.1524" layer="91"/>
 <wire x1="-186.69" y1="193.04" x2="-186.69" y2="191.77" width="0.1524" layer="91"/>
 <junction x="-180.34" y="193.04"/>
+<pinref part="R14" gate="G$1" pin="2"/>
+<wire x1="-243.84" y1="187.96" x2="-243.84" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="-243.84" y1="193.04" x2="-236.22" y2="193.04" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="2"/>
+<wire x1="-236.22" y1="193.04" x2="-228.6" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="-228.6" y1="193.04" x2="-220.98" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="-220.98" y1="193.04" x2="-187.96" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="-187.96" y1="193.04" x2="-186.69" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="-236.22" y1="187.96" x2="-236.22" y2="193.04" width="0.1524" layer="91"/>
+<junction x="-236.22" y="193.04"/>
+<pinref part="R16" gate="G$1" pin="2"/>
+<wire x1="-228.6" y1="187.96" x2="-228.6" y2="193.04" width="0.1524" layer="91"/>
+<junction x="-228.6" y="193.04"/>
+<pinref part="R17" gate="G$1" pin="2"/>
+<wire x1="-220.98" y1="187.96" x2="-220.98" y2="193.04" width="0.1524" layer="91"/>
+<junction x="-220.98" y="193.04"/>
+<wire x1="-186.69" y1="193.04" x2="-185.42" y2="193.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="5V" class="0">
