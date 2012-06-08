@@ -66,7 +66,9 @@ TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 echo -e "Test: PISO/test ... \c"
 if [ "$TEST" != "`echo -e '4F\r'`" ]; then
 	echo "fail: Expected 4F, recieved $TEST"
- 	echo "***** This test can only be passed, if there are breakouts in slot 0, 1 and 3 and slot2 is empty."
+ 	echo "***** This test can only be passed, if there are breakouts in slot 0, 1 and 3,  slot2 is empty "
+    echo "***** and the ports SH/LD IRQ/PRSNT IRQ/PRSNT CLK and PRSNT DATAINT are connected to pins 6, 7 "
+	echo "***** and 5 of the testing device."
 	exit;
 fi
 echo "passed."
@@ -88,7 +90,7 @@ echo -e "Test: IRQ Register ... \c"
 if [ "$TEST" != "`echo -e 'F6,FF\r'`" ]; then
 	echo "fail: Expected F6,FF, recieved $TEST"
 	echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
-	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug."
+	echo "***** and port2 of the testing device is connected to the wired or output (IRQ) on the busmaster plug."
 	exit;
 fi
 echo "passed."
@@ -99,7 +101,8 @@ echo -e "Test: Chipselect Register ... \c"
 if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
 	echo "fail: Expected OK, recieved $TEST"
 	echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
-	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug."
+	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug and "
+    echo "***** the pins INTACK SCK, INTACK RCK, INTACK SER are connected to 34, 30, 32 "
 	exit;
 fi
 echo "passed."
