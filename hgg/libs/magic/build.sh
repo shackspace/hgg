@@ -85,8 +85,8 @@ echo "passed."
 TESTCLASS=tests/irq_read/readirq.o make test 2>&1 > /dev/null
 TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 echo -e "Test: IRQ Register ... \c"
-if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
-	echo "fail: Expected OK, recieved $TEST"
+if [ "$TEST" != "`echo -e 'F6,FF\r'`" ]; then
+	echo "fail: Expected F6,FF, recieved $TEST"
 	echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
 	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug."
 	exit;

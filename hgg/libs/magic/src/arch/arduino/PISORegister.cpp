@@ -40,7 +40,7 @@ BYTE PISORegister::read() {
   {
     digitalWrite(7,LOW);
     result <<= 1;
-    result |= digitalRead(5) & 0x01;
+    result |= digitalRead(dataPin) & 0x01;
     digitalWrite(7,HIGH);
   }
 
