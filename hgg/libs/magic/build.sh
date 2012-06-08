@@ -61,37 +61,37 @@ fi;
 
 # 
 # perform unit / integration tests on the code built currently.
-#TESTCLASS=tests/poll_present/poll_present.o make test 2>&1 > /dev/null
-#TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
-#echo -e "Test: PISO/test ... \c"
-#if [ "$TEST" != "`echo -e '4F\r'`" ]; then
-#	echo "fail: Expected 4F, recieved $TEST"
-#	echo "***** This test can only be passed, if there are breakouts in slot 0, 1 and 3 and slot2 is empty."
-#	exit;
-#fi
-#echo "passed."
-#
-#TESTCLASS=tests/irq_wiredor/wiredor.o make test 2>&1 > /dev/null
-#TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
-#echo -e "Test: Wired or ... \c"
-#if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
-#	echo "fail: Expected OK, recieved $TEST"
-#	echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
-#	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug."
-#	exit;
-#fi
-#echo "passed."
-#
-#TESTCLASS=tests/irq_read/readirq.o make test 2>&1 > /dev/null
-#TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
-#echo -e "Test: IRQ Register ... \c"
-#if [ "$TEST" != "`echo -e 'F6,FF\r'`" ]; then
-#	echo "fail: Expected F6,FF, recieved $TEST"
-#	echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
-#	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug."
-#	exit;
-#fi
-#echo "passed."
+TESTCLASS=tests/poll_present/poll_present.o make test 2>&1 > /dev/null
+TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
+echo -e "Test: PISO/test ... \c"
+if [ "$TEST" != "`echo -e '4F\r'`" ]; then
+	echo "fail: Expected 4F, recieved $TEST"
+ 	echo "***** This test can only be passed, if there are breakouts in slot 0, 1 and 3 and slot2 is empty."
+	exit;
+fi
+echo "passed."
+
+TESTCLASS=tests/irq_wiredor/wiredor.o make test 2>&1 > /dev/null
+TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
+echo -e "Test: Wired or ... \c"
+if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
+	echo "fail: Expected OK, recieved $TEST"
+	echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
+	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug."
+	exit;
+fi
+echo "passed."
+
+TESTCLASS=tests/irq_read/readirq.o make test 2>&1 > /dev/null
+TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
+echo -e "Test: IRQ Register ... \c"
+if [ "$TEST" != "`echo -e 'F6,FF\r'`" ]; then
+	echo "fail: Expected F6,FF, recieved $TEST"
+	echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
+	echo "***** and port2 of the testing device is connected to the wired or output on the busmaster plug."
+	exit;
+fi
+echo "passed."
 
 TESTCLASS=tests/chipselect/chipselect.o make test 2>&1 > /dev/null
 TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
