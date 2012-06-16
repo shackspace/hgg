@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -2019,37 +2019,37 @@ generation of mobile and embedded devices.</description>
 <text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="BUSMASTER_SLOT">
-<pad name="A02(IRQ)" x="1" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A04(RSVD1)" x="3" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A06(+3V3)" x="5" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A08(+5V)" x="7" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A10(+12V)" x="9" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A01(PRSNT1)" x="0" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A03(/CS,IRQ)" x="2" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A05(RSVD2)" x="4" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A07(GND)" x="6" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A09(GND)" x="8" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A02" x="1" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A04" x="3" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A06" x="5" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A08" x="7" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A10" x="9" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A01(IRQ_DATAIN)" x="0" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A03(IRQ)" x="2" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A05(PRSNT_DATAIN)" x="4" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A07(INTACK_SCK)" x="6" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A09(INTACK_RCK)" x="8" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="A11(GND)" x="10" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="B01" x="0" y="0" drill="0.5" diameter="1.27" shape="square"/>
 <pad name="B03" x="2" y="0" drill="0.5" diameter="1.27"/>
 <pad name="B05" x="4" y="0" drill="0.5" diameter="1.27"/>
-<pad name="B07(GND)" x="6" y="0" drill="0.5" diameter="1.27"/>
-<pad name="B09(GND)" x="8" y="0" drill="0.5" diameter="1.27"/>
-<pad name="B11(GND)" x="10" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B07" x="6" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B09" x="8" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B11" x="10" y="0" drill="0.5" diameter="1.27"/>
 <pad name="B02" x="1" y="-2" drill="0.5" diameter="1.27"/>
 <pad name="B04" x="3" y="-2" drill="0.5" diameter="1.27"/>
-<pad name="B06(+3V3)" x="5" y="-2" drill="0.5" diameter="1.27"/>
-<pad name="B08(+5V)" x="7" y="-2" drill="0.5" diameter="1.27"/>
-<pad name="B10(+12V)" x="9" y="-2" drill="0.5" diameter="1.27"/>
-<pad name="A12(TDI)" x="13" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A13(TDO)" x="14" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="B06" x="5" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="B08" x="7" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="B10" x="9" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="A12" x="13" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A13(INTACK_SER)" x="14" y="2.5" drill="0.5" diameter="1.27"/>
 <pad name="B13" x="14" y="0" drill="0.5" diameter="1.27"/>
 <pad name="B12" x="13" y="-2" drill="0.5" diameter="1.27"/>
-<pad name="A14(TMS)" x="15" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A15(TCK)" x="16" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A16(TRST)" x="17" y="4.5" drill="0.5" diameter="1.27"/>
-<pad name="A17(BUS0-)" x="18" y="2.5" drill="0.5" diameter="1.27"/>
-<pad name="A18(BUS0+)" x="19" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A14" x="15" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A15(SH/LD_PRSNT/IRQ)" x="16" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A16" x="17" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A17(IRQ/PRSNT_CLK)" x="18" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A18" x="19" y="4.5" drill="0.5" diameter="1.27"/>
 <pad name="B14" x="15" y="-2" drill="0.5" diameter="1.27"/>
 <pad name="B15" x="16" y="0" drill="0.5" diameter="1.27"/>
 <pad name="B16" x="17" y="-2" drill="0.5" diameter="1.27"/>
@@ -2288,6 +2288,124 @@ generation of mobile and embedded devices.</description>
 </package>
 </packages>
 <symbols>
+<symbol name="BUSMASTER_CONNECTOR">
+<pin name="PRSNT1" x="-10.16" y="15.24" length="middle"/>
+<pin name="IRQ" x="-10.16" y="12.7" length="middle"/>
+<pin name="/CS,IRQ" x="-10.16" y="10.16" length="middle"/>
+<pin name="RSVD1" x="-10.16" y="0" length="middle"/>
+<pin name="RSVD2" x="-10.16" y="-2.54" length="middle"/>
+<pin name="+3V3_A" x="-10.16" y="-10.16" length="middle"/>
+<pin name="GND1_A" x="-10.16" y="-12.7" length="middle"/>
+<pin name="+5V_A" x="-10.16" y="-15.24" length="middle"/>
+<pin name="GND2_A" x="-10.16" y="-17.78" length="middle"/>
+<pin name="+12V_A" x="-10.16" y="-20.32" length="middle"/>
+<pin name="GND3_A" x="-10.16" y="-22.86" length="middle"/>
+<wire x1="-5.08" y1="17.78" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="22.86" y2="5.08" width="0.254" layer="94"/>
+<wire x1="22.86" y1="5.08" x2="22.86" y2="17.78" width="0.254" layer="94"/>
+<wire x1="22.86" y1="17.78" x2="-5.08" y2="17.78" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="22.86" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-5.08" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="2.54" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-7.62" x2="-5.08" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-25.4" x2="45.72" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="45.72" y1="-7.62" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
+<text x="10.16" y="10.16" size="1.27" layer="94">BUSMASTER</text>
+<text x="10.16" y="-2.54" size="1.27" layer="94">RSVD</text>
+<text x="10.16" y="-12.7" size="1.27" layer="94">POWER</text>
+<pin name="TDI" x="-10.16" y="-30.48" length="middle"/>
+<pin name="TDO" x="-10.16" y="-33.02" length="middle"/>
+<pin name="TMS" x="-10.16" y="-35.56" length="middle"/>
+<pin name="TCK" x="-10.16" y="-38.1" length="middle"/>
+<pin name="TRST" x="-10.16" y="-40.64" length="middle"/>
+<pin name="BUS0-" x="-10.16" y="-48.26" length="middle"/>
+<pin name="BUS0+" x="-10.16" y="-50.8" length="middle"/>
+<pin name="GND4" x="-10.16" y="-53.34" length="middle"/>
+<pin name="BUS1+" x="-10.16" y="-55.88" length="middle"/>
+<pin name="BUS1-" x="-10.16" y="-58.42" length="middle"/>
+<pin name="GND5" x="-10.16" y="-66.04" length="middle"/>
+<pin name="SLOWCLKMOSI" x="-10.16" y="-68.58" length="middle"/>
+<pin name="SLOWCLKCLK" x="-10.16" y="-71.12" length="middle"/>
+<pin name="SLOWCLK/CS" x="-10.16" y="-73.66" length="middle"/>
+<pin name="PPS" x="-10.16" y="-76.2" length="middle"/>
+<pin name="FASTCLK+" x="-10.16" y="-81.28" length="middle"/>
+<pin name="PRSNT2" x="-10.16" y="7.62" length="middle"/>
+<wire x1="-5.08" y1="-27.94" x2="-5.08" y2="-43.18" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-43.18" x2="22.86" y2="-43.18" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-43.18" x2="22.86" y2="-27.94" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-27.94" x2="-5.08" y2="-27.94" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-45.72" x2="-5.08" y2="-60.96" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-60.96" x2="22.86" y2="-60.96" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-60.96" x2="22.86" y2="-45.72" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-45.72" x2="-5.08" y2="-45.72" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-63.5" x2="-5.08" y2="-91.44" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-91.44" x2="22.86" y2="-91.44" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-91.44" x2="22.86" y2="-63.5" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-63.5" x2="-5.08" y2="-63.5" width="0.254" layer="94"/>
+<text x="10.16" y="-50.8" size="1.27" layer="94">RS485</text>
+<text x="10.16" y="-33.02" size="1.27" layer="94">JTAG</text>
+<text x="10.16" y="-76.2" size="1.27" layer="94">TIMING</text>
+<pin name="FASTCLK-" x="-10.16" y="-83.82" length="middle"/>
+<pin name="GND7" x="-10.16" y="-86.36" length="middle"/>
+<pin name="FASTCLK3V3" x="-10.16" y="-88.9" length="middle"/>
+<pin name="GND6" x="-10.16" y="-78.74" length="middle"/>
+<pin name="B01" x="50.8" y="15.24" length="middle" rot="R180"/>
+<pin name="B02" x="50.8" y="12.7" length="middle" rot="R180"/>
+<pin name="B03" x="50.8" y="10.16" length="middle" rot="R180"/>
+<pin name="B04" x="50.8" y="7.62" length="middle" rot="R180"/>
+<pin name="B05" x="50.8" y="5.08" length="middle" rot="R180"/>
+<pin name="+3V3_B" x="50.8" y="-10.16" length="middle" rot="R180"/>
+<pin name="GND1_B" x="50.8" y="-12.7" length="middle" rot="R180"/>
+<pin name="+5V_B" x="50.8" y="-15.24" length="middle" rot="R180"/>
+<pin name="+12V_B" x="50.8" y="-20.32" length="middle" rot="R180"/>
+<pin name="GND2_B" x="50.8" y="-17.78" length="middle" rot="R180"/>
+<pin name="GND3_B" x="50.8" y="-22.86" length="middle" rot="R180"/>
+<pin name="B12" x="50.8" y="-29.21" length="middle" rot="R180"/>
+<pin name="B13" x="50.8" y="-31.75" length="middle" rot="R180"/>
+<pin name="B14" x="50.8" y="-34.29" length="middle" rot="R180"/>
+<pin name="B15" x="50.8" y="-36.83" length="middle" rot="R180"/>
+<pin name="B16" x="50.8" y="-39.37" length="middle" rot="R180"/>
+<pin name="B17" x="50.8" y="-41.91" length="middle" rot="R180"/>
+<pin name="B18" x="50.8" y="-44.45" length="middle" rot="R180"/>
+<pin name="B19" x="50.8" y="-46.99" length="middle" rot="R180"/>
+<pin name="B20" x="50.8" y="-49.53" length="middle" rot="R180"/>
+<pin name="B21" x="50.8" y="-52.07" length="middle" rot="R180"/>
+<pin name="B22" x="50.8" y="-54.61" length="middle" rot="R180"/>
+<pin name="B23" x="50.8" y="-57.15" length="middle" rot="R180"/>
+<pin name="B24" x="50.8" y="-59.69" length="middle" rot="R180"/>
+<pin name="B25" x="50.8" y="-62.23" length="middle" rot="R180"/>
+<pin name="B26" x="50.8" y="-64.77" length="middle" rot="R180"/>
+<pin name="B27" x="50.8" y="-67.31" length="middle" rot="R180"/>
+<pin name="B28" x="50.8" y="-69.85" length="middle" rot="R180"/>
+<pin name="B29" x="50.8" y="-72.39" length="middle" rot="R180"/>
+<pin name="B30" x="50.8" y="-74.93" length="middle" rot="R180"/>
+<pin name="B31" x="50.8" y="-77.47" length="middle" rot="R180"/>
+<pin name="B32" x="50.8" y="-80.01" length="middle" rot="R180"/>
+<wire x1="27.94" y1="17.78" x2="27.94" y2="3.81" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-82.55" x2="45.72" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="45.72" y1="3.81" x2="45.72" y2="17.78" width="0.254" layer="94"/>
+<wire x1="45.72" y1="17.78" x2="27.94" y2="17.78" width="0.254" layer="94"/>
+<text x="30.48" y="10.16" size="1.27" layer="94">RESERVED</text>
+<wire x1="45.72" y1="3.81" x2="27.94" y2="3.81" width="0.254" layer="94"/>
+<wire x1="45.72" y1="-7.62" x2="45.72" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="45.72" y1="-27.94" x2="45.72" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="45.72" y1="-27.94" x2="27.94" y2="-27.94" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-27.94" x2="27.94" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="22.86" y1="20.32" x2="-5.08" y2="20.32" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="20.32" x2="-5.08" y2="45.72" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="45.72" x2="22.86" y2="45.72" width="0.254" layer="94"/>
+<wire x1="22.86" y1="45.72" x2="22.86" y2="20.32" width="0.254" layer="94"/>
+<pin name="IRQ/PRSNT_CLK" x="-10.16" y="22.86" length="middle"/>
+<pin name="SH/LD_PRSNT/IRQ" x="-10.16" y="25.4" length="middle"/>
+<pin name="INTACKSER" x="-10.16" y="27.94" length="middle"/>
+<pin name="INTACKRCK" x="-10.16" y="33.02" length="middle"/>
+<pin name="GND" x="-10.16" y="30.48" length="middle"/>
+<pin name="INTACKSCK" x="-10.16" y="35.56" length="middle"/>
+<pin name="PRSNT/DATAIN" x="-10.16" y="38.1" length="middle"/>
+<pin name="IRQ_WIREDOR" x="-10.16" y="40.64" length="middle"/>
+<pin name="IRQ/DATAIN" x="-10.16" y="43.18" length="middle"/>
+</symbol>
 <symbol name="FRIENDSHIP_CONNECTOR">
 <pin name="PRSNT1" x="-10.16" y="15.24" length="middle"/>
 <pin name="IRQ" x="-10.16" y="12.7" length="middle"/>
@@ -4642,6 +4760,21 @@ generation of mobile and embedded devices.</description>
 <pin name="VDD" x="15.24" y="7.62" length="middle" rot="R180"/>
 <text x="-10.16" y="12.7" size="1.27" layer="94">&gt;NAME</text>
 </symbol>
+<symbol name="BUSMASTERPLUG">
+<pin name="IRQ/PRSNT_CLK" x="-5.08" y="0" length="middle"/>
+<pin name="SH/LD_PRSNT/IRQ" x="-5.08" y="2.54" length="middle"/>
+<pin name="INTACK_SER" x="-5.08" y="5.08" length="middle"/>
+<pin name="GND" x="-5.08" y="7.62" length="middle"/>
+<pin name="INTACK_RCK" x="-5.08" y="10.16" length="middle"/>
+<pin name="INTACK_SCK" x="-5.08" y="12.7" length="middle"/>
+<pin name="PRSNT_DATAIN" x="-5.08" y="15.24" length="middle"/>
+<pin name="IRQ" x="-5.08" y="17.78" length="middle"/>
+<pin name="IRQ_DATAIN" x="-5.08" y="20.32" length="middle"/>
+<wire x1="0" y1="22.86" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="25.4" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="25.4" y1="-2.54" x2="25.4" y2="22.86" width="0.254" layer="94"/>
+<wire x1="25.4" y1="22.86" x2="0" y2="22.86" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FRIENDSHIP">
@@ -4861,9 +4994,108 @@ generation of mobile and embedded devices.</description>
 </deviceset>
 <deviceset name="BUSMASTER">
 <gates>
+<gate name="G$1" symbol="BUSMASTER_CONNECTOR" x="-12.7" y="7.62"/>
 </gates>
 <devices>
-<device name="">
+<device name="" package="BUSMASTER_EDGE_CONNECTOR">
+<connects>
+<connect gate="G$1" pin="+12V_A" pad="A10(+12V)"/>
+<connect gate="G$1" pin="+12V_B" pad="B10(+12V)"/>
+<connect gate="G$1" pin="+3V3_A" pad="A06(+3V3)"/>
+<connect gate="G$1" pin="+3V3_B" pad="B06(+3V3)"/>
+<connect gate="G$1" pin="+5V_A" pad="A08(+5V)"/>
+<connect gate="G$1" pin="+5V_B" pad="B08(+5V)"/>
+<connect gate="G$1" pin="/CS,IRQ" pad="A03(/CS,IRQ)"/>
+<connect gate="G$1" pin="B01" pad="B01"/>
+<connect gate="G$1" pin="B02" pad="B02"/>
+<connect gate="G$1" pin="B03" pad="B03"/>
+<connect gate="G$1" pin="B04" pad="B04"/>
+<connect gate="G$1" pin="B05" pad="B05"/>
+<connect gate="G$1" pin="B12" pad="B12"/>
+<connect gate="G$1" pin="B13" pad="B13"/>
+<connect gate="G$1" pin="B14" pad="B14"/>
+<connect gate="G$1" pin="B15" pad="B15"/>
+<connect gate="G$1" pin="B16" pad="B16"/>
+<connect gate="G$1" pin="B17" pad="B17"/>
+<connect gate="G$1" pin="B18" pad="B18"/>
+<connect gate="G$1" pin="B19" pad="B19"/>
+<connect gate="G$1" pin="B20" pad="B20"/>
+<connect gate="G$1" pin="B21" pad="B21"/>
+<connect gate="G$1" pin="B22" pad="B22"/>
+<connect gate="G$1" pin="B23" pad="B23"/>
+<connect gate="G$1" pin="B24" pad="B24"/>
+<connect gate="G$1" pin="B25" pad="B25"/>
+<connect gate="G$1" pin="B26" pad="B26"/>
+<connect gate="G$1" pin="B27" pad="B27"/>
+<connect gate="G$1" pin="B28" pad="B28"/>
+<connect gate="G$1" pin="B29" pad="B29"/>
+<connect gate="G$1" pin="B30" pad="B30"/>
+<connect gate="G$1" pin="B31" pad="B31"/>
+<connect gate="G$1" pin="B32" pad="B32"/>
+<connect gate="G$1" pin="BUS0+" pad="A18(BUS0+)"/>
+<connect gate="G$1" pin="BUS0-" pad="A17(BUS0-)"/>
+<connect gate="G$1" pin="BUS1+" pad="A20(BUS1+)"/>
+<connect gate="G$1" pin="BUS1-" pad="A21(BUS1-)"/>
+<connect gate="G$1" pin="FASTCLK+" pad="A29(FASTCLK+)"/>
+<connect gate="G$1" pin="FASTCLK-" pad="A28(FASTCLK-)"/>
+<connect gate="G$1" pin="FASTCLK3V3" pad="A31(FASTCLK3V3)"/>
+<connect gate="G$1" pin="GND" pad="A19(GND)"/>
+<connect gate="G$1" pin="GND1_A" pad="A07(GND)"/>
+<connect gate="G$1" pin="GND1_B" pad="B07(GND)"/>
+<connect gate="G$1" pin="GND2_A" pad="A09(GND)"/>
+<connect gate="G$1" pin="GND2_B" pad="B09(GND)"/>
+<connect gate="G$1" pin="GND3_A" pad="A11(GND)"/>
+<connect gate="G$1" pin="GND3_B" pad="B11(GND)"/>
+<connect gate="G$1" pin="GND4" pad="A22(GND)"/>
+<connect gate="G$1" pin="GND5" pad="A27(GND)"/>
+<connect gate="G$1" pin="GND6" pad="A30(GND)"/>
+<connect gate="G$1" pin="GND7" pad="BMB11(GND)"/>
+<connect gate="G$1" pin="INTACKRCK" pad="BMB09(INTACK_RCK)"/>
+<connect gate="G$1" pin="INTACKSCK" pad="BMB07(INTACK_SCK)"/>
+<connect gate="G$1" pin="INTACKSER" pad="BMB13(INTACK_SER)"/>
+<connect gate="G$1" pin="IRQ" pad="A02(IRQ)"/>
+<connect gate="G$1" pin="IRQ/DATAIN" pad="BMB01(IRQ_DATAIN)"/>
+<connect gate="G$1" pin="IRQ/PRSNT_CLK" pad="BMB17(IRQ/PRSNT_CLK)"/>
+<connect gate="G$1" pin="IRQ_WIREDOR" pad="BMB03(IRQ)"/>
+<connect gate="G$1" pin="PPS" pad="A26(PPS)"/>
+<connect gate="G$1" pin="PRSNT/DATAIN" pad="BMB05(PRSNT_DATAIN)"/>
+<connect gate="G$1" pin="PRSNT1" pad="A01(PRSNT1)"/>
+<connect gate="G$1" pin="PRSNT2" pad="A32(PRSNT2)"/>
+<connect gate="G$1" pin="RSVD1" pad="A04(RSVD1)"/>
+<connect gate="G$1" pin="RSVD2" pad="A05(RSVD2)"/>
+<connect gate="G$1" pin="SH/LD_PRSNT/IRQ" pad="BMB15(SH/LD_PRSNT/IRQ)"/>
+<connect gate="G$1" pin="SLOWCLK/CS" pad="A25(SLOWCLK/CS)"/>
+<connect gate="G$1" pin="SLOWCLKCLK" pad="A24(SLOWCLKCLK)"/>
+<connect gate="G$1" pin="SLOWCLKMOSI" pad="A23(SLOWTIMEMOSI)"/>
+<connect gate="G$1" pin="TCK" pad="A15(TCK)"/>
+<connect gate="G$1" pin="TDI" pad="A12(TDI)"/>
+<connect gate="G$1" pin="TDO" pad="A13(TDO)"/>
+<connect gate="G$1" pin="TMS" pad="A14(TMS)"/>
+<connect gate="G$1" pin="TRST" pad="A16(TRST)"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BUSMASTER_PLUG">
+<gates>
+<gate name="G$1" symbol="BUSMASTERPLUG" x="-20.32" y="5.08"/>
+</gates>
+<devices>
+<device name="" package="BUSMASTER_SLOT">
+<connects>
+<connect gate="G$1" pin="GND" pad="A11(GND)"/>
+<connect gate="G$1" pin="INTACK_RCK" pad="A09(INTACK_RCK)"/>
+<connect gate="G$1" pin="INTACK_SCK" pad="A07(INTACK_SCK)"/>
+<connect gate="G$1" pin="INTACK_SER" pad="A13(INTACK_SER)"/>
+<connect gate="G$1" pin="IRQ" pad="A03(IRQ)"/>
+<connect gate="G$1" pin="IRQ/PRSNT_CLK" pad="A17(IRQ/PRSNT_CLK)"/>
+<connect gate="G$1" pin="IRQ_DATAIN" pad="A01(IRQ_DATAIN)"/>
+<connect gate="G$1" pin="PRSNT_DATAIN" pad="A05(PRSNT_DATAIN)"/>
+<connect gate="G$1" pin="SH/LD_PRSNT/IRQ" pad="A15(SH/LD_PRSNT/IRQ)"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
