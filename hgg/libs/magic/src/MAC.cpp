@@ -1,5 +1,5 @@
 /** 
- * Magic.cpp 
+ * MAC.cpp 
  * (c) 2012, hackerspace global grid project
  * written by hadez, armin and others
  * licensed under the creative commons (cc-by-nc-sa). For more 
@@ -7,28 +7,28 @@
  */
 
 #include "types.h"
-#include "Magic.h"
+#include "MAC.h"
 
-Magic::Magic() {
+MAC::MAC() {
   callback = NULL;
   buffer = NULL;
   bankSize = 0;
   banks = 0;
 }
 
-Magic::~Magic() {
+MAC::~MAC() {
 
 }
 
-void Magic::sendFrame(uchar type, const uchar* data, ushort size) {
+void MAC::sendFrame(uchar type, const uchar* data, ushort size) {
   // NOT IMPLEMENTED
 }
 
-void Magic::setCallback(recieveFramePtr ptr) {
+void MAC::setCallback(recieveFramePtr ptr) {
   callback = ptr;
 }
 
-void Magic::setUserBuffer(uchar* buf, ushort size, uchar count) {
+void MAC::setUserBuffer(uchar* buf, ushort size, uchar count) {
   buffer = buf;
   bankSize = size;
   banks = count;

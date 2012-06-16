@@ -1,5 +1,5 @@
 /** 
- * Magic.h 
+ * MAC.h 
  * (c) 2012, hackerspace global grid project
  * written by hadez, armin and others
  * licensed under the creative commons (cc-by-nc-sa). For more 
@@ -15,10 +15,10 @@ typedef void (*recieveFramePtr)(uchar bank, ushort size, uchar type, uchar& erro
  * this class implements code to read from an 8-bit Parallel In / Serial Out 
  * register like the SN74HCT165. 
  */
-class Magic {
+class MAC {
 public:
-  Magic();
-  ~Magic();
+  MAC();
+  ~MAC();
 
   /** 
    * send a frame to the rs485 bus.
