@@ -6,9 +6,9 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.02" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -2228,24 +2228,24 @@ generation of mobile and embedded devices.</description>
 <wire x1="32.5" y1="-14" x2="32.5" y2="-10.9" width="0.6096" layer="1"/>
 <wire x1="33.5" y1="-14.1" x2="33.5" y2="-10.9" width="0.6096" layer="1"/>
 <wire x1="34.5" y1="-14" x2="34.5" y2="-10.9" width="0.6096" layer="1"/>
-<smd name="A01(PRSNT1)1" x="15.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A02(IRQ)1" x="16.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A03(/CS,IRQ)1" x="17.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A04(RSVD1)1" x="18.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A05(RSVD2)1" x="19.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A06(+3V3)1" x="20.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A07(GND)1" x="21.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A08(+5V)1" x="22.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A09(GND)1" x="23.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A10(+12V)1" x="24.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A11(GND)1" x="25.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A12(TDI)1" x="28.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A13(TDO)1" x="29.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A14(TMS)1" x="30.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A15(TCK)1" x="31.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A16(TRST)1" x="32.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A17(BUS0-)1" x="33.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
-<smd name="A18(BUS0+)1" x="34.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB01(IRQ_DATAIN)" x="15.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB02" x="16.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB03(IRQ)" x="17.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB04" x="18.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB05(PRSNT_DATAIN)" x="19.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB06" x="20.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB07(INTACK_SCK)" x="21.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB08" x="22.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB09(INTACK_RCK)" x="23.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB10" x="24.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB11(GND)" x="25.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB12" x="28.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB13(INTACK_SER)" x="29.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB14" x="30.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB15(SH/LD_PRSNT/IRQ)" x="31.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB16" x="32.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB17(IRQ/PRSNT_CLK)" x="33.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
+<smd name="BMB18" x="34.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R90"/>
 <wire x1="28.5" y1="-10.9" x2="28.5" y2="-13.9" width="0.6096" layer="16"/>
 <wire x1="29.5" y1="-13.9" x2="29.5" y2="-10.9" width="0.6096" layer="16"/>
 <wire x1="30.5" y1="-14" x2="30.5" y2="-10.9" width="0.6096" layer="16"/>
@@ -2264,24 +2264,24 @@ generation of mobile and embedded devices.</description>
 <wire x1="17.5" y1="-10.9" x2="17.5" y2="-13.9" width="0.6096" layer="16"/>
 <wire x1="16.5" y1="-10.9" x2="16.5" y2="-13.9" width="0.6096" layer="16"/>
 <wire x1="15.5" y1="-10.9" x2="15.5" y2="-13.9" width="0.6096" layer="16"/>
-<smd name="B06" x="15.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B07" x="16.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B08" x="17.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B09" x="18.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B10" x="19.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B06(+3V3)1" x="20.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B07(GND)1" x="21.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B08(+5V)1" x="22.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B09(GND)1" x="23.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B10(+12V)1" x="24.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B11(GND)1" x="25.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B11" x="28.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B33" x="29.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B34" x="30.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B35" x="31.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B36" x="32.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B37" x="33.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
-<smd name="B38" x="34.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA01" x="15.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA02" x="16.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA03" x="17.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA04" x="18.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA05" x="19.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA06" x="20.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA07" x="21.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA08" x="22.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA09" x="23.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA10" x="24.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA11" x="25.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA12" x="28.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA13" x="29.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA14" x="30.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA15" x="31.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA16" x="32.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA17" x="33.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<smd name="BMA18" x="34.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
 <wire x1="35.03" y1="-5.9492" x2="35.03" y2="-16" width="0.127" layer="20"/>
 <wire x1="35.024" y1="-5.9055" x2="36.802" y2="-3.8735" width="0.127" layer="20" curve="-82.874984"/>
 <wire x1="43.2943" y1="-3.8735" x2="44.9961" y2="-5.9309" width="0.127" layer="20" curve="-82.874984"/>
