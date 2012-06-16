@@ -14,7 +14,8 @@
 #endif // archarduino
 
 
-typedef unsigned char   BYTE;
+typedef unsigned char   uchar;
+typedef unsigned short   ushort;
 
 #endif // __INCLUDED_TYPES_H
 

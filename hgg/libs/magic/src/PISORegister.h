@@ -28,7 +28,7 @@ public:
   /** 
    * reads a byte from the Parallel in / Serial Out register
    */
-  BYTE read();
+  uchar read();
 
 private:
   int latchPin;

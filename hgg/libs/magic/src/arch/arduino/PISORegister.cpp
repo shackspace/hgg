@@ -27,9 +27,9 @@ PISORegister::~PISORegister() {
 
 }
 
-BYTE PISORegister::read() {
+uchar PISORegister::read() {
   // read a byte.
-  BYTE result = 0;
+  uchar result = 0;
 
   // latch.
   digitalWrite(latchPin, LOW);
