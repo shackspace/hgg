@@ -1,6 +1,7 @@
 # Objects to be used for the physical layer
 OBJECTS_PHYSICAL_LAYER=	$(SOURCEDIR)/arch/$(ARCHITECTURE)/PISORegister.o 			\
 						$(SOURCEDIR)/arch/$(ARCHITECTURE)/SIPORegister.o			\
+						$(SOURCEDIR)/arch/$(ARCHITECTURE)/RS485.o					\
 
 
 OBJECTS=
