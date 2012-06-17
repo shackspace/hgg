@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -276,6 +276,46 @@
 <smd name="B29" x="75.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R270"/>
 <smd name="B30" x="76.5" y="-14.5" dx="1.27" dy="0.6604" layer="16" rot="R270"/>
 </package>
+<package name="BUSMASTER_SLOT">
+<pad name="A02" x="1" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A04" x="3" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A06" x="5" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A08" x="7" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A10" x="9" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A01(IRQ_DATAIN)" x="0" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A03(IRQ)" x="2" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A05(PRSNT_DATAIN)" x="4" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A07(INTACK_SCK)" x="6" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A09(INTACK_RCK)" x="8" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A11(GND)" x="10" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="B01" x="0" y="0" drill="0.5" diameter="1.27" shape="square"/>
+<pad name="B03" x="2" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B05" x="4" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B07" x="6" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B09" x="8" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B11" x="10" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B02" x="1" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="B04" x="3" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="B06" x="5" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="B08" x="7" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="B10" x="9" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="A12" x="13" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A13(INTACK_SER)" x="14" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="B13" x="14" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B12" x="13" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="A14" x="15" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A15(SH/LD_PRSNT/IRQ)" x="16" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A16" x="17" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="A17(IRQ/PRSNT_CLK)" x="18" y="2.5" drill="0.5" diameter="1.27"/>
+<pad name="A18" x="19" y="4.5" drill="0.5" diameter="1.27"/>
+<pad name="B14" x="15" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="B15" x="16" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B16" x="17" y="-2" drill="0.5" diameter="1.27"/>
+<pad name="B17" x="18" y="0" drill="0.5" diameter="1.27"/>
+<pad name="B18" x="19" y="-2" drill="0.5" diameter="1.27"/>
+<hole x="11.7" y="1.25" drill="2"/>
+<hole x="21.03" y="1.25" drill="2"/>
+</package>
 </packages>
 <symbols>
 <symbol name="FRIENDSHIP_CONNECTOR">
@@ -383,6 +423,21 @@
 <wire x1="45.72" y1="-27.94" x2="45.72" y2="-82.55" width="0.254" layer="94"/>
 <wire x1="45.72" y1="-27.94" x2="27.94" y2="-27.94" width="0.254" layer="94"/>
 <wire x1="27.94" y1="-27.94" x2="27.94" y2="-82.55" width="0.254" layer="94"/>
+</symbol>
+<symbol name="BUSMASTERPLUG">
+<pin name="IRQ/PRSNT_CLK" x="-5.08" y="0" length="middle"/>
+<pin name="SH/LD_PRSNT/IRQ" x="-5.08" y="2.54" length="middle"/>
+<pin name="INTACK_SER" x="-5.08" y="5.08" length="middle"/>
+<pin name="GND" x="-5.08" y="7.62" length="middle"/>
+<pin name="INTACK_RCK" x="-5.08" y="10.16" length="middle"/>
+<pin name="INTACK_SCK" x="-5.08" y="12.7" length="middle"/>
+<pin name="PRSNT_DATAIN" x="-5.08" y="15.24" length="middle"/>
+<pin name="IRQ" x="-5.08" y="17.78" length="middle"/>
+<pin name="IRQ_DATAIN" x="-5.08" y="20.32" length="middle"/>
+<wire x1="0" y1="22.86" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="25.4" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="25.4" y1="-2.54" x2="25.4" y2="22.86" width="0.254" layer="94"/>
+<wire x1="25.4" y1="22.86" x2="0" y2="22.86" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -528,6 +583,29 @@
 <connect gate="G$1" pin="TDO" pad="A13(TDO)"/>
 <connect gate="G$1" pin="TMS" pad="A14(TMS)"/>
 <connect gate="G$1" pin="TRST" pad="A16(TRST)"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BUSMASTER_PLUG">
+<gates>
+<gate name="G$1" symbol="BUSMASTERPLUG" x="-20.32" y="5.08"/>
+</gates>
+<devices>
+<device name="" package="BUSMASTER_SLOT">
+<connects>
+<connect gate="G$1" pin="GND" pad="A11(GND)"/>
+<connect gate="G$1" pin="INTACK_RCK" pad="A09(INTACK_RCK)"/>
+<connect gate="G$1" pin="INTACK_SCK" pad="A07(INTACK_SCK)"/>
+<connect gate="G$1" pin="INTACK_SER" pad="A13(INTACK_SER)"/>
+<connect gate="G$1" pin="IRQ" pad="A03(IRQ)"/>
+<connect gate="G$1" pin="IRQ/PRSNT_CLK" pad="A17(IRQ/PRSNT_CLK)"/>
+<connect gate="G$1" pin="IRQ_DATAIN" pad="A01(IRQ_DATAIN)"/>
+<connect gate="G$1" pin="PRSNT_DATAIN" pad="A05(PRSNT_DATAIN)"/>
+<connect gate="G$1" pin="SH/LD_PRSNT/IRQ" pad="A15(SH/LD_PRSNT/IRQ)"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -7069,7 +7147,6 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="IRQ_LATCH" library="74xx-eu" deviceset="74*165" device="D" technology="HC"/>
 <part name="PRSNT_LATCH" library="74xx-eu" deviceset="74*165" device="D" technology="HC"/>
-<part name="BUSMASTER" library="pinhead" deviceset="PINHD-2X5" device=""/>
 <part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="R12" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="INTACK_LATCH" library="74xx-eu" deviceset="74*595" device="D" technology="HC"/>
@@ -7106,6 +7183,7 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <part name="R15" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
+<part name="U$1" library="hgg" deviceset="BUSMASTER_PLUG" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7152,7 +7230,6 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <instance part="GND17" gate="1" x="-49.53" y="-289.56"/>
 <instance part="IRQ_LATCH" gate="A" x="-157.48" y="-86.36" rot="R180"/>
 <instance part="PRSNT_LATCH" gate="A" x="-157.48" y="-43.18" rot="R180"/>
-<instance part="BUSMASTER" gate="A" x="-212.09" y="-35.56"/>
 <instance part="R7" gate="G$1" x="-127" y="-81.28"/>
 <instance part="R12" gate="G$1" x="-125.222" y="-38.1"/>
 <instance part="INTACK_LATCH" gate="A" x="-157.48" y="5.08"/>
@@ -7160,7 +7237,7 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <instance part="D2" gate="G$1" x="-119.38" y="-113.03" rot="R90"/>
 <instance part="D3" gate="G$1" x="-114.3" y="-113.03" rot="R90"/>
 <instance part="D4" gate="G$1" x="-124.46" y="-113.03" rot="R90"/>
-<instance part="GND18" gate="1" x="-181.61" y="-35.56" rot="R90"/>
+<instance part="GND18" gate="1" x="-232.41" y="-20.32" rot="R90"/>
 <instance part="R5" gate="G$1" x="-161.29" y="-128.27"/>
 <instance part="SJ1" gate="1" x="-63.5" y="-302.26"/>
 <instance part="INTACK_LATCH" gate="P" x="-154.94" y="184.15"/>
@@ -7196,6 +7273,7 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <instance part="R15" gate="G$1" x="-236.22" y="182.88" rot="R90"/>
 <instance part="R16" gate="G$1" x="-228.6" y="182.88" rot="R90"/>
 <instance part="R17" gate="G$1" x="-220.98" y="182.88" rot="R90"/>
+<instance part="U$1" gate="G$1" x="-261.62" y="-12.7" rot="R180"/>
 </instances>
 <busses>
 <bus name="IRQ0,IRQ1,IRQ2,IRQ3,/CS0,/CS1,/CS2,/CS3,PRSNT0,PRSNT1,PRSNT2,PRSNT3">
@@ -7459,11 +7537,6 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <pinref part="PORT3" gate="G$1" pin="GND3_B"/>
 <wire x1="15.24" y1="-185.42" x2="76.2" y2="-185.42" width="0.1524" layer="91"/>
 <junction x="15.24" y="-185.42"/>
-</segment>
-<segment>
-<pinref part="BUSMASTER" gate="A" pin="6"/>
-<wire x1="-207.01" y1="-35.56" x2="-184.15" y2="-35.56" width="0.1524" layer="91"/>
-<pinref part="GND18" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="JTAG" gate="A" pin="10"/>
@@ -8302,74 +8375,70 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <pinref part="PRSNT_LATCH" gate="A" pin="CLK"/>
 <wire x1="-144.78" y1="-33.02" x2="-124.46" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="-124.46" y1="-76.2" x2="-124.46" y2="-33.02" width="0.1524" layer="91"/>
-<pinref part="BUSMASTER" gate="A" pin="2"/>
-<wire x1="-207.01" y1="-30.48" x2="-189.23" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="-189.23" y1="-30.48" x2="-189.23" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="-189.23" y1="-17.78" x2="-124.46" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="-124.46" y1="-17.78" x2="-124.46" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="-12.7" x2="-124.46" y2="-33.02" width="0.1524" layer="91"/>
 <junction x="-124.46" y="-33.02"/>
 <pinref part="IRQ_LATCH" gate="A" pin="CLK"/>
 <wire x1="-144.78" y1="-76.2" x2="-124.46" y2="-76.2" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="IRQ/PRSNT_CLK"/>
+<wire x1="-256.54" y1="-12.7" x2="-124.46" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="PRSNT_LATCH" gate="A" pin="QH"/>
-<wire x1="-170.18" y1="-55.88" x2="-191.77" y2="-55.88" width="0.1524" layer="91"/>
-<pinref part="BUSMASTER" gate="A" pin="8"/>
-<wire x1="-207.01" y1="-38.1" x2="-191.77" y2="-38.1" width="0.1524" layer="91"/>
-<wire x1="-191.77" y1="-38.1" x2="-191.77" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="-170.18" y1="-55.88" x2="-175.26" y2="-55.88" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="PRSNT_DATAIN"/>
+<wire x1="-256.54" y1="-27.94" x2="-175.26" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-175.26" y1="-27.94" x2="-175.26" y2="-55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="IRQ_LATCH" gate="A" pin="QH"/>
-<wire x1="-170.18" y1="-99.06" x2="-198.12" y2="-99.06" width="0.1524" layer="91"/>
-<pinref part="BUSMASTER" gate="A" pin="10"/>
-<wire x1="-207.01" y1="-40.64" x2="-198.12" y2="-40.64" width="0.1524" layer="91"/>
-<wire x1="-198.12" y1="-40.64" x2="-198.12" y2="-99.06" width="0.1524" layer="91"/>
+<wire x1="-170.18" y1="-99.06" x2="-177.8" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="IRQ_DATAIN"/>
+<wire x1="-256.54" y1="-33.02" x2="-177.8" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-177.8" y1="-33.02" x2="-177.8" y2="-99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
-<wire x1="-222.25" y1="-20.32" x2="-127" y2="-20.32" width="0.1524" layer="91"/>
-<wire x1="-127" y1="-20.32" x2="-127" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-127" y1="-15.24" x2="-127" y2="-27.94" width="0.1524" layer="91"/>
 <pinref part="PRSNT_LATCH" gate="A" pin="SH/!LD"/>
 <wire x1="-144.78" y1="-27.94" x2="-127" y2="-27.94" width="0.1524" layer="91"/>
 <wire x1="-127" y1="-27.94" x2="-127" y2="-71.12" width="0.1524" layer="91"/>
 <junction x="-127" y="-27.94"/>
 <pinref part="IRQ_LATCH" gate="A" pin="SH/!LD"/>
 <wire x1="-127" y1="-71.12" x2="-144.78" y2="-71.12" width="0.1524" layer="91"/>
-<pinref part="BUSMASTER" gate="A" pin="1"/>
-<wire x1="-222.25" y1="-20.32" x2="-222.25" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="-222.25" y1="-30.48" x2="-214.63" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="SH/LD_PRSNT/IRQ"/>
+<wire x1="-256.54" y1="-15.24" x2="-127" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
 <segment>
 <pinref part="INTACK_LATCH" gate="A" pin="SER"/>
-<wire x1="-170.18" y1="15.24" x2="-236.22" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-236.22" y1="15.24" x2="-236.22" y2="-33.02" width="0.1524" layer="91"/>
-<pinref part="BUSMASTER" gate="A" pin="3"/>
-<wire x1="-236.22" y1="-33.02" x2="-214.63" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-170.18" y1="15.24" x2="-243.84" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="INTACK_SER"/>
+<wire x1="-256.54" y1="-17.78" x2="-243.84" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="-243.84" y1="-17.78" x2="-243.84" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="INTACK_LATCH" gate="A" pin="SCK"/>
 <wire x1="-170.18" y1="10.16" x2="-238.76" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="-238.76" y1="10.16" x2="-238.76" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="BUSMASTER" gate="A" pin="7"/>
-<wire x1="-238.76" y1="-38.1" x2="-214.63" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-238.76" y1="10.16" x2="-238.76" y2="-25.4" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="INTACK_SCK"/>
+<wire x1="-256.54" y1="-25.4" x2="-238.76" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="INTACK_LATCH" gate="A" pin="RCK"/>
 <wire x1="-170.18" y1="2.54" x2="-241.3" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="-241.3" y1="2.54" x2="-241.3" y2="-35.56" width="0.1524" layer="91"/>
-<pinref part="BUSMASTER" gate="A" pin="5"/>
-<wire x1="-241.3" y1="-35.56" x2="-214.63" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="-241.3" y1="2.54" x2="-241.3" y2="-22.86" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="INTACK_RCK"/>
+<wire x1="-256.54" y1="-22.86" x2="-241.3" y2="-22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -8389,13 +8458,13 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <junction x="-124.46" y="-121.92"/>
 <wire x1="-129.54" y1="-121.92" x2="-166.37" y2="-121.92" width="0.1524" layer="91"/>
 <wire x1="-166.37" y1="-121.92" x2="-231.14" y2="-121.92" width="0.1524" layer="91"/>
-<wire x1="-231.14" y1="-121.92" x2="-231.14" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="-231.14" y1="-121.92" x2="-231.14" y2="-30.48" width="0.1524" layer="91"/>
 <junction x="-129.54" y="-121.92"/>
-<pinref part="BUSMASTER" gate="A" pin="9"/>
-<wire x1="-231.14" y1="-40.64" x2="-214.63" y2="-40.64" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="-166.37" y1="-128.27" x2="-166.37" y2="-121.92" width="0.1524" layer="91"/>
 <junction x="-166.37" y="-121.92"/>
+<pinref part="U$1" gate="G$1" pin="IRQ"/>
+<wire x1="-256.54" y1="-30.48" x2="-231.14" y2="-30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -8431,6 +8500,12 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <wire x1="-44.45" y1="-302.26" x2="-44.45" y2="-273.05" width="0.1524" layer="91"/>
 <pinref part="JTAG" gate="A" pin="2"/>
 <wire x1="-44.45" y1="-273.05" x2="-55.88" y2="-273.05" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="GND"/>
+<wire x1="-233.68" y1="-20.32" x2="-256.54" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
