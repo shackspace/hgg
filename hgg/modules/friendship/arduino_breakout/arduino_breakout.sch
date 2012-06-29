@@ -5740,7 +5740,6 @@ Based on the following sources:
 <text x="74.93" y="84.455" size="1.778" layer="91">42</text>
 <text x="74.93" y="81.915" size="1.778" layer="91">40</text>
 <text x="74.93" y="79.375" size="1.778" layer="91">38</text>
-<text x="170.18" y="-27.94" size="1.778" layer="91">TODO: an chip anbinden</text>
 </plain>
 <instances>
 <instance part="DIGITALA" gate="A" x="121.92" y="38.1" smashed="yes" rot="MR180">
@@ -6170,16 +6169,6 @@ Based on the following sources:
 <pinref part="COMMUNICATION" gate="A" pin="1"/>
 </segment>
 </net>
-<<<<<<< HEAD
-=======
-<net name="PB4" class="0">
-<segment>
-<wire x1="99.06" y1="83.82" x2="119.38" y2="83.82" width="0.1524" layer="91"/>
-<label x="101.6" y="83.82" size="1.6764" layer="95"/>
-<pinref part="JP6" gate="A" pin="8"/>
-</segment>
-</net>
->>>>>>> 3f03cef21ed9f9f3126e578024e04fcfe4fccaab
 <net name="TX" class="0">
 <segment>
 <wire x1="119.38" y1="30.48" x2="83.82" y2="30.48" width="0.1524" layer="91"/>
@@ -7077,16 +7066,6 @@ Based on the following sources:
 <junction x="119.38" y="88.9"/>
 </segment>
 </net>
-<<<<<<< HEAD
-=======
-<net name="N$100" class="0">
-<segment>
-<wire x1="119.38" y1="86.36" x2="99.06" y2="86.36" width="0.1524" layer="91"/>
-<label x="101.6" y="86.36" size="1.6764" layer="95"/>
-<pinref part="JP6" gate="A" pin="7"/>
-</segment>
-</net>
->>>>>>> 3f03cef21ed9f9f3126e578024e04fcfe4fccaab
 <net name="N$10" class="0">
 <segment>
 <pinref part="IC7" gate="B" pin="QD"/>
