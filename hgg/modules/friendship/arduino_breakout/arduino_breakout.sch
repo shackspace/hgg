@@ -6190,11 +6190,11 @@ Based on the following sources:
 <pinref part="DIGITALA" gate="A" pin="8"/>
 </segment>
 </net>
-<net name="PH6" class="0">
+<net name="PH5" class="0">
 <segment>
-<wire x1="99.06" y1="81.28" x2="119.38" y2="81.28" width="0.1524" layer="91"/>
-<label x="101.6" y="81.28" size="1.778" layer="95"/>
-<pinref part="JP6" gate="A" pin="9"/>
+<wire x1="99.06" y1="78.74" x2="119.38" y2="78.74" width="0.1524" layer="91"/>
+<label x="101.6" y="78.74" size="1.778" layer="95"/>
+<pinref part="JP6" gate="A" pin="10"/>
 </segment>
 </net>
 <net name="RXD1" class="0">
@@ -6997,9 +6997,9 @@ Based on the following sources:
 <label x="233.68" y="-35.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="119.38" y1="78.74" x2="99.06" y2="78.74" width="0.1524" layer="91"/>
-<label x="101.6" y="78.74" size="1.778" layer="95"/>
-<pinref part="JP6" gate="A" pin="10"/>
+<label x="101.6" y="81.28" size="1.778" layer="95"/>
+<pinref part="JP6" gate="A" pin="9"/>
+<wire x1="99.06" y1="81.28" x2="119.38" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FASTTIMELATCH" class="0">
@@ -7022,7 +7022,6 @@ Based on the following sources:
 <wire x1="119.38" y1="91.44" x2="99.06" y2="91.44" width="0.1524" layer="91"/>
 <label x="101.6" y="91.44" size="1.6764" layer="95"/>
 <pinref part="JP6" gate="A" pin="5"/>
-<junction x="119.38" y="91.44"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -7063,7 +7062,6 @@ Based on the following sources:
 <wire x1="99.06" y1="88.9" x2="119.38" y2="88.9" width="0.1524" layer="91"/>
 <label x="101.6" y="88.9" size="1.6764" layer="95"/>
 <pinref part="JP6" gate="A" pin="6"/>
-<junction x="119.38" y="88.9"/>
 </segment>
 </net>
 <net name="N$10" class="0">
