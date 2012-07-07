@@ -75,6 +75,8 @@
 <text x="32" y="55" size="1.778" layer="16" font="vector" ratio="10" rot="MR90" align="center">PRSNT</text>
 <text x="62.5" y="54.5" size="1.778" layer="16" font="vector" ratio="10" rot="MR90" align="center">INTACK</text>
 <text x="34.75" y="70.5" size="1.778" layer="16" font="vector" ratio="10" rot="MR180" align="center">IRQ</text>
+<dimension x1="0" y1="80" x2="100.25" y2="80.0625" x3="50.125" y3="80.03125" layer="16"/>
+<dimension x1="100" y1="80" x2="99.8125" y2="0" x3="117.91479375" y3="39.957790625" layer="16"/>
 </plain>
 <libraries>
 <library name="hgg">

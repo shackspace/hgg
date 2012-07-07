@@ -240,6 +240,8 @@
 <text x="30.1852" y="20.654" size="1.4224" layer="25" font="vector" ratio="12" rot="R90">IOREF</text>
 <wire x1="89.7" y1="4.9" x2="104.6" y2="4.9" width="0" layer="20"/>
 <wire x1="104.6" y1="4.9" x2="104.6" y2="67.1" width="0" layer="20"/>
+<dimension x1="-0.9" y1="71.54" x2="104.8" y2="71.5" x3="51.952575" y3="78.320071875" layer="16"/>
+<dimension x1="99.02" y1="72.84" x2="98.2" y2="0.9" x3="132.182840625" y3="36.487321875" layer="16"/>
 </plain>
 <libraries>
 <library name="SmartPrj">

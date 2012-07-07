@@ -14,12 +14,12 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
@@ -108,6 +108,8 @@
 <wire x1="91" y1="3" x2="100" y2="3" width="0" layer="20"/>
 <text x="2.8575" y="74.93" size="1.778" layer="21" rot="R90">5V</text>
 <text x="5.55625" y="4.7625" size="3.81" layer="1" font="vector">flutter0</text>
+<dimension x1="0" y1="80.01" x2="100.17125" y2="79.85125" x3="50.11530625" y3="98.661065625" layer="16"/>
+<dimension x1="78.6" y1="0.74" x2="79.0575" y2="79.85125" x3="132.964359375" y3="39.982559375" layer="16"/>
 </plain>
 <libraries>
 <library name="xilinx_devices">
