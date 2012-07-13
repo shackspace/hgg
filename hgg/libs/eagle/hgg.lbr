@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -2361,37 +2361,37 @@ generation of mobile and embedded devices.</description>
 <pin name="+12V_B" x="50.8" y="-20.32" length="middle" rot="R180"/>
 <pin name="GND2_B" x="50.8" y="-17.78" length="middle" rot="R180"/>
 <pin name="GND3_B" x="50.8" y="-22.86" length="middle" rot="R180"/>
-<pin name="B12" x="50.8" y="-29.21" length="middle" rot="R180"/>
-<pin name="B13" x="50.8" y="-31.75" length="middle" rot="R180"/>
-<pin name="B14" x="50.8" y="-34.29" length="middle" rot="R180"/>
-<pin name="B15" x="50.8" y="-36.83" length="middle" rot="R180"/>
-<pin name="B16" x="50.8" y="-39.37" length="middle" rot="R180"/>
-<pin name="B17" x="50.8" y="-41.91" length="middle" rot="R180"/>
-<pin name="B18" x="50.8" y="-44.45" length="middle" rot="R180"/>
-<pin name="B19" x="50.8" y="-46.99" length="middle" rot="R180"/>
-<pin name="B20" x="50.8" y="-49.53" length="middle" rot="R180"/>
-<pin name="B21" x="50.8" y="-52.07" length="middle" rot="R180"/>
-<pin name="B22" x="50.8" y="-54.61" length="middle" rot="R180"/>
-<pin name="B23" x="50.8" y="-57.15" length="middle" rot="R180"/>
-<pin name="B24" x="50.8" y="-59.69" length="middle" rot="R180"/>
-<pin name="B25" x="50.8" y="-62.23" length="middle" rot="R180"/>
-<pin name="B26" x="50.8" y="-64.77" length="middle" rot="R180"/>
-<pin name="B27" x="50.8" y="-67.31" length="middle" rot="R180"/>
-<pin name="B28" x="50.8" y="-69.85" length="middle" rot="R180"/>
-<pin name="B29" x="50.8" y="-72.39" length="middle" rot="R180"/>
-<pin name="B30" x="50.8" y="-74.93" length="middle" rot="R180"/>
-<pin name="B31" x="50.8" y="-77.47" length="middle" rot="R180"/>
-<pin name="B32" x="50.8" y="-80.01" length="middle" rot="R180"/>
+<pin name="B12" x="50.8" y="-30.48" length="middle" rot="R180"/>
+<pin name="B13" x="50.8" y="-33.02" length="middle" rot="R180"/>
+<pin name="B14" x="50.8" y="-35.56" length="middle" rot="R180"/>
+<pin name="B15" x="50.8" y="-38.1" length="middle" rot="R180"/>
+<pin name="B16" x="50.8" y="-40.64" length="middle" rot="R180"/>
+<pin name="B17" x="50.8" y="-43.18" length="middle" rot="R180"/>
+<pin name="B18" x="50.8" y="-45.72" length="middle" rot="R180"/>
+<pin name="B19" x="50.8" y="-48.26" length="middle" rot="R180"/>
+<pin name="B20" x="50.8" y="-50.8" length="middle" rot="R180"/>
+<pin name="B21" x="50.8" y="-53.34" length="middle" rot="R180"/>
+<pin name="B22" x="50.8" y="-55.88" length="middle" rot="R180"/>
+<pin name="B23" x="50.8" y="-58.42" length="middle" rot="R180"/>
+<pin name="B24" x="50.8" y="-60.96" length="middle" rot="R180"/>
+<pin name="B25" x="50.8" y="-63.5" length="middle" rot="R180"/>
+<pin name="B26" x="50.8" y="-66.04" length="middle" rot="R180"/>
+<pin name="B27" x="50.8" y="-68.58" length="middle" rot="R180"/>
+<pin name="B28" x="50.8" y="-71.12" length="middle" rot="R180"/>
+<pin name="B29" x="50.8" y="-73.66" length="middle" rot="R180"/>
+<pin name="B30" x="50.8" y="-76.2" length="middle" rot="R180"/>
+<pin name="B31" x="50.8" y="-78.74" length="middle" rot="R180"/>
+<pin name="B32" x="50.8" y="-81.28" length="middle" rot="R180"/>
 <wire x1="27.94" y1="17.78" x2="27.94" y2="3.81" width="0.254" layer="94"/>
-<wire x1="27.94" y1="-82.55" x2="45.72" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-83.82" x2="45.72" y2="-83.82" width="0.254" layer="94"/>
 <wire x1="45.72" y1="3.81" x2="45.72" y2="17.78" width="0.254" layer="94"/>
 <wire x1="45.72" y1="17.78" x2="27.94" y2="17.78" width="0.254" layer="94"/>
 <text x="30.48" y="10.16" size="1.27" layer="94">RESERVED</text>
 <wire x1="45.72" y1="3.81" x2="27.94" y2="3.81" width="0.254" layer="94"/>
 <wire x1="45.72" y1="-7.62" x2="45.72" y2="-25.4" width="0.254" layer="94"/>
-<wire x1="45.72" y1="-27.94" x2="45.72" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="45.72" y1="-27.94" x2="45.72" y2="-83.82" width="0.254" layer="94"/>
 <wire x1="45.72" y1="-27.94" x2="27.94" y2="-27.94" width="0.254" layer="94"/>
-<wire x1="27.94" y1="-27.94" x2="27.94" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-27.94" x2="27.94" y2="-83.82" width="0.254" layer="94"/>
 <wire x1="22.86" y1="20.32" x2="-5.08" y2="20.32" width="0.254" layer="94"/>
 <wire x1="-5.08" y1="20.32" x2="-5.08" y2="45.72" width="0.254" layer="94"/>
 <wire x1="-5.08" y1="45.72" x2="22.86" y2="45.72" width="0.254" layer="94"/>
