@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <PISORegister.h>
 
-PISORegister piso(6, 7, 5);
+PISORegister piso(47, 46, 51);
 
 void setup() {
   Serial.begin(115200);

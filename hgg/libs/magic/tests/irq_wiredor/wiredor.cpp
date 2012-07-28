@@ -6,10 +6,10 @@
 #include <PISORegister.h>
 
 void setup() {
-  pinMode(22, OUTPUT);
-  digitalWrite(22, HIGH);
+  pinMode(4, OUTPUT);
+  digitalWrite(4, HIGH);
  
-  pinMode(2, INPUT);
+  pinMode(52, INPUT);
 
   Serial.begin(115200);
 }
@@ -17,15 +17,15 @@ void setup() {
 void loop() {
   // set port to high level (default since there's a pull up) and 
   // check if the wired or is high.
-  digitalWrite(22, HIGH);
+  digitalWrite(4, HIGH);
   delay(5);
-  int result1 = digitalRead(2);
+  int result1 = digitalRead(52);
 
   // 
   // set port to LOW and check if the wired or is low.
-  digitalWrite(22, LOW);
+  digitalWrite(4, LOW);
   delay(5);
-  int result2 = digitalRead(2);
+  int result2 = digitalRead(52);
 
   // 
   // in case the wired or was the same level as the output port in both cases, 

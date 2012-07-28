@@ -38,10 +38,10 @@ uchar PISORegister::read() {
   // read data from the register
   for(int i=0; i<8; ++i)
   {
-    digitalWrite(7,LOW);
+    digitalWrite(clockPin,LOW);
     result <<= 1;
     result |= digitalRead(dataPin) & 0x01;
-    digitalWrite(7,HIGH);
+    digitalWrite(clockPin,HIGH);
   }
 
   return result;

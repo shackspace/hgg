@@ -40,6 +40,14 @@ test: src/arch/arduino/crt0.o $(TESTCLASS)
 	$(AVRDUDE) -c stk500v2 -pm2560 -P/dev/ttyACM0 -Uflash:w:magic.hex:i
 	rm $(TESTCLASS)
 
+test2: src/arch/arduino/crt0.o $(TESTCLASS)
+	echo $(TESTCLASS)
+	$(CC) -Os -Wl,--gc-sections -mmcu=$(CPUTYPE) -o magic -mavr6 src/arch/arduino/crt0.o -Map=magic.map $(TESTCLASS) $(OBJECTS) $(OBJECTS_PHYSICAL_LAYER) $(OUTPUT) -lm
+	$(OBJCOPY) -O ihex -R.eeprom magic magic.hex
+	$(AVRDUDE) -c stk500v2 -pm2560 -P$(DEVICE) -Uflash:w:magic.hex:i
+	rm $(TESTCLASS)
+
+
 arduino_lib:  
 	mkdir -p build/arduino
 	cp $(ARDUINOHOME)/hardware/arduino/cores/arduino/* build/arduino

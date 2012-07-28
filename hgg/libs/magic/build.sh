@@ -61,7 +61,7 @@ fi;
 
 # 
 # perform unit / integration tests on the code built currently.
-if [ "$TESTFRIENDSHIP" = "true" ]; then 
+# if [ "$TESTFRIENDSHIP" = "true" ]; then 
 	TESTCLASS=tests/poll_present/poll_present.o make test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: PISO/test ... \c"
@@ -88,8 +88,8 @@ if [ "$TESTFRIENDSHIP" = "true" ]; then
 	TESTCLASS=tests/irq_read/readirq.o make test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: IRQ Register ... \c"
-	if [ "$TEST" != "`echo -e 'F6,FF\r'`" ]; then
-		echo -e "\033[31mfail\033[0m: Expected F6,FF, recieved $TEST"
+	if [ "$TEST" != "`echo -e 'FE,FF\r'`" ]; then
+		echo -e "\033[31mfail\033[0m: Expected FE,FF, recieved $TEST"
 		echo "***** This test can only be passed, if the port 3 IRQ is connected to port 22 of the testing device "
 		echo "***** and port2 of the testing device is connected to the wired or output (IRQ) on the busmaster plug."
 		exit;
@@ -108,10 +108,11 @@ if [ "$TESTFRIENDSHIP" = "true" ]; then
 	fi
 	echo -e "\033[32mpassed\033[0m."
 	
-	TESTCLASS=tests/rs485bus/rs485bus.o make test 2>&1 > /dev/null
-	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
+	TESTCLASS=tests/rs485bus/rs485bus_send.o DEVICE=/dev/ttyACM0 make test2 2>&1 > /dev/null
+	TESTCLASS=tests/rs485bus/rs485bus_recv.o DEVICE=/dev/ttyACM1 make test2 2>&1 > /dev/null
+	TEST="`cat /dev/ttyACM1 | head -n 2 | tail -n 1`"
 	echo -e "Test: rs485 bus ... \c"
-	if [ "$TEST" != "`echo -e 'Sending: TEST, Receiving: 54 45 53 54 .\r'`" ]; then
+	if [ "$TEST" != "`echo -e 'TEST\r'`" ]; then
 		echo -e "\033[31mfail\033[0m: Expected 'Sending: TEST, Receiving: 54 45 53 54 .', recieved $TEST"
 		echo "***** This test can only be passed, if the Serial 1 of the testing device and pin 31 are connected to"
 		echo "***** an rs485 transceiver on one breakout and Serial2 of the testing device and pin 33 are connected "
@@ -120,6 +121,6 @@ if [ "$TESTFRIENDSHIP" = "true" ]; then
 		exit;
 	fi
 	echo -e "\033[32mpassed\033[0m."
-fi
+# fi
 	
 		
