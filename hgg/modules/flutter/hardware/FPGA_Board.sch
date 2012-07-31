@@ -12544,6 +12544,70 @@ Source: www.kingbright.com</description>
 <smd name="B28" x="74.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
 <smd name="B29" x="75.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
 <smd name="B30" x="76.5" y="-14.5" dx="1.27" dy="0.6604" layer="1" rot="R270"/>
+<rectangle x1="49.1" y1="-13.8" x2="49.9" y2="-10.8" layer="29"/>
+<rectangle x1="50.1" y1="-13.8" x2="50.9" y2="-10.8" layer="29"/>
+<rectangle x1="51.1" y1="-13.8" x2="51.9" y2="-10.8" layer="29"/>
+<rectangle x1="52.1" y1="-13.8" x2="52.9" y2="-10.8" layer="29"/>
+<rectangle x1="53.1" y1="-13.8" x2="53.9" y2="-10.8" layer="29"/>
+<rectangle x1="54.1" y1="-13.8" x2="54.9" y2="-10.8" layer="29"/>
+<rectangle x1="55.1" y1="-13.8" x2="55.9" y2="-10.8" layer="29"/>
+<rectangle x1="48.1" y1="-13.8" x2="48.9" y2="-10.8" layer="29"/>
+<rectangle x1="47.1" y1="-13.8" x2="47.9" y2="-10.8" layer="29"/>
+<rectangle x1="46.1" y1="-13.8" x2="46.9" y2="-10.8" layer="29"/>
+<rectangle x1="45.1" y1="-13.8" x2="45.9" y2="-10.8" layer="29"/>
+<rectangle x1="58.1" y1="-13.8" x2="58.9" y2="-10.8" layer="29"/>
+<rectangle x1="59.1" y1="-13.8" x2="59.9" y2="-10.8" layer="29"/>
+<rectangle x1="60.1" y1="-13.8" x2="60.9" y2="-10.8" layer="29"/>
+<rectangle x1="61.1" y1="-13.8" x2="61.9" y2="-10.8" layer="29"/>
+<rectangle x1="62.1" y1="-13.8" x2="62.9" y2="-10.8" layer="29"/>
+<rectangle x1="63.1" y1="-13.8" x2="63.9" y2="-10.8" layer="29"/>
+<rectangle x1="64.1" y1="-13.8" x2="64.9" y2="-10.8" layer="29"/>
+<rectangle x1="65.1" y1="-13.8" x2="65.9" y2="-10.8" layer="29"/>
+<rectangle x1="66.1" y1="-13.8" x2="66.9" y2="-10.8" layer="29"/>
+<rectangle x1="67.1" y1="-13.8" x2="67.9" y2="-10.8" layer="29"/>
+<rectangle x1="68.1" y1="-13.8" x2="68.9" y2="-10.8" layer="29"/>
+<rectangle x1="69.1" y1="-13.8" x2="69.9" y2="-10.8" layer="29"/>
+<rectangle x1="70.1" y1="-13.8" x2="70.9" y2="-10.8" layer="29"/>
+<rectangle x1="71.1" y1="-13.8" x2="71.9" y2="-10.8" layer="29"/>
+<rectangle x1="72.1" y1="-13.8" x2="72.9" y2="-10.8" layer="29"/>
+<rectangle x1="73.1" y1="-13.8" x2="73.9" y2="-10.8" layer="29"/>
+<rectangle x1="74.1" y1="-13.8" x2="74.9" y2="-10.8" layer="29"/>
+<rectangle x1="75.1" y1="-13.8" x2="75.9" y2="-10.8" layer="29"/>
+<rectangle x1="76.1" y1="-13.8" x2="76.9" y2="-10.8" layer="29"/>
+<rectangle x1="77.1" y1="-13.8" x2="77.9" y2="-10.8" layer="29"/>
+<rectangle x1="78.2" y1="-13.8" x2="79" y2="-10.8" layer="29"/>
+<rectangle x1="45.1" y1="-13.8" x2="45.9" y2="-10.8" layer="30"/>
+<rectangle x1="46.1" y1="-13.8" x2="46.9" y2="-10.8" layer="30"/>
+<rectangle x1="47.1" y1="-13.8" x2="47.9" y2="-10.8" layer="30"/>
+<rectangle x1="48.1" y1="-13.8" x2="48.9" y2="-10.8" layer="30"/>
+<rectangle x1="49.1" y1="-13.8" x2="49.9" y2="-10.8" layer="30"/>
+<rectangle x1="50.1" y1="-13.8" x2="50.9" y2="-10.8" layer="30"/>
+<rectangle x1="51.1" y1="-13.8" x2="51.9" y2="-10.8" layer="30"/>
+<rectangle x1="52.1" y1="-13.8" x2="52.9" y2="-10.8" layer="30"/>
+<rectangle x1="53.1" y1="-13.8" x2="53.9" y2="-10.8" layer="30"/>
+<rectangle x1="54.1" y1="-13.8" x2="54.9" y2="-10.8" layer="30"/>
+<rectangle x1="55.1" y1="-13.8" x2="55.9" y2="-10.8" layer="30"/>
+<rectangle x1="58.1" y1="-13.8" x2="58.9" y2="-10.8" layer="30"/>
+<rectangle x1="59.1" y1="-13.8" x2="59.9" y2="-10.8" layer="30"/>
+<rectangle x1="60.1" y1="-13.8" x2="60.9" y2="-10.8" layer="30"/>
+<rectangle x1="61.1" y1="-13.8" x2="61.9" y2="-10.8" layer="30"/>
+<rectangle x1="62.1" y1="-13.8" x2="62.9" y2="-10.8" layer="30"/>
+<rectangle x1="63.1" y1="-13.8" x2="63.9" y2="-10.8" layer="30"/>
+<rectangle x1="64.1" y1="-13.8" x2="64.9" y2="-10.8" layer="30"/>
+<rectangle x1="65.1" y1="-13.8" x2="65.9" y2="-10.8" layer="30"/>
+<rectangle x1="66.1" y1="-13.8" x2="66.9" y2="-10.8" layer="30"/>
+<rectangle x1="68.1" y1="-13.8" x2="68.9" y2="-10.8" layer="30"/>
+<rectangle x1="67.1" y1="-13.8" x2="67.9" y2="-10.8" layer="30"/>
+<rectangle x1="69.1" y1="-13.8" x2="69.9" y2="-10.8" layer="30"/>
+<rectangle x1="70.1" y1="-13.8" x2="70.9" y2="-10.8" layer="30"/>
+<rectangle x1="71.1" y1="-13.8" x2="71.9" y2="-10.8" layer="30"/>
+<rectangle x1="72.1" y1="-13.8" x2="72.9" y2="-10.8" layer="30"/>
+<rectangle x1="73.1" y1="-13.8" x2="73.9" y2="-10.8" layer="30"/>
+<rectangle x1="74.1" y1="-13.8" x2="74.9" y2="-10.8" layer="30"/>
+<rectangle x1="75.1" y1="-13.8" x2="75.9" y2="-10.8" layer="30"/>
+<rectangle x1="76.1" y1="-13.8" x2="76.9" y2="-10.8" layer="30"/>
+<rectangle x1="77.1" y1="-13.8" x2="77.9" y2="-10.8" layer="30"/>
+<rectangle x1="78.2" y1="-13.8" x2="79" y2="-10.8" layer="30"/>
 </package>
 <package name="HGG_LOGO">
 <rectangle x1="3.5179" y1="0.0635" x2="3.6703" y2="0.0889" layer="200"/>
@@ -14227,6 +14291,68 @@ Source: www.kingbright.com</description>
 <rectangle x1="3.2639" y1="7.0739" x2="3.3401" y2="7.0993" layer="200"/>
 <rectangle x1="3.5941" y1="7.0739" x2="3.8989" y2="7.0993" layer="200"/>
 </package>
+<package name="GPS">
+<description>GPS Module
+
+The GlobalTop Gms‐u1LP is an all‐in‐one, high sensitivity, small SMD form factor, and low power 
+consumption GPS antenna module. It utilizes MediaTek GPS MT3329 solution that supports up to 
+66 channels of satellite searching with ‐165dBm sensitivity and 10Hz maximum update rate for 
+precise GPS signal processing under low receptive, high velocity conditions.  
+ 
+Gms‐u1LP comes with the addition of a power saving switching mode power supply (SMPS) that 
+can help reduce the overall GPS power consumption by over 30% when compared to the previous 
+generation.  
+ 
+Supplementary to using integrated ceramic patch antenna for reception, Gms‐u1LP also has 
+support for external antenna input with automatic antenna switching once the connection to an 
+external antenna is established and detected. This external antenna I/O pin is short‐circuit 
+protected and will lower voltage to a safe level in the event of short‐circuiting. 
+ 
+The major advancement in power saving, coupled with flexible GPS firmware customization for 
+enhancing overall processing efficiency (not included in standard firmware), and its small size and 
+I/O versatility makes this simple‐to‐integrate module the best ideal solution for the next 
+generation of mobile and embedded devices.</description>
+<wire x1="-8" y1="8" x2="8" y2="8" width="0.127" layer="21"/>
+<wire x1="8" y1="8" x2="8" y2="-8" width="0.127" layer="21"/>
+<wire x1="8" y1="-8" x2="-8" y2="-8" width="0.127" layer="21"/>
+<wire x1="-8" y1="-8" x2="-8" y2="8" width="0.127" layer="21"/>
+<circle x="-6.25" y="7" radius="0.353553125" width="0.127" layer="21"/>
+<smd name="VCC" x="-8" y="6.75" dx="2" dy="1" layer="1"/>
+<smd name="NRESET" x="-8" y="5.25" dx="2" dy="1" layer="1"/>
+<smd name="GND1" x="-8" y="3.75" dx="2" dy="1" layer="1"/>
+<smd name="VBACKUP" x="-8" y="2.25" dx="2" dy="1" layer="1"/>
+<smd name="3D-FIX" x="-8" y="0.75" dx="2" dy="1" layer="1"/>
+<smd name="DPLUSE" x="-8" y="-0.75" dx="2" dy="1" layer="1"/>
+<smd name="DMINUS" x="-8" y="-2.25" dx="2" dy="1" layer="1"/>
+<smd name="GND2" x="-8" y="-3.75" dx="2" dy="1" layer="1"/>
+<smd name="TXDA" x="-8" y="-5.25" dx="2" dy="1" layer="1"/>
+<smd name="RXDA" x="-8" y="-6.75" dx="2" dy="1" layer="1"/>
+<smd name="EX_ANT" x="8" y="-6.75" dx="2" dy="1" layer="1"/>
+<smd name="GND3" x="8" y="-5.25" dx="2" dy="1" layer="1"/>
+<smd name="1PPS" x="8" y="-3.75" dx="2" dy="1" layer="1"/>
+<smd name="RTCM" x="8" y="-2.25" dx="2" dy="1" layer="1"/>
+<smd name="NC1" x="8" y="-0.75" dx="2" dy="1" layer="1"/>
+<smd name="NC2" x="8" y="0.75" dx="2" dy="1" layer="1"/>
+<smd name="NC3" x="8" y="2.25" dx="2" dy="1" layer="1"/>
+<smd name="NC4" x="8" y="3.75" dx="2" dy="1" layer="1"/>
+<smd name="GND4" x="8" y="5.25" dx="2" dy="1" layer="1"/>
+<smd name="USB-VCC" x="8" y="6.75" dx="2" dy="1" layer="1"/>
+<circle x="0.5" y="0.75" radius="0.5" width="0.127" layer="44"/>
+</package>
+<package name="OSCILLATOR">
+<smd name="E/D" x="-2.1" y="2.59" dx="2" dy="1.8" layer="1" rot="R180"/>
+<smd name="NC1" x="-2.1" y="0" dx="2" dy="1.8" layer="1"/>
+<smd name="GND" x="-2.1" y="-2.59" dx="2" dy="1.8" layer="1"/>
+<smd name="OUTPUT" x="2.1" y="-2.59" dx="2" dy="1.8" layer="1"/>
+<smd name="NC2" x="2.1" y="0" dx="2" dy="1.8" layer="1"/>
+<smd name="VDD" x="2.1" y="2.59" dx="2" dy="1.8" layer="1"/>
+<wire x1="-2.8" y1="3.2" x2="-2.8" y2="-3.2" width="0.127" layer="21"/>
+<wire x1="-2.8" y1="-3.2" x2="2.8" y2="-3.2" width="0.127" layer="21"/>
+<wire x1="2.8" y1="-3.2" x2="2.8" y2="3.2" width="0.127" layer="21"/>
+<wire x1="2.8" y1="3.2" x2="-2.8" y2="3.2" width="0.127" layer="21"/>
+<circle x="-2.4" y="2.8" radius="0.282840625" width="0.127" layer="21"/>
+<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+</package>
 <package name="FRIENDSHIP_SLOT">
 <pad name="A02(IRQ)" x="1" y="4.5" drill="0.5" diameter="1.27"/>
 <pad name="A04(RSVD1)" x="3" y="4.5" drill="0.5" diameter="1.27"/>
@@ -14292,70 +14418,8 @@ Source: www.kingbright.com</description>
 <pad name="B28" x="29" y="-2" drill="0.5" diameter="1.27"/>
 <pad name="B30" x="31" y="-2" drill="0.5" diameter="1.27"/>
 <pad name="B32" x="33" y="-2" drill="0.5" diameter="1.27"/>
-<hole x="12" y="1.25" drill="2"/>
-<hole x="34" y="1.25" drill="2"/>
-</package>
-<package name="GPS">
-<description>GPS Module
-
-The GlobalTop Gms‐u1LP is an all‐in‐one, high sensitivity, small SMD form factor, and low power 
-consumption GPS antenna module. It utilizes MediaTek GPS MT3329 solution that supports up to 
-66 channels of satellite searching with ‐165dBm sensitivity and 10Hz maximum update rate for 
-precise GPS signal processing under low receptive, high velocity conditions.  
- 
-Gms‐u1LP comes with the addition of a power saving switching mode power supply (SMPS) that 
-can help reduce the overall GPS power consumption by over 30% when compared to the previous 
-generation.  
- 
-Supplementary to using integrated ceramic patch antenna for reception, Gms‐u1LP also has 
-support for external antenna input with automatic antenna switching once the connection to an 
-external antenna is established and detected. This external antenna I/O pin is short‐circuit 
-protected and will lower voltage to a safe level in the event of short‐circuiting. 
- 
-The major advancement in power saving, coupled with flexible GPS firmware customization for 
-enhancing overall processing efficiency (not included in standard firmware), and its small size and 
-I/O versatility makes this simple‐to‐integrate module the best ideal solution for the next 
-generation of mobile and embedded devices.</description>
-<wire x1="-8" y1="8" x2="8" y2="8" width="0.127" layer="21"/>
-<wire x1="8" y1="8" x2="8" y2="-8" width="0.127" layer="21"/>
-<wire x1="8" y1="-8" x2="-8" y2="-8" width="0.127" layer="21"/>
-<wire x1="-8" y1="-8" x2="-8" y2="8" width="0.127" layer="21"/>
-<circle x="-6.25" y="7" radius="0.353553125" width="0.127" layer="21"/>
-<smd name="VCC" x="-8" y="6.75" dx="2" dy="1" layer="1"/>
-<smd name="NRESET" x="-8" y="5.25" dx="2" dy="1" layer="1"/>
-<smd name="GND1" x="-8" y="3.75" dx="2" dy="1" layer="1"/>
-<smd name="VBACKUP" x="-8" y="2.25" dx="2" dy="1" layer="1"/>
-<smd name="3D-FIX" x="-8" y="0.75" dx="2" dy="1" layer="1"/>
-<smd name="DPLUSE" x="-8" y="-0.75" dx="2" dy="1" layer="1"/>
-<smd name="DMINUS" x="-8" y="-2.25" dx="2" dy="1" layer="1"/>
-<smd name="GND2" x="-8" y="-3.75" dx="2" dy="1" layer="1"/>
-<smd name="TXDA" x="-8" y="-5.25" dx="2" dy="1" layer="1"/>
-<smd name="RXDA" x="-8" y="-6.75" dx="2" dy="1" layer="1"/>
-<smd name="EX_ANT" x="8" y="-6.75" dx="2" dy="1" layer="1"/>
-<smd name="GND3" x="8" y="-5.25" dx="2" dy="1" layer="1"/>
-<smd name="1PPS" x="8" y="-3.75" dx="2" dy="1" layer="1"/>
-<smd name="RTCM" x="8" y="-2.25" dx="2" dy="1" layer="1"/>
-<smd name="NC1" x="8" y="-0.75" dx="2" dy="1" layer="1"/>
-<smd name="NC2" x="8" y="0.75" dx="2" dy="1" layer="1"/>
-<smd name="NC3" x="8" y="2.25" dx="2" dy="1" layer="1"/>
-<smd name="NC4" x="8" y="3.75" dx="2" dy="1" layer="1"/>
-<smd name="GND4" x="8" y="5.25" dx="2" dy="1" layer="1"/>
-<smd name="USB-VCC" x="8" y="6.75" dx="2" dy="1" layer="1"/>
-<circle x="0.5" y="0.75" radius="0.5" width="0.127" layer="44"/>
-</package>
-<package name="OSCILLATOR">
-<smd name="E/D" x="-2.1" y="2.59" dx="2" dy="1.8" layer="1" rot="R180"/>
-<smd name="NC1" x="-2.1" y="0" dx="2" dy="1.8" layer="1"/>
-<smd name="GND" x="-2.1" y="-2.59" dx="2" dy="1.8" layer="1"/>
-<smd name="OUTPUT" x="2.1" y="-2.59" dx="2" dy="1.8" layer="1"/>
-<smd name="NC2" x="2.1" y="0" dx="2" dy="1.8" layer="1"/>
-<smd name="VDD" x="2.1" y="2.59" dx="2" dy="1.8" layer="1"/>
-<wire x1="-2.8" y1="3.2" x2="-2.8" y2="-3.2" width="0.127" layer="21"/>
-<wire x1="-2.8" y1="-3.2" x2="2.8" y2="-3.2" width="0.127" layer="21"/>
-<wire x1="2.8" y1="-3.2" x2="2.8" y2="3.2" width="0.127" layer="21"/>
-<wire x1="2.8" y1="3.2" x2="-2.8" y2="3.2" width="0.127" layer="21"/>
-<circle x="-2.4" y="2.8" radius="0.282840625" width="0.127" layer="21"/>
-<text x="-2.54" y="3.81" size="1.27" layer="21">&gt;NAME</text>
+<hole x="11.7" y="1.25" drill="2"/>
+<hole x="35" y="1.25" drill="2"/>
 </package>
 </packages>
 <symbols>
@@ -14380,7 +14444,7 @@ generation of mobile and embedded devices.</description>
 <wire x1="22.86" y1="-5.08" x2="22.86" y2="2.54" width="0.254" layer="94"/>
 <wire x1="22.86" y1="2.54" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
 <wire x1="-5.08" y1="-7.62" x2="-5.08" y2="-25.4" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-25.4" x2="27.94" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-25.4" x2="45.72" y2="-25.4" width="0.254" layer="94"/>
 <wire x1="45.72" y1="-7.62" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
 <text x="10.16" y="10.16" size="1.27" layer="94">BUSMASTER</text>
 <text x="10.16" y="-2.54" size="1.27" layer="94">RSVD</text>
@@ -14432,38 +14496,37 @@ generation of mobile and embedded devices.</description>
 <pin name="+12V_B" x="50.8" y="-20.32" length="middle" rot="R180"/>
 <pin name="GND2_B" x="50.8" y="-17.78" length="middle" rot="R180"/>
 <pin name="GND3_B" x="50.8" y="-22.86" length="middle" rot="R180"/>
-<pin name="B12" x="50.8" y="-29.21" length="middle" rot="R180"/>
-<pin name="B13" x="50.8" y="-31.75" length="middle" rot="R180"/>
-<pin name="B14" x="50.8" y="-34.29" length="middle" rot="R180"/>
-<pin name="B15" x="50.8" y="-36.83" length="middle" rot="R180"/>
-<pin name="B16" x="50.8" y="-39.37" length="middle" rot="R180"/>
-<pin name="B17" x="50.8" y="-41.91" length="middle" rot="R180"/>
-<pin name="B18" x="50.8" y="-44.45" length="middle" rot="R180"/>
-<pin name="B19" x="50.8" y="-46.99" length="middle" rot="R180"/>
-<pin name="B20" x="50.8" y="-49.53" length="middle" rot="R180"/>
-<pin name="B21" x="50.8" y="-52.07" length="middle" rot="R180"/>
-<pin name="B22" x="50.8" y="-54.61" length="middle" rot="R180"/>
-<pin name="B23" x="50.8" y="-57.15" length="middle" rot="R180"/>
-<pin name="B24" x="50.8" y="-59.69" length="middle" rot="R180"/>
-<pin name="B25" x="50.8" y="-62.23" length="middle" rot="R180"/>
-<pin name="B26" x="50.8" y="-64.77" length="middle" rot="R180"/>
-<pin name="B27" x="50.8" y="-67.31" length="middle" rot="R180"/>
-<pin name="B28" x="50.8" y="-69.85" length="middle" rot="R180"/>
-<pin name="B29" x="50.8" y="-72.39" length="middle" rot="R180"/>
-<pin name="B30" x="50.8" y="-74.93" length="middle" rot="R180"/>
-<pin name="B31" x="50.8" y="-77.47" length="middle" rot="R180"/>
-<pin name="B32" x="50.8" y="-80.01" length="middle" rot="R180"/>
+<pin name="B12" x="50.8" y="-30.48" length="middle" rot="R180"/>
+<pin name="B13" x="50.8" y="-33.02" length="middle" rot="R180"/>
+<pin name="B14" x="50.8" y="-35.56" length="middle" rot="R180"/>
+<pin name="B15" x="50.8" y="-38.1" length="middle" rot="R180"/>
+<pin name="B16" x="50.8" y="-40.64" length="middle" rot="R180"/>
+<pin name="B17" x="50.8" y="-43.18" length="middle" rot="R180"/>
+<pin name="B18" x="50.8" y="-45.72" length="middle" rot="R180"/>
+<pin name="B19" x="50.8" y="-48.26" length="middle" rot="R180"/>
+<pin name="B20" x="50.8" y="-50.8" length="middle" rot="R180"/>
+<pin name="B21" x="50.8" y="-53.34" length="middle" rot="R180"/>
+<pin name="B22" x="50.8" y="-55.88" length="middle" rot="R180"/>
+<pin name="B23" x="50.8" y="-58.42" length="middle" rot="R180"/>
+<pin name="B24" x="50.8" y="-60.96" length="middle" rot="R180"/>
+<pin name="B25" x="50.8" y="-63.5" length="middle" rot="R180"/>
+<pin name="B26" x="50.8" y="-66.04" length="middle" rot="R180"/>
+<pin name="B27" x="50.8" y="-68.58" length="middle" rot="R180"/>
+<pin name="B28" x="50.8" y="-71.12" length="middle" rot="R180"/>
+<pin name="B29" x="50.8" y="-73.66" length="middle" rot="R180"/>
+<pin name="B30" x="50.8" y="-76.2" length="middle" rot="R180"/>
+<pin name="B31" x="50.8" y="-78.74" length="middle" rot="R180"/>
+<pin name="B32" x="50.8" y="-81.28" length="middle" rot="R180"/>
 <wire x1="27.94" y1="17.78" x2="27.94" y2="3.81" width="0.254" layer="94"/>
-<wire x1="27.94" y1="-82.55" x2="45.72" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-83.82" x2="45.72" y2="-83.82" width="0.254" layer="94"/>
 <wire x1="45.72" y1="3.81" x2="45.72" y2="17.78" width="0.254" layer="94"/>
 <wire x1="45.72" y1="17.78" x2="27.94" y2="17.78" width="0.254" layer="94"/>
 <text x="30.48" y="10.16" size="1.27" layer="94">RESERVED</text>
 <wire x1="45.72" y1="3.81" x2="27.94" y2="3.81" width="0.254" layer="94"/>
 <wire x1="45.72" y1="-7.62" x2="45.72" y2="-25.4" width="0.254" layer="94"/>
-<wire x1="45.72" y1="-25.4" x2="27.94" y2="-25.4" width="0.254" layer="94"/>
-<wire x1="45.72" y1="-27.94" x2="45.72" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="45.72" y1="-27.94" x2="45.72" y2="-83.82" width="0.254" layer="94"/>
 <wire x1="45.72" y1="-27.94" x2="27.94" y2="-27.94" width="0.254" layer="94"/>
-<wire x1="27.94" y1="-27.94" x2="27.94" y2="-82.55" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-27.94" x2="27.94" y2="-83.82" width="0.254" layer="94"/>
 </symbol>
 <symbol name="HGG_LOGO">
 <rectangle x1="-0.0127" y1="-0.0127" x2="3.2131" y2="0.0127" layer="200"/>
