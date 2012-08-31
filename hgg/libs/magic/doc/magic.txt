@@ -47,7 +47,7 @@ Number	Type					Frame size	Comment
 4				CFG_SET				13					Four byte address, four bytes data
 5				CFG_RESULT		 9					Four bytes data holding the value requested by get or the actual value set
 6				IRQ_INQUIRY		 5					No payload, no valid bytes field
-7				XFER_REQUEST	 6					Two byte for destination address (bitmask)
+7				COMM_REQUEST	 6					Two byte for destination address (bitmask)
 8				ACK						 5					No payload, no valid bytes field
 9				NACK					 5					No payload, no valid bytes field
 10			DATA					39					Full payload field and valid bytes field
@@ -78,7 +78,7 @@ IRQ_INQUIRY
 ------------
 Queries a client module which just requested the bus via IRQ to specify its intentions.
 
-XFER_REQUEST
+COMM_REQUEST
 ------------
 Two bytes specifying the target bitmask of a message.
 Target 0xff is equivalent to a broadcast packet.
@@ -98,14 +98,12 @@ The following byte array is always 32 bytes long but only the number of valid by
 
 Enumeration
 -----------
-
 1) At any point in time the bus master may initiate an enumeration cycle by iteratively selecting individual client modules and sending them an ENUM_QUERY frame.
 2) All client modules must answer to an ENUM_QUERY frame with an ENUM_ANSWER frame
 3) The exact content and format of the ENUM_ANSWER payload is to be defined (tbd)
 
 Configuration
 -------------
-
 1) Configuration is accessed via address locations
 2) Addressing is 4-byte based
 3) Access to addresses not 4-byte aligned is invalid
@@ -113,3 +111,15 @@ Configuration
 
 Arbitration and Data Transfer
 -----------------------------
+1) A client module requests the bus by rasing an interrupt request
+2) The busmaster is notified of any interrupt request
+3) The busmaster will query which card specifically requested the bus
+4) If multiple cards requested the bus at the same time, the cards are servied by priority. By default cards located in slots closer to the busmaster slot are of higher priority.
+5) The IRQ signal of the client module is only lowered once the request was serviced or denied
+6) A client identified as having raised a request is addressed by setting its chip select signal
+7) After chip select has been set, a IRQ_INQUIRY packet is sent to the client
+8) A client receiving an IRQ_INQUIRY frame will specify its intentions.  At the time of this writing the only intention is a COMM_REQUEST to address any combination of other modules with the next packet sent to the bus.
+9) The target(s) of the COMM_REQUEST is/are selected by setting its/their chip select signal and toggling the requestors chip select signal
+10) Upon seeing the toggling chip select signal the requester will send the desired frame onto the bus
+11) Upon finishing the intended transfer, the requester will take back the IRQ signal
+
