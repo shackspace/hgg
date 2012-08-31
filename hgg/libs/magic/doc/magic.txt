@@ -64,28 +64,37 @@ tbd: format
 
 CFG_GET			
 ------------
+Four byte address (four byte aligned) from which four bytes will be read
 
 CFG_SET			
 ------------
+Four byte address (four byte aligned) followed by four bytes of data to be written to said address
 
 CFG_RESULT
 ------------
+Four bytes of data either written to memory or read from it.
 
 IRQ_INQUIRY	
 ------------
+Queries a client module which just requested the bus via IRQ to specify its intentions.
 
 XFER_REQUEST
 ------------
+Two bytes specifying the target bitmask of a message.
+Target 0xff is equivalent to a broadcast packet.
 
 ACK					
 ------------
+The operation was successful
 
 NACK				
 ------------
+The operation was unsuccessful
 
 DATA				
 ------------
-
+Two bytes to specify how many valid bytes are following.
+The following byte array is always 32 bytes long but only the number of valid bytes are actually of interest.
 
 Enumeration
 -----------
