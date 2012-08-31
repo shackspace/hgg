@@ -1,0 +1,106 @@
+Magic (DRAF)
+============
+
+Introduction
+------------
+
+The following document specifies a first version of the magic bus protocol.
+This specification is subject to future change because it's probably horribly broken.
+
+For digestion of this document we recommend a 2006 Durbacher Spätburgunder Rotwein (trocken) bottled by Josef Schwab.
+Incidentially this is what we're drinking to come up with this stuff.
+
+Characters in this play:
+- The Busmaster: Connected to the first slot on bus with access to IRQ handling facilities.  Responsible for all bus arbitration, bus enumeration, etc
+- The Clients: Random stuff doing things as long as The Busmaster approves
+
+
+PHY
+---
+
+Data transfer is handled by a RS485 transceiver.
+
+The following shows an example data frame
+
+000000000011111111112222222222333333333
+012345678901234567890123456789012345678
+MMTVVPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPCC
+
+M ( 2): magic byte (0x8888)
+T ( 1): Type
+V ( 2): valid bytes in payload segment
+P (32): payload
+C ( 2): CRC16 checksum
+
+Depending on type, the payload segment might be of different but fixed size.
+If there is no payload segment the valid bytes field is omitted.
+
+Frame Types
+-----------
+
+The following table defines various types and their frame formats.
+
+Number	Type					Frame size	Comment
+1				ENUM_QUERY		 6					One byte holding slot ID module of queried module
+2				ENUM_ANSWER		39					Full payload field and valid bytes field
+3				CFG_GET				 9					Four byte address
+4				CFG_SET				13					Four byte address, four bytes data
+5				CFG_RESULT		 9					Four bytes data holding the value requested by get or the actual value set
+6				IRQ_INQUIRY		 5					No payload, no valid bytes field
+7				XFER_REQUEST	 6					Two byte for destination address (bitmask)
+8				ACK						 5					No payload, no valid bytes field
+9				NACK					 5					No payload, no valid bytes field
+10			DATA					39					Full payload field and valid bytes field
+
+
+ENUM_QUERY	
+------------
+One byte to encode the number of the slot the currently queried module is located in
+
+ENUM_ANSWER	
+------------
+Identification and capabilities string
+tbd: format
+
+CFG_GET			
+------------
+
+CFG_SET			
+------------
+
+CFG_RESULT
+------------
+
+IRQ_INQUIRY	
+------------
+
+XFER_REQUEST
+------------
+
+ACK					
+------------
+
+NACK				
+------------
+
+DATA				
+------------
+
+
+Enumeration
+-----------
+
+1) At any point in time the bus master may initiate an enumeration cycle by iteratively selecting individual client modules and sending them an ENUM_QUERY frame.
+2) All client modules must answer to an ENUM_QUERY frame with an ENUM_ANSWER frame
+3) The exact content and format of the ENUM_ANSWER payload is to be defined (tbd)
+
+Configuration
+-------------
+
+1) Configuration is accessed via address locations
+2) Addressing is 4-byte based
+3) Access to addresses not 4-byte aligned is invalid
+4) A CFG_GET request holds a 4-byte aligned address to be read and is answered by a CFG_RESULT frame holding the value current held at this address5) A CFG_SET request holds a 4-byte aligned address followed by 4-byte data to be written to said address and is answered by a CFG_RESULT frame holding the 4-byte value at the memory location after the write has been committed
+
+Arbitration and Data Transfer
+-----------------------------
