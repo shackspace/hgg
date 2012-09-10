@@ -7,7 +7,7 @@
  */
 
 
-#include "../../SIPORegister.h"
+#include "../SIPORegister.h"
 
 
 SIPORegister::SIPORegister(int latchPin, int clockPin, int dataPin) {

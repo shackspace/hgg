@@ -6,7 +6,7 @@
  * information see http://hgg.aero
  */
 
-#include "../../PISORegister.h"
+#include "../PISORegister.h"
 
 
 PISORegister::PISORegister(int latchPin, int clockPin, int dataPin) {

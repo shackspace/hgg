@@ -1,7 +1,7 @@
 // use the chipselect register to enable card 3
 
 #include <Arduino.h>
-#include <SIPORegister.h>
+#include <arch/SIPORegister.h>
 
 SIPORegister reg(49, 50, 48);
 

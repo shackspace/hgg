@@ -3,7 +3,7 @@
 // on that.
 
 #include <Arduino.h>
-#include <PISORegister.h>
+#include <arch/PISORegister.h>
 
 void setup() {
   pinMode(4, OUTPUT);

@@ -2,7 +2,7 @@
 // register and check if the pin was low for module 3
 
 #include <Arduino.h>
-#include <PISORegister.h>
+#include <arch/PISORegister.h>
 
 PISORegister piso(47, 46, 53);
 

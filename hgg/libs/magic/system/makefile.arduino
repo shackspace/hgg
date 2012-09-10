@@ -4,8 +4,8 @@ OBJECTS_PHYSICAL_LAYER=	$(SOURCEDIR)/arch/$(ARCHITECTURE)/PISORegister.o 			\
 						$(SOURCEDIR)/arch/$(ARCHITECTURE)/RS485.o					\
 
 OBJECTS= 	$(SOURCEDIR)/MAC.o														\
-			$(SOURCEDIR)/ClientBusController.o										\
-			$(SOURCEDIR)/MasterBusController.o										\
+			$(SOURCEDIR)/cards/ClientBusController.o								\
+			$(SOURCEDIR)/busmaster/MasterBusController.o							\
 
 
 # settings to be made by configuration file.
