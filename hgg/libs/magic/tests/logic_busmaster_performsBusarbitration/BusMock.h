@@ -1,0 +1,43 @@
+
+#include <vector>
+#include <busmaster/BusMasterCard.h>
+#include <cards/Card.h>
+
+using std::vector;
+using std::queue;
+
+class BusMock {
+public:
+  BusMock();
+
+ /** 
+  * plugs a card into a slot.
+  */
+  void insertCard(int slot, Card& client);
+
+  /** 
+   * unplugs a card from the bus.
+   */
+  void removeCard(int slot);
+
+  /** 
+   * set or unset the irq flag for a given card.
+   */
+  void setIRQ(Card& busController, bool state);
+
+  /** 
+   * set or unset cards active mask. cards that have 0 here will 
+   * count as chipselected (active low)
+   */
+  void setCS(int mask);
+
+private:
+  friend class BusMasterCard;
+
+  typedef vector<Card*> cbc_vec;
+
+  cbc_vec cards;
+  int irqMask;
+  int csMask;
+};
+

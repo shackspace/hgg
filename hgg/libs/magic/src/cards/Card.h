@@ -1,5 +1,7 @@
+#ifndef _INCLUDE_CLIENTBUSCONTROLLER_H
+#define _INCLUDE_CLIENTBUSCONTROLLER_H
 /** 
- * ClientBusController.h 
+ * Card.h 
  * (c) 2012, hackerspace global grid project
  * written by hadez, armin and others
  * licensed under the creative commons (cc-by-nc-sa). For more 
@@ -10,15 +12,18 @@
 
 
 typedef void (*cardSelectPtr)(void);
+#ifdef TEST_CODE
+class BusMock;
+#endif // TEST_CODE
 
 /** 
  * this class implements code to request / manage interrupt requests for 
  * the client side (non busmaster mode).
  */
-class ClientBusController {
+class Card {
 public:
-  ClientBusController();
-  ~ClientBusController();
+  Card();
+  ~Card();
 
   /** 
    * requests the bus through sending an IRQ
@@ -26,14 +31,14 @@ public:
   void requestBus();
 
   /** 
-   * frees the bus through revoking an IRQ.
+   * takes back a pending bus request through revoking an IRQ.
    */
-  void freeBus();
+  void releaseBus();
 
   /** 
    * @return 1 if the bus is currently requested, 0 otherwise.
    */ 
-  int isBusRequested() { return irqState; }
+  bool isBusRequested() { return irqState; }
    
   /** 
    * registers a card select function pointer. set null to disable
@@ -41,8 +46,18 @@ public:
    */
   void setCardSelectCallback(cardSelectPtr ptr);
 
-private:
+protected:
+#ifdef TEST_CODE
+  BusMock* bus;
+  friend class BusMock;
+
+  void setBusImpl(BusMock& bus);
+  void releaseBusImpl();
+#endif // TEST_CODE
+
   cardSelectPtr callback;
-  uchar irqState;
+  bool irqState;
 };
+
+#endif // _INCLUDE_CLIENTBUSCONTROLLER_H
 

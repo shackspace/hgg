@@ -1,5 +1,7 @@
+#ifndef _INCLUDE_MASTERBUSCONTROLLER_H
+#define _INCLUDE_MASTERBUSCONTROLLER_H
 /** 
- * MasterBusController.h 
+ * BusMasterCard.h 
  * (c) 2012, hackerspace global grid project
  * written by hadez, armin and others
  * licensed under the creative commons (cc-by-nc-sa). For more 
@@ -7,7 +9,7 @@
  */
 
 #include "types.h"
-
+#include "../cards/Card.h"
 
 typedef void (*interruptRequestPtr)(void);
 
@@ -15,31 +17,32 @@ typedef void (*interruptRequestPtr)(void);
  * this class implements code to request / manage interrupt requests for 
  * the client side (non busmaster mode).
  */
-class MasterBusController {
+class BusMasterCard : public Card {
 public:
-  MasterBusController();
-  ~MasterBusController();
+  BusMasterCard();
+  ~BusMasterCard();
 
   /** 
    * @return status byte with inserted cards 
-   * for each card a bit in the byte is set or not set (0bit = card inserted, 1bit = card not inserted)
+   * for each card a bit is set if the card is inserted in the corresponding slot
    */
-  uchar getCardInsertedStatus();
+  int getInsertedCardsMask();
 
   /** 
    * @return interrupt requested status 
-   * for each card port a bit is set or not set (0bit = requested, 1bit = not requested)
+   * for each card port a bit is set or not set (1bit = requested, 0bit = not requested)
    */
-  uchar getInterruptRequestedStatus();
+  int getRequestedInterruptsMask();
 
   /** 
    * @param status flags to select / deselect cards.
    * for each card port a bit is set where 0bit means card is enabled, 1bit means card is disabled
    */
-  void setCardSelectedStatus(uchar status);
+  void setSelectedCardsMask(int mask);
 
   /** 
    * registers a card select function pointer. set null to disable
+   * this will be called when the wired or changes status
    * @param ptr pointer to the card selected function.
    */
   void setIRQCallback(interruptRequestPtr ptr);
@@ -47,4 +50,6 @@ public:
 private:
   interruptRequestPtr callback;
 };
+
+#endif // _INCLUDE_MASTERBUSCONTROLLER_H
 

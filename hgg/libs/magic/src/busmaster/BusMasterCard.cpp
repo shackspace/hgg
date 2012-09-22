@@ -1,5 +1,5 @@
 /** 
- * MasterBusController.h 
+ * BusMasterCard.h 
  * (c) 2012, hackerspace global grid project
  * written by hadez, armin and others
  * licensed under the creative commons (cc-by-nc-sa). For more 
@@ -7,33 +7,33 @@
  */
 
 #include "types.h"
-#include "MasterBusController.h"
+#include "BusMasterCard.h"
 
 
 typedef void (*interruptRequest)(void);
 
-MasterBusController::MasterBusController() {
+BusMasterCard::MasterBusController() {
   callback = NULL;
 }
 
-MasterBusController::~MasterBusController() {
+BusMasterCard::~MasterBusController() {
 }
 
-uchar MasterBusController::getCardInsertedStatus() {
+uchar BusMasterCard::getCardInsertedStatus() {
   // TODO not implemented.
   return 0;
 }
 
-uchar MasterBusController::getInterruptRequestedStatus() {
+uchar BusMasterCard::getInterruptRequestedStatus() {
   // TODO not implemented.
   return 0;
 }
 
-void MasterBusController::setCardSelectedStatus(uchar status) {
+void BusMasterCard::setCardSelectedStatus(uchar status) {
   // TODO not implemented
 }
 
-void MasterBusController::setIRQCallback(interruptRequestPtr ptr) {
+void BusMasterCard::setIRQCallback(interruptRequestPtr ptr) {
   callback = ptr;
 }
 
