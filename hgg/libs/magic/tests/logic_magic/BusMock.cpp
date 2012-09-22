@@ -44,4 +44,13 @@ void BusMock::setCS(int mask)
   csMask = mask;
 }
 
-
+void BusMock::sendMessage(const Card& origin, const BusMessage& m)
+{
+	for_each(
+			cards.begin(),
+			cards.end(),
+			[](BusMasterCard::iterator& card) {
+				if(*card != NULL && *card != &origin)	{ *card->addMessage(m); }
+			}
+	);
+}

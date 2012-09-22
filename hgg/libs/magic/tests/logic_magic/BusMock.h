@@ -2,6 +2,7 @@
 #include <vector>
 #include <busmaster/BusMasterCard.h>
 #include <cards/Card.h>
+#include <BusMessage.h>
 
 using std::vector;
 using std::queue;
@@ -30,6 +31,8 @@ public:
    * count as chipselected (active low)
    */
   void setCS(int mask);
+
+	void sendMessage(const Card& origin, const BusMessage& m);
 
 private:
   friend class BusMasterCard;

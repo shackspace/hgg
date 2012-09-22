@@ -9,7 +9,7 @@
  */
 
 #include "types.h"
-
+#include "BusMessage.h"
 
 typedef void (*cardSelectPtr)(void);
 #ifdef TEST_CODE
@@ -53,6 +53,9 @@ protected:
 
   void setBusImpl(BusMock& bus);
   void releaseBusImpl();
+	void addMessage(BusMessage::Msg& m)
+	bool hasMessage()
+	const BusMessage::Msg getNextMessage()
 #endif // TEST_CODE
 
   cardSelectPtr callback;

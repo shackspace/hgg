@@ -39,3 +39,19 @@ void Card::releaseBusImpl() {
   bus = NULL;
 }
 
+void Card::addMessage(BusMessage::Msg& m)
+{
+	inqueue.push(m);
+}
+
+bool Card::hasMessage()
+{
+	return !inqueue.empty();
+}
+
+const BusMessage::Msg Card::getNextMessage()
+{
+	BusMessage::Msg m = inqueue.front();
+	inqueue.pop();
+	return m;
+}
