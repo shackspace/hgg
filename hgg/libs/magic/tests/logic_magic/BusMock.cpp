@@ -28,6 +28,7 @@ void BusMock::removeCard(int slot)
 void BusMock::setIRQ(Card& busController, bool state) 
 {
   int slot = distance(cards.begin(), find(cards.begin(), cards.end(), &busController));
+
   if(slot == MAX_CARDS) {
     return;
   }
@@ -49,8 +50,8 @@ void BusMock::sendMessage(const Card& origin, const BusMessage& m)
 	for_each(
 			cards.begin(),
 			cards.end(),
-			[](BusMasterCard::iterator& card) {
-				if(*card != NULL && *card != &origin)	{ *card->addMessage(m); }
+			[&](cbc_vec::value_type card) {
+				if(card != NULL && card != &origin)	{ card->addMessage(m); }
 			}
 	);
 }

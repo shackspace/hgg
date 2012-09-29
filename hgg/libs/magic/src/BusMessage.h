@@ -1,97 +1,107 @@
 #ifndef _BUSMESSAGE_H_
 #define _BUSMESSAGE_H_
 
-class BusMessage
+#include <stdint.h>
+
+struct BusMessage
 {
-	public:
-				typedef struct
-				{
-					unsigned char magic[2];
+				uint16_t magic;
 
-					enum eBusMessageType
-					{
-						BMT_ENUM_QUERY = 1,
-						BMT_ENUM_ANSWER,
-						BMT_CFG_GET,
-						BMT_CFG_SET,
-						BMT_CFG_RESULT,
-						BMT_IRQ_INQUIRY,
-						BMT_COMM_REQUEST,
-						BMT_ACK,
-						BMT_NACK,
-						BMT_DATA
-					} type;
-					
-					unsigned short valid_bytes;
-					
-					union
-					{
-						unsigned uint16_t valid_bytes; // not that nice
+		enum eBusMessageType
+		{
+			BMT_ENUM_QUERY = 1,
+			BMT_ENUM_ANSWER,
+			BMT_CFG_GET,
+			BMT_CFG_SET,
+			BMT_CFG_RESULT,
+			BMT_IRQ_INQUIRY,
+			BMT_COMM_REQUEST,
+			BMT_ACK,
+			BMT_NACK,
+			BMT_DATA
+		} type;
 
-						struct {	unsigned uint16_t valid_bytes;
-											unsigned uint8_t slot_number;		} enum_query;
+		union
+		{
+		uint16_t _valid_bytes;	// not that nice, just so we can
+														// access the valid_bytes field without
+														// determining type first
 
-						struct { 	unsigned uint16_t valid_bytes;
-											unsigned uint8_t data[32];			} enum_answer;
+		struct {	uint16_t valid_bytes;
+							uint8_t slot_number;
+							uint16_t crc16;		} enum_query;
 
-						struct { 	unsigned uint16_t valid_bytes;
-											unsigned uint32_t address;			} cfg_get;
+		struct { 	uint16_t valid_bytes;
+							uint8_t data[32];
+							uint16_t crc16;			} enum_answer;
 
-						struct { 	unsigned uint16_t valid_bytes;
-											unsigned uint32_t address;
-											unsigned uint32_t value;				} cfg_set;
+		struct { 	uint16_t valid_bytes;
+							uint32_t address;
+							uint16_t crc16;			} cfg_get;
 
-						struct { 	unsigned uint16_t valid_bytes;
-											unsigned uint32_t value;  			} cfg_result;
+		struct { 	uint16_t valid_bytes;
+							uint32_t address;
+							uint32_t value;
+							uint16_t crc16;				} cfg_set;
 
-						// irq_inq
+		struct { 	uint16_t valid_bytes;
+							uint32_t value;
+							uint16_t crc16;  			} cfg_result;
 
-						struct { 	unsigned uint16_t valid_bytes;
-											unsigned uint16_t dest_address;	} comm_request;
-						
-						// ack
+		struct {	uint16_t crc16; } irq_inq;
 
-						// nack
+		struct { 	uint16_t valid_bytes;
+							uint16_t dest_address;
+							uint16_t crc16;	} comm_request;
 
-						struct { 	unsigned uint16_t valid_bytes;
-											unsigned uint8_t data[32];			} data;
-						
-					} payload;
+		struct {	uint16_t crc16; } nack;
 
-					unsigned short crc16;
-				} Msg;
+		struct { 	uint16_t valid_bytes;
+							uint8_t data[32];
+							uint16_t crc16;			} data;
+		} payload;
 
 
+		/// \brief the value expected to be set in the magic field
+		static const uint16_t MAGIC;
 
-				static inline bool hasPayload(const Msg& m)
-				{
-					switch(m.type)
-					{
-						case BMT_ENUM_QUERY:
-						case BMT_ENUM_ANSWER:
-						case BMT_CFG_GET:
-						case BMT_CFG_SET:
-						case BMT_CFG_RESULT:
-						case BMT_COMM_REQUEST:
-						case BMT_DATA:
-							return true;
-						case BMT_IRQ_INQUIRY:
-						case BMT_ACK:
-						case BMT_NACK:
-						default:
-							return false;
-					}
-				}
+		/// \brief check if we are a valid message
+		inline bool isMessage()
+		{
+			return magic == MAGIC;
+		}
 
-				static inline unsigned short validBytes(const Msg& m)
-				{
-					if(hasPayload(m))
-					{
-						return m.payload.valid_size;
-					}
+		/// \brief check whether the current message holds any payload
+		inline bool hasPayload()
+		{
+			switch(type)
+			{
+				case BMT_ENUM_QUERY:
+				case BMT_ENUM_ANSWER:
+				case BMT_CFG_GET:
+				case BMT_CFG_SET:
+				case BMT_CFG_RESULT:
+				case BMT_COMM_REQUEST:
+				case BMT_DATA:
+					return true;
+				case BMT_IRQ_INQUIRY:
+				case BMT_ACK:
+				case BMT_NACK:
+				default:
+					return false;
+			}
+		}
 
-					return 0;
-				}
+		/// \brief get the number of valid payload bytes of the current message
+		inline unsigned short validPayloadBytes()
+		{
+			if(hasPayload())
+			{
+				return payload._valid_bytes;
+			}
+
+			return 0;
+		}
 };
 
 

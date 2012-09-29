@@ -14,6 +14,7 @@
 typedef void (*cardSelectPtr)(void);
 #ifdef TEST_CODE
 class BusMock;
+#include <queue>
 #endif // TEST_CODE
 
 /** 
@@ -53,13 +54,18 @@ protected:
 
   void setBusImpl(BusMock& bus);
   void releaseBusImpl();
-	void addMessage(BusMessage::Msg& m)
-	bool hasMessage()
-	const BusMessage::Msg getNextMessage()
+	void addMessage(const BusMessage& m);
+	bool hasMessage();
+	const BusMessage getNextMessage();
+
+	typedef std::queue<BusMessage> MsgQueue;
+	MsgQueue inqueue;
+
 #endif // TEST_CODE
 
   cardSelectPtr callback;
   bool irqState;
+
 };
 
 #endif // _INCLUDE_CLIENTBUSCONTROLLER_H

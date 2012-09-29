@@ -5,7 +5,6 @@
 #include <BusMessage.h>
 
 using std::vector;
-using std::queue;
 
 class BusMock {
 public:
