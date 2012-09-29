@@ -26,7 +26,7 @@ The following shows an example data frame
 012345678901234567890123456789012345678
 MMTVVPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPCC
 
-M ( 2): magic byte (0x8888)
+M ( 2): magic byte (0xAAAA)
 T ( 1): Type
 V ( 2): valid bytes in payload segment
 P (32): payload
