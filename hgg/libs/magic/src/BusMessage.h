@@ -7,7 +7,7 @@ struct BusMessage
 {
 				uint16_t magic;
 
-		enum eBusMessageType
+		enum eBusMessageType : uint8_t
 		{
 			BMT_ENUM_QUERY = 1,
 			BMT_ENUM_ANSWER,
