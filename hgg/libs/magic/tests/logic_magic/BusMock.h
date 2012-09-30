@@ -33,13 +33,15 @@ public:
 
 	void sendMessage(const Card& origin, const BusMessage& m);
 
+	bool isChipSelected(const Card& c);
+
 private:
   friend class BusMasterCard;
 
   typedef vector<Card*> cbc_vec;
 
-  cbc_vec cards;
-  int irqMask;
-  int csMask;
+  cbc_vec _cards;
+  int _irqMask;
+  int _csMask;
 };
 

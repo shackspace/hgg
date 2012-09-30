@@ -21,7 +21,7 @@ int BusMasterCard::getInsertedCardsMask() {
   int result = 0;
 
   for(int i=0;i<MAX_CARDS;i++) {
-    if(bus->cards.at(i) != NULL) {
+    if(_bus->_cards.at(i) != NULL) {
      result |= (1 << i);
     }
   }
@@ -30,11 +30,11 @@ int BusMasterCard::getInsertedCardsMask() {
 }
 
 int BusMasterCard::getRequestedInterruptsMask() {
-  return bus->irqMask;
+  return _bus->_irqMask;
 }
 
 void BusMasterCard::setSelectedCardsMask(int mask) {
-  bus->setCS(mask);
+  _bus->setCS(mask);
 }
 
 void BusMasterCard::setIRQCallback(interruptRequestPtr ptr) {

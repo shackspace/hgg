@@ -11,47 +11,52 @@
 #include "BusMock.h"
 
 Card::Card() {
-  irqState = false;
+  _irqState = false;
 }
 
 Card::~Card() {
 }
 
 void Card::requestBus() {
-  irqState = true;
-  bus->setIRQ(*this, irqState);
+  _irqState = true;
+  _bus->setIRQ(*this, _irqState);
 }
 
 void Card::releaseBus() {
-  irqState = false;
-  bus->setIRQ(*this, irqState);
+  _irqState = false;
+  _bus->setIRQ(*this, _irqState);
 }
 
 void Card::setCardSelectCallback(cardSelectPtr ptr) {
-  callback = ptr;
+  _callback = ptr;
+}
+
+bool Card::isChipSelected()
+{
+	return _bus->isChipSelected(*this);
 }
 
 void Card::setBusImpl(BusMock& bm) {
-  bus = &bm;
+  _bus = &bm;
 }
 
 void Card::releaseBusImpl() {
-  bus = NULL;
+  _bus = NULL;
 }
 
 void Card::addMessage(const BusMessage& m)
 {
-	inqueue.push(m);
+	_inqueue.push(m);
 }
 
 bool Card::hasMessage()
 {
-	return !inqueue.empty();
+	return !_inqueue.empty();
 }
 
 const BusMessage Card::getNextMessage()
 {
-	BusMessage m = inqueue.front();
-	inqueue.pop();
+	BusMessage m = _inqueue.front();
+	_inqueue.pop();
 	return m;
 }

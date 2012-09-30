@@ -39,7 +39,7 @@ public:
   /** 
    * @return 1 if the bus is currently requested, 0 otherwise.
    */ 
-  bool isBusRequested() { return irqState; }
+  bool isBusRequested() { return _irqState; }
    
   /** 
    * registers a card select function pointer. set null to disable
@@ -47,9 +47,11 @@ public:
    */
   void setCardSelectCallback(cardSelectPtr ptr);
 
+	bool isChipSelected();
+
 protected:
 #ifdef TEST_CODE
-  BusMock* bus;
+  BusMock* _bus;
   friend class BusMock;
 
   void setBusImpl(BusMock& bus);
@@ -59,12 +61,12 @@ protected:
 	const BusMessage getNextMessage();
 
 	typedef std::queue<BusMessage> MsgQueue;
-	MsgQueue inqueue;
+	MsgQueue _inqueue;
 
 #endif // TEST_CODE
 
-  cardSelectPtr callback;
-  bool irqState;
+  cardSelectPtr _callback;
+  bool _irqState;
 
 };
 
