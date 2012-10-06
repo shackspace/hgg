@@ -14392,7 +14392,7 @@ Source: 153627-da-01-en-Temperatur-Sensor_KTY10-6_Philips.pdf</description>
 <part name="L1" library="resistor" deviceset="L-EU" device="0207/5V" value="33u"/>
 <part name="L3" library="resistor" deviceset="L-EU" device="0207/5V" value="33u"/>
 <part name="L5" library="resistor" deviceset="L-EU" device="0207/5V" value="33u"/>
-<part name="C13" library="resistor" deviceset="C-EU" device="025-060X050" value="2000u"/>
+<part name="C13" library="resistor" deviceset="C-EU" device="050-055X075" value="2000u"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
