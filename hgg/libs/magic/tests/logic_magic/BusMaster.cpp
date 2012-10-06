@@ -1,4 +1,4 @@
-#include "BusMaster.h"
+#include "../../src/busmaster/BusMaster.h"
 
 static const uint32_t MASK_SLOT_ID_0 = (1<<0);
 static const uint32_t MASK_SLOT_ID_1 = (1<<1);
