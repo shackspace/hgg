@@ -17,6 +17,12 @@ class BusMock;
 #include <queue>
 #endif // TEST_CODE
 
+#ifdef TEST_CODE
+	#define TEST_PUBLIC public
+#else
+	#define TEST_PUBLIC private
+#endif
+
 /** 
  * this class implements code to request / manage interrupt requests for 
  * the client side (non busmaster mode).
@@ -49,6 +55,18 @@ public:
 
 	bool isChipSelected();
 
+	void loop();
+TEST_PUBLIC:
+	enum eState
+	{
+		S_INIT=0,
+		S_ERROR,
+		S_WAIT_FOR_ENUMERATION
+	};
+
+	inline eState getState() { return _state; }
+	inline void setState(eState s) { _state = s; }
+
 protected:
 #ifdef TEST_CODE
   BusMock* _bus;
@@ -65,9 +83,14 @@ protected:
 
 #endif // TEST_CODE
 
+	void sInit();
+	void sError();
+	void sWaitForEnumeration();
+
   cardSelectPtr _callback;
   bool _irqState;
 
+	eState _state;
 };
 
 #endif // _INCLUDE_CLIENTBUSCONTROLLER_H

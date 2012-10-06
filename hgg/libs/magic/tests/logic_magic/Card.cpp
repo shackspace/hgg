@@ -60,3 +60,33 @@ const BusMessage Card::getNextMessage()
 	_inqueue.pop();
 	return m;
 }
+
+
+
+
+void Card::sInit()
+{
+	setState(S_WAIT_FOR_ENUMERATION);
+}
+
+void Card::sError()
+{
+}
+
+void Card::sWaitForEnumeration()
+{
+}
+
+
+void Card::loop()
+{
+	switch(_state)
+	{
+		case S_INIT: 									sInit(); break;
+		case S_WAIT_FOR_ENUMERATION:	sWaitForEnumeration(); break;
+
+		case S_ERROR: default:				sError(); break;
+	}
+	
+
+}
