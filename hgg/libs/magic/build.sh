@@ -42,21 +42,21 @@ fi;
 # perform configuration, copy the correct buildfile
 if [ "$1" = "arduino" ]; then
   echo "  ... configuring arduino."
-  cp system/makefile.arduino /tmp/makefile
+  cp system/makefile.arduino /tmp/makefile.generated
 
   echo "  ... patching the configuration."
-  sed 's/\%CPUSTRING\%/'$CPU'/' /tmp/makefile > /tmp/makefile.1
-  mv /tmp/makefile.1 /tmp/makefile
+  sed 's/\%CPUSTRING\%/'$CPU'/' /tmp/makefile.generated > /tmp/makefile.1
+  mv /tmp/makefile.1 /tmp/makefile.generated
 ARDUINOHOME="\/usr\/share\/arduino\/"
-  sed 's/\%ARDUINOHOME\%/'$ARDUINOHOME'/' /tmp/makefile > /tmp/makefile.1
-  mv /tmp/makefile.1 /tmp/makefile
-  sed 's/\%SPEED\%/'$SPEED'/' /tmp/makefile > /tmp/makefile.1
-  mv /tmp/makefile.1 /tmp/makefile
+  sed 's/\%ARDUINOHOME\%/'$ARDUINOHOME'/' /tmp/makefile.generated > /tmp/makefile.1
+  mv /tmp/makefile.1 /tmp/makefile.generated
+  sed 's/\%SPEED\%/'$SPEED'/' /tmp/makefile.generated > /tmp/makefile.1
+  mv /tmp/makefile.1 /tmp/makefile.generated
 
-  mv /tmp/makefile makefile
+  mv /tmp/makefile.generated makefile.generated
 
-  make clean
-  make lib
+  make -f makefile.generated clean
+  make -f makefile.generated lib
 fi;
 
 # 
