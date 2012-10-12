@@ -5,7 +5,7 @@
 
 struct BusMessage
 {
-				uint16_t magic;
+		uint16_t magic;
 
 		enum eBusMessageType : uint8_t
 		{
@@ -65,6 +65,9 @@ struct BusMessage
 		/// \brief the value expected to be set in the magic field
 		static const uint16_t MAGIC;
 
+		/// \brief Helper constructor
+		BusMessage(eBusMessageType bmt) : magic(MAGIC), type(bmt) {	}
+
 		/// \brief check if we are a valid message
 		inline bool isMessage()
 		{
@@ -102,6 +105,11 @@ struct BusMessage
 
 			return 0;
 		}
+
+#error new busmessage { messageheader, messagebody of type (....) }
+#error messagebodies are individual structs of correct size
+
+
 };
 
 

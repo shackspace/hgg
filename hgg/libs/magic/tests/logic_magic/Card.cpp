@@ -75,6 +75,22 @@ void Card::sError()
 
 void Card::sWaitForEnumeration()
 {
+/*
+	if(isChipSelected() && hasMessage())
+	{
+		const BusMessage m = getNextMessage();
+
+		switch(m.type)
+		{
+			case BMT_ENUM_QUERY:
+			{
+				BusMessage reply(BMT_ENUM_ANSWER);	
+				reply.playload
+				_bus.sendMessage(*this,
+			}
+		}
+	}
+*/
 }
 
 
