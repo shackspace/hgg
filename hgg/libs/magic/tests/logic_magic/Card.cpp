@@ -75,22 +75,27 @@ void Card::sError()
 
 void Card::sWaitForEnumeration()
 {
-/*
-	if(isChipSelected() && hasMessage())
+	if(hasMessage())
 	{
 		const BusMessage m = getNextMessage();
 
+		if(!isChipSelected())
+		{
+			return;
+		}
+
 		switch(m.type)
 		{
-			case BMT_ENUM_QUERY:
+			case BusMessage::BMT_ENUM_QUERY:
 			{
-				BusMessage reply(BMT_ENUM_ANSWER);	
-				reply.playload
-				_bus.sendMessage(*this,
+				unsigned char buf[BusMessage::bufferSize(BusMessage::BMT_ENUM_ANSWER)];
+				BusMessage& reply = *(BusMessage*)(buf);
+				reply.initialize(BusMessage::BMT_ENUM_ANSWER);
+
+				_bus->sendMessage(*this,reply);
 			}
 		}
 	}
-*/
 }
 
 
