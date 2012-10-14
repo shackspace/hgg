@@ -5,7 +5,7 @@
 #include <string.h>
 
 #pragma pack(1)
-struct BusMessage
+struct BusMessageRaw
 {
 		uint16_t magic;
 
@@ -70,18 +70,18 @@ struct BusMessage
 
 
 		/// \brief check if we are a valid message
-		static inline bool isMessage(BusMessage* bmp)
+		static inline bool isMessage(BusMessageRaw* bmp)
 		{
 			return bmp && bmp->magic == MAGIC;
 		}
 
 		inline bool isMessage()
 		{
-			return BusMessage::isMessage(this);
+			return BusMessageRaw::isMessage(this);
 		}
 
 		/// \brief check whether the current message holds any payload
-		static inline bool hasPayload(BusMessage* bmp)
+		static inline bool hasPayload(BusMessageRaw* bmp)
 		{
 			if(!bmp)
 			{
@@ -110,16 +110,16 @@ struct BusMessage
 		{
 			switch(bmt)
 			{
-				case BMT_ENUM_QUERY: 			return sizeof(BusMessage) + sizeof(*BusMessage::enum_query);
-				case BMT_ENUM_ANSWER:			return sizeof(BusMessage) + sizeof(*BusMessage::enum_answer);
-				case BMT_CFG_GET:     		return sizeof(BusMessage) + sizeof(*BusMessage::cfg_get); 
-				case BMT_CFG_SET:     		return sizeof(BusMessage) + sizeof(*BusMessage::cfg_set);
-				case BMT_CFG_RESULT:  		return sizeof(BusMessage) + sizeof(*BusMessage::cfg_result);
-				case BMT_COMM_REQUEST:		return sizeof(BusMessage) + sizeof(*BusMessage::comm_request);
-				case BMT_DATA:						return sizeof(BusMessage) + sizeof(*BusMessage::data);
-				case BMT_IRQ_INQUIRY:			return sizeof(BusMessage) + sizeof(*BusMessage::irq_inq);
-				case BMT_ACK:							return sizeof(BusMessage) + sizeof(*BusMessage::ack);
-				case BMT_NACK:						return sizeof(BusMessage) + sizeof(*BusMessage::nack);
+				case BMT_ENUM_QUERY: 			return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::enum_query);
+				case BMT_ENUM_ANSWER:			return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::enum_answer);
+				case BMT_CFG_GET:     		return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::cfg_get); 
+				case BMT_CFG_SET:     		return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::cfg_set);
+				case BMT_CFG_RESULT:  		return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::cfg_result);
+				case BMT_COMM_REQUEST:		return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::comm_request);
+				case BMT_DATA:						return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::data);
+				case BMT_IRQ_INQUIRY:			return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::irq_inq);
+				case BMT_ACK:							return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::ack);
+				case BMT_NACK:						return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::nack);
 				default:
 					return 0;
 			}
@@ -129,13 +129,13 @@ struct BusMessage
 
 		inline bool hasPayload()
 		{
-			return BusMessage::hasPayload(this);
+			return BusMessageRaw::hasPayload(this);
 		}
 
 		/// \brief get the number of valid payload bytes of the current message
-		static inline unsigned short validPayloadBytes(BusMessage* bmp)
+		static inline unsigned short validPayloadBytes(BusMessageRaw* bmp)
 		{
-			if(BusMessage::hasPayload(bmp))
+			if(BusMessageRaw::hasPayload(bmp))
 			{
 				return bmp->_valid_bytes[0];
 			}
@@ -145,16 +145,16 @@ struct BusMessage
 
 		inline unsigned short validPayloadBytes()
 		{
-			return BusMessage::validPayloadBytes(this);
+			return BusMessageRaw::validPayloadBytes(this);
 		}
 
 		static void initialize(void* p, eBusMessageType bmt)
 		{
 			if(p)
 			{
-				memset(p,0x00,BusMessage::bufferSize(bmt));
+				memset(p,0x00,BusMessageRaw::bufferSize(bmt));
 
-				BusMessage* bmp = (BusMessage*)p;
+				BusMessageRaw* bmp = (BusMessageRaw*)p;
 				bmp->magic = MAGIC;
 				bmp->type = bmt;
 			}
@@ -162,11 +162,11 @@ struct BusMessage
 
 		void initialize(eBusMessageType bmt)
 		{
-			BusMessage::initialize(this, bmt);
+			BusMessageRaw::initialize(this, bmt);
 		}
 		private:
 		/// \brief not allowed to instantiate this struct directly
-		BusMessage();
+		BusMessageRaw();
 };
 #pragma pack()
 

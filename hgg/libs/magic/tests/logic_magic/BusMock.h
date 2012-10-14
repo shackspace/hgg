@@ -31,7 +31,7 @@ public:
    */
   void setCS(int mask);
 
-	void sendMessage(const Card& origin, const BusMessage& m);
+	void sendMessage(const Card& origin, const BusMessageRaw& m);
 
 	bool isChipSelected(const Card& c);
 

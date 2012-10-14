@@ -58,7 +58,7 @@ bool BusMock::isChipSelected(const Card& c)
 	return (_csMask & (1<<slot));
 }
 
-void BusMock::sendMessage(const Card& origin, const BusMessage& m)
+void BusMock::sendMessage(const Card& origin, const BusMessageRaw& m)
 {
 	for_each(
 			_cards.begin(),
