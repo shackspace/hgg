@@ -10,10 +10,10 @@ using namespace std;
 #define BSTEST(type,size) \
 void test_busmessage_buffersize_ ## type () \
 { \
-	cout << "BusMessage::bufferSize(BusMessage::" #type ") == " \
-			 <<  BusMessage::bufferSize(BusMessage::  type  ) \
+	cout << "BusMessageRaw::bufferSize(BusMessageRaw::" #type ") == " \
+			 <<  BusMessageRaw::bufferSize(BusMessageRaw::  type  ) \
 			 << " and should be " #size << endl; \
-	assert(BusMessage::bufferSize(BusMessage:: type) == size && "invalid size" ); \
+	assert(BusMessageRaw::bufferSize(BusMessageRaw:: type) == size && "invalid size" ); \
 }
 
 /// \brief ensure that the specific message type size is as big as expected
@@ -40,26 +40,26 @@ BSTEST(BMT_DATA,39)
 /// \brief ensure BusMessage size without considering actual message types is correct
 void test_busmessage_raw_size()
 {
-	cout << "sizeof(BusMessage) == " << sizeof(BusMessage) << " and should be 3" << endl;
-	assert( sizeof(BusMessage) == 3 && "invalid size" );
+	cout << "sizeof(BusMessageRaw) == " << sizeof(BusMessageRaw) << " and should be 3" << endl;
+	assert( sizeof(BusMessageRaw) == 3 && "invalid size" );
 }
 
 /// \brief ensure structure initialization works
 void test_busmessage_structure_initialization()
 {
   // fixture: setup the mocks for the test
-	unsigned char buf[ BusMessage::bufferSize(BusMessage::BMT_ENUM_ANSWER) ];
+	unsigned char buf[ BusMessageRaw::bufferSize(BusMessageRaw::BMT_ENUM_ANSWER) ];
 
   // execution: let the test run
-	BusMessage& enum_answer = *((BusMessage*)buf);
-	enum_answer.initialize(buf,BusMessage::BMT_ENUM_ANSWER);
+	BusMessageRaw& enum_answer = *((BusMessageRaw*)buf);
+	enum_answer.initialize(buf,BusMessageRaw::BMT_ENUM_ANSWER);
 
   // assertions: what should have happened?
 
 	assert( enum_answer.isMessage() && "must have magic bytes set");
 	assert( enum_answer.hasPayload() && "must have payload");
 	assert( sizeof(buf) == 39 && "invalid size");
-	assert( enum_answer.type == BusMessage::BMT_ENUM_ANSWER && "invalid type");
+	assert( enum_answer.type == BusMessageRaw::BMT_ENUM_ANSWER && "invalid type");
 	assert( enum_answer.validPayloadBytes() == 0 && "freshly initialized structure must have zero valid bytes");
 
   // cleanup?
