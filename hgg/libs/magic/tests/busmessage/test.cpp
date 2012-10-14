@@ -10,10 +10,10 @@ using namespace std;
 #define BSTEST(type,size) \
 void test_busmessage_buffersize_ ## type () \
 { \
-	cout << "BusMessageRaw::bufferSize(BusMessageRaw::" #type ") == " \
-			 <<  BusMessageRaw::bufferSize(BusMessageRaw::  type  ) \
+	cout << "BusMessageRaw::bufferSize(" #type ") == " \
+			 <<  BusMessageRaw::bufferSize( type  ) \
 			 << " and should be " #size << endl; \
-	assert(BusMessageRaw::bufferSize(BusMessageRaw:: type) == size && "invalid size" ); \
+	assert(BusMessageRaw::bufferSize(type) == size && "invalid size" ); \
 }
 
 /// \brief ensure that the specific message type size is as big as expected
@@ -48,18 +48,18 @@ void test_busmessage_raw_size()
 void test_busmessage_structure_initialization()
 {
   // fixture: setup the mocks for the test
-	unsigned char buf[ BusMessageRaw::bufferSize(BusMessageRaw::BMT_ENUM_ANSWER) ];
+	unsigned char buf[ BusMessageRaw::bufferSize(BMT_ENUM_ANSWER) ];
 
   // execution: let the test run
 	BusMessageRaw& enum_answer = *((BusMessageRaw*)buf);
-	enum_answer.initialize(buf,BusMessageRaw::BMT_ENUM_ANSWER);
+	enum_answer.initialize(buf,BMT_ENUM_ANSWER);
 
   // assertions: what should have happened?
 
 	assert( enum_answer.isMessage() && "must have magic bytes set");
 	assert( enum_answer.hasPayload() && "must have payload");
 	assert( sizeof(buf) == 39 && "invalid size");
-	assert( enum_answer.type == BusMessageRaw::BMT_ENUM_ANSWER && "invalid type");
+	assert( enum_answer.type == BMT_ENUM_ANSWER && "invalid type");
 	assert( enum_answer.validPayloadBytes() == 0 && "freshly initialized structure must have zero valid bytes");
 
   // cleanup?

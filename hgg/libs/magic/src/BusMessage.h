@@ -4,24 +4,26 @@
 #include <stdint.h>
 #include <string.h>
 
+enum eBusMessageType : uint8_t
+{
+	BMT_ENUM_QUERY = 1,
+	BMT_ENUM_ANSWER,
+	BMT_CFG_GET,
+	BMT_CFG_SET,
+	BMT_CFG_RESULT,
+	BMT_IRQ_INQUIRY,
+	BMT_COMM_REQUEST,
+	BMT_ACK,
+	BMT_NACK,
+	BMT_DATA
+};
+
 #pragma pack(1)
 struct BusMessageRaw
 {
 		uint16_t magic;
 
-		enum eBusMessageType : uint8_t
-		{
-			BMT_ENUM_QUERY = 1,
-			BMT_ENUM_ANSWER,
-			BMT_CFG_GET,
-			BMT_CFG_SET,
-			BMT_CFG_RESULT,
-			BMT_IRQ_INQUIRY,
-			BMT_COMM_REQUEST,
-			BMT_ACK,
-			BMT_NACK,
-			BMT_DATA
-		} type;
+		enum eBusMessageType type;
 
 		union
 		{
@@ -70,18 +72,18 @@ struct BusMessageRaw
 
 
 		/// \brief check if we are a valid message
-		static inline bool isMessage(BusMessageRaw* bmp)
+		static inline bool isMessage(const BusMessageRaw* const bmp) 
 		{
 			return bmp && bmp->magic == MAGIC;
 		}
 
-		inline bool isMessage()
+		inline bool isMessage() const
 		{
 			return BusMessageRaw::isMessage(this);
 		}
 
 		/// \brief check whether the current message holds any payload
-		static inline bool hasPayload(BusMessageRaw* bmp)
+		static inline bool hasPayload(const BusMessageRaw* const bmp) 
 		{
 			if(!bmp)
 			{
@@ -127,13 +129,13 @@ struct BusMessageRaw
 		}
 
 
-		inline bool hasPayload()
+		inline bool hasPayload() const
 		{
 			return BusMessageRaw::hasPayload(this);
 		}
 
 		/// \brief get the number of valid payload bytes of the current message
-		static inline unsigned short validPayloadBytes(BusMessageRaw* bmp)
+		static inline unsigned short validPayloadBytes(const BusMessageRaw* const bmp) 
 		{
 			if(BusMessageRaw::hasPayload(bmp))
 			{
@@ -143,7 +145,7 @@ struct BusMessageRaw
 			return 0;
 		}
 
-		inline unsigned short validPayloadBytes()
+		inline unsigned short validPayloadBytes() const
 		{
 			return BusMessageRaw::validPayloadBytes(this);
 		}

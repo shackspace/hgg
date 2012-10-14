@@ -86,11 +86,11 @@ void Card::sWaitForEnumeration()
 
 		switch(m.type)
 		{
-			case BusMessageRaw::BMT_ENUM_QUERY:
+			case BMT_ENUM_QUERY:
 			{
-				unsigned char buf[BusMessageRaw::bufferSize(BusMessageRaw::BMT_ENUM_ANSWER)];
+				unsigned char buf[BusMessageRaw::bufferSize(BMT_ENUM_ANSWER)];
 				BusMessageRaw& reply = *(BusMessageRaw*)(buf);
-				reply.initialize(BusMessageRaw::BMT_ENUM_ANSWER);
+				reply.initialize(BMT_ENUM_ANSWER);
 
 				_bus->sendMessage(*this,reply);
 			}
