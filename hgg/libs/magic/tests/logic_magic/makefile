@@ -1,5 +1,5 @@
-OBJECTS=Card.o BusMasterCard.o test.o BusMock.o
-OBJECTS_COMMON=../../src/busmaster/BusMaster.o
+OBJECTS=Card.o BusMasterCard.o test.o BusMock.o 
+OBJECTS_COMMON=../../src/busmaster/BusMaster.o ../../src/busmaster/BusMessage.o
 INCLUDE=../../src
 OUTPUT=test.elf
 
