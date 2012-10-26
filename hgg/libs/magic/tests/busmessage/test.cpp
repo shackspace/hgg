@@ -4,16 +4,18 @@
 #include <iostream>
 
 #include "../../src/BusMessage.h"
+#include "../../src/BusMessage.cpp"
+
 
 using namespace std;
 
 #define BSTEST(type,size) \
 void test_busmessage_buffersize_ ## type () \
 { \
-	cout << "BusMessageRaw::bufferSize(" #type ") == " \
-			 <<  BusMessageRaw::bufferSize( type  ) \
+	cout << "BusMessage::getBufferSize(" #type ") == " \
+			 <<  BusMessage::getBufferSize( type  ) \
 			 << " and should be " #size << endl; \
-	assert(BusMessageRaw::bufferSize(type) == size && "invalid size" ); \
+	assert(BusMessage::getBufferSize(type) == size && "invalid size" ); \
 }
 
 /// \brief ensure that the specific message type size is as big as expected
@@ -48,7 +50,7 @@ void test_busmessage_raw_size()
 void test_busmessage_structure_initialization()
 {
   // fixture: setup the mocks for the test
-	unsigned char buf[ BusMessageRaw::bufferSize(BMT_ENUM_ANSWER) ];
+	unsigned char buf[ BusMessage::getBufferSize(BMT_ENUM_ANSWER) ];
 
   // execution: let the test run
 	BusMessageRaw& enum_answer = *((BusMessageRaw*)buf);
