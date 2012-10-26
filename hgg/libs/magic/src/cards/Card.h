@@ -74,11 +74,11 @@ protected:
 
   void setBusImpl(BusMock& bus);
   void releaseBusImpl();
-	void addMessage(const BusMessageRaw& m);
+	void addMessage(const BusMessage& m);
 	bool hasMessage();
-	const BusMessageRaw getNextMessage();
+	const BusMessage getNextMessage();
 
-	typedef std::queue<BusMessageRaw> MsgQueue;
+	typedef std::queue<BusMessage> MsgQueue;
 	MsgQueue _inqueue;
 
 #endif // TEST_CODE

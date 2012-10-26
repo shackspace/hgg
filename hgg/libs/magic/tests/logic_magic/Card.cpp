@@ -44,7 +44,7 @@ void Card::releaseBusImpl() {
   _bus = NULL;
 }
 
-void Card::addMessage(const BusMessageRaw& m)
+void Card::addMessage(const BusMessage& m)
 {
 	_inqueue.push(m);
 }
@@ -54,9 +54,9 @@ bool Card::hasMessage()
 	return !_inqueue.empty();
 }
 
-const BusMessageRaw Card::getNextMessage()
+const BusMessage Card::getNextMessage()
 {
-	BusMessageRaw m = _inqueue.front();
+	BusMessage m = _inqueue.front();
 	_inqueue.pop();
 	return m;
 }
@@ -77,19 +77,19 @@ void Card::sWaitForEnumeration()
 {
 	if(hasMessage())
 	{
-		const BusMessageRaw m = getNextMessage();
+		const BusMessage m = getNextMessage();
 
 		if(!isChipSelected())
 		{
 			return;
 		}
 
-		switch(m.type)
+		switch(m.getType())
 		{
 			case BMT_ENUM_QUERY:
 			{
-				unsigned char buf[BusMessageRaw::bufferSize(BMT_ENUM_ANSWER)];
-				BusMessageRaw& reply = *(BusMessageRaw*)(buf);
+				unsigned char buf[BusMessage::getBufferSize(BMT_ENUM_ANSWER)];
+				BusMessage& reply = *(BusMessage*)(buf);
 				reply.initialize(BMT_ENUM_ANSWER);
 
 				_bus->sendMessage(*this,reply);
