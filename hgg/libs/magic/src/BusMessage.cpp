@@ -12,42 +12,8 @@ struct BusMessageRaw
 		uint16_t _valid_bytes[];	// not that nice, just so we can
 														// access the valid_bytes field without
 														// determining type first
-
-		struct {	uint16_t valid_bytes;
-							uint8_t slot_number;
-							uint16_t crc16;		} enum_query[];
-
-		struct { 	uint16_t valid_bytes;
-							uint8_t data[32];
-							uint16_t crc16;			} enum_answer[];
-
-		struct { 	uint16_t valid_bytes;
-							uint32_t address;
-							uint16_t crc16;			} cfg_get[];
-
-		struct { 	uint16_t valid_bytes;
-							uint32_t address;
-							uint32_t value;
-							uint16_t crc16;				} cfg_set[];
-
-		struct { 	uint16_t valid_bytes;
-							uint32_t value;
-							uint16_t crc16;  			} cfg_result[];
-
-		struct {	uint16_t crc16; } irq_inq[];
-
-		struct { 	uint16_t valid_bytes;
-							uint16_t dest_address;
-							uint16_t crc16;	} comm_request[];
-
-		struct {	uint16_t crc16; } ack[];
-		struct {	uint16_t crc16; } nack[];
-
-		struct { 	uint16_t valid_bytes;
-							uint8_t data[32];
-							uint16_t crc16;			} data[];
+		BusMessagePayload payload[];
 		};
-
 
 		/// \brief the value expected to be set in the magic field
 		static const uint16_t MAGIC = 0x5555;
@@ -94,16 +60,16 @@ struct BusMessageRaw
 		{
 			switch(bmt)
 			{
-				case BMT_ENUM_QUERY: 			return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::enum_query);
-				case BMT_ENUM_ANSWER:			return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::enum_answer);
-				case BMT_CFG_GET:     		return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::cfg_get); 
-				case BMT_CFG_SET:     		return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::cfg_set);
-				case BMT_CFG_RESULT:  		return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::cfg_result);
-				case BMT_COMM_REQUEST:		return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::comm_request);
-				case BMT_DATA:						return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::data);
-				case BMT_IRQ_INQUIRY:			return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::irq_inq);
-				case BMT_ACK:							return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::ack);
-				case BMT_NACK:						return sizeof(BusMessageRaw) + sizeof(*BusMessageRaw::nack);
+				case BMT_ENUM_QUERY: 			return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::enum_query);
+				case BMT_ENUM_ANSWER:			return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::enum_answer);
+				case BMT_CFG_GET:     		return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::cfg_get); 
+				case BMT_CFG_SET:     		return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::cfg_set);
+				case BMT_CFG_RESULT:  		return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::cfg_result);
+				case BMT_COMM_REQUEST:		return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::comm_request);
+				case BMT_DATA:						return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::data);
+				case BMT_IRQ_INQUIRY:			return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::irq_inq);
+				case BMT_ACK:							return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::ack);
+				case BMT_NACK:						return sizeof(BusMessageRaw) + sizeof(*BusMessagePayload::nack);
 				default:
 					return 0;
 			}
@@ -155,11 +121,19 @@ struct BusMessageRaw
 #pragma pack()
 
 BusMessage::BusMessage()
+: _bmr(0)
 {
 }
 
-BusMessage::BusMessage(eBusMessageType type)
+BusMessage::BusMessage(uint8_t* buffer)
 {
+	_bmr = reinterpret_cast<BusMessageRaw*>(buffer);
+}
+
+BusMessage::BusMessage(uint8_t* buffer, eBusMessageType type)
+{
+	_bmr = reinterpret_cast<BusMessageRaw*>(buffer);
+	initialize(type);
 }
 
 BusMessage::~BusMessage()
@@ -184,47 +158,52 @@ uint16_t BusMessage::getBufferSize(eBusMessageType type)
 
 bool BusMessage::isValidMessage() const
 {
-	return BusMessageRaw::isMessage( reinterpret_cast<const BusMessageRaw*>( &_buffer.at(0) ) );
+	return _bmr && BusMessageRaw::isMessage( _bmr );
 }
 
 eBusMessageType BusMessage::getType() const
 {
-	return reinterpret_cast<const BusMessageRaw*>( &_buffer.at(0) )->type;
+	return !_bmr ? BMT_INVALID : _bmr->type;
 }
 
 void BusMessage::initialize(eBusMessageType type)
 {
-	_buffer.reserve( BusMessageRaw::bufferSize(type) );
-	BusMessageRaw::initialize( reinterpret_cast<BusMessageRaw*>( &_buffer.at(0) ), type );
+	if(!_bmr)
+	{
+		return;
+	}
+
+	BusMessageRaw::initialize( _bmr, type );
 }
 
 bool BusMessage::hasPayload() const
 {
-	return BusMessageRaw::hasPayload( reinterpret_cast<const BusMessageRaw*>( &_buffer.at(0) ) );
+	return _bmr && BusMessageRaw::hasPayload( _bmr );
 }
 
 uint16_t BusMessage::getPayloadSize() const
 {
-	return BusMessageRaw::validPayloadBytes( reinterpret_cast<const BusMessageRaw*>( &_buffer.at(0) ) );
+	return !_bmr ? 0 : BusMessageRaw::validPayloadBytes( _bmr );
 }
 
-const uint8_t* const BusMessage::getPayload() const
+const BusMessagePayload* const BusMessage::getPayload() const
 {
-	
+	return _bmr ? _bmr->payload : 0;
 }
 
-uint8_t* BusMessage::getPayload()
+BusMessagePayload* BusMessage::getPayload()
 {
-	return const_cast<uint8_t*>( reinterpret_cast<const BusMessage&>(*this).getPayload() );
+	return const_cast<BusMessagePayload*>( static_cast<const BusMessage&>(*this).getPayload() );
 }
 
 uint16_t BusMessage::getCRC16() const
 {
-
+	return 0;
 }
 
 void BusMessage::copy(const BusMessage& o)
 {
-	_buffer = o._buffer;
+	// only bend pointers
+	_bmr = o._bmr;
 }
 
