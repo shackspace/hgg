@@ -111,3 +111,16 @@ void Card::loop()
 	
 
 }
+
+#define CARD_E2S(e) case e : return #e ;
+
+const char* const Card::getStateName() const
+{
+	switch(getState())
+	{
+	CARD_E2S(S_INIT);
+	CARD_E2S(S_ERROR);
+	CARD_E2S(S_WAIT_FOR_ENUMERATION);
+	default: return "<unknown>";
+	};
+}

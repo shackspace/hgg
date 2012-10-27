@@ -70,9 +70,9 @@ void test_single_card_no_bm()
   // execution: let the test run
 	for(int i=0; i<10; ++i)
 	{
-		std::cout << "[" << c.getState() << ">";
+		std::cout << "[" << c.getStateName() << ">";
 		c.loop();		
-		std::cout << c.getState() << "] ";
+		std::cout << c.getStateName() << "] ";
 	}
 
 	std::cout << std::endl;
@@ -103,7 +103,7 @@ void test_bm_single_card_lateplug()
 			std::cout << " insert ";
 		}
 
-		std::cout << "[" << bm.getState() << ',' << c.getState() << ">";
+		std::cout << "[bm:" << bm.getState() << ", c:" << c.getStateName() << " --> ";
 		bm.loop();		
 
 		// usually the card would not be powered untill it got plugged in
@@ -113,7 +113,7 @@ void test_bm_single_card_lateplug()
 
 		c.loop();
 
-		std::cout << bm.getState() << ',' << c.getState() << "] ";
+		std::cout << "bm:" << bm.getState() << ", c:" << c.getStateName() << "] " << std::endl;
 	}
 
 	std::cout << std::endl;

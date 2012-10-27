@@ -48,6 +48,7 @@ public:
   void setIRQCallback(interruptRequestPtr ptr);
 
 private:
+	virtual const char* const getStateName() const;
   interruptRequestPtr callback;
 };
 

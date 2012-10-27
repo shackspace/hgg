@@ -42,3 +42,12 @@ void BusMasterCard::setIRQCallback(interruptRequestPtr ptr) {
 }
 
 
+#define CARD_E2S(e) case e : return #e ;
+
+const char* const BusMasterCard::getStateName() const
+{
+	switch(getState())
+	{
+	default: return "<unknown>";
+	};
+}

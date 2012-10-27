@@ -64,8 +64,10 @@ TEST_PUBLIC:
 		S_WAIT_FOR_ENUMERATION
 	};
 
-	inline eState getState() { return _state; }
+	inline eState getState() const { return _state; }
+	virtual const char* const getStateName() const;
 	inline void setState(eState s) { _state = s; }
+
 
 protected:
 #ifdef TEST_CODE
