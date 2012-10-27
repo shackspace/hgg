@@ -1,0 +1,278 @@
+
+\newlength{\smallcol}
+\setlength{\smallcol}{0.3\textwidth}
+
+\newlength{\bigcol}
+\setlength{\bigcol}{\textwidth}
+\addtolength{\bigcol}{- \smallcol}
+
+
+\begin{frame}[plain]
+  \mode<article>{\maketitle}
+  \mode<presentation>{\titlepage}
+\end{frame}
+
+\section{What is hgg}
+	\begin{frame}{Once upon a time}
+	\begin{itemize}
+		\item There were 3 guys wanting to understand satellite communications
+		\item Build networked receiver stations just for kicks
+	\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Now}
+	\begin{itemize}
+		\item Joined forces with the Constellation project (Andreas Hornig)
+		\item We're building a distributed measurement network
+		\item Aiming to track HAMSATs
+	\end{itemize}
+	\end{frame}
+
+\subsection{hgg in a nutshell}
+	\begin{frame}[<.->]{Build a modular system}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{modular}\end{center}
+			\end{column}
+    	\begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Easier to develop
+					\item<+-> Easier to extend
+					\item<+-> Easier to improve
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[<.->]{Make it as accurate as possible}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{accurate}\end{center}
+			\end{column}
+    	\begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> One second resolution is "boring"
+					\item<+-> Let's aim for 100 ns
+					\item<+-> Allow scaling up to "ridiculous" (for a hobby project)
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[<.->]{Measure stuff}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+				\begin{center}\includegraphics<1->[width=\textwidth]{measure}\end{center}
+			\end{column}
+    	\begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Airplanes
+					\item<+-> Satellites
+					\item<+-> Background radiation
+					\item<+-> Or even just the temperate
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[<.->]{Make it a distributed system}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+				\begin{center}\includegraphics<1->[width=\textwidth]{distributed}\end{center}
+			\end{column}
+    	\begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Many simple measurement stations
+					\item<+-> networked together
+					\item<+-> providing geo-coded data
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[<.->]{Make it easy to use}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{easytouse}\end{center}
+			\end{column}
+    	\begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Ideal: build your own
+					\item<+-> Realistic: assemble a kit
+					\item<+-> Lazy: buy it, plug it in, forget about it
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+\subsection{Who's behind it?}
+	\begin{frame}{Who's behind it?}
+		\begin{itemize}
+			\item Just a bunch of folks, really
+				\begin{itemize}
+					\item reloc0 \& hadez \& Timm working on hgg
+					\item Andreas Hornig working on Constellation
+					\item Pawe\l, Isaac, and a few others working on various projects
+				\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+\section{What we're actually doing}
+
+\subsection{The core idea}
+	\begin{frame}{Consolidating existing and new information}
+		\begin{itemize}
+			\item There is already \emph{a lot} of information available
+			\begin{itemize}
+				\item HAM radio community
+				\item Amateur satellite community
+				\item Hackers \& makers
+			\end{itemize}
+			\item We're collecting information relevant to the ask
+			\item Improve documentation where we had found details difficult to understand
+			\item Document our findings, results and failures for others to learn from
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Learning the basics}
+		\begin{itemize}
+			\item PCB design
+			\item FPGA programming in VHDL
+			\item Microcontroller programming in C
+			\item Antenna design
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Open source everything}
+		\begin{itemize}
+			\item Code available at github.com/shackspace/hgg
+			\item Documentation and planning at hgg.aero/
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{What is it actually good for?}
+		\begin{itemize}
+			\item Public access to all measurement results (don't get cheated)
+			\item Access to infrastructure to deploy your own (measurement) equipment
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{What about applications?}
+		\begin{itemize}
+			\item Constellation
+			\begin{itemize}
+				\item Track amateur satellites
+				\item Using pseudo-ranging w/ multiple receiver stations
+			\end{itemize}
+			\item Once ground stations start gathering and publishing data, the possibilities are endless
+			\begin{itemize}
+				\item Live-track background radiation levels
+				\item Spot minute changes in the environment over time
+				\item Accurate, geo-referenced time
+				\item Basis for assisted GPS solutions
+				\item and many, many more
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+\subsection{Status quo}
+
+  \begin{frame}[<.->]{Specification of physical interface between modules}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item Modules are connected via a backplane
+					\item PCIe 4x plug w/ custom pinout
+					\item 2x RS485 lanes for inter-module communication
+					\item SPI-ish time broadcast bus
+					\item Differential clock signal for high-res timing signal
+					\item Each module sports storage for calibration data
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+	\begin{frame}[<.->]{friendship0 backplane}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0_assembled}\end{center}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{friendship0_assembled_bottom}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item<+-> Four modules slots, one dedicated to bus master module
+					\item<+-> ICs for interrupt handling
+					\item<+-> Can be easily scaled up, next step eight or nine slots
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+	\begin{frame}[<.->]{dash0 proof of concept}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{dashpoc}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item ADS-B receiver based around miniADSB module
+					\item Easily track commercial aircrafts
+					\item Perfect for verifying pseudo ranging algorithms
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+	\begin{frame}[<.->]{flutter0 high precision distributed time source module}
+  	\begin{columns}
+    	\begin{column}{\smallcol}
+ 				\begin{center}\includegraphics<1->[width=\textwidth]{flutter0_layout}\end{center}
+			\end{column}
+  	  \begin{column}{\bigcol}
+				\begin{itemize}
+					\item Spartan3 FPGA for high-res timing (<100 ns)
+					\item ATmega 168 for lo-res timing (1 s to 1/10th s)
+					\item Low cost GPS module w/ external antenna support
+				\end{itemize}
+			\end{column}
+  	\end{columns}
+	\end{frame}
+
+\subsection{How to help}
+	\begin{frame}{Join us}
+		\begin{itemize}
+			\item We meet almost every Saturday at shackspace, the stuttgart hackerspace
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Keep in touch}
+		\begin{itemize}
+			\item Wiki
+			\begin{itemize}
+				\item Edit away at http://hgg.aero/
+				\item There's a list of open tasks.  Pick one or add one!
+			\end{itemize}
+
+			\item GitHub
+			\begin{itemize}
+				\item All source code, schematics and layouts available at github.com
+				\item Issue tracking.  Find a problem, raise an issue!
+			\end{itemize}
+
+			\item Public mailing list
+			\begin{itemize}
+				\item lists.shackspace.de/listinfo/constellation
+				\item Fairly low traffic at the moment, this might change in the foreseeable future.
+			\end{itemize}
+
+			\item twitter
+			\begin{itemize}
+				\item @hxglobalgrid
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
