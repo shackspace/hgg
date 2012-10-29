@@ -31,8 +31,7 @@ USER_DIR = ../../src
 CPPFLAGS += -I$(GTEST_DIR)/include -I$(GMOCK_DIR)/include
 CPPFLAGS += -I$(USER_DIR) -I$(TEST_DIR)
 # Flags passed to the C++ compiler.
-CXXFLAGS += -g -Wall -Wextra
-#-std=c++0x
+CXXFLAGS += -g -Wall -Wextra -std=c++0x
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
