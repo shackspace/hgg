@@ -13,16 +13,18 @@ public:
 	virtual void loop();
 
 
-	enum eDCLState {
-		DCLS_Init, DCLS_Error
+	enum eCLIState {
+		CLIS_Init,
+		CLIS_Error,
+		CLIS_Idle
 	};
 
-	eDCLState getState() const;
+	eCLIState getState() const;
 	const char* const getStateString() const;
 
 private:
-	void setState(eDCLState s);
-	eDCLState _state;
+	void setState(eCLIState s);
+	eCLIState _state;
 };
 
 
