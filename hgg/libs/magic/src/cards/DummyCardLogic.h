@@ -4,7 +4,7 @@
 #include "CardLogic.h"
 
 
-class DummyCardLogic {
+class DummyCardLogic : public CardLogic {
 public:
   virtual DummyCardLogic(CardPHY& phy);
   virtual ~DummyCardLogic();
