@@ -7,14 +7,16 @@
  */
 
 #include "types.h"
-#include "Card.h"
+#include "CardPHY.h"
 
 typedef void (*cardSelectPtr)(void);
 
-CardPHY::ClientBusController() {
+CardPHY::CardPHY()
+: _callback(0)
+{
 }
 
-CardPHY::~ClientBusController() {
+CardPHY::~CardPHY() {
 
 }
 

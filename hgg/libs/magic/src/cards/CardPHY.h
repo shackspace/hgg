@@ -40,7 +40,7 @@ public:
    */
   virtual void setCardSelectCallback(cardSelectPtr ptr) = 0;
 
-	virtual bool isCardSelected() = 0
+	virtual bool isCardSelected() = 0;
 
 protected:
   cardSelectPtr _callback;

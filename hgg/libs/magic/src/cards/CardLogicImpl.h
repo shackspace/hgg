@@ -4,10 +4,10 @@
 #include "CardLogic.h"
 
 
-class DummyCardLogic : public CardLogic {
+class CardLogicImpl : public CardLogic {
 public:
-  virtual DummyCardLogic(CardPHY& phy);
-  virtual ~DummyCardLogic();
+  CardLogicImpl(CardPHY& phy);
+  virtual ~CardLogicImpl();
 
 	/// \brief the core loop doing all the work
 	virtual void loop();
@@ -17,7 +17,7 @@ public:
 		DCLS_Init, DCLS_Error
 	};
 
-	const eDCLState getState() const;
+	eDCLState getState() const;
 	const char* const getStateString() const;
 
 private:

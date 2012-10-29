@@ -21,7 +21,7 @@ typedef void (*cardSelectPtr)(void);
 /// The phyiscal implementation is handled by and all calls regarding hardware delegated to an instance of CardPHY injected at construction time
 class CardLogic {
 public:
-  virtual CardLogic(CardPHY& phy);
+  CardLogic(CardPHY& phy);
   virtual ~CardLogic();
 
 	/// \brief the core loop doing all the work
