@@ -1,3 +1,6 @@
+#ifndef _CARDPHYMOCK_H_
+#define _CARDPHYMOCK_H_
+
 #include "gmock/gmock.h"
 #include "cards/CardPHY.h"
 
@@ -14,3 +17,4 @@ public:
 };
 
 
+#endif //_CARDPHYMOCK_H_
