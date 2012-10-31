@@ -1,5 +1,5 @@
-#ifndef _DUMMYCARDLOGIC_H_
-#define _DUMMYCARDLOGIC_H_
+#ifndef _CARDLOGICIMPL_H_
+#define _CARDLOGICIMPL_H_
 
 #include "CardLogic.h"
 
@@ -28,5 +28,4 @@ private:
 };
 
 
-#endif //_DUMMYCARDLOGIC_H_
-
+#endif //_CARDLOGICIMPL_H_
