@@ -104,6 +104,14 @@ CardLogicImpl.o : $(USER_DIR)/cards/CardLogicImpl.cpp $(GMOCK_HEADERS)
 CardLogic.o : $(USER_DIR)/cards/CardLogic.cpp $(GMOCK_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/CardLogic.cpp
 
+BusmasterCardPHY.o : $(USER_DIR)/cards/BusmasterCardPHY.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardPHY.cpp
 
-test : test.o CardPHY.o CardLogicImpl.o CardLogic.o gmock_main.a
+BusmasterCardLogicImpl.o : $(USER_DIR)/cards/BusmasterCardLogicImpl.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardLogicImpl.cpp
+
+BusmasterCardLogic.o : $(USER_DIR)/cards/BusmasterCardLogic.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardLogic.cpp
+
+test : test.o CardPHY.o BusmasterCardPHY.o CardLogicImpl.o BusmasterCardLogicImpl.o CardLogic.o BusmasterCardLogic.o gmock_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -pthread $^ -o $@

@@ -9,6 +9,7 @@
  */
 
 #include "CardLogic.h"
+#include "BusmasterCardPHY.h"
 
 
 

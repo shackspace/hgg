@@ -46,7 +46,7 @@ TEST(BusmasterCardLogic, InitalStateIsInit)
 	StrictMock<BusmasterCardPHYMock> bmphy;
 	BusmasterCardLogicImpl bmcli(bmphy);	
 
-	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::CLIS_Init);
+	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Init);
 }
 
 
@@ -57,7 +57,7 @@ TEST(BusmasterCardLogic, StateTransitionFromInitToIdle)
 
 	bmcli.loop();
 
-	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::CLIS_Idle);
+	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
 
 TEST(BusmasterCardLogic, StateTransitionIdleIsSticky)
@@ -68,7 +68,7 @@ TEST(BusmasterCardLogic, StateTransitionIdleIsSticky)
 	for(int i=0; i<10; ++i)
 	{
 		bmcli.loop();
-		ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::CLIS_Idle);
+		ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 	}
 }
 

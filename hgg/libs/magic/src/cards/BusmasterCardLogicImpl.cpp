@@ -1,9 +1,9 @@
 #include "BusmasterCardLogicImpl.h"
 
 
-BusmasterCardLogicImpl::BusmasterCardLogicImpl(CardPHY& phy)
+BusmasterCardLogicImpl::BusmasterCardLogicImpl(BusmasterCardPHY& phy)
 : BusmasterCardLogic(phy)
-, _state(CLIS_Init)
+, _state(BMCLIS_Init)
 {
 }
 
@@ -15,22 +15,22 @@ void BusmasterCardLogicImpl::loop()
 {
 	switch(getState())
 	{
-	case CLIS_Init:	setState(CLIS_Idle); break;
-	case CLIS_Idle: setState(CLIS_Idle); break;
+	case BMCLIS_Init:	setState(BMCLIS_Idle); break;
+	case BMCLIS_Idle: setState(BMCLIS_Idle); break;
 
 
-	case CLIS_Error:
-	default: setState(CLIS_Error);
+	case BMCLIS_Error:
+	default: setState(BMCLIS_Error);
 	}
 }
 
 
-BusmasterCardLogicImpl::eCLIState BusmasterCardLogicImpl::getState() const
+BusmasterCardLogicImpl::eBMCLIState BusmasterCardLogicImpl::getState() const
 {
 	return _state;
 }
 
-inline void BusmasterCardLogicImpl::setState(BusmasterCardLogicImpl::eCLIState s) 
+inline void BusmasterCardLogicImpl::setState(BusmasterCardLogicImpl::eBMCLIState s) 
 {
 	_state = s;
 }
@@ -38,11 +38,11 @@ inline void BusmasterCardLogicImpl::setState(BusmasterCardLogicImpl::eCLIState s
 
 const char* const BusmasterCardLogicImpl::getStateString() const
 {
-	#define E2S_CLIS(x) case x : return #x ;
+	#define E2S_BMCLIS(x) case x : return #x ;
 	switch(getState())
 	{
-		E2S_CLIS(CLIS_Init);
-		E2S_CLIS(CLIS_Error);
+		E2S_BMCLIS(BMCLIS_Init);
+		E2S_BMCLIS(BMCLIS_Error);
 		default: return "<unknown>";
 	}
 }

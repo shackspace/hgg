@@ -10,7 +10,7 @@
 #include "BusmasterCardLogic.h"
 
 
-BusmasterCardLogic::BusmasterCardLogic(BusmasterCardPHY& phy) : CardPHY(phy), _bmphy(phy)
+BusmasterCardLogic::BusmasterCardLogic(BusmasterCardPHY& phy) : CardLogic(phy), _bmphy(phy)
 {
 }
 
