@@ -16,6 +16,7 @@ public:
 	enum eBMCLIState {
 		BMCLIS_Init,
 		BMCLIS_Error,
+		BMCLIS_Enumerate,
 		BMCLIS_Idle
 	};
 
