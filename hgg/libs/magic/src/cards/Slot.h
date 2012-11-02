@@ -35,15 +35,11 @@ public:
 	/// \brief get numeric slot ID of this slot
 	size_t getSlotID() const;
 
-protected:
-	Slot();
-	FRIEND_TEST(Slot, SetPopulated);
-	FRIEND_TEST(Slot, SetEnumerated);
-	FRIEND_TEST(Slot, SetCardID);
-	
 	void setPopulated(bool p);
 	void setEnumerated(bool e);
 	void setCardID(const char* cid);
+protected:
+	Slot();
 
 private:
 	bool _populated;
