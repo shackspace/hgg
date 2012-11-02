@@ -96,7 +96,7 @@ public:
 
 	uint16_t getPayloadSize() const;
 
-	const BusMessagePayload* getPayload() const;
+	const BusMessagePayload* const getPayload() const;
 
 	BusMessagePayload* getPayload();
 
