@@ -17,6 +17,24 @@ public:
   BusmasterCardPHY();
   virtual ~BusmasterCardPHY();
 
+	/// \brief read the status which cards are inserted from the bus
+	virtual uint8_t 			getSlotOccupiedStatus();
+
+	/// \brief set the status of the cards that are selected on the bus
+	virtual void					setSelectedSlots(uint8_t selectMask);
+
+	/// \brief sends a packet over the bus
+	virtual void					sendPacket(const BusMessage& bm);
+
+	/// \brief returns true if a new packet arrived at the phy
+	virtual bool					hasNewPacket();
+
+	/// \brief get the next message from the phy
+	virtual const BusMessage& getNextMessage();
+
+	/// \brief release the message buffer and make it available for transfer again.
+	virtual void					releaseMessageBuffer(const BusMessage& bm);
+
 };
 
 #endif // _BUSMASTERCARDPHY_H

@@ -113,5 +113,15 @@ BusmasterCardLogicImpl.o : $(USER_DIR)/cards/BusmasterCardLogicImpl.cpp $(GMOCK_
 BusmasterCardLogic.o : $(USER_DIR)/cards/BusmasterCardLogic.cpp $(GMOCK_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardLogic.cpp
 
-test : test.o CardPHY.o BusmasterCardPHY.o CardLogicImpl.o BusmasterCardLogicImpl.o CardLogic.o BusmasterCardLogic.o gmock_main.a
+Slot.o : $(USER_DIR)/cards/Slot.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/Slot.cpp
+
+Backplane.o : $(USER_DIR)/cards/Backplane.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/Backplane.cpp
+
+BusMessage.o : $(USER_DIR)/BusMessage.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/BusMessage.cpp
+
+
+test : test.o CardPHY.o BusMessage.o BusmasterCardPHY.o CardLogicImpl.o BusmasterCardLogicImpl.o CardLogic.o BusmasterCardLogic.o Backplane.o Slot.o gmock_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -pthread $^ -o $@

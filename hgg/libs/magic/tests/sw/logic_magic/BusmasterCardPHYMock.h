@@ -3,6 +3,7 @@
 
 #include "gmock/gmock.h"
 #include "cards/BusmasterCardPHY.h"
+#include "BusMessage.h"
 
 typedef void (*cardSelectPtr)(void);
 
@@ -14,6 +15,12 @@ public:
   MOCK_METHOD0(isBusRequested, bool());
   MOCK_METHOD1(setCardSelectCallback, void(cardSelectPtr ptr));
 	MOCK_METHOD0(isCardSelected, bool());
+	MOCK_METHOD0(getSlotOccupiedStatus, uint8_t());
+	MOCK_METHOD1(setSelectedSlots, void(uint8_t));
+	MOCK_METHOD1(sendPacket, void(const BusMessage&));
+	MOCK_METHOD0(hasNewPacket, bool());
+	MOCK_METHOD0(getNextMessage, const BusMessage&());
+	MOCK_METHOD1(releaseMessageBuffer, void(const BusMessage&));
 };
 
 

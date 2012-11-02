@@ -20,7 +20,7 @@ public:
 	};
 
 	eCLIState getState() const;
-	const char* const getStateString() const;
+	const char* getStateString() const;
 
 private:
 	void setState(eCLIState s);

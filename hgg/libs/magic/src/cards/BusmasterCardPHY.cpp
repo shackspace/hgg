@@ -17,4 +17,31 @@ BusmasterCardPHY::~BusmasterCardPHY() {
 
 }
 
+uint8_t BusmasterCardPHY::getSlotOccupiedStatus() 
+{
+  // not implemented.
+	return 0;
+}
+
+void BusmasterCardPHY::setSelectedSlots(uint8_t selectionMask) 
+{
+	// not implemented
+}
+
+void BusmasterCardPHY::sendPacket(const BusMessage& bm)
+{
+	// not implemented
+}
+
+bool BusmasterCardPHY::hasNewPacket()
+{
+}
+
+const BusMessage& BusmasterCardPHY::getNextMessage()
+{
+}
+
+void BusmasterCardPHY::releaseMessageBuffer(const BusMessage& bm)
+{
+}
 

@@ -25,7 +25,7 @@ public:
 	virtual void loop() = 0;
 
 
-private:
+protected:
 	BusmasterCardPHY& _bmphy;
 };
 

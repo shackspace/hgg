@@ -36,7 +36,7 @@ inline void CardLogicImpl::setState(CardLogicImpl::eCLIState s)
 }
 
 
-const char* const CardLogicImpl::getStateString() const
+const char* CardLogicImpl::getStateString() const
 {
 	#define E2S_CLIS(x) case x : return #x ;
 	switch(getState())
