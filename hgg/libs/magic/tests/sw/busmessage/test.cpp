@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 
-#include "../../src/BusMessage.h"
-#include "../../src/BusMessage.cpp"
+#include "BusMessage.h"
+#include "BusMessage.cpp"
 
 
 

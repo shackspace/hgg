@@ -50,27 +50,33 @@ TEST(BusmasterCardLogic, InitalStateIsInit)
 }
 
 
-TEST(BusmasterCardLogic, StateTransitionFromInitToIdle)
+TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 {
 	StrictMock<BusmasterCardPHYMock> bmphy;
 	BusmasterCardLogicImpl bmcli(bmphy);	
 
+  // init should go to enumeration
 	bmcli.loop();
+	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Enumerate);
 
-	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
-}
+	// the busmaster should read what cards are available at all
+	EXPECT_CALL(bmphy, 
 
-TEST(BusmasterCardLogic, StateTransitionIdleIsSticky)
-{
-	StrictMock<BusmasterCardPHYMock> bmphy;
-	BusmasterCardLogicImpl bmcli(bmphy);	
+  // enumeration should trigger enumeration of the individual cards
+	for(int i = 1; i < MAX_CARDS; i++) {
+	  EXPECT_CALL(bmphy, beginCardSelection());
+	  EXPECT_CALL(bmphy, selectCard(1));
+		EXPECT_CALL(bmphy, commitCardSelection());
+	  ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitingForEnumerationReply));
 
-	for(int i=0; i<10; ++i)
-	{
+		// TODO might loop n times here... for many n
 		bmcli.loop();
-		ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
-	}
+
+		// there is an answer to the enumeration query
+  }
+
 }
+
 
 
 int main(int argc, char** argv)

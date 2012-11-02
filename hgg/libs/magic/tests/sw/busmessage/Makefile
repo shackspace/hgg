@@ -17,15 +17,15 @@
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file, or if you want to use
 # a copy of Google Test at a different location.
-GTEST_DIR = ../../../../../thirdparty/gmock-svn/gtest
+GTEST_DIR = ../../../../../../thirdparty/gmock-svn/gtest
 
 # Points to the root of Google Mock, relative to where this file is.
 # Remember to tweak this if you move this file.
-GMOCK_DIR = ../../../../../thirdparty/gmock-svn
+GMOCK_DIR = ../../../../../../thirdparty/gmock-svn
 
 # Where to find user code.
 TEST_DIR = .
-USER_DIR = ../../src
+USER_DIR = ../../../src
 
 # Flags passed to the preprocessor.
 CPPFLAGS += -I$(GTEST_DIR)/include -I$(GMOCK_DIR)/include

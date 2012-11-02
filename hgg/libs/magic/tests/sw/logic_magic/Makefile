@@ -17,15 +17,15 @@
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file, or if you want to use
 # a copy of Google Test at a different location.
-GTEST_DIR = ../../../../../thirdparty/gmock-svn/gtest
+GTEST_DIR = ../../../../../../thirdparty/gmock-svn/gtest
 
 # Points to the root of Google Mock, relative to where this file is.
 # Remember to tweak this if you move this file.
-GMOCK_DIR = ../../../../../thirdparty/gmock-svn
+GMOCK_DIR = ../../../../../../thirdparty/gmock-svn
 
 # Where to find user code.
 TEST_DIR = .
-USER_DIR = ../../src
+USER_DIR = ../../../src
 
 # Flags passed to the preprocessor.
 CPPFLAGS += -I$(GTEST_DIR)/include -I$(GMOCK_DIR)/include
@@ -95,8 +95,23 @@ gmock_main.a : gmock-all.o gtest-all.o gmock_main.o
 test.o : $(TEST_DIR)/test.cpp $(GMOCK_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/test.cpp
 
-Slot.o : $(USER_DIR)/cards/Slot.cpp $(GMOCK_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/Slot.cpp
+CardPHY.o : $(USER_DIR)/cards/CardPHY.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/CardPHY.cpp
 
-test : test.o Slot.o gmock_main.a
+CardLogicImpl.o : $(USER_DIR)/cards/CardLogicImpl.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/CardLogicImpl.cpp
+
+CardLogic.o : $(USER_DIR)/cards/CardLogic.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/CardLogic.cpp
+
+BusmasterCardPHY.o : $(USER_DIR)/cards/BusmasterCardPHY.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardPHY.cpp
+
+BusmasterCardLogicImpl.o : $(USER_DIR)/cards/BusmasterCardLogicImpl.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardLogicImpl.cpp
+
+BusmasterCardLogic.o : $(USER_DIR)/cards/BusmasterCardLogic.cpp $(GMOCK_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardLogic.cpp
+
+test : test.o CardPHY.o BusmasterCardPHY.o CardLogicImpl.o BusmasterCardLogicImpl.o CardLogic.o BusmasterCardLogic.o gmock_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -pthread $^ -o $@
