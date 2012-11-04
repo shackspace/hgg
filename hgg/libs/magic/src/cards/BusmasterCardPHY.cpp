@@ -28,12 +28,12 @@ void BusmasterCardPHY::setSelectedSlots(uint8_t selectionMask)
 	// not implemented
 }
 
-void BusmasterCardPHY::sendPacket(const BusMessage& bm)
+void BusmasterCardPHY::sendMessage(const BusMessage& bm)
 {
 	// not implemented
 }
 
-bool BusmasterCardPHY::hasNewPacket()
+bool BusmasterCardPHY::hasNewMessage()
 {
 }
 
@@ -41,7 +41,7 @@ const BusMessage& BusmasterCardPHY::getNextMessage()
 {
 }
 
-void BusmasterCardPHY::releaseMessageBuffer(const BusMessage& bm)
+void BusmasterCardPHY::releaseMessage(const BusMessage& bm)
 {
 }
 

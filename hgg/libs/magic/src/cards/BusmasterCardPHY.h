@@ -24,16 +24,16 @@ public:
 	virtual void					setSelectedSlots(uint8_t selectMask);
 
 	/// \brief sends a packet over the bus
-	virtual void					sendPacket(const BusMessage& bm);
+	virtual void					sendMessage(const BusMessage& bm);
 
 	/// \brief returns true if a new packet arrived at the phy
-	virtual bool					hasNewPacket();
+	virtual bool					hasNewMessage();
 
 	/// \brief get the next message from the phy
 	virtual const BusMessage& getNextMessage();
 
 	/// \brief release the message buffer and make it available for transfer again.
-	virtual void					releaseMessageBuffer(const BusMessage& bm);
+	virtual void					releaseMessage(const BusMessage& bm);
 
 };
 

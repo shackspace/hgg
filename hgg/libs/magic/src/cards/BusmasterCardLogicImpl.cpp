@@ -81,7 +81,7 @@ void BusmasterCardLogicImpl::handleSendEnumerationQuery()
 	BusMessage bm(data, BMT_ENUM_QUERY);
 	bm.getPayload()->enum_query->valid_bytes = 2;
 	bm.getPayload()->enum_query->slot_number = _enumerationCounter;
-	_bmphy.sendPacket(bm);
+	_bmphy.sendMessage(bm);
 
 	// go to a state that waits for the enumeration result.
 	setState(BMCLIS_WaitForEnumerationAnswer);
@@ -89,14 +89,14 @@ void BusmasterCardLogicImpl::handleSendEnumerationQuery()
 
 void BusmasterCardLogicImpl::handleWaitForEnumerationAnswer() 
 {
-	if(!_bmphy.hasNewPacket())
+	if(!_bmphy.hasNewMessage())
 	{
 		return;
 	}
 
 	// recieve the enumeration answer
 	const BusMessage& bm = _bmphy.getNextMessage();
-	_bmphy.releaseMessageBuffer(bm);
+	_bmphy.releaseMessage(bm);
 
 	// TODO recieves ANY answer. write a test for that later...
 

@@ -82,7 +82,7 @@ TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 
 			// when the slot is empty, the card needs enumeration.
 			EXPECT_CALL(bmphy, setSelectedSlots(1 << i)).Times(1);
-			EXPECT_CALL(bmphy, sendPacket(IsEnumerationMessageForSlot(i))).Times(1);
+			EXPECT_CALL(bmphy, sendMessage(IsEnumerationMessageForSlot(i))).Times(1);
 		} else {
 			ASSERT_EQ(bmcli.getBackplane()[i].isEmpty(), true);
 		}
@@ -96,9 +96,9 @@ TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 
 		// there is an answer to the enumeration query
 		BusMessage bm;
-		EXPECT_CALL(bmphy, hasNewPacket()).Times(AtLeast(1)).WillRepeatedly(Return(true));
+		EXPECT_CALL(bmphy, hasNewMessage()).Times(AtLeast(1)).WillRepeatedly(Return(true));
 		EXPECT_CALL(bmphy, getNextMessage()).Times(1).WillOnce(ReturnRef(bm));
-		EXPECT_CALL(bmphy, releaseMessageBuffer(Ref(bm))).Times(1);
+		EXPECT_CALL(bmphy, releaseMessage(Ref(bm))).Times(1);
 		bmcli.loop();
 
 		ASSERT_EQ(bmcli.getBackplane()[i].isEnumerated(), true);

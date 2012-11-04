@@ -17,10 +17,10 @@ public:
 	MOCK_METHOD0(isCardSelected, bool());
 	MOCK_METHOD0(getSlotOccupiedStatus, uint8_t());
 	MOCK_METHOD1(setSelectedSlots, void(uint8_t));
-	MOCK_METHOD1(sendPacket, void(const BusMessage&));
-	MOCK_METHOD0(hasNewPacket, bool());
+	MOCK_METHOD1(sendMessage, void(const BusMessage&));
+	MOCK_METHOD0(hasNewMessage, bool());
 	MOCK_METHOD0(getNextMessage, const BusMessage&());
-	MOCK_METHOD1(releaseMessageBuffer, void(const BusMessage&));
+	MOCK_METHOD1(releaseMessage, void(const BusMessage&));
 };
 
 
