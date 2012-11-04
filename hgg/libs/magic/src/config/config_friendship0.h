@@ -1,0 +1,8 @@
+#ifndef _CONFIG_FRIENDSHIP0_H_
+#define _CONFIG_FRIENDSHIP0_H_
+
+#define BACKPLANE_MAX_CARDS (4)
+#define BACKPLANE_CARDS_INITIALIZER_LIST {Slot(0),Slot(1),Slot(2),Slot(3)}
+
+
+#endif // _CONFIG_FRIENDSHIP0_H_

@@ -17,7 +17,5 @@
 typedef unsigned char   uchar;
 typedef unsigned short   ushort;
 
-#define MAX_CARDS	4
-
 #endif // __INCLUDED_TYPES_H
 

@@ -62,7 +62,7 @@ fi;
 # 
 # perform unit / integration tests on the code built currently.
 # if [ "$TESTFRIENDSHIP" = "true" ]; then 
-	TESTCLASS=tests/poll_present/poll_present.o make test 2>&1 > /dev/null
+	TESTCLASS=tests/hw/poll_present/poll_present.o make test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: PISO/test ... \c"
 	if [ "$TEST" != "`echo -e '4F\r'`" ]; then
@@ -74,7 +74,7 @@ fi;
 	fi
 	echo -e "\033[32mpassed\033[0m."
 
-	TESTCLASS=tests/irq_wiredor/wiredor.o make test 2>&1 > /dev/null
+	TESTCLASS=tests/hw/irq_wiredor/wiredor.o make test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: Wired or ... \c"
 	if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
@@ -85,7 +85,7 @@ fi;
 	fi
 	echo -e "\033[32mpassed\033[0m."
 	
-	TESTCLASS=tests/irq_read/readirq.o make test 2>&1 > /dev/null
+	TESTCLASS=tests/hw/irq_read/readirq.o make test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: IRQ Register ... \c"
 	if [ "$TEST" != "`echo -e 'FE,FF\r'`" ]; then
@@ -96,7 +96,7 @@ fi;
 	fi
 	echo -e "\033[32mpassed\033[0m."
 	
-	TESTCLASS=tests/chipselect/chipselect.o make test 2>&1 > /dev/null
+	TESTCLASS=tests/hw/chipselect/chipselect.o make test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: Chipselect Register ... \c"
 	if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
@@ -108,8 +108,8 @@ fi;
 	fi
 	echo -e "\033[32mpassed\033[0m."
 	
-	TESTCLASS=tests/rs485bus/rs485bus_send.o DEVICE=/dev/ttyACM0 make test2 2>&1 > /dev/null
-	TESTCLASS=tests/rs485bus/rs485bus_recv.o DEVICE=/dev/ttyACM1 make test2 2>&1 > /dev/null
+	TESTCLASS=tests/hw/rs485bus/rs485bus_send.o DEVICE=/dev/ttyACM0 make test2 2>&1 > /dev/null
+	TESTCLASS=tests/hw/rs485bus/rs485bus_recv.o DEVICE=/dev/ttyACM1 make test2 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM1 | head -n 2 | tail -n 1`"
 	echo -e "Test: rs485 bus ... \c"
 	if [ "$TEST" != "`echo -e 'TEST\r'`" ]; then

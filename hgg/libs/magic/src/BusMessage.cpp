@@ -186,7 +186,7 @@ uint16_t BusMessage::getPayloadSize() const
 	return !_bmr ? 0 : BusMessageRaw::validPayloadBytes( _bmr );
 }
 
-const BusMessagePayload* const BusMessage::getPayload() const
+const BusMessagePayload* BusMessage::getPayload() const
 {
 	return _bmr ? _bmr->payload : 0;
 }
