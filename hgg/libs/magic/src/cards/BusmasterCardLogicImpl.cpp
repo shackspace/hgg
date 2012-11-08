@@ -4,6 +4,7 @@
 BusmasterCardLogicImpl::BusmasterCardLogicImpl(BusmasterCardPHY& phy)
 : BusmasterCardLogic(phy)
 , _state(BMCLIS_Init)
+, _busErrorCounter(0)
 {
 }
 
@@ -34,6 +35,11 @@ BusmasterCardLogicImpl::eBMCLIState BusmasterCardLogicImpl::getState() const
 inline void BusmasterCardLogicImpl::setState(BusmasterCardLogicImpl::eBMCLIState s) 
 {
 	_state = s;
+}
+
+int BusmasterCardLogicImpl::getBusErrorCount()
+{
+  return _busErrorCounter;
 }
 
 
@@ -98,7 +104,11 @@ void BusmasterCardLogicImpl::handleWaitForEnumerationAnswer()
 	const BusMessage& bm = _bmphy.getNextMessage();
 	_bmphy.releaseMessage(bm);
 
-	// TODO recieves ANY answer. write a test for that later...
+	// accept only Enumeration Replies here.
+	if(bm.getType() != BMT_ENUM_ANSWER) {
+	  _busErrorCounter++;
+	  return;
+	}
 
 	// set the card-state to enumerated.
 	_bp[_enumerationCounter].setEnumerated(true);

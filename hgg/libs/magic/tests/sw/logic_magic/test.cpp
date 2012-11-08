@@ -95,7 +95,8 @@ TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 		ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForEnumerationAnswer);
 
 		// there is an answer to the enumeration query
-		BusMessage bm;
+    uint8_t buffer[40];
+		BusMessage bm(buffer, BMT_ENUM_ANSWER);
 		EXPECT_CALL(bmphy, hasNewMessage()).Times(AtLeast(1)).WillRepeatedly(Return(true));
 		EXPECT_CALL(bmphy, getNextMessage()).Times(1).WillOnce(ReturnRef(bm));
 		EXPECT_CALL(bmphy, releaseMessage(Ref(bm))).Times(1);
@@ -106,6 +107,25 @@ TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 
 	bmcli.loop();
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
+}
+
+TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing)
+{
+	StrictMock<BusmasterCardPHYMock> bmphy;
+	BusmasterCardLogicImpl bmcli(bmphy);
+
+  // put the busmaster into the wait-for-enumeration state.
+  uint8_t buffer[40];
+  BusMessage bm(buffer, BMT_CFG_GET);
+
+  bmcli.setState(BusmasterCardLogicImpl::BMCLIS_WaitForEnumerationAnswer);
+  EXPECT_CALL(bmphy, hasNewMessage()).Times(AtLeast(1)).WillRepeatedly(Return(true));
+  EXPECT_CALL(bmphy, getNextMessage()).Times(1).WillOnce(ReturnRef(bm));
+  EXPECT_CALL(bmphy, releaseMessage(Ref(bm))).Times(1);
+  bmcli.loop();
+
+  ASSERT_EQ(bmcli.getBusErrorCount(), 1);
+  ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForEnumerationAnswer);
 }
 
 

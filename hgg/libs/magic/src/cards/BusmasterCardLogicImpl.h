@@ -38,6 +38,9 @@ protected:
 	/// \brief waits for the answer on the enumeration and handles it.
 	void				handleWaitForEnumerationAnswer();
 
+	/// \brief get the number of encountered bus errors
+	int         getBusErrorCount();
+
 private:
 	void setState(eBMCLIState s);
 	eBMCLIState _state;
@@ -45,6 +48,9 @@ private:
 	Backplane _bp;
 
 	int	_enumerationCounter;
+	int _busErrorCounter;
+
+  FRIEND_TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing);
 };
 
 
