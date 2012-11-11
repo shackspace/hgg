@@ -57,6 +57,8 @@ TEST(BusmasterCardLogic, InitalStateIsInit)
 
 
 MATCHER_P(IsEnumerationMessageForSlot, n, "Bus Message is an Enumeration Message") { return arg.getType() == BMT_ENUM_QUERY && arg.getPayload()->enum_query->slot_number == n; }
+MATCHER(IsInquiryMessage, "BusMessage is an inquiry-Message") { return arg.getType() == BMT_IRQ_INQUIRY; }
+MATCHER(IsAckMessage, "Is it an ACK Msg") { return arg.getType() == BMT_ACK; }
 
 TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 {
@@ -154,6 +156,67 @@ TEST(BusmasterCardLogic, EnumerationOfCardTimesOut)
   ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
   ASSERT_EQ(bmcli.getBackplane()[1].isEnumerated(), false);
   ASSERT_EQ(bmcli.getBusErrorCount(), 1);
+}
+
+TEST(BusmasterCardLogic, SendMessageFromCardToOtherCard)
+{
+  StrictMock<BusmasterCardPHYMock> bmphy;
+  BusmasterCardLogicImpl bmcli(bmphy);
+
+  // assume card 1 and 2 are present and enumerated.
+  bmcli.getBackplane()[1].setPopulated(true);
+  bmcli.getBackplane()[1].setEnumerated(true);
+  bmcli.getBackplane()[2].setPopulated(true);
+  bmcli.getBackplane()[2].setEnumerated(true);
+
+  // put the busmaster into idle state.
+  bmcli.setState(BusmasterCardLogicImpl::BMCLIS_Idle);
+  EXPECT_CALL(bmphy, readIsBusRequestedState()).Times(1).WillOnce(Return(true));
+
+  bmcli.loop();
+
+  // should be in preparation state now, let card 2 be the one to request the bus.
+  // should now send a message to the card in question
+  ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendBusEnquiry);
+  EXPECT_CALL(bmphy, getIRQStatus()).Times(AtLeast(1)).WillRepeatedly(Return(0x04));
+  EXPECT_CALL(bmphy, setSelectedSlots(4)).Times(1);
+  EXPECT_CALL(bmphy, sendMessage(IsInquiryMessage())).Times(AtLeast(1));
+
+  bmcli.loop();
+
+  // should now be in wait for inquiry message state.
+  ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForBusEnquiry);
+
+  uint8_t buffer[40];
+  BusMessage bm(buffer, BMT_COMM_REQUEST);
+  bm.getPayload()->comm_request->dest_address = 1;
+
+  EXPECT_CALL(bmphy, hasNewMessage()).Times(AtLeast(1)).WillRepeatedly(Return(true));
+  EXPECT_CALL(bmphy, getNextMessage()).Times(1).WillOnce(ReturnRef(bm));
+	EXPECT_CALL(bmphy, releaseMessage(Ref(bm))).Times(1);
+
+	bmcli.loop();
+
+	// go to acknowledge state.
+	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_AckBusEnquiry);
+	EXPECT_CALL(bmphy, sendMessage(IsAckMessage())).Times(AtLeast(1));
+	EXPECT_CALL(bmphy, setSelectedSlots(0x00)).Times(1);
+	EXPECT_CALL(bmphy, setSelectedSlots(0x06)).Times(1);
+
+	bmcli.loop();
+
+	// should listen to the communication and cleanup after the communication finished.
+	bm = BusMessage(buffer, BMT_DATA);
+
+	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_ListenToCommunication);
+  EXPECT_CALL(bmphy, getNextMessage()).Times(1).WillOnce(ReturnRef(bm));
+	EXPECT_CALL(bmphy, setSelectedSlots(0x00)).Times(1);
+	EXPECT_CALL(bmphy, releaseMessage(Ref(bm))).Times(1);
+
+	bmcli.loop();
+
+	// should be in idle state agian.
+  ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
 
 

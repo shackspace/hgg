@@ -20,7 +20,12 @@ public:
 		BMCLIS_SendEnumerationQuery,
 		BMCLIS_WaitForEnumerationAnswer,
 		BMCLIS_EnumerationTimeout,
-		BMCLIS_Idle
+		BMCLIS_Idle,
+		BMCLIS_SendBusEnquiry,
+		BMCLIS_WaitForBusEnquiry,
+		BMCLIS_AckBusEnquiry,
+		BMCLIS_NackBusEnquiry,
+		BMCLIS_ListenToCommunication,
 	};
 
 	eBMCLIState getState() const;
@@ -42,6 +47,21 @@ protected:
 	/// \brief cleanup after a failed enumeration.
 	void        handleEnumerationTimeout();
 
+	/// \brief handle idle state.
+	void        handleIdle();
+
+	/// \brief sends a bus enquiry message.
+	void        handleSendBusEnquiry();
+
+	/// \brief waits for an answer to a bus enquiry
+  void        handleWaitForBusEnquiry();
+
+  /// \brief acknowledge a bus enquiry and begin communication.
+  void        handleAcknowledgeBusEnquiry();
+
+  /// \brief wait until communication finishes
+  void        handleListenToCommunication();
+
 	/// \brief get the number of encountered bus errors
 	int         getBusErrorCount();
 
@@ -54,9 +74,12 @@ private:
 	int	_enumerationCounter;
 	int _busErrorCounter;
 	uint32_t _tickCountMarker;
+	uint8_t _activeCard;
+	uint8_t _target;
 
   FRIEND_TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing);
   FRIEND_TEST(BusmasterCardLogic, EnumerationOfCardTimesOut);
+  FRIEND_TEST(BusmasterCardLogic, SendMessageFromCardToOtherCard);
 };
 
 

@@ -22,6 +22,8 @@ public:
 	MOCK_METHOD0(getNextMessage, const BusMessage&());
 	MOCK_METHOD1(releaseMessage, void(const BusMessage&));
 	MOCK_METHOD0(getCurrentTicks, uint32_t());
+	MOCK_METHOD0(getIRQStatus, uint8_t());
+	MOCK_METHOD0(readIsBusRequestedState, bool());
 };
 
 
