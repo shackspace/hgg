@@ -19,6 +19,7 @@ public:
 		BMCLIS_Enumerate,
 		BMCLIS_SendEnumerationQuery,
 		BMCLIS_WaitForEnumerationAnswer,
+		BMCLIS_EnumerationTimeout,
 		BMCLIS_Idle
 	};
 
@@ -38,6 +39,9 @@ protected:
 	/// \brief waits for the answer on the enumeration and handles it.
 	void				handleWaitForEnumerationAnswer();
 
+	/// \brief cleanup after a failed enumeration.
+	void        handleEnumerationTimeout();
+
 	/// \brief get the number of encountered bus errors
 	int         getBusErrorCount();
 
@@ -49,8 +53,10 @@ private:
 
 	int	_enumerationCounter;
 	int _busErrorCounter;
+	uint32_t _tickCountMarker;
 
   FRIEND_TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing);
+  FRIEND_TEST(BusmasterCardLogic, EnumerationOfCardTimesOut);
 };
 
 

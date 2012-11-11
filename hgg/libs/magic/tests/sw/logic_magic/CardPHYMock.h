@@ -14,6 +14,7 @@ public:
   MOCK_METHOD0(isBusRequested, bool());
   MOCK_METHOD1(setCardSelectCallback, void(cardSelectPtr ptr));
 	MOCK_METHOD0(isCardSelected, bool());
+	MOCK_METHOD0(getCurrentTicks, uint32_t());
 };
 
 

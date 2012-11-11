@@ -9,6 +9,8 @@ using ::testing::Return;
 using ::testing::Ref;
 using ::testing::ReturnRef;
 using ::testing::AtLeast;
+using ::testing::NotNull;
+using ::testing::_;
 
 TEST(CardLogic, InitalStateIsInit)
 {
@@ -71,6 +73,7 @@ TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 	bmcli.loop();
 
   // enumeration should trigger enumeration of the individual cards
+  EXPECT_CALL(bmphy, getCurrentTicks()).WillRepeatedly(Return(0));
 	for(int i = 1; i < BACKPLANE_MAX_CARDS; i++)
 	{
 		ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
@@ -119,6 +122,7 @@ TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing)
   BusMessage bm(buffer, BMT_CFG_GET);
 
   bmcli.setState(BusmasterCardLogicImpl::BMCLIS_WaitForEnumerationAnswer);
+  EXPECT_CALL(bmphy, getCurrentTicks()).WillRepeatedly(Return(0));
   EXPECT_CALL(bmphy, hasNewMessage()).Times(AtLeast(1)).WillRepeatedly(Return(true));
   EXPECT_CALL(bmphy, getNextMessage()).Times(1).WillOnce(ReturnRef(bm));
   EXPECT_CALL(bmphy, releaseMessage(Ref(bm))).Times(1);
@@ -126,6 +130,30 @@ TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing)
 
   ASSERT_EQ(bmcli.getBusErrorCount(), 1);
   ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForEnumerationAnswer);
+}
+
+TEST(BusmasterCardLogic, EnumerationOfCardTimesOut)
+{
+  StrictMock<BusmasterCardPHYMock> bmphy;
+  BusmasterCardLogicImpl bmcli(bmphy);
+
+  // put the busmaster into wait for enumeration state.
+  bmcli.setState(BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
+  bmcli.getBackplane()[0].setPopulated(true);
+  EXPECT_CALL(bmphy, setSelectedSlots(_)).Times(AtLeast(1));
+  EXPECT_CALL(bmphy, sendMessage(_)).Times(1);
+  EXPECT_CALL(bmphy, getCurrentTicks()).Times(2).WillOnce(Return(0)).WillRepeatedly(Return(ENUMERATION_TIMEOUT_TICKS * 2));
+  bmcli.loop();
+  bmcli.loop();
+
+  // enumeration should be timed out now.
+  ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_EnumerationTimeout);
+
+  // looping now should enumerate the next card
+  bmcli.loop();
+  ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
+  ASSERT_EQ(bmcli.getBackplane()[1].isEnumerated(), false);
+  ASSERT_EQ(bmcli.getBusErrorCount(), 1);
 }
 
 

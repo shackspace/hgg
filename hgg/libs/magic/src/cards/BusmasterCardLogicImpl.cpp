@@ -5,6 +5,7 @@ BusmasterCardLogicImpl::BusmasterCardLogicImpl(BusmasterCardPHY& phy)
 : BusmasterCardLogic(phy)
 , _state(BMCLIS_Init)
 , _busErrorCounter(0)
+, _enumerationCounter(0)
 {
 }
 
@@ -21,6 +22,7 @@ void BusmasterCardLogicImpl::loop()
 	case BMCLIS_Enumerate: handleEnumeration(); break;
 	case BMCLIS_SendEnumerationQuery: handleSendEnumerationQuery(); break;
 	case BMCLIS_WaitForEnumerationAnswer: handleWaitForEnumerationAnswer(); break;
+	case BMCLIS_EnumerationTimeout: handleEnumerationTimeout(); break;
 
 	case BMCLIS_Error:
 	default: setState(BMCLIS_Error);}
@@ -91,10 +93,17 @@ void BusmasterCardLogicImpl::handleSendEnumerationQuery()
 
 	// go to a state that waits for the enumeration result.
 	setState(BMCLIS_WaitForEnumerationAnswer);
+	_tickCountMarker = _bmphy.getCurrentTicks();
 }
 
 void BusmasterCardLogicImpl::handleWaitForEnumerationAnswer() 
 {
+  if(_tickCountMarker + ENUMERATION_TIMEOUT_TICKS < _bmphy.getCurrentTicks()) {
+    // enumeration timeout.
+    setState(BMCLIS_EnumerationTimeout);
+    return;
+  }
+
 	if(!_bmphy.hasNewMessage())
 	{
 		return;
@@ -117,4 +126,13 @@ void BusmasterCardLogicImpl::handleWaitForEnumerationAnswer()
 	setState(BMCLIS_SendEnumerationQuery);
 }
 
+void BusmasterCardLogicImpl::handleEnumerationTimeout() {
+
+  // increase buserror counter.
+  _busErrorCounter++;
+
+  // goto next enumeration.
+	_enumerationCounter++;
+	setState(BMCLIS_SendEnumerationQuery);
+}
 

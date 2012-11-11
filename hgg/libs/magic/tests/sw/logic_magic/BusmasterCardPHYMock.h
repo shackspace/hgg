@@ -21,6 +21,7 @@ public:
 	MOCK_METHOD0(hasNewMessage, bool());
 	MOCK_METHOD0(getNextMessage, const BusMessage&());
 	MOCK_METHOD1(releaseMessage, void(const BusMessage&));
+	MOCK_METHOD0(getCurrentTicks, uint32_t());
 };
 
 
