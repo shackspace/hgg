@@ -13,12 +13,29 @@ OBJECTS=./src/BusMessage.o														\
 				./src/arch/arduino/SIPORegister.o							\
 				./src/arch/arduino/PISORegister.o							\
 
-INCLUDE=/usr/lib/avr/include
+INCLUDE=-I/usr/lib/avr/include -I. -I./src
+
+STANDARD=-std=c++0x
+DEBUG=
 
 CXX=avr-g++
 CC=avr-gcc
-CFLAGS=-I$(INCLUDE)
-CXXFLAGS=-I$(INCLUDE)
+LD=avr-ld
+CFLAGS=$(INCLUDE) $(DEBUG) $(STANDARD)
+CXXFLAGS=$(INCLUDE) $(DEBUG) $(STANDARD)
+
+.PHONY: clean
 
 all: $(OBJECTS)
 
+clean:
+	@echo "Cleaning..."
+	@rm -f $(OBJECTS)
+
+%.E: %.cpp
+	@echo "CPP $@"
+	@$(CXX) $(CXXFLAGS) -E $@ $<
+
+%.o: %.cpp
+	@echo "CXX $@"
+	@$(CXX) $(CXXFLAGS) -o $@ $<
