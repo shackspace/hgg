@@ -36,8 +36,8 @@ clean:
 
 %.E: %.cpp
 	@echo "CPP $@"
-	@$(CXX) $(CXXFLAGS) -E $@ $<
+	@$(CXX) $(CXXFLAGS) -E -o $@ $<
 
 %.o: %.cpp
 	@echo "CXX $@"
-	@$(CXX) $(CXXFLAGS) -o $@ $<
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
