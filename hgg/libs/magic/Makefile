@@ -7,11 +7,13 @@ OBJECTS=./src/BusMessage.o														\
 				./src/cards/BusmasterCardPHY.o								\
 				./src/cards/BusmasterCardLogicImpl.o					\
 				./src/cards/Backplane.o												\
-				./src/deprecated/busmaster/BusMasterCard.o		\
-				./src/deprecated/busmaster/BusMaster.o				\
-				./src/arch/arduino/RS485.o										\
-				./src/arch/arduino/SIPORegister.o							\
-				./src/arch/arduino/PISORegister.o							\
+
+
+#				./src/arch/arduino/RS485.o										\
+#				./src/arch/arduino/SIPORegister.o							\
+#				./src/arch/arduino/PISORegister.o							\
+#
+
 
 INCLUDE=-I/usr/lib/avr/include -I. -I./src
 
