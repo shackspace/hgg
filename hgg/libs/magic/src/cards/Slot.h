@@ -11,9 +11,6 @@
 #include "CardLogic.h"
 #include "BusmasterCardPHY.h"
 
-#include "gtest/gtest_prod.h"
-
-
 /// \brief holds information about the sate of a slot of the backplane and the card that might be put into it.
 class Slot {
 public:

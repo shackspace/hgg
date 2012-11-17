@@ -35,10 +35,15 @@ void BusmasterCardPHY::sendMessage(const BusMessage& bm)
 
 bool BusmasterCardPHY::hasNewMessage()
 {
+	// not implemented
+	return false;
 }
 
 const BusMessage& BusmasterCardPHY::getNextMessage()
 {
+	// not implemented
+	static const BusMessage bm;
+	return bm;
 }
 
 void BusmasterCardPHY::releaseMessage(const BusMessage& bm)
@@ -47,10 +52,12 @@ void BusmasterCardPHY::releaseMessage(const BusMessage& bm)
 
 uint8_t BusmasterCardPHY::getIRQStatus()
 {
+	// not implemented
   return 0x00;
 }
 
 bool BusmasterCardPHY::readIsBusRequestedState()
 {
+	// not implemented
   return true;
 }

@@ -12,10 +12,10 @@
 
 
 Slot::Slot(size_t sid)
-: _sid(sid)
-, _cid("[undefined]")
-, _populated(false)
+: _populated(false)
 , _enumerated(false)
+, _cid("[undefined]")
+, _sid(sid)
 {
 }
 
