@@ -8,12 +8,19 @@
 
 #include "Backplane.h"
 
+// trivial placement new
+void* operator new(size_t, uint8_t* const b) { return b; }
 
+// trivial placement delete
+void operator delete(void*, uint8_t* const) { }
 
 Backplane::Backplane()
-: _slots(BACKPLANE_CARDS_INITIALIZER_LIST)
+: _slots(reinterpret_cast<Slot*>(_slotbuf))
 {
-	
+	for(uint32_t i=0; i<BACKPLANE_MAX_CARDS; ++i)
+	{
+		new (_slotbuf+(i*sizeof(Slot))) Slot(i);
+	}
 }
 
 Backplane::~Backplane()

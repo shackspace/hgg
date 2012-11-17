@@ -26,7 +26,8 @@ public:
 
 	size_t slots() const;
 private:
-	Slot _slots[BACKPLANE_MAX_CARDS];
+	uint8_t _slotbuf[sizeof(Slot)*BACKPLANE_MAX_CARDS];
+	Slot* _slots;
 };
 
 #endif //_BACKPLANE_H
