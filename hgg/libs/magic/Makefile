@@ -32,7 +32,7 @@ all: $(OBJECTS)
 
 clean:
 	@echo "Cleaning..."
-	@rm -f $(OBJECTS)
+	@rm -f $(OBJECTS) ./src/cards/*.E ./src/*.E
 
 %.E: %.cpp
 	@echo "CPP $@"
