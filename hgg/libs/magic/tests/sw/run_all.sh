@@ -10,7 +10,7 @@ do
 		echo "Entering $DIR"
 		cd $DIR
 		echo "Building $DIR"
-		make clean all 2>/dev/null >/dev/null && ./test
+		make clean all && ./test
 		cd $ORIGINDIR
 	fi
 done

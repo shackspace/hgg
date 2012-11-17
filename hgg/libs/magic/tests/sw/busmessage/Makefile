@@ -54,7 +54,8 @@ GMOCK_HEADERS = $(GMOCK_DIR)/include/gmock/*.h \
 all : $(TESTS)
 
 clean :
-	rm -f $(TESTS) gmock.a gmock_main.a *.o
+	@echo "Cleaning..."
+	@rm -f $(TESTS) gmock.a gmock_main.a *.o
 
 # Builds gmock.a and gmock_main.a.  These libraries contain both
 # Google Mock and Google Test.  A test should link with either gmock.a
@@ -73,30 +74,38 @@ GMOCK_SRCS_ = $(GMOCK_DIR)/src/*.cc $(GMOCK_HEADERS)
 # Google Test compile fast and for ordinary users their source rarely
 # changes.
 gtest-all.o : $(GTEST_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GMOCK_DIR) $(CXXFLAGS) \
+	@echo "CXX $@"
+	@$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GMOCK_DIR) $(CXXFLAGS) \
             -c $(GTEST_DIR)/src/gtest-all.cc
 
 gmock-all.o : $(GMOCK_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GMOCK_DIR) $(CXXFLAGS) \
+	@echo "CXX $@"
+	@$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GMOCK_DIR) $(CXXFLAGS) \
             -c $(GMOCK_DIR)/src/gmock-all.cc
 
 gmock_main.o : $(GMOCK_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GMOCK_DIR) $(CXXFLAGS) \
+	@echo "CXX $@"
+	@$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GMOCK_DIR) $(CXXFLAGS) \
             -c $(GMOCK_DIR)/src/gmock_main.cc
 
 gmock.a : gmock-all.o gtest-all.o
-	$(AR) $(ARFLAGS) $@ $^
+	@echo "AR $@"
+	@$(AR) $(ARFLAGS) $@ $^
 
 gmock_main.a : gmock-all.o gtest-all.o gmock_main.o
-	$(AR) $(ARFLAGS) $@ $^
+	@echo "AR $@"
+	@$(AR) $(ARFLAGS) $@ $^
 
 # Builds a sample test.
 
 test.o : $(TEST_DIR)/test.cpp $(GMOCK_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/test.cpp
+	@echo "CXX $@"
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/test.cpp
 
 Slot.o : $(USER_DIR)/cards/Slot.cpp $(GMOCK_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/Slot.cpp
+	@echo "CXX $@"
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/Slot.cpp
 
 test : test.o Slot.o gmock_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -pthread $^ -o $@
+	@echo "LD $@"
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -pthread $^ -o $@
