@@ -4,9 +4,10 @@
 BusmasterCardLogicImpl::BusmasterCardLogicImpl(BusmasterCardPHY& phy)
 : BusmasterCardLogic(phy)
 , _state(BMCLIS_Init)
-, _busErrorCounter(0)
 , _enumerationCounter(0)
+, _busErrorCounter(0)
 , _activeCard(0)
+, _target(0)
 {
 }
 
@@ -142,8 +143,8 @@ void BusmasterCardLogicImpl::handleListenToCommunication()
 
 void BusmasterCardLogicImpl::handleEnumeration() 
 {
-	int slots = _bmphy.getSlotOccupiedStatus();	
-	for(int i=0;i<BACKPLANE_MAX_CARDS;i++) {
+	uint32_t slots = _bmphy.getSlotOccupiedStatus();	
+	for(uint32_t i=0;i<BACKPLANE_MAX_CARDS;i++) {
 		_bp[i].setPopulated( (slots & (1 << i)) );
 }
 

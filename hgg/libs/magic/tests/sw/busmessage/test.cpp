@@ -38,7 +38,7 @@ TEST(BusMessage, MessageTypes)
 /// \brief ensure BusMessage size without considering actual message types is correct
 TEST(BusMessage, BusMessageRawSize)
 {
-	ASSERT_EQ(sizeof(BusMessageRaw), 3);
+	ASSERT_EQ(sizeof(BusMessageRaw), 3U);
 }
 
 /// \brief ensure structure initialization works
@@ -51,7 +51,7 @@ TEST(BusMessage, Initialization)
 
 	ASSERT_EQ(enum_answer.isMessage(), true);
 	ASSERT_EQ(enum_answer.hasPayload(), true);
-	ASSERT_EQ(sizeof(buf), 39);
+	ASSERT_EQ(sizeof(buf), 39U);
 	ASSERT_EQ(enum_answer.type, BMT_ENUM_ANSWER);
 	ASSERT_EQ(enum_answer.validPayloadBytes(), 0);
 }

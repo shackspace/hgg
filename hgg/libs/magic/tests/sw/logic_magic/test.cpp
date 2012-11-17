@@ -76,7 +76,7 @@ TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 
   // enumeration should trigger enumeration of the individual cards
   EXPECT_CALL(bmphy, getCurrentTicks()).WillRepeatedly(Return(0));
-	for(int i = 1; i < BACKPLANE_MAX_CARDS; i++)
+	for(size_t i = 1; i < BACKPLANE_MAX_CARDS; i++)
 	{
 		ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
 

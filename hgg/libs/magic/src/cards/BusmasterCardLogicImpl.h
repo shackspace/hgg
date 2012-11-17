@@ -4,6 +4,10 @@
 #include "BusmasterCardLogic.h"
 #include "Backplane.h"
 
+#ifdef HGG_TESTING
+#include <gtest/gtest_prod.h>
+#endif //HGG_TESTING
+
 class BusmasterCardLogicImpl : public BusmasterCardLogic {
 public:
 	BusmasterCardLogicImpl(BusmasterCardPHY& phy);
@@ -71,15 +75,17 @@ private:
 
 	Backplane _bp;
 
-	int	_enumerationCounter;
-	int _busErrorCounter;
+	uint32_t	_enumerationCounter;
+	uint32_t _busErrorCounter;
 	uint32_t _tickCountMarker;
 	uint8_t _activeCard;
 	uint8_t _target;
 
+#ifdef HGG_TESTING
   FRIEND_TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing);
   FRIEND_TEST(BusmasterCardLogic, EnumerationOfCardTimesOut);
   FRIEND_TEST(BusmasterCardLogic, SendMessageFromCardToOtherCard);
+#endif //HGG_TESTING
 };
 
 

@@ -4,8 +4,6 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <vector>
-
 enum eBusMessageType : uint8_t
 {
 	BMT_INVALID = 0,
