@@ -42,6 +42,12 @@ public:
 
 	virtual bool isCardSelected() = 0;
 
+	/**
+	 * get the current ticks which is time units since startup.
+	 */
+	virtual uint32_t getCurrentTicks() = 0;
+
+
 protected:
   cardSelectPtr _callback;
 };

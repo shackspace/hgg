@@ -24,6 +24,9 @@ public:
 	/// \brief the core loop doing all the work
 	virtual void loop() = 0;
 
+	/// \brief returns the amount of buserrors the busmaster encountered.
+	virtual int  getBusErrorCount() = 0;
+
 
 protected:
 	BusmasterCardPHY& _bmphy;

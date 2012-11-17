@@ -35,6 +35,13 @@ public:
 	/// \brief release the message buffer and make it available for transfer again.
 	virtual void					releaseMessage(const BusMessage& bm);
 
+	/// \brief get the irq state.
+	virtual uint8_t       getIRQStatus();
+
+	/// \brief get IRQ state. returns true when any car requests the bus.
+	virtual bool          readIsBusRequestedState();
+
+
 };
 
 #endif // _BUSMASTERCARDPHY_H

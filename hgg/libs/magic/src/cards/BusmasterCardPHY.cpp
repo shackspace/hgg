@@ -45,3 +45,12 @@ void BusmasterCardPHY::releaseMessage(const BusMessage& bm)
 {
 }
 
+uint8_t BusmasterCardPHY::getIRQStatus()
+{
+  return 0x00;
+}
+
+bool BusmasterCardPHY::readIsBusRequestedState()
+{
+  return true;
+}
