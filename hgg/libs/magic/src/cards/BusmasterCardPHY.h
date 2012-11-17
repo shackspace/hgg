@@ -17,10 +17,10 @@ public:
   BusmasterCardPHY();
   virtual ~BusmasterCardPHY();
 
-	/// \brief read the status which cards are inserted from the bus
+	/// \brief read the status which cards are inserted from the bus, returns bitmask of BACKPLANE_MASK_SLOT_<n>
 	virtual uint8_t 			getSlotOccupiedStatus();
 
-	/// \brief set the status of the cards that are selected on the bus
+	/// \brief set the status of the cards that are selected on the bus, accepts bitmask of BACKPLANE_MASK_SLOT_<n>
 	virtual void					setSelectedSlots(uint8_t selectMask);
 
 	/// \brief sends a packet over the bus
