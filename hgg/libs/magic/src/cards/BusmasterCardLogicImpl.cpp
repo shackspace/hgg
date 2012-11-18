@@ -146,7 +146,7 @@ void BusmasterCardLogicImpl::handleEnumeration()
 	uint32_t slots = _bmphy.getSlotOccupiedStatus();	
 	for(uint32_t i=0;i<BACKPLANE_MAX_CARDS;i++) {
 		_bp[i].setPopulated( (slots & (1 << i)) );
-}
+	}
 
 	// begin enumeration, assume that the busmaster is present in slot 0 and begin with slot 1.
 	_enumerationCounter = 1;

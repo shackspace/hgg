@@ -85,6 +85,26 @@ private:
   FRIEND_TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing);
   FRIEND_TEST(BusmasterCardLogic, EnumerationOfCardTimesOut);
   FRIEND_TEST(BusmasterCardLogic, SendMessageFromCardToOtherCard);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_Init_Enumerate);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_Idle_Idle);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_Idle_SendBusEnquiry);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_Idle);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_Idle__DoNotReactOnBusMasterIRQStateBit);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_WaitForBusEnquiry);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_WaitForBusEnquiry_WaitForBusEnquiry);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_WaitForbusEnquiry_AckBusEnquiry);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_AckBusEnquiry_ListenToCommunication);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_ListenToCommunication_ListenToCommunication);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_ListenToCommunication_Idle);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_Enumerate_SendEnumerationQuery);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_Idle);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_WaitForEnumerationAnswer);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_WaitForEnumerationAnswer_WaitForEnumerationAnswer);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_WaitForEnumerationAnswer_SendEnumerationQuery);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_WaitForEnumerationAnswer_EnumerationTimeout);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_SendEnumerationQuery);
+	FRIEND_TEST(BusmasterCardLogic, StateTransition_EnumerationTimeout_SendEnumerationQuery);
+
 #endif //HGG_TESTING
 };
 
