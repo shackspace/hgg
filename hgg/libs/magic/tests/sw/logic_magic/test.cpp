@@ -117,6 +117,9 @@ TEST(BusmasterCardLogic, StateTransitionFromInitToEnumerate)
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
 
+
+
+
 TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing)
 {
 	StrictMock<BusmasterCardPHYMock> bmphy;
@@ -136,6 +139,9 @@ TEST(BusmasterCardLogic, EnumerationFailureWhenEnumerationAnswerIsMissing)
   ASSERT_EQ(bmcli.getBusErrorCount(), 1);
   ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForEnumerationAnswer);
 }
+
+
+
 
 TEST(BusmasterCardLogic, EnumerationOfCardTimesOut)
 {
@@ -160,6 +166,9 @@ TEST(BusmasterCardLogic, EnumerationOfCardTimesOut)
   ASSERT_EQ(bmcli.getBackplane()[1].isEnumerated(), false);
   ASSERT_EQ(bmcli.getBusErrorCount(), 1);
 }
+
+
+
 
 TEST(BusmasterCardLogic, SendMessageFromCardToOtherCard)
 {
@@ -222,6 +231,9 @@ TEST(BusmasterCardLogic, SendMessageFromCardToOtherCard)
   ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
 
+
+
+
 TEST(BusmasterCardLogic, StateTransition_Init_Enumerate)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -233,6 +245,9 @@ TEST(BusmasterCardLogic, StateTransition_Init_Enumerate)
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Enumerate);
 }
+
+
+
 
 TEST(BusmasterCardLogic, StateTransition_Idle_Idle)
 {
@@ -246,6 +261,10 @@ TEST(BusmasterCardLogic, StateTransition_Idle_Idle)
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
+
+
+
+
 TEST(BusmasterCardLogic, StateTransition_Idle_SendBusEnquiry)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -259,6 +278,9 @@ TEST(BusmasterCardLogic, StateTransition_Idle_SendBusEnquiry)
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendBusEnquiry);
 }
 
+
+
+
 TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_Idle)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -271,6 +293,10 @@ TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_Idle)
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
+
+
+
+
 TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_Idle__DoNotReactOnBusMasterIRQStateBit)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -283,6 +309,10 @@ TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_Idle__DoNotReactOnBusMas
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
+
+
+
+
 TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_WaitForBusEnquiry)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -298,6 +328,10 @@ TEST(BusmasterCardLogic, StateTransition_SendBusEnquiry_WaitForBusEnquiry)
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForBusEnquiry);
 }
 
+
+
+
+
 TEST(BusmasterCardLogic, StateTransition_WaitForBusEnquiry_WaitForBusEnquiry)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -310,6 +344,9 @@ TEST(BusmasterCardLogic, StateTransition_WaitForBusEnquiry_WaitForBusEnquiry)
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForBusEnquiry);
 }
+
+
+
 TEST(BusmasterCardLogic, StateTransition_WaitForbusEnquiry_AckBusEnquiry)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -328,6 +365,9 @@ TEST(BusmasterCardLogic, StateTransition_WaitForbusEnquiry_AckBusEnquiry)
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_AckBusEnquiry);
 }
 
+
+
+
 TEST(BusmasterCardLogic, StateTransition_AckBusEnquiry_ListenToCommunication)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -345,6 +385,9 @@ TEST(BusmasterCardLogic, StateTransition_AckBusEnquiry_ListenToCommunication)
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_ListenToCommunication);
 }
 
+
+
+
 TEST(BusmasterCardLogic, StateTransition_ListenToCommunication_ListenToCommunication)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -357,6 +400,10 @@ TEST(BusmasterCardLogic, StateTransition_ListenToCommunication_ListenToCommunica
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_ListenToCommunication);
 }
+
+
+
+
 TEST(BusmasterCardLogic, StateTransition_ListenToCommunication_Idle)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -376,6 +423,9 @@ TEST(BusmasterCardLogic, StateTransition_ListenToCommunication_Idle)
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
 
+
+
+
 TEST(BusmasterCardLogic, StateTransition_Enumerate_SendEnumerationQuery)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -388,6 +438,9 @@ TEST(BusmasterCardLogic, StateTransition_Enumerate_SendEnumerationQuery)
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
 }
+
+
+
 
 TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_Idle)
 {
@@ -408,6 +461,10 @@ TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_Idle)
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_Idle);
 }
+
+
+
+
 TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_WaitForEnumerationAnswer)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -432,6 +489,9 @@ TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_WaitForEnumeration
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForEnumerationAnswer);
 }
 
+
+
+
 TEST(BusmasterCardLogic, StateTransition_WaitForEnumerationAnswer_WaitForEnumerationAnswer)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -445,6 +505,9 @@ TEST(BusmasterCardLogic, StateTransition_WaitForEnumerationAnswer_WaitForEnumera
 
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_WaitForEnumerationAnswer);
 }
+
+
+
 
 TEST(BusmasterCardLogic, StateTransition_WaitForEnumerationAnswer_SendEnumerationQuery)
 {
@@ -472,8 +535,14 @@ TEST(BusmasterCardLogic, StateTransition_WaitForEnumerationAnswer_SendEnumeratio
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
 }
 
+
+
+
 // TEST(BusmasterCardLogic, StateTransition_WaitForEnumerationAnswer_EnumerationTimeout)
 // Tested in EnumerationOfCardTimesOut
+
+
+
 
 TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_SendEnumerationQuery)
 {
@@ -497,6 +566,9 @@ TEST(BusmasterCardLogic, StateTransition_SendEnumerationQuery_SendEnumerationQue
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
 }
 
+
+
+
 TEST(BusmasterCardLogic, StateTransition_EnumerationTimeout_SendEnumerationQuery)
 {
   StrictMock<BusmasterCardPHYMock> bmphy;
@@ -511,6 +583,9 @@ TEST(BusmasterCardLogic, StateTransition_EnumerationTimeout_SendEnumerationQuery
 	ASSERT_EQ(bmcli._busErrorCounter, 1U);
 	ASSERT_EQ(bmcli.getState(), BusmasterCardLogicImpl::BMCLIS_SendEnumerationQuery);
 }
+
+
+
 
 int main(int argc, char** argv)
 {
