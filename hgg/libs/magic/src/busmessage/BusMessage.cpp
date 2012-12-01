@@ -1,4 +1,4 @@
-#include "BusMessage.h"
+#include "busmessage/BusMessage.h"
 
 #pragma pack(1)
 struct BusMessageRaw

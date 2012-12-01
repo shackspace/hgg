@@ -1,4 +1,4 @@
-#include "BusmasterCardLogicImpl.h"
+#include "cards/BusmasterCardLogicImpl.h"
 
 
 BusmasterCardLogicImpl::BusmasterCardLogicImpl(BusmasterCardPHY& phy)

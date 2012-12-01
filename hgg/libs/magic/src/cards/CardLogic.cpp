@@ -7,7 +7,7 @@
  */
 
 #include "types.h"
-#include "CardLogic.h"
+#include "cards/CardLogic.h"
 
 
 CardLogic::CardLogic(CardPHY& phy) : _phy(phy)

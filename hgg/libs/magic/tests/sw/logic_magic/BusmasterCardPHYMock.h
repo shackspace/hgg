@@ -3,7 +3,7 @@
 
 #include "gmock/gmock.h"
 #include "cards/BusmasterCardPHY.h"
-#include "BusMessage.h"
+#include "busmessage/BusMessage.h"
 
 typedef void (*cardSelectPtr)(void);
 

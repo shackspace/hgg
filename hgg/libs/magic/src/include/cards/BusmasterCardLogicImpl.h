@@ -2,7 +2,7 @@
 #define _BUSMASTERCARDLOGIC_H_
 
 #include "BusmasterCardLogic.h"
-#include "Backplane.h"
+#include "backplane/Backplane.h"
 
 #ifdef HGG_TESTING
 #include <gtest/gtest_prod.h>

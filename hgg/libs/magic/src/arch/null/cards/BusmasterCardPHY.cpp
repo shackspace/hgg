@@ -6,7 +6,7 @@
  * information see http://hgg.aero
  */
 
-#include "BusmasterCardPHY.h"
+#include "cards/BusmasterCardPHY.h"
 
 
 BusmasterCardPHY::BusmasterCardPHY()

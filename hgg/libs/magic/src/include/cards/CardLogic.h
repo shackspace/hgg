@@ -9,7 +9,7 @@
  */
 
 #include "types.h"
-#include "BusMessage.h"
+#include "busmessage/BusMessage.h"
 #include "CardPHY.h"
 
 

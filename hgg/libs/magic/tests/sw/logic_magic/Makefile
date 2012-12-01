@@ -29,7 +29,7 @@ USER_DIR = ../../../src
 
 # Flags passed to the preprocessor.
 CPPFLAGS += -I$(GTEST_DIR)/include -I$(GMOCK_DIR)/include
-CPPFLAGS += -I$(USER_DIR) -I$(TEST_DIR)
+CPPFLAGS += -I$(USER_DIR)/include -I$(TEST_DIR)
 # Flags passed to the C++ compiler.
 CXXFLAGS += -g -Wall -Wextra -std=c++0x -DHGG_TESTING
 
@@ -102,9 +102,9 @@ test.o : $(TEST_DIR)/test.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/test.cpp
 
-CardPHY.o : $(USER_DIR)/cards/CardPHY.cpp $(GMOCK_HEADERS)
+CardPHY.o : $(USER_DIR)/arch/null/cards/CardPHY.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
-	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/CardPHY.cpp
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/arch/null/cards/CardPHY.cpp
 
 CardLogicImpl.o : $(USER_DIR)/cards/CardLogicImpl.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
@@ -114,9 +114,9 @@ CardLogic.o : $(USER_DIR)/cards/CardLogic.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/CardLogic.cpp
 
-BusmasterCardPHY.o : $(USER_DIR)/cards/BusmasterCardPHY.cpp $(GMOCK_HEADERS)
+BusmasterCardPHY.o : $(USER_DIR)/arch/null/cards/BusmasterCardPHY.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
-	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardPHY.cpp
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/arch/null/cards/BusmasterCardPHY.cpp
 
 BusmasterCardLogicImpl.o : $(USER_DIR)/cards/BusmasterCardLogicImpl.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
@@ -126,17 +126,17 @@ BusmasterCardLogic.o : $(USER_DIR)/cards/BusmasterCardLogic.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/BusmasterCardLogic.cpp
 
-Slot.o : $(USER_DIR)/cards/Slot.cpp $(GMOCK_HEADERS)
+Slot.o : $(USER_DIR)/backplane/Slot.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
-	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/Slot.cpp
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/backplane/Slot.cpp
 
-Backplane.o : $(USER_DIR)/cards/Backplane.cpp $(GMOCK_HEADERS)
+Backplane.o : $(USER_DIR)/backplane/Backplane.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
-	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/Backplane.cpp
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/backplane/Backplane.cpp
 
-BusMessage.o : $(USER_DIR)/BusMessage.cpp $(GMOCK_HEADERS)
+BusMessage.o : $(USER_DIR)/busmessage/BusMessage.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
-	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/BusMessage.cpp
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/busmessage/BusMessage.cpp
 
 
 test : test.o CardPHY.o BusMessage.o BusmasterCardPHY.o CardLogicImpl.o BusmasterCardLogicImpl.o CardLogic.o BusmasterCardLogic.o Backplane.o Slot.o gmock_main.a

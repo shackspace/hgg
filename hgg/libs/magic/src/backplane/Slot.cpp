@@ -7,7 +7,7 @@
  * information see http://hgg.aero
  */
 
-#include "Slot.h"
+#include "backplane/Slot.h"
 
 
 

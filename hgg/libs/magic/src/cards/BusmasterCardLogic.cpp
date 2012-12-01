@@ -7,7 +7,7 @@
  */
 
 #include "types.h"
-#include "BusmasterCardLogic.h"
+#include "cards/BusmasterCardLogic.h"
 
 
 BusmasterCardLogic::BusmasterCardLogic(BusmasterCardPHY& phy) : CardLogic(phy), _bmphy(phy)

@@ -7,7 +7,7 @@
  */
 
 #include "types.h"
-#include "CardPHY.h"
+#include "cards/CardPHY.h"
 
 typedef void (*cardSelectPtr)(void);
 

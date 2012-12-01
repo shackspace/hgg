@@ -29,7 +29,7 @@ USER_DIR = ../../../src
 
 # Flags passed to the preprocessor.
 CPPFLAGS += -I$(GTEST_DIR)/include -I$(GMOCK_DIR)/include
-CPPFLAGS += -I$(USER_DIR) -I$(TEST_DIR)
+CPPFLAGS += -I$(USER_DIR)/include -I$(TEST_DIR)
 # Flags passed to the C++ compiler.
 CXXFLAGS += -g -Wall -Wextra -std=c++0x -DHGG_TESTING
 
@@ -102,9 +102,9 @@ test.o : $(TEST_DIR)/test.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/test.cpp
 
-Slot.o : $(USER_DIR)/cards/Slot.cpp $(GMOCK_HEADERS)
+Slot.o : $(USER_DIR)/backplane/Slot.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
-	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/Slot.cpp
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/backplane/Slot.cpp
 
 test : test.o Slot.o gmock_main.a
 	@echo "LD $@"

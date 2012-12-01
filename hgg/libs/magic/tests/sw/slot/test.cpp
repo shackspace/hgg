@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "cards/Slot.h"
+#include "backplane/Slot.h"
 
 TEST(Slot, Initialization)
 {

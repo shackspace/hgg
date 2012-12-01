@@ -1,4 +1,4 @@
-#include "CardLogicImpl.h"
+#include "cards/CardLogicImpl.h"
 
 
 CardLogicImpl::CardLogicImpl(CardPHY& phy)
