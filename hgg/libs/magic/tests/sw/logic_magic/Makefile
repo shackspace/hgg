@@ -102,9 +102,9 @@ test.o : $(TEST_DIR)/test.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/test.cpp
 
-CardPHY.o : $(USER_DIR)/arch/null/cards/CardPHY.cpp $(GMOCK_HEADERS)
+CardPHY.o : $(USER_DIR)/arch/null/null/cards/CardPHY.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
-	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/arch/null/cards/CardPHY.cpp
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/arch/null/null/cards/CardPHY.cpp
 
 CardLogicImpl.o : $(USER_DIR)/cards/CardLogicImpl.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
@@ -114,9 +114,9 @@ CardLogic.o : $(USER_DIR)/cards/CardLogic.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/cards/CardLogic.cpp
 
-BusmasterCardPHY.o : $(USER_DIR)/arch/null/cards/BusmasterCardPHY.cpp $(GMOCK_HEADERS)
+BusmasterCardPHY.o : $(USER_DIR)/arch/null/null/cards/BusmasterCardPHY.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
-	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/arch/null/cards/BusmasterCardPHY.cpp
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/arch/null/null/cards/BusmasterCardPHY.cpp
 
 BusmasterCardLogicImpl.o : $(USER_DIR)/cards/BusmasterCardLogicImpl.cpp $(GMOCK_HEADERS)
 	@echo "CXX $@"
