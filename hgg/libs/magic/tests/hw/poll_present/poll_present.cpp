@@ -2,7 +2,7 @@
 // output register state to serial port
 
 #include <Arduino.h>
-#include <arch/PISORegister.h>
+#include "hal/PISORegister.h"
 
 PISORegister piso(47, 46, 51);
 

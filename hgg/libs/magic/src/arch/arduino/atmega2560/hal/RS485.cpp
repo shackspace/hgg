@@ -6,7 +6,7 @@
  * information see http://hgg.aero
  */
 
-#include "../RS485.h"
+#include "hal/RS485.h"
 #include "types.h"
 
 
