@@ -42,27 +42,28 @@ fi;
 # perform configuration, copy the correct buildfile
 if [ "$1" = "arduino" ]; then
   echo "  ... configuring arduino."
-  cp system/makefile.arduino /tmp/makefile.generated
+  cp system/Makefile.arduino /tmp/Makefile.generated
 
   echo "  ... patching the configuration."
-  sed 's/\%CPUSTRING\%/'$CPU'/' /tmp/makefile.generated > /tmp/makefile.1
-  mv /tmp/makefile.1 /tmp/makefile.generated
+  sed 's/\%CPUSTRING\%/'$CPU'/' /tmp/Makefile.generated > /tmp/Makefile.1
+  mv /tmp/Makefile.1 /tmp/Makefile.generated
 ARDUINOHOME="\/usr\/share\/arduino\/"
-  sed 's/\%ARDUINOHOME\%/'$ARDUINOHOME'/' /tmp/makefile.generated > /tmp/makefile.1
-  mv /tmp/makefile.1 /tmp/makefile.generated
-  sed 's/\%SPEED\%/'$SPEED'/' /tmp/makefile.generated > /tmp/makefile.1
-  mv /tmp/makefile.1 /tmp/makefile.generated
+  sed 's/\%ARDUINOHOME\%/'$ARDUINOHOME'/' /tmp/Makefile.generated > /tmp/Makefile.1
+  mv /tmp/Makefile.1 /tmp/Makefile.generated
+  sed 's/\%SPEED\%/'$SPEED'/' /tmp/Makefile.generated > /tmp/Makefile.1
+  mv /tmp/Makefile.1 /tmp/Makefile.generated
 
-  mv /tmp/makefile.generated makefile.generated
+  mv /tmp/Makefile.generated Makefile.generated
 
-  make -f makefile.generated clean
-  make -f makefile.generated lib
+  make -f Makefile.generated clean
+  #make -f Makefile.generated lib
+  make -f Makefile.generated arduino_lib
 fi;
 
 # 
 # perform unit / integration tests on the code built currently.
 # if [ "$TESTFRIENDSHIP" = "true" ]; then 
-	TESTCLASS=tests/hw/poll_present/poll_present.o make test 2>&1 > /dev/null
+	TESTCLASS=tests/hw/poll_present/poll_present.o make -f Makefile.generated test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: PISO/test ... \c"
 	if [ "$TEST" != "`echo -e '4F\r'`" ]; then
@@ -74,7 +75,7 @@ fi;
 	fi
 	echo -e "\033[32mpassed\033[0m."
 
-	TESTCLASS=tests/hw/irq_wiredor/wiredor.o make test 2>&1 > /dev/null
+	TESTCLASS=tests/hw/irq_wiredor/wiredor.o make -f Makefile.generated test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: Wired or ... \c"
 	if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
@@ -85,7 +86,7 @@ fi;
 	fi
 	echo -e "\033[32mpassed\033[0m."
 	
-	TESTCLASS=tests/hw/irq_read/readirq.o make test 2>&1 > /dev/null
+	TESTCLASS=tests/hw/irq_read/readirq.o make -f Makefile.generated test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: IRQ Register ... \c"
 	if [ "$TEST" != "`echo -e 'FE,FF\r'`" ]; then
@@ -96,7 +97,7 @@ fi;
 	fi
 	echo -e "\033[32mpassed\033[0m."
 	
-	TESTCLASS=tests/hw/chipselect/chipselect.o make test 2>&1 > /dev/null
+	TESTCLASS=tests/hw/chipselect/chipselect.o make -f Makefile.generated test 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM0 | head -n 2 | tail -n 1`"
 	echo -e "Test: Chipselect Register ... \c"
 	if [ "$TEST" != "`echo -e 'OK\r'`" ]; then
@@ -108,8 +109,8 @@ fi;
 	fi
 	echo -e "\033[32mpassed\033[0m."
 	
-	TESTCLASS=tests/hw/rs485bus/rs485bus_send.o DEVICE=/dev/ttyACM0 make test2 2>&1 > /dev/null
-	TESTCLASS=tests/hw/rs485bus/rs485bus_recv.o DEVICE=/dev/ttyACM1 make test2 2>&1 > /dev/null
+	TESTCLASS=tests/hw/rs485bus/rs485bus_send.o DEVICE=/dev/ttyACM0 make -f Makefile.generated test2 2>&1 > /dev/null
+	TESTCLASS=tests/hw/rs485bus/rs485bus_recv.o DEVICE=/dev/ttyACM1 make -f Makefile.generated test2 2>&1 > /dev/null
 	TEST="`cat /dev/ttyACM1 | head -n 2 | tail -n 1`"
 	echo -e "Test: rs485 bus ... \c"
 	if [ "$TEST" != "`echo -e 'TEST\r'`" ]; then
