@@ -1,19 +1,3 @@
-OBJECTS_ATMEGA2560=./src/BusMessage.o														\
-				./src/cards/CardLogic.o												\
-				./src/cards/BusmasterCardLogic.o							\
-				./src/cards/CardLogicImpl.o										\
-				./src/cards/Slot.o														\
-				./src/cards/CardPHY.o													\
-				./src/cards/BusmasterCardPHY.o								\
-				./src/cards/BusmasterCardLogicImpl.o					\
-				./src/cards/Backplane.o												\
-
-
-#				./src/arch/arduino/RS485.o										\
-#				./src/arch/arduino/SIPORegister.o							\
-#				./src/arch/arduino/PISORegister.o							\
-#
-
 
 TARGETSPEED=16000000
 VARIANT=mega
@@ -21,16 +5,45 @@ CPUTYPE=atmega2560
 HARDWARE=__AVR_ATmega2560__
 ARCHITECTURE=arduino
 
+TARGET=$(ARCHITECTURE)_$(CPUTYPE)
+OUT=busmaster.$(TARGET).a
 
-INCLUDE=-I/usr/lib/avr/include -I. -I./src
+OBJECTS_COMMON=\
+				./src/busmessage/BusMessage.o									\
+				./src/cards/CardLogic.o												\
+				./src/cards/BusmasterCardLogic.o							\
+				./src/cards/CardLogicImpl.o										\
+				./src/cards/BusmasterCardLogicImpl.o					\
+				./src/backplane/Slot.o												\
+				./src/backplane/Backplane.o										\
+
+
+OBJECTS_ARCH=\
+				./src/arch/$(ARCHITECTURE)/$(CPUTYPE)/cards/CardPHY.o				\
+				./src/arch/$(ARCHITECTURE)/$(CPUTYPE)/cards/BusmasterCardPHY.o		\
+				./src/arch/$(ARCHITECTURE)/$(CPUTYPE)/hal/RS485.o						\
+				./src/arch/$(ARCHITECTURE)/$(CPUTYPE)/hal/SIPORegister.o		\
+				./src/arch/$(ARCHITECTURE)/$(CPUTYPE)/hal/PISORegister.o		\
+
+
+OBJECTS=$(OBJECTS_COMMON) $(OBJECTS_ARCH)
+
+ARDUINO_INCLUDES=-I../../../thirdparty/arduino/libs/hardware/arduino/cores/arduino/ -I../../../thirdparty/arduino/libs/hardware/arduino/variants/mega/
+
+ARCHITECTURE_INCLUDES=
+
+ifeq ($(ARCHITECTURE),arduino)
+ARCHITECTURE_INCLUDES+= $(ARDUINO_INCLUDES)
+endif
+
+INCLUDE=-I/usr/lib/avr/include -I./src/include $(ARCHITECTURE_INCLUDES)
 
 STANDARD=-std=c++0x
 DEBUG=
 WARNING=-Wall
 OPTIONS=-Os -Wl,--gc-sections -w -fno-exceptions -ffunction-sections -fdata-sections
 
-PLATFORM=-mmcu=$(CPUTYPE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED)
-#-Darch$(ARCHITECTURE)
+PLATFORM=-mmcu=$(CPUTYPE) -D$(HARDWARE) -DF_CPU=$(TARGETSPEED) -Darch$(ARCHITECTURE)
 
 CXX=avr-g++
 CC=avr-gcc
@@ -43,24 +56,30 @@ CXXFLAGS=$(CFLAGS)
 
 .PHONY: clean
 
-#all: busmaster_atmega2560.hex
-all: $(OBJECTS_ATMEGA2560)
+all: $(OUT)
 
 clean:
 	@echo "Cleaning..."
-	@rm -f $(OBJECTS_ATMEGA2560) ./src/cards/*.E ./src/*.E
+	@rm -f $(OUT) $(OBJECTS)
 
-%.E: %.cpp
-	@echo "CPP $@"
-	$(CXX) $(CXXFLAGS) -E -o $@ $<
+#%.E: %.cpp
+#	@echo "CPP $@"
+#	$(CXX) $(CXXFLAGS) -E -o $@ $<
+
+
+#busmaster.arduino_atmega2560.bin: $(OBJECTS)
+#	@echo "CC $@"
+#	@$(CC) $(CXXFLAGS)  -o $@ -mavr6 $< -lm
+
+busmaster.arduino_atmega2560.a: $(OBJECTS)
+	@echo "AR $@"
+	@$(AR) r $@ $<
 
 %.o: %.cpp
 	@echo "CXX $@"
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-
-busmaster_atmega2560.hex: $(OBJECTS_ATMEGA2560)
-	$(CC) $(CXXFLAGS)  -o busmaster_atmega2560.bin -mavr6 $< -lm
-	$(OBJCOPY) -O ihex -R.eeprom busmaster_atmega2560.bin busmaster_atmega2560.hex
-
+#%.hex: %.bin
+#	@echo "OBJCOPY $@"
+#	@$(OBJCOPY) -O ihex -R.eeprom $< $@
 
