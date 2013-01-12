@@ -1,0 +1,4 @@
+This is a ADS-B sync pattern detection and Manchester decoding module.
+It was written for XC9536XL CPLD chip by Pawel Kusmierski in 2011.
+You can find something of a documentation at:
+http://flipthatbit.net/2012/05/ads-b-sync-and-manchester-decoding-in-cpld/
