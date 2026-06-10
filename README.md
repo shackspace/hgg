@@ -1,3 +1,5 @@
+migrated to new location: https://codeberg.org/shackspace/hgg
+
 hackerspace global grid
 =======================
 
